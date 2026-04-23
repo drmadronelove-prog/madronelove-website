@@ -4,31 +4,39 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.98 0.005 60);
-  --foreground: oklch(0.25 0.02 30);
-  --card: oklch(0.99 0.003 60);
-  --card-foreground: oklch(0.25 0.02 30);
-  --popover: oklch(0.99 0.003 60);
-  --popover-foreground: oklch(0.25 0.02 30);
-  --primary: oklch(0.55 0.12 35);
-  --primary-foreground: oklch(0.98 0.005 60);
-  --secondary: oklch(0.94 0.015 60);
-  --secondary-foreground: oklch(0.30 0.02 30);
-  --muted: oklch(0.94 0.01 60);
-  --muted-foreground: oklch(0.45 0.02 30);
-  --accent: oklch(0.65 0.08 35);
-  --accent-foreground: oklch(0.20 0.02 30);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.015 50);
-  --input: oklch(0.92 0.01 60);
-  --ring: oklch(0.55 0.12 35);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.25rem;
+  /* Cactus & Sage Palette */
+  --sage-green: #A7B79F;
+  --muted-olive: #7D805F;
+  --adobe-clay: #C17C74;
+  --soft-grey: #D9D5C9;
+  --warm-ivory: #FAF4E8;
+  --charcoal: #3D3D3D;
+  
+  --background: #FAF4E8;
+  --foreground: #3D3D3D;
+  --card: #FFFFFF;
+  --card-foreground: #3D3D3D;
+  --popover: #FFFFFF;
+  --popover-foreground: #3D3D3D;
+  --primary: #C17C74;
+  --primary-foreground: #FAF4E8;
+  --secondary: #A7B79F;
+  --secondary-foreground: #3D3D3D;
+  --muted: #D9D5C9;
+  --muted-foreground: #5A5A5A;
+  --accent: #7D805F;
+  --accent-foreground: #FAF4E8;
+  --destructive: #C17C74;
+  --destructive-foreground: #FAF4E8;
+  --border: #D9D5C9;
+  --input: #FFFFFF;
+  --ring: #A7B79F;
+  --chart-1: #C17C74;
+  --chart-2: #A7B79F;
+  --chart-3: #7D805F;
+  --chart-4: #D9D5C9;
+  --chart-5: #FAF4E8;
+  --radius: 0.5rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -75,7 +83,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-sans), 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-sans), 'DM Sans', system-ui, sans-serif;
   --font-serif: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
