@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ArrowRight, GraduationCap, BookOpen, Heart } from "lucide-react"
+import { ArrowRight, GraduationCap } from "lucide-react"
 
 export const metadata = {
   title: "About | Dr. Madrone Love, PsyD",
@@ -10,19 +10,13 @@ export const metadata = {
 }
 
 const education = [
-  "University of Pennsylvania",
-  "UC Berkeley",
-  "Wright Institute (PsyD)",
+  "University of Pennsylvania (BA)",
+  "UC Berkeley (MA)",
+  "Wright Institute (PsyD, Clinical Psychology)",
+  "University of Wisconsin-Madison (Predoctoral Internship, University Health Services)",
   "UCSF (Postdoctoral Fellowship)",
   "International OCD Foundation (ERP)",
   "I-CBT Institute",
-]
-
-const approach = [
-  { label: "Evidence-based & rigorous", icon: BookOpen },
-  { label: "Buddhist psychology informed", icon: Heart },
-  { label: "Integrative", icon: GraduationCap },
-  { label: "Short or long term", icon: ArrowRight },
 ]
 
 export default function AboutPage() {
@@ -52,19 +46,19 @@ export default function AboutPage() {
                 <h1 className="font-serif text-4xl md:text-5xl font-medium text-[var(--charcoal)] leading-tight">
                   Dr. Madrone Love, PsyD
                 </h1>
-                <p className="mt-2 text-[var(--adobe-clay)] font-medium">
-                  Licensed Clinical Psychologist
-                </p>
                 
                 <div className="mt-8 space-y-6 text-[var(--charcoal)] leading-relaxed">
                   <p>
-                    My clients are people whose intelligence has been both an asset and a complication. They think fast, notice everything, and often feel ahead of the room and alone in it.
+                    There&apos;s a version of therapy that works like advice with credentials behind it. This isn&apos;t that.
                   </p>
                   <p>
-                    Many come during overwhelm, major transitions, or when old strategies have stopped working. Our work creates space to slow down enough to think clearly about what you want, rather than just surviving what&apos;s in front of you.
+                    What I do is closer to joint investigation. Something keeps happening that you&apos;d prefer didn&apos;t, or there&apos;s a gap between the life you&apos;re building and how it actually feels to live it. We work on what&apos;s underneath, paying attention to how your mind moves when it encounters something it doesn&apos;t understand or would prefer to avoid.
                   </p>
                   <p>
-                    My approach integrates evidence-based treatment with Buddhist psychology. I help people understand how their minds work so they can work with them rather than against them. When people can think about their experience instead of just surviving it, they find choice about how they want to live.
+                    For OCD and anxiety, I use ERP and I-CBT, two evidence-based approaches focused on building a different relationship to intrusive thoughts. More broadly, I draw from Acceptance and Commitment Therapy, which has roots in Buddhist psychology and centers on careful observation of inner experience and clarifying what you actually value. I also work with trauma, neurodivergence, and relationship concerns.
+                  </p>
+                  <p>
+                    I teach graduate courses in multicultural psychology and ethics at CIIS and direct the certificate program at the Sati Center for Buddhist Studies. My research focuses on psychedelic-assisted therapy. The teaching sharpens my clinical work and the clinical work inspires my teaching.
                   </p>
                 </div>
               </div>
@@ -78,7 +72,7 @@ export default function AboutPage() {
             <h2 className="font-serif text-3xl font-medium text-[var(--charcoal)] mb-10">
               Education & Training
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               {education.map((item) => (
                 <div
                   key={item}
@@ -86,57 +80,6 @@ export default function AboutPage() {
                 >
                   <GraduationCap className="h-5 w-5 text-[var(--sage-green)] flex-shrink-0" />
                   <span className="text-[var(--charcoal)]">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Teaching & Leadership */}
-        <section className="py-16 bg-[var(--soft-grey)]/50">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="font-serif text-3xl font-medium text-[var(--charcoal)] mb-10">
-              Teaching & Leadership
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-serif text-xl font-medium text-[var(--charcoal)]">
-                  Assistant Professor
-                </h3>
-                <p className="mt-2 text-[var(--muted-foreground)]">
-                  California Institute of Integral Studies
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-serif text-xl font-medium text-[var(--charcoal)]">
-                  Director
-                </h3>
-                <p className="mt-2 text-[var(--muted-foreground)]">
-                  Sati Center for Buddhist Studies
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Approach Section */}
-        <section className="py-16 bg-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 className="font-serif text-3xl font-medium text-[var(--charcoal)] mb-10">
-              My Approach
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {approach.map((item) => (
-                <div
-                  key={item.label}
-                  className="flex flex-col items-center text-center p-6 bg-[var(--warm-ivory)] rounded-lg"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[var(--sage-green)]/20 flex items-center justify-center mb-4">
-                    <item.icon className="h-5 w-5 text-[var(--muted-olive)]" />
-                  </div>
-                  <span className="text-[var(--charcoal)] font-medium">
-                    {item.label}
-                  </span>
                 </div>
               ))}
             </div>

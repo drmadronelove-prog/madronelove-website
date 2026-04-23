@@ -18,82 +18,54 @@ export default function ContactPage() {
         <section className="py-16 md:py-24 bg-[var(--warm-ivory)]">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h1 className="font-serif text-4xl md:text-5xl font-medium text-[var(--charcoal)] leading-tight">
-              Get in Touch
+              Book a consultation
             </h1>
-            <p className="mt-6 text-lg text-[var(--muted-foreground)] max-w-2xl">
-              Schedule a free consultation to discuss how we might work together.
-            </p>
+            <div className="mt-8">
+              <Link
+                href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-[var(--adobe-clay)] px-6 py-3 text-base font-medium text-white hover:bg-[var(--adobe-clay)]/90 transition-colors"
+              >
+                Schedule Now
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Contact Info & Booking */}
+        {/* Contact Info */}
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Booking CTA */}
-              <div className="bg-[var(--sage-green)]/20 p-8 md:p-10 rounded-lg">
-                <h2 className="font-serif text-2xl font-medium text-[var(--charcoal)] mb-4">
-                  Book a Consultation
-                </h2>
-                <p className="text-[var(--muted-foreground)] mb-8">
-                  Ready to take the next step? Schedule a free consultation to discuss your needs and see if we&apos;re a good fit.
-                </p>
+            <div className="max-w-xl space-y-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="h-5 w-5 text-[var(--sage-green)] mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-[var(--charcoal)]">
+                    Berkeley, Oakland, San Francisco
+                  </p>
+                  <p className="text-[var(--muted-foreground)]">
+                    Telehealth throughout California
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Mail className="h-5 w-5 text-[var(--sage-green)] mt-1 flex-shrink-0" />
                 <Link
-                  href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-[var(--adobe-clay)] px-6 py-3 text-base font-medium text-white hover:bg-[var(--adobe-clay)]/90 transition-colors"
+                  href="mailto:therapy@madronelove.com"
+                  className="text-[var(--adobe-clay)] hover:underline"
                 >
-                  Schedule Now
-                  <ArrowRight className="h-4 w-4" />
+                  therapy@madronelove.com
                 </Link>
               </div>
-
-              {/* Contact Details */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="font-serif text-2xl font-medium text-[var(--charcoal)] mb-6">
-                    Contact Information
-                  </h2>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-4">
-                      <MapPin className="h-5 w-5 text-[var(--sage-green)] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-[var(--charcoal)]">Location</p>
-                        <p className="text-[var(--muted-foreground)]">
-                          Berkeley, Oakland, San Francisco
-                        </p>
-                        <p className="text-[var(--muted-foreground)]">
-                          Telehealth throughout California
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Mail className="h-5 w-5 text-[var(--sage-green)] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-[var(--charcoal)]">Email</p>
-                        <Link
-                          href="mailto:therapy@madronelove.com"
-                          className="text-[var(--adobe-clay)] hover:underline"
-                        >
-                          therapy@madronelove.com
-                        </Link>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Phone className="h-5 w-5 text-[var(--sage-green)] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-[var(--charcoal)]">Phone</p>
-                        <Link
-                          href="tel:415-484-3302"
-                          className="text-[var(--adobe-clay)] hover:underline"
-                        >
-                          415-484-3302
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-start gap-4">
+                <Phone className="h-5 w-5 text-[var(--sage-green)] mt-1 flex-shrink-0" />
+                <Link
+                  href="tel:415-484-3302"
+                  className="text-[var(--adobe-clay)] hover:underline"
+                >
+                  415-484-3302
+                </Link>
               </div>
             </div>
           </div>

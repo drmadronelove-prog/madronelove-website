@@ -7,7 +7,7 @@
   /* Cactus & Sage Palette */
   --sage-green: #A7B79F;
   --muted-olive: #7D805F;
-  --adobe-clay: #C17C74;
+  --adobe-clay: #C17254;
   --soft-grey: #D9D5C9;
   --warm-ivory: #FAF4E8;
   --charcoal: #3D3D3D;
@@ -18,7 +18,7 @@
   --card-foreground: #3D3D3D;
   --popover: #FFFFFF;
   --popover-foreground: #3D3D3D;
-  --primary: #C17C74;
+  --primary: #C17254;
   --primary-foreground: #FAF4E8;
   --secondary: #A7B79F;
   --secondary-foreground: #3D3D3D;
@@ -26,12 +26,12 @@
   --muted-foreground: #5A5A5A;
   --accent: #7D805F;
   --accent-foreground: #FAF4E8;
-  --destructive: #C17C74;
+  --destructive: #C17254;
   --destructive-foreground: #FAF4E8;
   --border: #D9D5C9;
   --input: #FFFFFF;
   --ring: #A7B79F;
-  --chart-1: #C17C74;
+  --chart-1: #C17254;
   --chart-2: #A7B79F;
   --chart-3: #7D805F;
   --chart-4: #D9D5C9;
