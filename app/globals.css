@@ -4,31 +4,33 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Cactus & Sage Palette */
-  --sage-green: #A7B79F;
-  --muted-olive: #7D805F;
-  --adobe-clay: #C17254;
-  --soft-grey: #D9D5C9;
-  --warm-ivory: #FAF4E8;
-  --charcoal: #3D3D3D;
+  /* Refined Palette - Quiet Luxury */
+  --sage: #A7B79F;
+  --olive: #7D805F;
+  --clay: #C17254;
+  --stone: #D9D5C9;
+  --ivory: #FAF4E8;
+  --ink: #2C2C2C;
+  --ink-light: #4A4A4A;
+  --ink-muted: #7A7A7A;
   
   --background: #FAF4E8;
-  --foreground: #3D3D3D;
+  --foreground: #2C2C2C;
   --card: #FFFFFF;
-  --card-foreground: #3D3D3D;
+  --card-foreground: #2C2C2C;
   --popover: #FFFFFF;
-  --popover-foreground: #3D3D3D;
-  --primary: #C17254;
+  --popover-foreground: #2C2C2C;
+  --primary: #2C2C2C;
   --primary-foreground: #FAF4E8;
-  --secondary: #A7B79F;
-  --secondary-foreground: #3D3D3D;
+  --secondary: #D9D5C9;
+  --secondary-foreground: #2C2C2C;
   --muted: #D9D5C9;
-  --muted-foreground: #5A5A5A;
-  --accent: #7D805F;
-  --accent-foreground: #FAF4E8;
+  --muted-foreground: #7A7A7A;
+  --accent: #A7B79F;
+  --accent-foreground: #2C2C2C;
   --destructive: #C17254;
   --destructive-foreground: #FAF4E8;
-  --border: #D9D5C9;
+  --border: #E5E0D8;
   --input: #FFFFFF;
   --ring: #A7B79F;
   --chart-1: #C17254;
@@ -36,7 +38,7 @@
   --chart-3: #7D805F;
   --chart-4: #D9D5C9;
   --chart-5: #FAF4E8;
-  --radius: 0.5rem;
+  --radius: 0.125rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -131,4 +133,50 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Quiet luxury utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.tracking-tight {
+  letter-spacing: -0.02em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+/* Subtle link underline animation */
+.link-subtle {
+  position: relative;
+}
+
+.link-subtle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-subtle:hover::after {
+  width: 100%;
+}
+
+/* Image artistic treatment */
+.image-frame {
+  position: relative;
+}
+
+.image-frame::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--border);
+  pointer-events: none;
 }

@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ArrowRight } from "lucide-react"
 
 export const metadata = {
   title: "Specialties | Dr. Madrone Love, PsyD",
@@ -11,77 +10,111 @@ export const metadata = {
 const specialties = [
   {
     id: "ocd-anxiety",
+    number: "01",
     title: "OCD & Anxiety",
     description: "The problem isn't the intrusive thought. It's everything you've arranged around it: the checking, the reassurance, the quiet avoidance that made your world smaller so gradually you didn't notice. I use ERP and inference-based CBT to help you build a different relationship to uncertainty, one where you can let a thought be there without needing to solve it.",
   },
   {
     id: "complex-trauma",
+    number: "02",
     title: "Complex Trauma",
     description: "What people call \"overreacting\" is usually a precise response to conditions that no longer exist. You learned what was dangerous, what had to be hidden, what would get you left. Those lessons became automatic. The work is understanding what you built to survive, then discovering what else becomes possible.",
   },
   {
     id: "neurodivergence",
+    number: "03",
     title: "Neurodivergence",
     description: "Most advice about attention, organization, and emotional regulation assumes a particular kind of nervous system. If yours is different, the advice isn't slightly off. It's for someone else. I work with ADHD, autism, giftedness, and their overlaps, oriented toward how you actually work rather than how far you are from a standard that was never yours.",
   },
   {
     id: "relationships",
-    title: "Relationship Concerns",
+    number: "04",
+    title: "Relationships",
     description: "What repeats in your relationships isn't random. It usually traces back to what you learned early about what connection requires and what has to be sacrificed to keep it. Those strategies run quietly. They show up in how you fight, how you pull back, what you can't bring yourself to ask for. Seeing them clearly is what opens up room.",
   },
 ]
 
 export default function SpecialtiesPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[var(--ivory)]">
       <Header />
       
-      <main className="flex-1 pt-20">
-        {/* Specialties */}
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="space-y-16">
-              {specialties.map((specialty) => (
+      <main className="flex-1 pt-24">
+        {/* Header */}
+        <section className="py-24 md:py-32">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-6">
+              Areas of Focus
+            </p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
+              Specialties
+            </h1>
+          </div>
+        </section>
+
+        {/* Specialties - Editorial long-form */}
+        <section className="pb-24">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="space-y-0">
+              {specialties.map((specialty, index) => (
                 <div
                   key={specialty.id}
                   id={specialty.id}
-                  className="scroll-mt-24 max-w-3xl"
+                  className={`scroll-mt-32 py-16 lg:py-20 ${
+                    index !== 0 ? "border-t border-[var(--border)]" : ""
+                  }`}
                 >
-                  <h2 className="font-serif text-3xl font-medium text-[var(--charcoal)]">
-                    {specialty.title}
-                  </h2>
-                  <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-                    {specialty.description}
-                  </p>
+                  <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+                    <div className="lg:col-span-4">
+                      <span className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">
+                        {specialty.number}
+                      </span>
+                      <h2 className="mt-3 font-serif text-3xl text-[var(--ink)] font-light">
+                        {specialty.title}
+                      </h2>
+                    </div>
+                    <div className="lg:col-span-8">
+                      <p className="text-lg text-[var(--ink-light)] leading-relaxed">
+                        {specialty.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Ketamine Section */}
-        <section className="py-16 bg-[var(--soft-grey)]/50">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-lg text-[var(--charcoal)] italic">
-                Ketamine-assisted psychotherapy available for selected clients.
-              </p>
-            </div>
+        {/* Ketamine note - Subtle */}
+        <section className="py-16 border-t border-[var(--border)]">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <p className="text-[var(--ink-muted)] italic">
+              Ketamine-assisted psychotherapy available for selected clients.
+            </p>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-[var(--sage-green)]">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-            <Link
-              href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-[var(--charcoal)] px-8 py-4 text-base font-medium text-white hover:bg-[var(--charcoal)]/90 transition-colors"
-            >
-              Book a Consultation
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+        {/* CTA */}
+        <section className="py-24 bg-[var(--stone)]">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+              <div>
+                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                  Next step
+                </p>
+                <h2 className="font-serif text-3xl text-[var(--ink)] font-light">
+                  Schedule a consultation
+                </h2>
+              </div>
+              <Link
+                href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+              >
+                Book
+              </Link>
+            </div>
           </div>
         </section>
       </main>

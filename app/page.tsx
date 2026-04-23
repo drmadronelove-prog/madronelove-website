@@ -2,120 +2,151 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ArrowRight } from "lucide-react"
-
-const specialties = [
-  {
-    title: "OCD & Anxiety",
-    href: "/specialties#ocd-anxiety",
-  },
-  {
-    title: "Complex Trauma",
-    href: "/specialties#complex-trauma",
-  },
-  {
-    title: "Neurodivergence",
-    href: "/specialties#neurodivergence",
-  },
-  {
-    title: "Relationship Concerns",
-    href: "/specialties#relationships",
-  },
-]
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[var(--ivory)]">
       <Header />
       
-      <main className="flex-1 pt-20">
-        {/* Hero Section */}
-        <section className="relative py-24 md:py-32 lg:py-40">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-[var(--charcoal)] leading-tight text-balance">
-                  The question behind the question
+      <main className="flex-1">
+        {/* Hero Section - Editorial asymmetric layout */}
+        <section className="min-h-screen flex items-center">
+          <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-32">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+              {/* Text - Left side, narrower */}
+              <div className="lg:col-span-5 lg:pr-8">
+                <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
+                  The question<br />
+                  <span className="italic">behind</span><br />
+                  the question
                 </h1>
-                <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-xl">
-                  Clinical psychology that takes the problem seriously enough to understand it
-                </p>
-                <div className="mt-10">
+                <div className="mt-12 max-w-sm">
+                  <p className="text-[var(--ink-light)] leading-relaxed">
+                    Clinical psychology for adults navigating complexity.
+                  </p>
+                </div>
+                <div className="mt-12">
                   <Link
                     href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-md bg-[var(--adobe-clay)] px-6 py-3 text-base font-medium text-white hover:bg-[var(--adobe-clay)]/90 transition-colors"
+                    className="inline-block text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
                   >
                     Book a consultation
-                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
-              <div className="relative hidden lg:block">
-                <Image
-                  src="/images/headshot.jpg"
-                  alt="Dr. Madrone Love"
-                  width={500}
-                  height={600}
-                  className="rounded-lg shadow-xl object-cover w-full aspect-[4/5]"
-                  priority
-                />
-                <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-[var(--sage-green)]/20 rounded-full -z-10" />
+              
+              {/* Image - Right side, larger */}
+              <div className="lg:col-span-7 lg:pl-8">
+                <div className="relative">
+                  <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden">
+                    <Image
+                      src="/images/headshot.jpg"
+                      alt="Dr. Madrone Love"
+                      fill
+                      className="object-cover object-top grayscale-[20%]"
+                      priority
+                    />
+                  </div>
+                  {/* Subtle frame accent */}
+                  <div className="absolute -bottom-4 -right-4 w-full h-full border border-[var(--sage)] -z-10" />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Brief Intro Section */}
-        <section className="py-20 bg-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-[var(--charcoal)] leading-relaxed">
-                You probably already have a theory about what&apos;s wrong. Most people do by the time they call. The theory is usually close but not quite right. What changes things isn&apos;t a better theory. It&apos;s learning to see how the pattern actually works: what sustains it, what it costs, what would have to shift.
+        {/* Philosophy Section - Full width text */}
+        <section className="py-32 bg-white">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="font-serif text-2xl md:text-3xl text-[var(--ink)] leading-relaxed font-light">
+                You probably already have a theory about what&apos;s wrong. Most people do by the time they call.
+              </p>
+              <p className="mt-8 text-[var(--ink-light)] leading-relaxed">
+                The theory is usually close but not quite right. What changes things isn&apos;t a better theory. It&apos;s learning to see how the pattern actually works: what sustains it, what it costs, what would have to shift.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Specialties Preview */}
-        <section className="py-20 bg-[var(--soft-grey)]/50">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {specialties.map((specialty) => (
-                <Link
-                  key={specialty.title}
-                  href={specialty.href}
-                  className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="font-serif text-xl font-medium text-[var(--charcoal)] group-hover:text-[var(--adobe-clay)] transition-colors">
-                    {specialty.title}
+        {/* Specialties - Minimal, text-focused */}
+        <section className="py-32 border-t border-[var(--border)]">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">
+              <div className="group">
+                <Link href="/specialties#ocd-anxiety" className="block">
+                  <span className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">01</span>
+                  <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
+                    OCD & Anxiety
                   </h3>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm text-[var(--adobe-clay)] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more
-                    <ArrowRight className="h-3 w-3" />
-                  </span>
+                  <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
+                    Building a different relationship to uncertainty, where you can let a thought be there without needing to solve it.
+                  </p>
                 </Link>
-              ))}
+              </div>
+              
+              <div className="group">
+                <Link href="/specialties#complex-trauma" className="block">
+                  <span className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">02</span>
+                  <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
+                    Complex Trauma
+                  </h3>
+                  <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
+                    Understanding what you built to survive, then discovering what else becomes possible.
+                  </p>
+                </Link>
+              </div>
+              
+              <div className="group">
+                <Link href="/specialties#neurodivergence" className="block">
+                  <span className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">03</span>
+                  <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
+                    Neurodivergence
+                  </h3>
+                  <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
+                    Working with how you actually work, rather than how far you are from a standard that was never yours.
+                  </p>
+                </Link>
+              </div>
+              
+              <div className="group">
+                <Link href="/specialties#relationships" className="block">
+                  <span className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">04</span>
+                  <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
+                    Relationships
+                  </h3>
+                  <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
+                    Seeing the patterns that run quietly in how you fight, how you pull back, what you can&apos;t bring yourself to ask for.
+                  </p>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 bg-[var(--muted-olive)]">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-white mb-8">
-              Schedule a consultation
-            </h2>
-            <Link
-              href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-white px-8 py-4 text-base font-medium text-[var(--muted-olive)] hover:bg-white/90 transition-colors"
-            >
-              Book
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+        {/* CTA Section - Understated */}
+        <section className="py-32 bg-[var(--stone)]">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+              <div>
+                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                  Next step
+                </p>
+                <h2 className="font-serif text-3xl md:text-4xl text-[var(--ink)] font-light">
+                  Begin with a consultation
+                </h2>
+              </div>
+              <Link
+                href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+              >
+                Schedule
+              </Link>
+            </div>
           </div>
         </section>
       </main>
