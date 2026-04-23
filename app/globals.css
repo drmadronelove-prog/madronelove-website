@@ -4,18 +4,21 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Refined Palette - Quiet Luxury */
+  /* Refined Palette - Sage & Grey Blues */
   --sage: #A7B79F;
+  --sage-light: #D4DDD0;
+  --sage-muted: #E8EDE6;
   --olive: #7D805F;
   --clay: #C17254;
-  --stone: #D9D5C9;
-  --ivory: #FAF4E8;
-  --ink: #2C2C2C;
-  --ink-light: #4A4A4A;
-  --ink-muted: #7A7A7A;
+  --stone: #E8E6E1;
+  --slate: #8A9A9E;
+  --slate-light: #B8C4C7;
+  --ink: #2C3233;
+  --ink-light: #4A5354;
+  --ink-muted: #6B7678;
   
-  --background: #FAF4E8;
-  --foreground: #2C2C2C;
+  --background: #F5F6F4;
+  --foreground: #2C3233;
   --card: #FFFFFF;
   --card-foreground: #2C2C2C;
   --popover: #FFFFFF;
@@ -30,7 +33,7 @@
   --accent-foreground: #2C2C2C;
   --destructive: #C17254;
   --destructive-foreground: #FAF4E8;
-  --border: #E5E0D8;
+  --border: #D4DDD0;
   --input: #FFFFFF;
   --ring: #A7B79F;
   --chart-1: #C17254;

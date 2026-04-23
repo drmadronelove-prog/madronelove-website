@@ -20,7 +20,7 @@ const education = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--ivory)]">
+    <div className="min-h-screen flex flex-col bg-[var(--background)]">
       <Header />
       
       <main className="flex-1 pt-24">
@@ -46,7 +46,7 @@ export default function AboutPage() {
               
               {/* Content - Right */}
               <div className="lg:col-span-7 lg:pl-8">
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-6">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
                   About
                 </p>
                 <h1 className="font-serif text-4xl md:text-5xl font-light text-[var(--ink)] leading-[1.15] tracking-tight">
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Education & Training
                 </p>
               </div>
@@ -108,7 +108,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
               <div>
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Ready to begin?
                 </p>
                 <h2 className="font-serif text-3xl text-[var(--ink)] font-light">
@@ -119,7 +119,7 @@ export default function AboutPage() {
                 href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
               >
                 Book
               </Link>

@@ -24,7 +24,7 @@ export function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? "bg-[var(--ivory)]/95 backdrop-blur-md" 
+          ? "bg-[var(--background)]/95 backdrop-blur-md" 
           : "bg-transparent"
       }`}
     >
@@ -81,7 +81,7 @@ export function Header() {
           mobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-[var(--ivory)] border-t border-[var(--border)] px-6 py-8 space-y-6">
+        <div className="bg-[var(--background)] border-t border-[var(--border)] px-6 py-8 space-y-6">
           {navigation.map((item) => (
             <Link
               key={item.name}

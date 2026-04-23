@@ -36,14 +36,14 @@ const specialties = [
 
 export default function SpecialtiesPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--ivory)]">
+    <div className="min-h-screen flex flex-col bg-[var(--background)]">
       <Header />
       
       <main className="flex-1 pt-24">
         {/* Header */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-6">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
               Areas of Focus
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
@@ -99,7 +99,7 @@ export default function SpecialtiesPage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
               <div>
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Next step
                 </p>
                 <h2 className="font-serif text-3xl text-[var(--ink)] font-light">
@@ -110,7 +110,7 @@ export default function SpecialtiesPage() {
                 href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
               >
                 Book
               </Link>

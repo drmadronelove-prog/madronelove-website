@@ -7,16 +7,17 @@ import { useState } from "react"
 
 export default function ContactPage() {
   const [disclosuresOpen, setDisclosuresOpen] = useState(false)
+  const [noSurprisesOpen, setNoSurprisesOpen] = useState(false)
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--ivory)]">
+    <div className="min-h-screen flex flex-col bg-[var(--background)]">
       <Header />
       
       <main className="flex-1 pt-24">
         {/* Header */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-6">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
               Get in Touch
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
@@ -27,7 +28,7 @@ export default function ContactPage() {
                 href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
               >
                 Book a consultation
               </Link>
@@ -35,12 +36,12 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Contact Info - Clean grid */}
+        {/* Contact Info */}
         <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Location
                 </p>
                 <p className="text-[var(--ink)]">
@@ -52,7 +53,7 @@ export default function ContactPage() {
               </div>
               
               <div>
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Email
                 </p>
                 <Link
@@ -64,7 +65,7 @@ export default function ContactPage() {
               </div>
               
               <div>
-                <p className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] mb-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Phone
                 </p>
                 <Link
@@ -78,14 +79,86 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Legal Disclosures - Refined accordion */}
-        <section className="py-16 border-t border-[var(--border)]">
+        {/* No Surprises Act */}
+        <section className="py-4 border-t border-[var(--border)]">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <button
+              onClick={() => setNoSurprisesOpen(!noSurprisesOpen)}
+              className="w-full flex items-center justify-between py-4 text-left group"
+            >
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] group-hover:text-[var(--ink)] transition-colors duration-300">
+                No Surprises Act
+              </span>
+              <span className={`text-[var(--ink-muted)] transition-transform duration-300 ${noSurprisesOpen ? "rotate-45" : ""}`}>
+                +
+              </span>
+            </button>
+
+            <div className={`overflow-hidden transition-all duration-500 ${noSurprisesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}>
+              <div className="pt-4 pb-8 space-y-8 text-sm">
+                <div className="grid lg:grid-cols-12 gap-6">
+                  <div className="lg:col-span-3">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                      Your Rights
+                    </h3>
+                  </div>
+                  <div className="lg:col-span-9 space-y-4 text-[var(--ink-light)]">
+                    <p>
+                      Under the No Surprises Act (effective January 1, 2022), you have the right to receive a &ldquo;Good Faith Estimate&rdquo; explaining how much your medical care will cost.
+                    </p>
+                    <p>
+                      Under the law, health care providers need to give patients who don&apos;t have insurance or who are not using insurance an estimate of the bill for medical items and services.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid lg:grid-cols-12 gap-6 pt-4 border-t border-[var(--border)]">
+                  <div className="lg:col-span-3">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                      Good Faith Estimate
+                    </h3>
+                  </div>
+                  <div className="lg:col-span-9 space-y-4 text-[var(--ink-light)]">
+                    <p>
+                      You have the right to receive a Good Faith Estimate for the total expected cost of any non-emergency items or services. This includes related costs like medical tests, prescription drugs, equipment, and hospital fees.
+                    </p>
+                    <p>
+                      Make sure your health care provider gives you a Good Faith Estimate in writing at least 1 business day before your medical service or item. You can also ask your health care provider, and any other provider you choose, for a Good Faith Estimate before you schedule an item or service.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid lg:grid-cols-12 gap-6 pt-4 border-t border-[var(--border)]">
+                  <div className="lg:col-span-3">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                      Dispute Process
+                    </h3>
+                  </div>
+                  <div className="lg:col-span-9 space-y-4 text-[var(--ink-light)]">
+                    <p>
+                      If you receive a bill that is at least $400 more than your Good Faith Estimate, you can dispute the bill.
+                    </p>
+                    <p>
+                      Make sure to save a copy or picture of your Good Faith Estimate. For questions or more information about your right to a Good Faith Estimate, visit{" "}
+                      <Link href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer" className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors">
+                        cms.gov/nosurprises
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Required Legal Disclosures */}
+        <section className="py-4 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <button
               onClick={() => setDisclosuresOpen(!disclosuresOpen)}
               className="w-full flex items-center justify-between py-4 text-left group"
             >
-              <span className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)] group-hover:text-[var(--ink)] transition-colors duration-300">
+              <span className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] group-hover:text-[var(--ink)] transition-colors duration-300">
                 Required Legal Disclosures
               </span>
               <span className={`text-[var(--ink-muted)] transition-transform duration-300 ${disclosuresOpen ? "rotate-45" : ""}`}>
@@ -94,11 +167,11 @@ export default function ContactPage() {
             </button>
 
             <div className={`overflow-hidden transition-all duration-500 ${disclosuresOpen ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"}`}>
-              <div className="pt-8 pb-4 space-y-12 text-sm">
+              <div className="pt-4 pb-8 space-y-12 text-sm">
                 {/* License Information */}
                 <div className="grid lg:grid-cols-12 gap-6">
                   <div className="lg:col-span-3">
-                    <h3 className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
                       License Information
                     </h3>
                   </div>
@@ -115,7 +188,7 @@ export default function ContactPage() {
                 {/* Notice to Consumers */}
                 <div className="grid lg:grid-cols-12 gap-6 pt-8 border-t border-[var(--border)]">
                   <div className="lg:col-span-3">
-                    <h3 className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
                       Notice to Consumers
                     </h3>
                   </div>
@@ -140,7 +213,7 @@ export default function ContactPage() {
                 {/* Privacy */}
                 <div className="grid lg:grid-cols-12 gap-6 pt-8 border-t border-[var(--border)]">
                   <div className="lg:col-span-3">
-                    <h3 className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
                       Privacy (HIPAA & CMIA)
                     </h3>
                   </div>
@@ -151,29 +224,10 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Good Faith Estimate */}
-                <div className="grid lg:grid-cols-12 gap-6 pt-8 border-t border-[var(--border)]">
-                  <div className="lg:col-span-3">
-                    <h3 className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">
-                      Good Faith Estimate
-                    </h3>
-                  </div>
-                  <div className="lg:col-span-9 space-y-4 text-[var(--ink-light)]">
-                    <p>You have the right to receive a Good Faith Estimate explaining how much your care will cost. Uninsured or self-pay patients will receive an estimate at least 1 business day before the first session.</p>
-                    <p>If your bill is at least $400 more than the estimate, you can dispute it.</p>
-                    <p>
-                      More information:{" "}
-                      <Link href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer" className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors">
-                        cms.gov/nosurprises
-                      </Link>
-                    </p>
-                  </div>
-                </div>
-
                 {/* CalOPPA */}
                 <div className="grid lg:grid-cols-12 gap-6 pt-8 border-t border-[var(--border)]">
                   <div className="lg:col-span-3">
-                    <h3 className="text-xs font-medium tracking-wide uppercase text-[var(--ink-muted)]">
+                    <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
                       CalOPPA
                     </h3>
                   </div>
