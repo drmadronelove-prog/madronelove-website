@@ -38,16 +38,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Training Section - Lead with credentials */}
+        {/* Training + The Process */}
         <section className="py-[3.2rem] bg-[var(--sage-muted)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid lg:grid-cols-12 gap-16">
-              <div className="lg:col-span-4">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div>
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
                   Training
                 </p>
-              </div>
-              <div className="lg:col-span-8">
                 <ul className="space-y-4 text-[var(--ink)]">
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
@@ -79,20 +77,15 @@ export default function HomePage() {
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Intro Section */}
-        <section className="py-32 bg-white">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="font-serif italic text-[var(--gold)] text-[2.81rem] mb-6">
-                The Process
-              </p>
-              <p className="text-[var(--ink-light)] leading-relaxed text-lg">
-                You probably already have a theory about what&apos;s going wrong. You might even know the solution. Most people do by the time they call. The hard part is rarely the knowing. It&apos;s identifying and working through a process that leads to actual change. This is where I come in. I work with you to understand what would have to shift for things to feel different, and explore how to make those changes in ways that hold. The insight is valuable. The process of turning insight into new behavior is where most people get stuck, and it&apos;s where I can help.
-              </p>
+              <div>
+                <p className="font-serif italic text-[var(--gold)] text-[2.81rem] mb-6 leading-none">
+                  The Process
+                </p>
+                <p className="text-[var(--ink-light)] leading-relaxed text-lg">
+                  You probably already have a theory about what&apos;s going wrong. You might even know the solution. Most people do by the time they call. The hard part is rarely the knowing. It&apos;s identifying and working through a process that leads to actual change. This is where I come in. I work with you to understand what would have to shift for things to feel different, and explore how to make those changes in ways that hold. The insight is valuable. The process of turning insight into new behavior is where most people get stuck, and it&apos;s where I can help.
+                </p>
+              </div>
             </div>
           </div>
         </section>
