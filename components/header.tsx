@@ -45,6 +45,9 @@ export function Header() {
               filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))",
             }}
           />
+          <span className="font-serif text-lg md:text-xl text-[var(--ink)] tracking-tight leading-none">
+            Madrone Love, PsyD
+          </span>
         </Link>
 
         {/* Desktop navigation */}
