@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Dr. Madrone Love, PsyD | Clinical Psychology | Berkeley, Oakland, San Francisco',
+  title: 'Dr. Madrone Love, PsyD | Clinical Psychology | Berkeley, San Francisco',
   description: 'Clinical psychology for high-achieving professionals navigating complexity. Evidence-based treatment integrating Buddhist psychology. OCD, anxiety, trauma, neurodivergent adults.',
   keywords: ['clinical psychologist', 'Berkeley therapist', 'OCD treatment', 'anxiety therapy', 'complex trauma', 'neurodivergent adults', 'Buddhist psychology'],
   icons: {

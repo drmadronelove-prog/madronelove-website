@@ -24,8 +24,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#6B7678]/95 backdrop-blur-md"
-          : "bg-[#6B7678]"
+          ? "bg-[#6B7678]/70 backdrop-blur-md"
+          : "bg-[#6B7678]/70"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
@@ -33,9 +33,9 @@ export function Header() {
           <Image
             src="/images/logo.png"
             alt="Dr. Madrone Love"
-            width={44}
-            height={44}
-            className="h-11 w-11 transition-transform duration-300 group-hover:scale-105"
+            width={48}
+            height={48}
+            className="h-12 w-12 transition-transform duration-300 group-hover:scale-105"
             style={{ filter: "brightness(0) saturate(100%) invert(72%) sepia(34%) saturate(471%) hue-rotate(359deg) brightness(90%) contrast(85%)" }}
           />
         </Link>

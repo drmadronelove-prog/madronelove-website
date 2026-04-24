@@ -39,19 +39,31 @@ export default function ContactPage() {
         {/* Contact Info */}
         <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div>
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                  Location
+                  San Francisco
                 </p>
-                <p className="text-[var(--ink)]">
-                  Berkeley, Oakland, San Francisco
-                </p>
-                <p className="text-[var(--ink-muted)] mt-1">
-                  Telehealth throughout California
-                </p>
+                <p className="text-[var(--ink)]">Hayes Valley</p>
+                <p className="text-[var(--ink-muted)] mt-1">110 Gough Street, Suite 203B</p>
+                <p className="text-[var(--ink-muted)]">San Francisco, CA 94102</p>
               </div>
-              
+
+              <div>
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
+                  Berkeley
+                </p>
+                <p className="text-[var(--ink)]">Anam Cara Therapy Center</p>
+                <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
+                <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
+              </div>
+            </div>
+
+            <p className="text-[var(--ink-muted)] mb-16">
+              Telehealth throughout California.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Email
@@ -63,7 +75,7 @@ export default function ContactPage() {
                   therapy@madronelove.com
                 </Link>
               </div>
-              
+
               <div>
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Phone

@@ -19,9 +19,7 @@ export default function HomePage() {
                   Clinical Psychology
                 </p>
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-                  The <em>process</em><br />
-                  behind<br />
-                  the solution
+                  Support with the <em>process</em> behind the solution
                 </h1>
                 <div className="mt-16">
                   <Link
@@ -68,26 +66,45 @@ export default function HomePage() {
                 <ul className="space-y-4 text-[var(--ink)]">
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>PsyD, Clinical Psychology, The Wright Institute</span>
+                    <span>University of Pennsylvania (BA)</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>Predoctoral Internship, University of Wisconsin-Madison</span>
+                    <span>UC Berkeley (MA)</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>Postdoctoral Fellowship, UCSF</span>
+                    <span>Wright Institute (PsyD, Clinical Psychology)</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>Specialty Training in ERP, IOCDF</span>
+                    <span>University of Wisconsin-Madison (Predoctoral Internship, University Health Services)</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>Inference-Based CBT (I-CBT), I-CBT Institute</span>
+                    <span>UCSF (Postdoctoral Fellowship)</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
+                    <span>International OCD Foundation (ERP)</span>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
+                    <span>I-CBT Institute</span>
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Intro Section */}
+        <section className="py-32 bg-white">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-[var(--ink-light)] leading-relaxed text-lg">
+                You probably already have a theory about what&apos;s going wrong. You might even know the solution. Most people do by the time they call. The hard part is rarely the knowing. It&apos;s identifying and working through a process that leads to actual change. This is where I come in. I work with you to understand what would have to shift for things to feel different, and explore how to make those changes in ways that hold. The insight is valuable. The process of turning insight into new behavior is where most people get stuck, and it&apos;s where I can help.
+              </p>
             </div>
           </div>
         </section>
