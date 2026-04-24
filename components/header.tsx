@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 
 const navigation = [
-  { name: "About", href: "/about" },
+  { name: "About", href: "/#about" },
   { name: "Specialties", href: "/specialties" },
   { name: "Get in Touch", href: "/contact" },
 ]
@@ -23,8 +23,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#C5CACB]/70 backdrop-blur-md"
-          : "bg-[#C5CACB]/70"
+          ? "bg-[#D1D5D5]/70 backdrop-blur-md"
+          : "bg-[#D1D5D5]/70"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">

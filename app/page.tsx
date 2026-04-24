@@ -16,7 +16,7 @@ export default function HomePage() {
               {/* Text - Left side */}
               <div className="lg:col-span-5 lg:pr-8 lg:pt-[17%]">
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-                  support through the <em className="text-[var(--gold)]">process</em> of change.
+                  Support through the <em className="text-[var(--gold)]">process</em> of change.
                 </h1>
               </div>
 
@@ -38,10 +38,19 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Training + The Process */}
-        <section className="py-[3.2rem] bg-[var(--sage-muted)]">
+        {/* The Process + Training */}
+        <section id="about" className="scroll-mt-32 py-[3.2rem] bg-[var(--sage-muted)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div>
+                <p className="font-serif italic text-[var(--gold)] text-[2.81rem] mb-6 leading-none">
+                  The Process
+                </p>
+                <p className="text-[var(--ink-light)] leading-relaxed text-lg">
+                  You probably already have a theory about what&apos;s going wrong. You might even know the solution. Most people do by the time they call. The hard part is rarely the knowing. It&apos;s identifying and working through a process that leads to actual change. This is where I come in. I work with you to understand what would have to shift for things to feel different, and explore how to make those changes in ways that hold. The insight is valuable. The process of turning insight into new behavior is where most people get stuck, and it&apos;s where I can help.
+                </p>
+              </div>
+
               <div>
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
                   Training
@@ -76,15 +85,6 @@ export default function HomePage() {
                     <span>I-CBT Institute</span>
                   </li>
                 </ul>
-              </div>
-
-              <div>
-                <p className="font-serif italic text-[var(--gold)] text-[2.81rem] mb-6 leading-none">
-                  The Process
-                </p>
-                <p className="text-[var(--ink-light)] leading-relaxed text-lg">
-                  You probably already have a theory about what&apos;s going wrong. You might even know the solution. Most people do by the time they call. The hard part is rarely the knowing. It&apos;s identifying and working through a process that leads to actual change. This is where I come in. I work with you to understand what would have to shift for things to feel different, and explore how to make those changes in ways that hold. The insight is valuable. The process of turning insight into new behavior is where most people get stuck, and it&apos;s where I can help.
-                </p>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
                   Next step
                 </p>
                 <h2 className="font-serif text-3xl md:text-4xl text-[var(--ink)] font-light">
-                  Begin with a consultation
+                  Begin with a <em className="text-[var(--gold)]">free</em> consultation
                 </h2>
               </div>
               <Link
