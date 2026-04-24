@@ -15,13 +15,13 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
               {/* Text - Left side */}
               <div className="lg:col-span-5 lg:pr-8">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-8">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--gold)] mb-8">
                   Clinical Psychology
                 </p>
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
                   The <em>process</em><br />
                   behind<br />
-                  the question
+                  the solution
                 </h1>
                 <div className="mt-16">
                   <Link
@@ -37,7 +37,7 @@ export default function HomePage() {
               
               {/* Image - Right side, larger */}
               <div className="lg:col-span-7 lg:pl-8">
-                <div className="relative">
+                <div className="relative scale-90 origin-top">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
                       src="/images/headshot.jpg"
@@ -68,14 +68,6 @@ export default function HomePage() {
                 <ul className="space-y-4 text-[var(--ink)]">
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>BA, Psychology & Visual Art, University of Pennsylvania</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>MA, Clinical Psychology, UC Berkeley</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
                     <span>PsyD, Clinical Psychology, The Wright Institute</span>
                   </li>
                   <li className="flex items-start gap-4">
@@ -96,20 +88,6 @@ export default function HomePage() {
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Philosophy Section */}
-        <section className="py-32 bg-white">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="font-serif text-2xl md:text-3xl text-[var(--ink)] leading-relaxed font-light">
-                You probably already have a theory about what&apos;s wrong. Most people do by the time they call.
-              </p>
-              <p className="mt-8 text-[var(--ink-light)] leading-relaxed">
-                The theory is usually close but not quite right. What changes things isn&apos;t a better theory. It&apos;s learning to see how the pattern actually works: what sustains it, what it costs, what would have to shift.
-              </p>
             </div>
           </div>
         </section>
