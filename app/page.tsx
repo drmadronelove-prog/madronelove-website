@@ -102,7 +102,7 @@ export default function HomePage() {
         <section className="py-32 bg-white">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="max-w-3xl">
-              <p className="font-serif italic text-[var(--gold)] text-2xl mb-6">
+              <p className="font-serif italic text-[var(--gold)] text-[1.8rem] mb-6">
                 The Process
               </p>
               <p className="text-[var(--ink-light)] leading-relaxed text-lg">
