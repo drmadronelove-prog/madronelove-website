@@ -5,10 +5,10 @@
 
 :root {
   /* Refined Palette - Sage & Grey Blues */
-  --sage: #A7B79F;
-  --sage-light: #D4DDD0;
-  --sage-muted: #E8EDE6;
-  --olive: #7D805F;
+  --sage: #9FAFB7;
+  --sage-light: #C4D0D4;
+  --sage-muted: #E1E6E8;
+  --olive: #5F7880;
   --clay: #C17254;
   --gold: #C9A86C;
   --stone: #E8E6E1;
@@ -30,16 +30,16 @@
   --secondary-foreground: #2C2C2C;
   --muted: #D9D5C9;
   --muted-foreground: #7A7A7A;
-  --accent: #A7B79F;
+  --accent: #9FAFB7;
   --accent-foreground: #2C2C2C;
   --destructive: #C17254;
   --destructive-foreground: #FAF4E8;
-  --border: #D4DDD0;
+  --border: #C4D0D4;
   --input: #FFFFFF;
-  --ring: #A7B79F;
+  --ring: #9FAFB7;
   --chart-1: #C17254;
-  --chart-2: #A7B79F;
-  --chart-3: #7D805F;
+  --chart-2: #9FAFB7;
+  --chart-3: #5F7880;
   --chart-4: #D9D5C9;
   --chart-5: #FAF4E8;
   --radius: 0.125rem;

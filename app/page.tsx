@@ -11,7 +11,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero Section - Editorial asymmetric layout */}
         <section className="min-h-screen flex items-center">
-          <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-32">
+          <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 pt-32 pb-[3.2rem]">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
               {/* Text - Left side */}
               <div className="lg:col-span-5 lg:pr-8">
@@ -35,7 +35,7 @@ export default function HomePage() {
               
               {/* Image - Right side, larger */}
               <div className="lg:col-span-7 lg:pl-8">
-                <div className="relative scale-90 origin-top">
+                <div className="relative scale-[0.81] origin-top">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
                       src="/images/headshot.jpg"
@@ -54,7 +54,7 @@ export default function HomePage() {
         </section>
 
         {/* Training Section - Lead with credentials */}
-        <section className="py-32 bg-[var(--sage-muted)]">
+        <section className="py-[3.2rem] bg-[var(--sage-muted)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-16">
               <div className="lg:col-span-4">
@@ -102,6 +102,9 @@ export default function HomePage() {
         <section className="py-32 bg-white">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="max-w-3xl">
+              <p className="font-serif italic text-[var(--gold)] text-2xl mb-6">
+                The Process
+              </p>
               <p className="text-[var(--ink-light)] leading-relaxed text-lg">
                 You probably already have a theory about what&apos;s going wrong. You might even know the solution. Most people do by the time they call. The hard part is rarely the knowing. It&apos;s identifying and working through a process that leads to actual change. This is where I come in. I work with you to understand what would have to shift for things to feel different, and explore how to make those changes in ways that hold. The insight is valuable. The process of turning insight into new behavior is where most people get stuck, and it&apos;s where I can help.
               </p>

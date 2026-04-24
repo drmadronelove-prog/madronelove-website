@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
@@ -43,12 +44,26 @@ export default function SpecialtiesPage() {
         {/* Header */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
-              Areas of Focus
-            </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
-              Specialties
-            </h1>
+            <div className="grid lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-7">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
+                  Areas of Focus
+                </p>
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
+                  Specialties
+                </h1>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="relative aspect-square max-w-sm mx-auto">
+                  <Image
+                    src="/images/illustration-woman.jpg"
+                    alt="Illustration of a woman seated with a cup of tea"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

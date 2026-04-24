@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useState } from "react"
@@ -32,6 +33,14 @@ export default function ContactPage() {
               >
                 Book a consultation
               </Link>
+            </div>
+            <div className="relative mt-16 aspect-[3/4] max-w-2xl overflow-hidden">
+              <Image
+                src="/images/office-couch.jpg"
+                alt="Therapy office interior with grey couch and enso painting"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </section>
