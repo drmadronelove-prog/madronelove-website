@@ -71,10 +71,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <p className="text-[var(--ink-muted)] mb-16">
-              Telehealth throughout California.
-            </p>
-
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
