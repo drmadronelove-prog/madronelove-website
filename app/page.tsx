@@ -11,15 +11,12 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero Section - Editorial asymmetric layout */}
         <section className="min-h-screen flex items-center">
-          <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 pt-32 pb-[3.2rem]">
+          <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 pt-32 pb-[0.8rem]">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
               {/* Text - Left side */}
               <div className="lg:col-span-5 lg:pr-8">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--gold)] mb-8">
-                  Clinical Psychology
-                </p>
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-                  Support with the <em className="text-[var(--gold)]">process</em> behind the solution
+                  Support with the <em className="text-[var(--gold)]">process</em> behind the solution.
                 </h1>
                 <div className="mt-16">
                   <Link
@@ -35,7 +32,7 @@ export default function HomePage() {
               
               {/* Image - Right side, larger */}
               <div className="lg:col-span-7 lg:pl-8">
-                <div className="relative scale-[0.81] origin-top">
+                <div className="relative scale-[0.69] origin-top border-[6px] border-[var(--gold)] p-2 bg-white">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
                       src="/images/headshot.jpg"
@@ -45,8 +42,6 @@ export default function HomePage() {
                       priority
                     />
                   </div>
-                  {/* Subtle frame accent */}
-                  <div className="absolute -bottom-4 -right-4 w-full h-full border border-[var(--sage)] -z-10" />
                 </div>
               </div>
             </div>
@@ -102,7 +97,7 @@ export default function HomePage() {
         <section className="py-32 bg-white">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="max-w-3xl">
-              <p className="font-serif italic text-[var(--gold)] text-[1.8rem] mb-6">
+              <p className="font-serif italic text-[var(--gold)] text-[2.34rem] mb-6">
                 The Process
               </p>
               <p className="text-[var(--ink-light)] leading-relaxed text-lg">

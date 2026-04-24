@@ -4,7 +4,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Specialties | Dr. Madrone Love, PsyD",
+  title: "Areas of Focus | Dr. Madrone Love, PsyD",
   description: "Specialized treatment for OCD, anxiety, complex trauma, neurodivergent adults, and relationships. Evidence-based therapy with ketamine-assisted options available.",
 }
 
@@ -42,15 +42,12 @@ export default function SpecialtiesPage() {
       
       <main className="flex-1 pt-24">
         {/* Header */}
-        <section className="py-24 md:py-32">
+        <section className="pt-24 md:pt-32 pb-2 md:pb-3">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
-                  Areas of Focus
-                </p>
                 <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
-                  Specialties
+                  Areas of Focus
                 </h1>
               </div>
               <div className="lg:col-span-5">
@@ -77,8 +74,10 @@ export default function SpecialtiesPage() {
                 <div
                   key={specialty.id}
                   id={specialty.id}
-                  className={`scroll-mt-32 py-16 lg:py-20 ${
-                    index !== 0 ? "border-t border-[var(--border)]" : ""
+                  className={`scroll-mt-32 ${
+                    index === 0
+                      ? "pt-3 lg:pt-4 pb-16 lg:pb-20"
+                      : "py-16 lg:py-20 border-t border-[var(--border)]"
                   }`}
                 >
                   <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">

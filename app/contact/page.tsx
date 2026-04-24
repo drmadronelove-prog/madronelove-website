@@ -40,14 +40,16 @@ export default function ContactPage() {
         {/* Contact Info */}
         <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              <div className="relative aspect-[3/4] max-w-[24rem] w-full">
-                <Image
-                  src="/images/office-couch.jpg"
-                  alt="Therapy office interior with grey couch and enso painting"
-                  fill
-                  className="object-cover"
-                />
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div className="relative aspect-[3/4] max-w-[24rem] w-full border-[6px] border-[var(--gold)] p-2 bg-white">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/office-couch.jpg"
+                    alt="Therapy office interior with grey couch and enso painting"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
 
               <div className="space-y-6">
@@ -68,32 +70,31 @@ export default function ContactPage() {
                   <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
                   <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
                 </div>
-              </div>
-            </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                  Email
-                </p>
-                <Link
-                  href="mailto:therapy@madronelove.com"
-                  className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors duration-300"
-                >
-                  therapy@madronelove.com
-                </Link>
-              </div>
-
-              <div>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                  Phone
-                </p>
-                <Link
-                  href="tel:415-484-3302"
-                  className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors duration-300"
-                >
-                  415-484-3302
-                </Link>
+                <div className="border border-[var(--border)] p-8 space-y-4">
+                  <div>
+                    <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-2">
+                      Email
+                    </p>
+                    <Link
+                      href="mailto:therapy@madronelove.com"
+                      className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors duration-300"
+                    >
+                      therapy@madronelove.com
+                    </Link>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-2">
+                      Phone
+                    </p>
+                    <Link
+                      href="tel:415-484-3302"
+                      className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors duration-300"
+                    >
+                      415-484-3302
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
