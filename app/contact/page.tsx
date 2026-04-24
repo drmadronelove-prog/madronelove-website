@@ -18,29 +18,16 @@ export default function ContactPage() {
         {/* Header */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
-              Get in Touch
-            </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-              Contact
+              Get in Touch
             </h1>
-            <div className="mt-12">
-              <Link
-                href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
-              >
-                Book a consultation
-              </Link>
-            </div>
           </div>
         </section>
 
         {/* Contact Info */}
         <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-12 items-stretch">
               <div className="relative aspect-[3/4] max-w-[24rem] w-full border-[6px] border-[var(--gold)] p-2 bg-white">
                 <div className="relative w-full h-full">
                   <Image
@@ -52,7 +39,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="flex flex-col justify-between gap-6">
                 <div className="border border-[var(--border)] p-8">
                   <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                     San Francisco
@@ -92,6 +79,16 @@ export default function ContactPage() {
                       className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors duration-300"
                     >
                       415-484-3302
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                      href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                    >
+                      Book a consultation
                     </Link>
                   </div>
                 </div>

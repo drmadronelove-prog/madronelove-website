@@ -42,7 +42,7 @@ export default function SpecialtiesPage() {
       
       <main className="flex-1 pt-24">
         {/* Header */}
-        <section className="pt-24 md:pt-32 pb-2 md:pb-3">
+        <section className="pt-24 md:pt-32 pb-6 md:pb-9">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7">
@@ -76,7 +76,7 @@ export default function SpecialtiesPage() {
                   id={specialty.id}
                   className={`scroll-mt-32 ${
                     index === 0
-                      ? "pt-3 lg:pt-4 pb-16 lg:pb-20"
+                      ? "pt-9 lg:pt-12 pb-16 lg:pb-20"
                       : "py-16 lg:py-20 border-t border-[var(--border)]"
                   }`}
                 >

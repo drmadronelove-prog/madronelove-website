@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 const navigation = [
   { name: "About", href: "/about" },
   { name: "Specialties", href: "/specialties" },
-  { name: "Contact", href: "/contact" },
+  { name: "Get in Touch", href: "/contact" },
 ]
 
 export function Header() {
@@ -23,8 +23,8 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#B2B8B9]/70 backdrop-blur-md"
-          : "bg-[#B2B8B9]/70"
+          ? "bg-[#C5CACB]/70 backdrop-blur-md"
+          : "bg-[#C5CACB]/70"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">

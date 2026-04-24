@@ -12,7 +12,7 @@ const education = [
   { institution: "University of Pennsylvania", degree: "BA" },
   { institution: "UC Berkeley", degree: "MA" },
   { institution: "Wright Institute", degree: "PsyD, Clinical Psychology" },
-  { institution: "University of Wisconsin-Madison", degree: "Predoctoral Internship, University Health Services" },
+  { institution: "University of Wisconsin-Madison", degree: "Predoctoral Internship" },
   { institution: "UCSF", degree: "Postdoctoral Fellowship" },
   { institution: "International OCD Foundation", degree: "ERP" },
   { institution: "I-CBT Institute", degree: "" },

@@ -12,27 +12,17 @@ export default function HomePage() {
         {/* Hero Section - Editorial asymmetric layout */}
         <section className="min-h-screen flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 pt-32 pb-[0.8rem]">
-            <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-start">
               {/* Text - Left side */}
-              <div className="lg:col-span-5 lg:pr-8">
+              <div className="lg:col-span-5 lg:pr-8 lg:pt-[17%]">
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
                   Support with the <em className="text-[var(--gold)]">process</em> behind the solution.
                 </h1>
-                <div className="mt-16">
-                  <Link
-                    href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
-                  >
-                    Book a consultation
-                  </Link>
-                </div>
               </div>
-              
+
               {/* Image - Right side, larger */}
               <div className="lg:col-span-7 lg:pl-8">
-                <div className="relative scale-[0.69] origin-top border-[6px] border-[var(--gold)] p-2 bg-white">
+                <div className="relative scale-[0.69] origin-top border-[7.5px] border-[var(--gold)] p-2 bg-white">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
                       src="/images/headshot.jpg"
@@ -73,7 +63,7 @@ export default function HomePage() {
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
-                    <span>University of Wisconsin-Madison (Predoctoral Internship, University Health Services)</span>
+                    <span>University of Wisconsin-Madison (Predoctoral Internship)</span>
                   </li>
                   <li className="flex items-start gap-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--sage)] mt-2.5 shrink-0" />
@@ -97,7 +87,7 @@ export default function HomePage() {
         <section className="py-32 bg-white">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="max-w-3xl">
-              <p className="font-serif italic text-[var(--gold)] text-[2.34rem] mb-6">
+              <p className="font-serif italic text-[var(--gold)] text-[2.81rem] mb-6">
                 The Process
               </p>
               <p className="text-[var(--ink-light)] leading-relaxed text-lg">
