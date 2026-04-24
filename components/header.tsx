@@ -36,7 +36,7 @@ export function Header() {
             width={48}
             height={48}
             className="h-12 w-12 transition-transform duration-300 group-hover:scale-105"
-            style={{ filter: "brightness(0) saturate(100%) invert(72%) sepia(34%) saturate(471%) hue-rotate(359deg) brightness(90%) contrast(85%)" }}
+            style={{ filter: "brightness(0) saturate(100%) invert(82%) sepia(55%) saturate(650%) hue-rotate(2deg) brightness(105%) contrast(95%) drop-shadow(0 1px 2px rgba(0,0,0,0.35))" }}
           />
         </Link>
 

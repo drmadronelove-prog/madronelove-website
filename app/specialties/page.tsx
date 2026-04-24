@@ -54,13 +54,15 @@ export default function SpecialtiesPage() {
                 </h1>
               </div>
               <div className="lg:col-span-5">
-                <div className="relative aspect-square max-w-sm mx-auto">
-                  <Image
-                    src="/images/illustration-woman.jpg"
-                    alt="Illustration of a woman seated with a cup of tea"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="relative aspect-square max-w-md mx-auto border-[6px] border-[var(--gold)] p-2 bg-white shadow-sm">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src="/images/illustration-woman.jpg"
+                      alt="Illustration of a woman seated reading"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

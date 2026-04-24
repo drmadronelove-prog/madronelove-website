@@ -34,37 +34,40 @@ export default function ContactPage() {
                 Book a consultation
               </Link>
             </div>
-            <div className="relative mt-16 aspect-[3/4] max-w-2xl overflow-hidden">
-              <Image
-                src="/images/office-couch.jpg"
-                alt="Therapy office interior with grey couch and enso painting"
-                fill
-                className="object-cover"
-              />
-            </div>
           </div>
         </section>
 
         {/* Contact Info */}
         <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                  San Francisco
-                </p>
-                <p className="text-[var(--ink)]">Hayes Valley</p>
-                <p className="text-[var(--ink-muted)] mt-1">110 Gough Street, Suite 203B</p>
-                <p className="text-[var(--ink-muted)]">San Francisco, CA 94102</p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+              <div className="relative aspect-[3/4] max-w-[24rem] w-full">
+                <Image
+                  src="/images/office-couch.jpg"
+                  alt="Therapy office interior with grey couch and enso painting"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-              <div>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                  Berkeley
-                </p>
-                <p className="text-[var(--ink)]">Anam Cara Therapy Center</p>
-                <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
-                <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
+              <div className="space-y-6">
+                <div className="border border-[var(--border)] p-8">
+                  <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
+                    San Francisco
+                  </p>
+                  <p className="text-[var(--ink)]">Hayes Valley</p>
+                  <p className="text-[var(--ink-muted)] mt-1">110 Gough Street, Suite 203B</p>
+                  <p className="text-[var(--ink-muted)]">San Francisco, CA 94102</p>
+                </div>
+
+                <div className="border border-[var(--border)] p-8">
+                  <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
+                    Berkeley
+                  </p>
+                  <p className="text-[var(--ink)]">Anam Cara Therapy Center</p>
+                  <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
+                  <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
+                </div>
               </div>
             </div>
 
