@@ -31,16 +31,17 @@ export default function AboutPage() {
               {/* Image - Left, with artistic treatment */}
               <div className="lg:col-span-5">
                 <div className="relative sticky top-32">
-                  <div className="aspect-[3/4] overflow-hidden">
-                    <Image
-                      src="/images/headshot.jpg"
-                      alt="Dr. Madrone Love"
-                      fill
-                      className="object-cover object-top grayscale-[20%]"
-                      priority
-                    />
+                  <div className="border-[6px] border-[var(--gold)] p-2 bg-white">
+                    <div className="aspect-[3/4] overflow-hidden relative">
+                      <Image
+                        src="/images/headshot.jpg"
+                        alt="Dr. Madrone Love"
+                        fill
+                        className="object-cover object-top"
+                        priority
+                      />
+                    </div>
                   </div>
-                  <div className="absolute -bottom-4 -left-4 w-full h-full border border-[var(--sage)] -z-10" />
                 </div>
               </div>
               
