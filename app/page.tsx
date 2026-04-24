@@ -19,7 +19,7 @@ export default function HomePage() {
                   Clinical Psychology
                 </p>
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-                  Support with the <em>process</em> behind the solution
+                  Support with the <em className="text-[var(--gold)]">process</em> behind the solution
                 </h1>
                 <div className="mt-16">
                   <Link
