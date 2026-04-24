@@ -34,7 +34,7 @@ export default function AboutPage() {
                   <div className="border-[6px] border-[var(--gold)] p-2 bg-white">
                     <div className="aspect-[3/4] overflow-hidden relative">
                       <Image
-                        src="/images/headshot.jpg"
+                        src="/images/0154.jpg"
                         alt="Dr. Madrone Love"
                         fill
                         className="object-cover object-top"
