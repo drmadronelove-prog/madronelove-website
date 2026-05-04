@@ -38,6 +38,15 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Process of Change diagram - full-width */}
+        <section aria-label="The Process of Change" className="w-full">
+          <img
+            src="/images/process-of-change.svg"
+            alt="The Process of Change: not ready, considering, planning, executing, maintaining"
+            className="block w-full h-auto"
+          />
+        </section>
+
         {/* The Process + Training */}
         <section id="about" className="scroll-mt-32 py-[3.2rem] bg-[var(--sage-muted)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
