@@ -16,7 +16,7 @@ export default function HomePage() {
               {/* Text - Left side */}
               <div className="lg:col-span-5 lg:pr-8">
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-                  Support through the <em className="text-[var(--gold)]">process</em> of change.
+                  Support with the <em className="text-[var(--gold)]">process</em> of change.
                 </h1>
               </div>
 
