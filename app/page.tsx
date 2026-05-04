@@ -10,7 +10,7 @@ export default function HomePage() {
       
       <main className="flex-1">
         {/* Hero Section - Editorial asymmetric layout */}
-        <section className="min-h-screen flex items-center">
+        <section className="flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 pt-32 pb-[0.8rem]">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-start">
               {/* Text - Left side */}
@@ -36,6 +36,15 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Process of Change diagram - full-width */}
+        <section aria-label="The Process of Change" className="w-full">
+          <img
+            src="/images/process-of-change.svg"
+            alt="The Process of Change: not ready, considering, planning, executing, maintaining"
+            className="block w-full h-auto"
+          />
         </section>
 
         {/* The Process + Training */}
