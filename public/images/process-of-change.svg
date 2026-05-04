@@ -8,7 +8,7 @@
 </marker>
 </defs>
 
-<text x="50" y="60" text-anchor="start" font-family="'Cormorant Garamond', 'EB Garamond', Garamond, Georgia, serif" font-size="40" font-weight="400" font-style="italic" fill="#C5A028">The Process of Change</text>
+<rect x="0" y="0" width="1200" height="420" fill="#EEF2F6"/>
 
 <path d="M 195 248 C 230 233, 269 203, 300 197" fill="none" stroke="#7A8898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" opacity="0.75" marker-end="url(#arrow)"/>
 <path d="M 436 196 C 467 202, 505 232, 540 247" fill="none" stroke="#7A8898" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" opacity="0.75" marker-end="url(#arrow)"/>
