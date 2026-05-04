@@ -51,7 +51,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div>
+              <div className="lg:pt-9">
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
                   Training
                 </p>
