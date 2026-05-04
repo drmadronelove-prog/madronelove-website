@@ -12,9 +12,9 @@ export default function HomePage() {
         {/* Hero Section - Editorial asymmetric layout */}
         <section className="flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 pt-32 pb-[0.8rem]">
-            <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-start">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
               {/* Text - Left side */}
-              <div className="lg:col-span-5 lg:pr-8 lg:pt-[17%]">
+              <div className="lg:col-span-5 lg:pr-8">
                 <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
                   Support through the <em className="text-[var(--gold)]">process</em> of change.
                 </h1>
@@ -88,11 +88,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            <img
-              src="/images/process-of-change.svg"
-              alt="The Process of Change: not ready, thinking, planning, doing, maintaining"
-              className="block w-2/3 h-auto mx-auto mt-12"
-            />
           </div>
         </section>
 
