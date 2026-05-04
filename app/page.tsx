@@ -38,12 +38,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Process of Change diagram - full-width */}
+        {/* Process of Change diagram */}
         <section aria-label="The Process of Change" className="w-full -mt-16 lg:-mt-40">
           <img
             src="/images/process-of-change.svg"
-            alt="The Process of Change: not ready, considering, planning, executing, maintaining"
-            className="block w-full h-auto"
+            alt="The Process of Change: not ready, thinking, planning, doing, maintaining"
+            className="block w-2/3 h-auto mx-auto"
           />
         </section>
 

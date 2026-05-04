@@ -1,6 +1,6 @@
 <svg width="100%" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid meet" role="img" xmlns="http://www.w3.org/2000/svg">
 <title>The Process of Change</title>
-<desc>Five stages of change as alternating triangles in a row: not ready, considering, planning, executing, maintaining.</desc>
+<desc>Five stages of change as triangles in a row: not ready, thinking, planning, doing, maintaining.</desc>
 
 <defs>
 <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -13,19 +13,19 @@
 <line x1="650" y1="210" x2="790" y2="210" stroke="#7A8898" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
 <line x1="890" y1="210" x2="1030" y2="210" stroke="#7A8898" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
 
-<polygon points="30,140 210,140 120,280" fill="#D5DCE2" stroke="#7A8898" stroke-width="0.8"/>
-<text x="120" y="172" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#2E3742">NOT READY</text>
+<polygon points="30,280 210,280 120,140" fill="#D5DCE2" stroke="#7A8898" stroke-width="0.8"/>
+<text x="120" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#2E3742">NOT READY</text>
 
 <polygon points="270,280 450,280 360,140" fill="#B8C5D1" stroke="#5E7286" stroke-width="0.8"/>
-<text x="360" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#1F2A36">CONSIDERING</text>
+<text x="360" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#1F2A36">THINKING</text>
 
-<polygon points="510,140 690,140 600,280" fill="#B8C8D8" stroke="#6E869A" stroke-width="0.8"/>
-<text x="600" y="172" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#1F2A36">PLANNING</text>
+<polygon points="510,280 690,280 600,140" fill="#B8C8D8" stroke="#6E869A" stroke-width="0.8"/>
+<text x="600" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#1F2A36">PLANNING</text>
 
 <polygon points="750,280 930,280 840,140" fill="#C9B687" stroke="#8A7642" stroke-width="0.8"/>
-<text x="840" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#3E2F0F">EXECUTING</text>
+<text x="840" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#3E2F0F">DOING</text>
 
-<polygon points="990,140 1170,140 1080,280" fill="#E0C25C" stroke="#A88420" stroke-width="0.8"/>
-<text x="1080" y="172" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#3E2F0F">MAINTAINING</text>
+<polygon points="990,280 1170,280 1080,140" fill="#E0C25C" stroke="#A88420" stroke-width="0.8"/>
+<text x="1080" y="258" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="1.8" fill="#3E2F0F">MAINTAINING</text>
 
 </svg>
