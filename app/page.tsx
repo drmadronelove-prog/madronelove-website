@@ -38,15 +38,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Process of Change diagram */}
-        <section aria-label="The Process of Change" className="w-full -mt-16 lg:-mt-40">
-          <img
-            src="/images/process-of-change.svg"
-            alt="The Process of Change: not ready, thinking, planning, doing, maintaining"
-            className="block w-2/3 h-auto mx-auto"
-          />
-        </section>
-
         {/* The Process + Training */}
         <section id="about" className="scroll-mt-32 py-[3.2rem] bg-[var(--sage-muted)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -96,6 +87,12 @@ export default function HomePage() {
                 </ul>
               </div>
             </div>
+
+            <img
+              src="/images/process-of-change.svg"
+              alt="The Process of Change: not ready, thinking, planning, doing, maintaining"
+              className="block w-2/3 h-auto mx-auto mt-12"
+            />
           </div>
         </section>
 
