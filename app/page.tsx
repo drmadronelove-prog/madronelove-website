@@ -39,7 +39,7 @@ export default function HomePage() {
         </section>
 
         {/* Process of Change diagram - full-width */}
-        <section aria-label="The Process of Change" className="w-full">
+        <section aria-label="The Process of Change" className="w-full -mt-16 lg:-mt-40">
           <img
             src="/images/process-of-change.svg"
             alt="The Process of Change: not ready, considering, planning, executing, maintaining"
