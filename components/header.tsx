@@ -7,6 +7,7 @@ const navigation = [
   { name: "About", href: "/#about" },
   { name: "Specialties", href: "/specialties" },
   { name: "Get in Touch", href: "/contact" },
+  { name: "Blog", href: "https://www.oliveclinical.com/blog", external: true },
 ]
 
 export function Header() {
@@ -61,6 +62,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
+              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] hover:text-[var(--ink-muted)] transition-colors duration-300"
             >
               {item.name}
@@ -102,6 +104,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
+              {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="block text-sm font-medium tracking-wide uppercase text-[var(--ink)]"
               onClick={() => setMobileMenuOpen(false)}
             >
