@@ -70,7 +70,7 @@ export function Header() {
             href="https://www.oliveclinical.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:border-[var(--clay)] hover:text-[var(--clay)] transition-colors duration-300"
+            className="text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] hover:text-[var(--ink-muted)] transition-colors duration-300"
           >
             Olive Clinical
           </Link>
@@ -112,7 +112,7 @@ export function Header() {
             href="https://www.oliveclinical.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-sm font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-0.5"
+            className="block text-sm font-medium tracking-wide uppercase text-[var(--ink)]"
             onClick={() => setMobileMenuOpen(false)}
           >
             Olive Clinical
