@@ -67,12 +67,12 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
+            href="https://www.oliveclinical.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-4 text-[13px] font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:border-[var(--clay)] hover:text-[var(--clay)] transition-colors duration-300"
           >
-            Book
+            Olive Clinical
           </Link>
         </div>
 
@@ -109,13 +109,13 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
+            href="https://www.oliveclinical.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-sm font-medium tracking-wide uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-0.5"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Book a Consultation
+            Olive Clinical
           </Link>
         </div>
       </div>
