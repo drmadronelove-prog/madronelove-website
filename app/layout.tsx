@@ -20,20 +20,7 @@ export const metadata: Metadata = {
   description: 'Clinical psychology for high-achieving professionals navigating complexity. Evidence-based treatment integrating Buddhist psychology. OCD, anxiety, trauma, neurodivergent adults.',
   keywords: ['clinical psychologist', 'Berkeley therapist', 'OCD treatment', 'anxiety therapy', 'complex trauma', 'neurodivergent adults', 'Buddhist psychology'],
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icon-light-32x32.png',
     apple: '/apple-icon.png',
   },
 }
