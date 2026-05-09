@@ -22,7 +22,7 @@ export default function HomePage() {
 
               {/* Image - Right side, larger */}
               <div className="lg:col-span-7 lg:pl-8">
-                <div className="relative max-w-md mx-auto lg:max-w-none lg:mx-0 lg:scale-[0.69] lg:origin-top border-[7.5px] border-[var(--gold)] p-2 bg-white lg:-mb-32">
+                <div className="relative max-w-md mx-auto lg:max-w-none lg:mx-0 lg:scale-[0.69] lg:origin-top border-[7.5px] border-[var(--gold)] p-2 bg-white shadow-xl lg:-mb-32">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
                       src="/images/headshot.jpg"
