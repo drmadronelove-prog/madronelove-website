@@ -101,15 +101,6 @@ export default function SpecialtiesPage() {
           </div>
         </section>
 
-        {/* Ketamine note - Subtle */}
-        <section className="py-16 border-t border-[var(--border)]">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-[var(--ink-muted)] italic">
-              Ketamine-assisted psychotherapy available for selected clients.
-            </p>
-          </div>
-        </section>
-
         {/* CTA */}
         <section className="py-24 bg-[var(--stone)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
