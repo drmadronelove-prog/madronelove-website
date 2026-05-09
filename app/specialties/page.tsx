@@ -42,7 +42,7 @@ export default function SpecialtiesPage() {
       
       <main className="flex-1 pt-24">
         {/* Header */}
-        <section className="pt-24 md:pt-32 pb-6 md:pb-9">
+        <section className="pt-8 md:pt-12 pb-6 md:pb-9">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7">
