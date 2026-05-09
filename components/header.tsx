@@ -47,7 +47,7 @@ export function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex md:items-center md:gap-x-10">
+        <div className="hidden lg:flex lg:items-center lg:gap-x-10">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -71,7 +71,7 @@ export function Header() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className="md:hidden p-2 text-[var(--ink)]"
+          className="lg:hidden p-2 text-[var(--ink)]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -84,9 +84,9 @@ export function Header() {
       </nav>
 
       {/* Mobile menu */}
-      <div 
-        className={`md:hidden overflow-hidden transition-all duration-500 ${
-          mobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-500 ${
+          mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="bg-[var(--background)] border-t border-[var(--border)] px-6 py-8 space-y-6">

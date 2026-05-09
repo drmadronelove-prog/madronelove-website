@@ -22,7 +22,7 @@ export default function HomePage() {
 
               {/* Image - Right side, larger */}
               <div className="lg:col-span-7 lg:pl-8">
-                <div className="relative scale-[0.69] origin-top border-[7.5px] border-[var(--gold)] p-2 bg-white lg:-mb-32">
+                <div className="relative max-w-md mx-auto lg:max-w-none lg:mx-0 lg:scale-[0.69] lg:origin-top border-[7.5px] border-[var(--gold)] p-2 bg-white lg:-mb-32">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
                       src="/images/headshot.jpg"
@@ -43,7 +43,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
-                <p className="font-serif italic text-[var(--gold)] text-[2.81rem] mb-6 leading-none">
+                <p className="font-serif italic text-[var(--gold)] text-4xl md:text-[2.81rem] mb-6 leading-none">
                   The Process
                 </p>
                 <p className="text-[var(--ink-light)] leading-relaxed text-lg">
