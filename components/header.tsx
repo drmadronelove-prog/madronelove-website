@@ -36,7 +36,7 @@ export function Header() {
             className="block h-[3.6rem] w-[3.6rem] object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg md:text-xl text-[var(--ink)] tracking-tight">
+            <span className="font-[var(--font-classic)] text-lg md:text-xl text-[var(--ink)] tracking-tight">
               Madrone Love, PsyD
             </span>
             <span

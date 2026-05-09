@@ -18,7 +18,7 @@ export default function ContactPage() {
         {/* Header */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
+            <h1 className="font-[var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
               Get in Touch
             </h1>
           </div>

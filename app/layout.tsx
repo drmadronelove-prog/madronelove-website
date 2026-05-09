@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Lora } from 'next/font/google'
+import { Playfair_Display, Lora, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -13,6 +13,12 @@ const lora = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-sans"
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-classic"
 });
 
 export const metadata: Metadata = {
@@ -32,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background scroll-smooth">
-      <body className={`${playfair.variable} ${lora.variable} font-sans antialiased`}>
+      <body className={`${playfair.variable} ${lora.variable} ${cormorant.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -15,7 +15,7 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-4 items-center">
               {/* Text - Left side */}
               <div className="lg:col-span-5 lg:pr-8">
-                <h1 className="font-serif text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
+                <h1 className="font-[var(--font-classic)] text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-light text-[var(--ink)] leading-[1.1] tracking-tight">
                   Support with the <em className="text-[var(--gold)]">process</em> of change.
                 </h1>
               </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Next step
                 </p>
-                <h2 className="font-serif text-3xl md:text-4xl text-[var(--ink)] font-light">
+                <h2 className="font-[var(--font-classic)] text-3xl md:text-4xl text-[var(--ink)] font-light">
                   Begin with a <em className="text-[var(--gold)]">free</em> consultation
                 </h2>
               </div>
