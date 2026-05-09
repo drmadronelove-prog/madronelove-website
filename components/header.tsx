@@ -30,21 +30,11 @@ export function Header() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 lg:px-8">
         <Link href="/" className="flex items-center gap-3 group" aria-label="Dr. Madrone Love">
-          <span
-            role="img"
-            aria-label="Dr. Madrone Love logo"
-            className="block h-[3.6rem] w-[3.6rem] transition-transform duration-300 group-hover:scale-105 bg-[var(--gold)]"
-            style={{
-              WebkitMaskImage: "url('/images/logo.png')",
-              maskImage: "url('/images/logo.png')",
-              WebkitMaskRepeat: "no-repeat",
-              maskRepeat: "no-repeat",
-              WebkitMaskSize: "contain",
-              maskSize: "contain",
-              WebkitMaskPosition: "center",
-              maskPosition: "center",
-              filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))",
-            }}
+          <img
+            src="/logo.png"
+            alt="Dr. Madrone Love logo"
+            className="block h-[3.6rem] w-[3.6rem] object-contain transition-transform duration-300 group-hover:scale-105"
+            style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))" }}
           />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg md:text-xl text-[var(--ink)] tracking-tight">
