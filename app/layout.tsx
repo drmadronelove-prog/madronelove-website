@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Lora, Cormorant_Garamond } from 'next/font/google'
+import { Playfair_Display, Lora, Italiana } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -15,9 +15,9 @@ const lora = Lora({
   variable: "--font-sans"
 });
 
-const cormorant = Cormorant_Garamond({
+const italiana = Italiana({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400"],
   variable: "--font-classic"
 });
 
@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background scroll-smooth">
-      <body className={`${playfair.variable} ${lora.variable} ${cormorant.variable} font-sans antialiased`}>
+      <body className={`${playfair.variable} ${lora.variable} ${italiana.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
