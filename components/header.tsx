@@ -39,7 +39,14 @@ export function Header() {
             <span className="font-serif text-lg md:text-xl text-[var(--ink)] tracking-tight">
               Madrone Love, PsyD
             </span>
-            <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mt-1">
+            <span
+              className="block text-[11px] font-medium uppercase text-[var(--ink-muted)] mt-1"
+              style={{
+                textAlign: "justify",
+                textAlignLast: "justify",
+                textJustify: "inter-character",
+              }}
+            >
               Clinical Psychologist
             </span>
           </span>
