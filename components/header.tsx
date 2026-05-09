@@ -34,7 +34,6 @@ export function Header() {
             src="/logo.png"
             alt="Dr. Madrone Love logo"
             className="block h-[3.6rem] w-[3.6rem] object-contain transition-transform duration-300 group-hover:scale-105"
-            style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))" }}
           />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg md:text-xl text-[var(--ink)] tracking-tight">

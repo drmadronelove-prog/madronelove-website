@@ -28,7 +28,7 @@ export default function ContactPage() {
         <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-stretch">
-              <div className="relative aspect-[3/4] max-w-[24rem] w-full border-[6px] border-[var(--gold)] p-2 bg-white">
+              <div className="relative aspect-[3/4] max-w-[24rem] w-full border-[6px] border-[var(--gold)] p-2 bg-white shadow-xl">
                 <div className="relative w-full h-full">
                   <Image
                     src="/images/office-couch.jpg"

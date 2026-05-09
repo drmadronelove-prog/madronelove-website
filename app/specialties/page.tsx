@@ -25,7 +25,7 @@ const specialties = [
     id: "neurodivergence",
     number: "03",
     title: "Neurodivergence",
-    description: "Most advice about attention, organization, and emotional regulation assumes a particular kind of nervous system. If yours is different, the advice isn't slightly off. It's for someone else. I work with ADHD, autism, giftedness, and their overlaps, oriented toward how you actually work rather than how far you are from a standard that was never yours.",
+    description: "Most advice about attention, organization, and emotional regulation assumes a particular kind of nervous system. If yours is different, the advice isn't slightly off. It's for someone else. I work with ADHD, autism, giftedness, and their overlaps, oriented toward how you actually work rather than how far you are from a standard that was never yours. In addition to supporting neurodivergent individuals, I also work with their partners and family members to help them navigate their neurodiverse relationships.",
   },
   {
     id: "relationships",
@@ -51,7 +51,7 @@ export default function SpecialtiesPage() {
                 </h1>
               </div>
               <div className="lg:col-span-5">
-                <div className="relative aspect-square max-w-md mx-auto border-[6px] border-[var(--gold)] p-2 bg-white shadow-sm">
+                <div className="relative aspect-square max-w-md mx-auto border-[6px] border-[var(--gold)] p-2 bg-white shadow-xl">
                   <div className="relative w-full h-full">
                     <Image
                       src="/images/illustration-woman.jpg"
