@@ -42,11 +42,11 @@ export default function ContactPage() {
               <div className="flex flex-col justify-between gap-6">
                 <div className="border border-[var(--border)] p-8">
                   <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                    San Francisco
+                    Oakland
                   </p>
-                  <p className="text-[var(--ink)]">Hayes Valley</p>
-                  <p className="text-[var(--ink-muted)] mt-1">110 Gough Street, Suite 203B</p>
-                  <p className="text-[var(--ink-muted)]">San Francisco, CA 94102</p>
+                  <p className="text-[var(--ink)]">Olive Clinical</p>
+                  <p className="text-[var(--ink-muted)] mt-1">541 Athol</p>
+                  <p className="text-[var(--ink-muted)]">Oakland, CA 94606</p>
                 </div>
 
                 <div className="border border-[var(--border)] p-8">
