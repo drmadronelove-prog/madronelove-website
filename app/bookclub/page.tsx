@@ -61,7 +61,7 @@ export default function BookclubPage() {
               Book Club
             </p>
             <h1 className="font-[var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
-              Books I Want to Read
+              Book Club Reading List
             </h1>
             <p className="mt-6 text-lg text-[var(--ink-light)] leading-relaxed max-w-2xl">
               A checklist of the 100 Best Books of the 21st Century, as ranked in the New York Times&rsquo; 2024 poll of 503 novelists, critics, and other literary figures. Tap a title to mark it read.
