@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { books, sfplSearchUrl, oaklandSearchUrl } from "@/lib/bookclub-books"
 
@@ -49,11 +48,7 @@ export default function BookclubPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--background)]">
-      <div className="print:hidden">
-        <Header />
-      </div>
-
-      <main className="flex-1 pt-24 print:pt-0">
+      <main className="flex-1 print:pt-0">
         {/* Header */}
         <section className="py-16 md:py-20 print:py-4">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
