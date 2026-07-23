@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { useEffect, useMemo, useState } from "react"
-import { Footer } from "@/components/footer"
 import { books, sfplSearchUrl, oaklandSearchUrl } from "@/lib/bookclub-books"
 
 const STORAGE_KEY = "bookclub-reading-list-checked"
@@ -201,10 +200,6 @@ export default function BookclubPage() {
           </div>
         </section>
       </main>
-
-      <div className="print:hidden">
-        <Footer />
-      </div>
     </div>
   )
 }
