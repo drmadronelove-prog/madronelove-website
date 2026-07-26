@@ -15,8 +15,11 @@ import {
   Gem,
   Bot,
   Radio,
+  BookOpen,
+  Music,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
+import { DashboardShoppingList } from "@/components/dashboard-shopping-list"
 
 type Tile = {
   label: string
@@ -31,6 +34,8 @@ const TILES: Tile[] = [
   { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true, external: true },
   { label: "Flow Club", href: "https://www.flow.club/", icon: Users, configured: true, external: true },
   { label: "Claude", href: "https://claude.ai/", icon: Bot, configured: true, external: true },
+  { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
+  { label: "Spotify", href: "https://open.spotify.com/", icon: Music, configured: true, external: true },
   { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
   { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
   { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
@@ -63,7 +68,17 @@ function DashboardTile({ tile }: { tile: Tile }) {
   )
 }
 
+const STREAMS = [
+  { id: "CXYr04BWvmc", label: "Bay Bridge" },
+  { id: "vytmBNhc9ig", label: "Earth Live (ISS)" },
+  { id: "AwwY_FB2WPU", label: "Live Stream 2" },
+  { id: "iMqrD-HBDGo", label: "Live Stream 3" },
+  { id: "CijNX_Wsdbo", label: "Live Stream 4" },
+]
+
 function DashboardContent({ onLock }: { onLock: () => void }) {
+  const [streamId, setStreamId] = useState(STREAMS[0].id)
+
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
@@ -81,6 +96,8 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
                 <DashboardTile key={tile.label} tile={tile} />
               ))}
             </nav>
+
+            <DashboardShoppingList />
           </aside>
 
           <div className="min-w-0">
@@ -99,12 +116,28 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
             </header>
 
             <section className="mt-10">
-              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Bay Bridge Live Cam</h2>
+              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
+              <div className="mx-auto mb-4 flex max-w-3xl flex-wrap justify-center gap-2">
+                {STREAMS.map((stream) => (
+                  <button
+                    key={stream.id}
+                    onClick={() => setStreamId(stream.id)}
+                    className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                      streamId === stream.id
+                        ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--primary-foreground)]"
+                        : "border-[var(--border)] bg-[var(--card)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
+                    }`}
+                  >
+                    {stream.label}
+                  </button>
+                ))}
+              </div>
               <div className="mx-auto aspect-video max-w-3xl overflow-hidden rounded-xl border border-[var(--border)] shadow-sm">
                 <iframe
+                  key={streamId}
                   className="h-full w-full"
-                  src="https://www.youtube.com/embed/CXYr04BWvmc?autoplay=1&mute=1&playsinline=1"
-                  title="San Francisco–Oakland Bay Bridge live cam"
+                  src={`https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`}
+                  title="Live stream"
                   allow="autoplay; encrypted-media; picture-in-picture"
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
