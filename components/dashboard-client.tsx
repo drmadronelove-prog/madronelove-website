@@ -15,16 +15,27 @@ import {
   Bot,
   Radio,
   BookOpen,
+  Search,
+  Microscope,
+  ChevronDown,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList } from "@/components/dashboard-shopping-list"
 
-type Tile = {
+type SubLink = {
   label: string
   href: string
+  external?: boolean
+}
+
+type Tile = {
+  label: string
+  href?: string
   icon: typeof Bike
   configured: boolean
   external?: boolean
+  items?: SubLink[]
+  trigger?: "click" | "hover"
 }
 
 type TileSection = {
@@ -45,12 +56,30 @@ const TILE_SECTIONS: TileSection[] = [
     title: "Work",
     tiles: [
       { label: "Flow Club", href: "https://www.flow.club/", icon: Users, configured: true, external: true },
-      { label: "Claude", href: "https://claude.ai/", icon: Bot, configured: true, external: true },
-      { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
-      { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
+      {
+        label: "Email",
+        icon: Mail,
+        configured: true,
+        trigger: "hover",
+        items: [
+          { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", external: true },
+          { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", external: true },
+        ],
+      },
       { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
       { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
       { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
+      {
+        label: "Work Tools",
+        icon: Briefcase,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "Kagi", href: "https://kagi.com/", external: true },
+          { label: "Claude", href: "https://claude.ai/", external: true },
+          { label: "Open Evidence", href: "https://www.openevidence.com/", external: true },
+        ],
+      },
     ],
   },
   {
@@ -69,8 +98,22 @@ const PROJECT_LINKS = [
   { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform" },
 ]
 
+const KEY_CLASS =
+  "rounded-full border border-white/10 bg-gradient-to-b from-[var(--clay)] to-[var(--olive)] px-4 py-2 text-xs font-semibold text-white shadow-[0_3px_0_rgba(0,0,0,0.4),0_6px_12px_-2px_rgba(0,0,0,0.4)] transition-all duration-100 hover:brightness-110 active:translate-y-[3px] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.5)]"
+
+const KEY_CLASS_PRESSED =
+  "translate-y-[3px] rounded-full border border-white/10 bg-gradient-to-b from-[var(--olive)] to-[var(--clay)] px-4 py-2 text-xs font-semibold text-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.55)]"
+
+const TILE_CLASS =
+  "group flex w-full items-center gap-3 rounded-xl border border-white/50 bg-gradient-to-br from-white to-[#FFF1E9] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(59,31,61,0.06),0_4px_10px_-3px_rgba(59,31,61,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_16px_32px_-12px_rgba(194,38,110,0.5)] active:translate-y-0 active:shadow-[inset_0_2px_6px_rgba(59,31,61,0.3)]"
+
 function DashboardTile({ tile }: { tile: Tile }) {
   const Icon = tile.icon
+
+  if (tile.items) {
+    return <DashboardDropdownTile tile={tile} />
+  }
+
   return (
     <a
       href={tile.href}
@@ -78,16 +121,173 @@ function DashboardTile({ tile }: { tile: Tile }) {
       rel={tile.configured && tile.external ? "noopener noreferrer" : undefined}
       title={tile.configured ? tile.label : `${tile.label} — link not set yet`}
       onClick={tile.configured ? undefined : (e) => e.preventDefault()}
-      className={`group flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md ${
-        tile.configured ? "" : "opacity-60 cursor-not-allowed"
-      }`}
+      className={`${TILE_CLASS} ${tile.configured ? "" : "opacity-60 cursor-not-allowed"}`}
     >
-      <Icon className="h-5 w-5 shrink-0 text-[var(--olive)] transition-colors group-hover:text-[var(--clay)]" />
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--olive)] to-[var(--clay)] shadow-sm transition-transform duration-150 group-hover:scale-110">
+        <Icon className="h-4 w-4 text-white" />
+      </span>
       <span className="text-sm font-medium text-[var(--ink)]">{tile.label}</span>
       {!tile.configured && (
         <span className="ml-auto text-[10px] uppercase tracking-wide text-[var(--ink-muted)]">link needed</span>
       )}
     </a>
+  )
+}
+
+function DashboardDropdownTile({ tile }: { tile: Tile }) {
+  const Icon = tile.icon
+  const isHover = tile.trigger === "hover"
+  const [open, setOpen] = useState(false)
+  const showOpen = isHover ? undefined : open
+
+  return (
+    <div
+      className={isHover ? "group/drop" : undefined}
+      onMouseEnter={isHover ? () => setOpen(true) : undefined}
+      onMouseLeave={isHover ? () => setOpen(false) : undefined}
+    >
+      <button
+        type="button"
+        onClick={isHover ? undefined : () => setOpen((v) => !v)}
+        className={TILE_CLASS}
+      >
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--olive)] to-[var(--clay)] shadow-sm">
+          <Icon className="h-4 w-4 text-white" />
+        </span>
+        <span className="text-sm font-medium text-[var(--ink)]">{tile.label}</span>
+        <ChevronDown
+          className={`ml-auto h-4 w-4 shrink-0 text-[var(--ink-muted)] transition-transform duration-150 ${
+            isHover ? "group-hover/drop:rotate-180" : showOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      <div
+        className={`${isHover ? "hidden group-hover/drop:flex" : showOpen ? "flex" : "hidden"} mt-2 flex-col gap-2 pl-4`}
+      >
+        {tile.items!.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+            className="rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--ink)] shadow-sm transition-colors hover:text-[var(--clay)]"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function HeaderTimer() {
+  const [minutes, setMinutes] = useState(5)
+  const [remaining, setRemaining] = useState(0)
+  const [running, setRunning] = useState(false)
+  const [done, setDone] = useState(false)
+  const audioCtxRef = useRef<AudioContext | null>(null)
+
+  useEffect(() => {
+    if (!running) return
+    if (remaining <= 0) {
+      setRunning(false)
+      setDone(true)
+      beep()
+      return
+    }
+    const id = setTimeout(() => setRemaining((r) => r - 1), 1000)
+    return () => clearTimeout(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [running, remaining])
+
+  function beep() {
+    try {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+      const ctx = audioCtxRef.current ?? new AudioCtx()
+      audioCtxRef.current = ctx
+      const playTone = (startTime: number) => {
+        const osc = ctx.createOscillator()
+        const gain = ctx.createGain()
+        osc.type = "sine"
+        osc.frequency.value = 880
+        gain.gain.setValueAtTime(0.0001, startTime)
+        gain.gain.exponentialRampToValueAtTime(0.3, startTime + 0.02)
+        gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.35)
+        osc.connect(gain)
+        gain.connect(ctx.destination)
+        osc.start(startTime)
+        osc.stop(startTime + 0.4)
+      }
+      const now = ctx.currentTime
+      playTone(now)
+      playTone(now + 0.5)
+      playTone(now + 1)
+    } catch {
+      // audio unavailable — fail silently
+    }
+  }
+
+  function start() {
+    setDone(false)
+    setRemaining(minutes * 60)
+    setRunning(true)
+  }
+
+  function reset() {
+    setRunning(false)
+    setDone(false)
+    setRemaining(0)
+  }
+
+  const isActive = running || (remaining > 0 && !done)
+  const mm = String(Math.floor(remaining / 60)).padStart(2, "0")
+  const ss = String(remaining % 60).padStart(2, "0")
+
+  if (done) {
+    return (
+      <div className="flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-sm">
+        <span className="text-xs font-semibold text-white">Time&rsquo;s up!</span>
+        <button onClick={reset} className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40">
+          Reset
+        </button>
+      </div>
+    )
+  }
+
+  if (isActive) {
+    return (
+      <div className="flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-sm">
+        <span className="font-mono text-sm font-semibold text-white">
+          {mm}:{ss}
+        </span>
+        <button
+          onClick={() => setRunning((r) => !r)}
+          className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40"
+        >
+          {running ? "Pause" : "Resume"}
+        </button>
+        <button onClick={reset} className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40">
+          Reset
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-sm">
+      <input
+        type="number"
+        min={1}
+        max={180}
+        value={minutes}
+        onChange={(e) => setMinutes(Math.max(1, Number(e.target.value) || 1))}
+        className="w-10 rounded bg-white/25 px-1 py-0.5 text-center text-xs text-white outline-none"
+      />
+      <span className="text-xs text-white/80">min</span>
+      <button onClick={start} className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40">
+        Start
+      </button>
+    </div>
   )
 }
 
@@ -140,10 +340,10 @@ function BouncingTitle({ text }: { text: string }) {
   }, [])
 
   return (
-    <div ref={boxRef} className="relative h-24 w-full overflow-hidden rounded-xl bg-[var(--background)] sm:h-32">
+    <div ref={boxRef} className="relative h-16 w-full overflow-hidden rounded-xl sm:h-20">
       <h1
         ref={textRef}
-        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-[var(--ink)] md:text-4xl"
+        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)] md:text-4xl"
       >
         {text}
       </h1>
@@ -160,8 +360,17 @@ const STREAMS = [
   { id: "ydYDqZQpim8", label: "Namibia" },
 ]
 
+const RADIO_STATIONS = [
+  { id: "kalx", label: "KALX", src: "https://www.kalx.berkeley.edu/media/live-streaming/" },
+  { id: "kalw", label: "KALW", src: "https://www.kalw.org/listen-to-kalw" },
+  { id: "kfjc", label: "KFJC", src: "https://kfjc.org/listen/" },
+  { id: "kpoo", label: "KPOO", src: "https://kpoo.com/stream" },
+]
+
 function DashboardContent() {
   const [streamId, setStreamId] = useState(STREAMS[0].id)
+  const [radioId, setRadioId] = useState(RADIO_STATIONS[0].id)
+  const radioStation = RADIO_STATIONS.find((s) => s.id === radioId)!
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -194,8 +403,11 @@ function DashboardContent() {
           </aside>
 
           <div className="min-w-0">
-            <header className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm md:p-8">
-              <p className="mb-4 text-[var(--ink-muted)]">{today}</p>
+            <header className="mx-auto mb-8 max-w-xl rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
+              <div className="mb-2 flex items-center justify-between gap-3">
+                <p className="text-sm text-white/80">{today}</p>
+                <HeaderTimer />
+              </div>
               <BouncingTitle text="Madrone’s Dashboard" />
             </header>
 
@@ -203,15 +415,9 @@ function DashboardContent() {
               <h2 className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
                 Current Projects
               </h2>
-              <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-2">
+              <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
                 {PROJECT_LINKS.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-1.5 text-xs font-medium text-[var(--ink-muted)] shadow-sm transition-colors hover:text-[var(--ink)]"
-                  >
+                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className={KEY_CLASS}>
                     {link.label}
                   </a>
                 ))}
@@ -220,16 +426,12 @@ function DashboardContent() {
 
             <section className="mt-10">
               <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
-              <div className="mx-auto mb-4 flex max-w-3xl flex-wrap justify-center gap-2">
+              <div className="mx-auto mb-4 flex max-w-3xl flex-wrap justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
                 {STREAMS.map((stream) => (
                   <button
                     key={stream.id}
                     onClick={() => setStreamId(stream.id)}
-                    className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
-                      streamId === stream.id
-                        ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--primary-foreground)]"
-                        : "border-[var(--border)] bg-[var(--card)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
-                    }`}
+                    className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
                   >
                     {stream.label}
                   </button>
@@ -246,6 +448,39 @@ function DashboardContent() {
                   referrerPolicy="strict-origin-when-cross-origin"
                 />
               </div>
+            </section>
+
+            <section className="mt-10">
+              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Radio</h2>
+              <div className="mx-auto mb-4 flex max-w-3xl flex-wrap justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
+                {RADIO_STATIONS.map((station) => (
+                  <button
+                    key={station.id}
+                    onClick={() => setRadioId(station.id)}
+                    className={radioId === station.id ? KEY_CLASS_PRESSED : KEY_CLASS}
+                  >
+                    {station.label}
+                  </button>
+                ))}
+              </div>
+              <div className="mx-auto max-w-3xl overflow-hidden rounded-xl border border-[var(--border)] shadow-sm">
+                <iframe
+                  key={radioStation.id}
+                  className="h-[240px] w-full"
+                  src={radioStation.src}
+                  title={`${radioStation.label} live stream`}
+                  allow="autoplay"
+                  loading="lazy"
+                />
+              </div>
+              <p className="mx-auto mt-3 max-w-3xl text-center text-xs text-[var(--ink-muted)]">
+                Embeds {radioStation.label}&rsquo;s own player from its website — press play there if it doesn&rsquo;t
+                start automatically. If a station refuses to load here, use the{" "}
+                <a href="/dashboard/radio" className="underline hover:text-[var(--ink)]">
+                  Radio tab
+                </a>{" "}
+                to open it directly instead.
+              </p>
             </section>
 
             <section className="mt-10">
