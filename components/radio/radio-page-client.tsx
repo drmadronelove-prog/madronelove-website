@@ -68,7 +68,7 @@ export function RadioPageClient() {
 
   if (!unlocked) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[var(--background)] px-6 text-center">
+      <div className="dashboard-theme flex min-h-screen items-center justify-center bg-[var(--background)] px-6 text-center">
         <p className="text-[var(--ink-muted)]">
           This page is part of Madrone&rsquo;s private dashboard.
           <br />
@@ -81,7 +81,7 @@ export function RadioPageClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--background)] px-6 py-12">
+    <div className="dashboard-theme min-h-screen bg-[var(--background)] px-6 py-12">
       <div className="mx-auto max-w-3xl">
         <Link href="/dashboard" className="text-sm text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]">
           &larr; Back to dashboard

@@ -11,7 +11,6 @@ import {
   ClipboardCheck,
   Sparkles,
   Landmark,
-  Lock,
   Gem,
   Bot,
   Radio,
@@ -50,7 +49,7 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
       { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
       { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
-      { label: "Olive Clinical Assessment Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
+      { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
       { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
     ],
   },
@@ -154,13 +153,14 @@ function BouncingTitle({ text }: { text: string }) {
 
 const STREAMS = [
   { id: "CXYr04BWvmc", label: "Bay Bridge" },
-  { id: "vytmBNhc9ig", label: "Namibia" },
+  { id: "vytmBNhc9ig", label: "Outer Space" },
   { id: "AwwY_FB2WPU", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
   { id: "CijNX_Wsdbo", label: "San Francisco" },
+  { id: "ydYDqZQpim8", label: "Namibia" },
 ]
 
-function DashboardContent({ onLock }: { onLock: () => void }) {
+function DashboardContent() {
   const [streamId, setStreamId] = useState(STREAMS[0].id)
 
   const today = new Date().toLocaleDateString("en-US", {
@@ -170,13 +170,16 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
   })
 
   return (
-    <div className="min-h-screen bg-[var(--background)] px-6 py-12">
+    <div
+      className="dashboard-theme min-h-screen bg-[var(--background)] bg-cover bg-center bg-fixed px-6 py-12"
+      style={{ backgroundImage: "url('/pixelpro-vibes-wPwkjUNkR5I-unsplash.jpg')" }}
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
           <aside className="lg:sticky lg:top-8">
             {TILE_SECTIONS.map((section) => (
               <div key={section.title} className="mb-6">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
+                <p className="mb-3 inline-block rounded-full bg-[var(--card)]/90 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--olive)] shadow-sm">
                   {section.title}
                 </p>
                 <nav className="flex flex-col gap-2.5">
@@ -192,16 +195,7 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
 
           <div className="min-w-0">
             <header className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm md:p-8">
-              <div className="mb-4 flex items-start justify-between">
-                <p className="text-[var(--ink-muted)]">{today}</p>
-                <button
-                  onClick={onLock}
-                  className="flex shrink-0 items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-xs text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
-                >
-                  <Lock className="h-3.5 w-3.5" />
-                  Lock
-                </button>
-              </div>
+              <p className="mb-4 text-[var(--ink-muted)]">{today}</p>
               <BouncingTitle text="Madrone’s Dashboard" />
             </header>
 
@@ -296,12 +290,6 @@ export function DashboardClient() {
       .finally(() => setChecked(true))
   }, [])
 
-  async function lock() {
-    await fetch("/api/dashboard/unlock", { method: "DELETE" })
-    setUnlocked(false)
-    setPassword("")
-  }
-
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     const res = await fetch("/api/dashboard/unlock", {
@@ -322,8 +310,14 @@ export function DashboardClient() {
 
   if (!unlocked) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[var(--background)] px-6">
-        <form onSubmit={handleSubmit} className="w-full max-w-sm text-center">
+      <div
+        className="dashboard-theme flex min-h-screen items-center justify-center bg-[var(--background)] bg-cover bg-center bg-fixed px-6"
+        style={{ backgroundImage: "url('/pixelpro-vibes-wPwkjUNkR5I-unsplash.jpg')" }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 text-center shadow-lg"
+        >
           <p className="font-serif text-2xl text-[var(--ink)]">Madrone&rsquo;s Dashboard</p>
           <p className="mb-6 mt-2 text-[var(--ink-muted)]">Enter the password to continue.</p>
           <input
@@ -348,5 +342,5 @@ export function DashboardClient() {
     )
   }
 
-  return <DashboardContent onLock={lock} />
+  return <DashboardContent />
 }
