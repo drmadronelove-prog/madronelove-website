@@ -18,6 +18,7 @@ import {
   Search,
   Microscope,
   ChevronDown,
+  FolderKanban,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList } from "@/components/dashboard-shopping-list"
@@ -49,7 +50,19 @@ const TILE_SECTIONS: TileSection[] = [
     tiles: [
       { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true, external: true },
       { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true, external: true },
-      { label: "Radio", href: "/dashboard/radio", icon: Radio, configured: true, external: false },
+      {
+        label: "Radio",
+        icon: Radio,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "KALX", href: "https://www.kalx.berkeley.edu/live-streaming", external: true },
+          { label: "KALW", href: "https://www.kalw.org/listen-to-kalw", external: true },
+          { label: "KFJC", href: "https://kfjc.org/listen/", external: true },
+          { label: "KPOO", href: "https://kpoo.com/stream", external: true },
+          { label: "Spotify", href: "https://open.spotify.com/", external: true },
+        ],
+      },
     ],
   },
   {
@@ -67,7 +80,6 @@ const TILE_SECTIONS: TileSection[] = [
         ],
       },
       { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
-      { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
       { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
       {
         label: "Work Tools",
@@ -78,6 +90,17 @@ const TILE_SECTIONS: TileSection[] = [
           { label: "Kagi", href: "https://kagi.com/", external: true },
           { label: "Claude", href: "https://claude.ai/", external: true },
           { label: "Open Evidence", href: "https://www.openevidence.com/", external: true },
+        ],
+      },
+      {
+        label: "Current Projects",
+        icon: FolderKanban,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "Book Club", href: "https://madronelove.com/bookclub", external: true },
+          { label: "Sati Dashboard", href: "https://drmadronelove-prog.github.io/Satistudies/#", external: true },
+          { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", external: true },
         ],
       },
     ],
@@ -92,20 +115,17 @@ const TILE_SECTIONS: TileSection[] = [
   },
 ]
 
-const PROJECT_LINKS = [
-  { label: "Book Club", href: "https://madronelove.com/bookclub" },
-  { label: "Sati Dashboard", href: "https://drmadronelove-prog.github.io/Satistudies/#" },
-  { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform" },
-]
-
 const KEY_CLASS =
   "rounded-full border border-white/10 bg-gradient-to-b from-[var(--clay)] to-[var(--olive)] px-4 py-2 text-xs font-semibold text-white shadow-[0_3px_0_rgba(0,0,0,0.4),0_6px_12px_-2px_rgba(0,0,0,0.4)] transition-all duration-100 hover:brightness-110 active:translate-y-[3px] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.5)]"
 
 const KEY_CLASS_PRESSED =
   "translate-y-[3px] rounded-full border border-white/10 bg-gradient-to-b from-[var(--olive)] to-[var(--clay)] px-4 py-2 text-xs font-semibold text-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.55)]"
 
+const PANEL_CLASS =
+  "rounded-2xl border border-white/50 bg-white/80 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(59,31,61,0.06),0_14px_30px_-12px_rgba(59,31,61,0.35)] backdrop-blur-sm"
+
 const TILE_CLASS =
-  "group flex w-full items-center gap-3 rounded-xl border border-white/50 bg-gradient-to-br from-white to-[#FFF1E9] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(59,31,61,0.06),0_4px_10px_-3px_rgba(59,31,61,0.25)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_16px_32px_-12px_rgba(194,38,110,0.5)] active:translate-y-0 active:shadow-[inset_0_2px_6px_rgba(59,31,61,0.3)]"
+  "group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left shadow-[0_1px_0_rgba(255,255,255,0.6)] transition-all duration-150 hover:bg-white hover:shadow-[0_4px_12px_-4px_rgba(194,38,110,0.35)] active:scale-[0.98] active:bg-[var(--olive)]/10"
 
 function DashboardTile({ tile }: { tile: Tile }) {
   const Icon = tile.icon
@@ -170,7 +190,7 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
-            className="rounded-lg border border-[var(--border)] bg-white px-3 py-2 text-sm text-[var(--ink)] shadow-sm transition-colors hover:text-[var(--clay)]"
+            className="rounded-lg bg-[var(--olive)]/5 px-3 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--olive)]/15 hover:text-[var(--clay)]"
           >
             {item.label}
           </a>
@@ -354,23 +374,14 @@ function BouncingTitle({ text }: { text: string }) {
 const STREAMS = [
   { id: "CXYr04BWvmc", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
-  { id: "AwwY_FB2WPU", label: "New York" },
+  { id: "9tS32adLk28", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
   { id: "CijNX_Wsdbo", label: "San Francisco" },
   { id: "ydYDqZQpim8", label: "Namibia" },
 ]
 
-const RADIO_STATIONS = [
-  { id: "kalx", label: "KALX", src: "https://www.kalx.berkeley.edu/media/live-streaming/" },
-  { id: "kalw", label: "KALW", src: "https://www.kalw.org/listen-to-kalw" },
-  { id: "kfjc", label: "KFJC", src: "https://kfjc.org/listen/" },
-  { id: "kpoo", label: "KPOO", src: "https://kpoo.com/stream" },
-]
-
 function DashboardContent() {
   const [streamId, setStreamId] = useState(STREAMS[0].id)
-  const [radioId, setRadioId] = useState(RADIO_STATIONS[0].id)
-  const radioStation = RADIO_STATIONS.find((s) => s.id === radioId)!
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -385,13 +396,13 @@ function DashboardContent() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
-          <aside className="lg:sticky lg:top-8">
+          <aside className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:pr-1">
             {TILE_SECTIONS.map((section) => (
-              <div key={section.title} className="mb-6">
-                <p className="mb-3 inline-block rounded-full bg-[var(--card)]/90 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--olive)] shadow-sm">
+              <div key={section.title} className={`${PANEL_CLASS} mb-6`}>
+                <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
                   {section.title}
                 </p>
-                <nav className="flex flex-col gap-2.5">
+                <nav className="flex flex-col gap-1">
                   {section.tiles.map((tile) => (
                     <DashboardTile key={tile.label} tile={tile} />
                   ))}
@@ -403,84 +414,52 @@ function DashboardContent() {
           </aside>
 
           <div className="min-w-0">
-            <header className="mx-auto mb-8 max-w-xl rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <p className="text-sm text-white/80">{today}</p>
-                <HeaderTimer />
-              </div>
-              <BouncingTitle text="Madrone’s Dashboard" />
-            </header>
+            <div className="mb-8 flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-start">
+              <header className="w-full max-w-xl shrink-0 rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
+                <div className="mb-2 flex items-center justify-between gap-3">
+                  <p className="text-sm text-white/80">{today}</p>
+                  <HeaderTimer />
+                </div>
+                <BouncingTitle text="Madrone’s Dashboard" />
+              </header>
 
-            <section>
-              <h2 className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
-                Current Projects
-              </h2>
-              <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
-                {PROJECT_LINKS.map((link) => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className={KEY_CLASS}>
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </section>
-
-            <section className="mt-10">
-              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
-              <div className="mx-auto mb-4 flex max-w-3xl flex-wrap justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
-                {STREAMS.map((stream) => (
-                  <button
-                    key={stream.id}
-                    onClick={() => setStreamId(stream.id)}
-                    className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
-                  >
-                    {stream.label}
-                  </button>
-                ))}
-              </div>
-              <div className="mx-auto aspect-video max-w-3xl overflow-hidden rounded-xl border border-[var(--border)] shadow-sm">
+              <div className="w-72 max-w-[90vw] shrink-0 overflow-hidden rounded-2xl border border-white/50 shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
                 <iframe
-                  key={streamId}
-                  className="h-full w-full"
-                  src={`https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`}
-                  title="Live stream"
-                  allow="autoplay; encrypted-media; picture-in-picture"
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                />
-              </div>
-            </section>
-
-            <section className="mt-10">
-              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Radio</h2>
-              <div className="mx-auto mb-4 flex max-w-3xl flex-wrap justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
-                {RADIO_STATIONS.map((station) => (
-                  <button
-                    key={station.id}
-                    onClick={() => setRadioId(station.id)}
-                    className={radioId === station.id ? KEY_CLASS_PRESSED : KEY_CLASS}
-                  >
-                    {station.label}
-                  </button>
-                ))}
-              </div>
-              <div className="mx-auto max-w-3xl overflow-hidden rounded-xl border border-[var(--border)] shadow-sm">
-                <iframe
-                  key={radioStation.id}
-                  className="h-[240px] w-full"
-                  src={radioStation.src}
-                  title={`${radioStation.label} live stream`}
+                  className="h-[380px] w-full"
+                  src="https://kpoo.com/stream"
+                  title="KPOO 89.5 live stream"
                   allow="autoplay"
                   loading="lazy"
                 />
               </div>
-              <p className="mx-auto mt-3 max-w-3xl text-center text-xs text-[var(--ink-muted)]">
-                Embeds {radioStation.label}&rsquo;s own player from its website — press play there if it doesn&rsquo;t
-                start automatically. If a station refuses to load here, use the{" "}
-                <a href="/dashboard/radio" className="underline hover:text-[var(--ink)]">
-                  Radio tab
-                </a>{" "}
-                to open it directly instead.
-              </p>
+            </div>
+
+            <section className="mt-10">
+              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
+              <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
+                <div className="mb-4 flex flex-wrap justify-center gap-3">
+                  {STREAMS.map((stream) => (
+                    <button
+                      key={stream.id}
+                      onClick={() => setStreamId(stream.id)}
+                      className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
+                    >
+                      {stream.label}
+                    </button>
+                  ))}
+                </div>
+                <div className="aspect-video overflow-hidden rounded-xl border border-white/10 shadow-sm">
+                  <iframe
+                    key={streamId}
+                    className="h-full w-full"
+                    src={`https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`}
+                    title="Live stream"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
+                </div>
+              </div>
             </section>
 
             <section className="mt-10">
