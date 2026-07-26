@@ -16,7 +16,6 @@ import {
   Bot,
   Radio,
   BookOpen,
-  Music,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList } from "@/components/dashboard-shopping-list"
@@ -29,21 +28,46 @@ type Tile = {
   external?: boolean
 }
 
-const TILES: Tile[] = [
-  { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true, external: true },
-  { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true, external: true },
-  { label: "Flow Club", href: "https://www.flow.club/", icon: Users, configured: true, external: true },
-  { label: "Claude", href: "https://claude.ai/", icon: Bot, configured: true, external: true },
-  { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
-  { label: "Spotify", href: "https://open.spotify.com/", icon: Music, configured: true, external: true },
-  { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
-  { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
-  { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
-  { label: "Olive Clinical Assessment Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
-  { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
-  { label: "Glow Up", href: "/dashboard/glow-up", icon: Gem, configured: true, external: false },
-  { label: "Radio", href: "/dashboard/radio", icon: Radio, configured: true, external: false },
-  { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
+type TileSection = {
+  title: string
+  tiles: Tile[]
+}
+
+const TILE_SECTIONS: TileSection[] = [
+  {
+    title: "Morning",
+    tiles: [
+      { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true, external: true },
+      { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true, external: true },
+      { label: "Radio", href: "/dashboard/radio", icon: Radio, configured: true, external: false },
+    ],
+  },
+  {
+    title: "Work",
+    tiles: [
+      { label: "Flow Club", href: "https://www.flow.club/", icon: Users, configured: true, external: true },
+      { label: "Claude", href: "https://claude.ai/", icon: Bot, configured: true, external: true },
+      { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
+      { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
+      { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
+      { label: "Olive Clinical Assessment Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
+      { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
+    ],
+  },
+  {
+    title: "Personal Life",
+    tiles: [
+      { label: "Glow Up", href: "/dashboard/glow-up", icon: Gem, configured: true, external: false },
+      { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
+      { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
+    ],
+  },
+]
+
+const PROJECT_LINKS = [
+  { label: "Book Club", href: "https://madronelove.com/bookclub" },
+  { label: "Sati Dashboard", href: "https://drmadronelove-prog.github.io/Satistudies/#" },
+  { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform" },
 ]
 
 function DashboardTile({ tile }: { tile: Tile }) {
@@ -150,12 +174,18 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
           <aside className="lg:sticky lg:top-8">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">Quicklinks</p>
-            <nav className="flex flex-col gap-2.5">
-              {TILES.map((tile) => (
-                <DashboardTile key={tile.label} tile={tile} />
-              ))}
-            </nav>
+            {TILE_SECTIONS.map((section) => (
+              <div key={section.title} className="mb-6">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
+                  {section.title}
+                </p>
+                <nav className="flex flex-col gap-2.5">
+                  {section.tiles.map((tile) => (
+                    <DashboardTile key={tile.label} tile={tile} />
+                  ))}
+                </nav>
+              </div>
+            ))}
 
             <DashboardShoppingList />
           </aside>
@@ -174,6 +204,25 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
               </div>
               <BouncingTitle text="Madrone’s Dashboard" />
             </header>
+
+            <section>
+              <h2 className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
+                Current Projects
+              </h2>
+              <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-2">
+                {PROJECT_LINKS.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-1.5 text-xs font-medium text-[var(--ink-muted)] shadow-sm transition-colors hover:text-[var(--ink)]"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </section>
 
             <section className="mt-10">
               <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>

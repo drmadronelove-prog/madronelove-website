@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Radio as RadioIcon } from "lucide-react"
+import { Radio as RadioIcon, Music } from "lucide-react"
 
 type Station = {
   call: string
@@ -10,6 +10,7 @@ type Station = {
   city: string
   desc: string
   href: string
+  icon?: typeof RadioIcon
 }
 
 const STATIONS: Station[] = [
@@ -40,6 +41,14 @@ const STATIONS: Station[] = [
     city: "San Francisco",
     desc: "Independent community radio since 1971.",
     href: "https://kpoo.com/stream",
+  },
+  {
+    call: "Spotify",
+    freq: "Streaming",
+    city: "Anywhere",
+    desc: "Playlists and podcasts, on demand.",
+    href: "https://open.spotify.com/",
+    icon: Music,
   },
 ]
 
@@ -84,26 +93,29 @@ export function RadioPageClient() {
         </header>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {STATIONS.map((station) => (
-            <a
-              key={station.call}
-              href={station.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div className="flex items-center gap-2 text-[var(--olive)] transition-colors group-hover:text-[var(--clay)]">
-                <RadioIcon className="h-5 w-5" />
-                <span className="text-xs font-semibold uppercase tracking-widest">{station.freq}</span>
-              </div>
-              <div className="font-serif text-2xl text-[var(--ink)]">{station.call}</div>
-              <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">{station.city}</p>
-              <p className="text-sm text-[var(--ink-muted)]">{station.desc}</p>
-              <span className="mt-2 text-sm font-medium text-[var(--olive)] group-hover:text-[var(--clay)]">
-                Listen live &rarr;
-              </span>
-            </a>
-          ))}
+          {STATIONS.map((station) => {
+            const Icon = station.icon ?? RadioIcon
+            return (
+              <a
+                key={station.call}
+                href={station.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div className="flex items-center gap-2 text-[var(--olive)] transition-colors group-hover:text-[var(--clay)]">
+                  <Icon className="h-5 w-5" />
+                  <span className="text-xs font-semibold uppercase tracking-widest">{station.freq}</span>
+                </div>
+                <div className="font-serif text-2xl text-[var(--ink)]">{station.call}</div>
+                <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">{station.city}</p>
+                <p className="text-sm text-[var(--ink-muted)]">{station.desc}</p>
+                <span className="mt-2 text-sm font-medium text-[var(--olive)] group-hover:text-[var(--clay)]">
+                  Listen live &rarr;
+                </span>
+              </a>
+            )
+          })}
         </div>
       </div>
     </div>
