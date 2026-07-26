@@ -415,7 +415,7 @@ function DashboardContent() {
 
           <div className="min-w-0">
             <div className="mb-8 flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-start">
-              <header className="w-full max-w-xl shrink-0 rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
+              <header className="w-full flex-1 rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
                 <div className="mb-2 flex items-center justify-between gap-3">
                   <p className="text-sm text-white/80">{today}</p>
                   <HeaderTimer />
@@ -423,9 +423,9 @@ function DashboardContent() {
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div className="w-72 max-w-[90vw] shrink-0 overflow-hidden rounded-2xl border border-white/50 shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
+              <div className="aspect-[4/3] w-80 max-w-[90vw] shrink-0 overflow-hidden rounded-2xl border border-white/50 shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
                 <iframe
-                  className="h-[380px] w-full"
+                  className="h-full w-full"
                   src="https://kpoo.com/stream"
                   title="KPOO 89.5 live stream"
                   allow="autoplay"
@@ -435,8 +435,8 @@ function DashboardContent() {
             </div>
 
             <section className="mt-10">
-              <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
               <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
+                <h2 className="mb-4 text-center font-serif text-xl text-white">Live Streams</h2>
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
                   {STREAMS.map((stream) => (
                     <button
