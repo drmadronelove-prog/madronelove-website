@@ -12,6 +12,7 @@ import {
   Sparkles,
   Landmark,
   Lock,
+  HeartHandshake,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 
@@ -20,18 +21,20 @@ type Tile = {
   href: string
   icon: typeof Bike
   configured: boolean
+  external?: boolean
 }
 
 const TILES: Tile[] = [
-  { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true },
-  { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true },
-  { label: "Flow Club", href: "https://www.flow.club/", icon: Users, configured: true },
-  { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true },
-  { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true },
-  { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true },
-  { label: "Olive Clinical Assessment Dashboard", href: "#", icon: ClipboardCheck, configured: false },
-  { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true },
-  { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true },
+  { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true, external: true },
+  { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true, external: true },
+  { label: "Flow Club", href: "https://www.flow.club/", icon: Users, configured: true, external: true },
+  { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
+  { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
+  { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
+  { label: "Olive Clinical Assessment Dashboard", href: "#", icon: ClipboardCheck, configured: false, external: true },
+  { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
+  { label: "Thrive Guide", href: "/dashboard/thrive", icon: HeartHandshake, configured: true, external: false },
+  { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
 ]
 
 function DashboardTile({ tile }: { tile: Tile }) {
@@ -39,8 +42,8 @@ function DashboardTile({ tile }: { tile: Tile }) {
   return (
     <a
       href={tile.href}
-      target={tile.configured ? "_blank" : undefined}
-      rel={tile.configured ? "noopener noreferrer" : undefined}
+      target={tile.configured && tile.external ? "_blank" : undefined}
+      rel={tile.configured && tile.external ? "noopener noreferrer" : undefined}
       title={tile.configured ? tile.label : `${tile.label} — link not set yet`}
       onClick={tile.configured ? undefined : (e) => e.preventDefault()}
       className={`group flex flex-col items-center justify-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-7 text-center shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md ${
