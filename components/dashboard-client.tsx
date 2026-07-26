@@ -80,7 +80,6 @@ const TILE_SECTIONS: TileSection[] = [
         ],
       },
       { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
-      { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
       {
         label: "Work Tools",
         icon: Briefcase,
@@ -111,6 +110,7 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "Glow Up", href: "/dashboard/glow-up", icon: Gem, configured: true, external: false },
       { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
       { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
+      { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
     ],
   },
 ]
@@ -315,7 +315,7 @@ function BouncingTitle({ text }: { text: string }) {
   const boxRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLHeadingElement>(null)
   const posRef = useRef({ x: 12, y: 8 })
-  const velRef = useRef({ x: 1.3, y: 1.0 })
+  const velRef = useRef({ x: 1.105, y: 0.85 })
 
   useEffect(() => {
     let frameId: number
@@ -360,7 +360,7 @@ function BouncingTitle({ text }: { text: string }) {
   }, [])
 
   return (
-    <div ref={boxRef} className="relative h-20 w-full overflow-hidden rounded-xl sm:h-24">
+    <div ref={boxRef} className="relative h-24 w-full overflow-hidden rounded-xl sm:h-28">
       <h1
         ref={textRef}
         className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)] md:text-4xl"
@@ -424,7 +424,7 @@ function DashboardContent() {
           </aside>
 
           <div className="min-w-0">
-            <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
+            <div className="mb-8 flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-start">
               <header className="flex w-full flex-col justify-center rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] lg:flex-[4_4_0%]">
                 <div className="mb-2 flex items-center justify-between gap-3">
                   <p className="text-sm text-white/80">{today}</p>
@@ -433,13 +433,13 @@ function DashboardContent() {
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div className="flex w-full max-w-[90vw] flex-col overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)] lg:w-auto lg:flex-[1_1_0%]">
-                <div className="flex shrink-0">
+              <div className="w-full max-w-[90vw] overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)] lg:w-auto lg:min-w-[220px] lg:flex-[1_1_0%]">
+                <div className="flex">
                   {HEADER_RADIO_STATIONS.map((station) => (
                     <button
                       key={station.id}
                       onClick={() => setHeaderStationId(station.id)}
-                      className={`flex-1 px-3 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                      className={`flex-1 whitespace-nowrap px-2 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
                         headerStationId === station.id
                           ? "bg-[var(--olive)] text-white"
                           : "bg-[var(--background)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
@@ -450,14 +450,14 @@ function DashboardContent() {
                   ))}
                 </div>
                 {headerStation.kind === "audio" ? (
-                  <div className="flex flex-1 flex-col items-center justify-center gap-3 p-4">
+                  <div className="flex flex-col items-center gap-3 p-4">
                     <p className="font-serif text-lg text-[var(--ink)]">{headerStation.label}</p>
                     <audio key={headerStation.id} controls autoPlay className="w-full" src={headerStation.src}>
                       Your browser does not support the audio element.
                     </audio>
                   </div>
                 ) : (
-                  <div className="min-h-[160px] flex-1">
+                  <div className="aspect-video">
                     <iframe
                       key={headerStation.id}
                       className="h-full w-full"
