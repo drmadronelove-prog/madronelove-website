@@ -1,0 +1,140 @@
+"use client"
+
+import { useEffect, useState, type FormEvent } from "react"
+import { CircleCheck, Circle, Plus } from "lucide-react"
+
+type Task = {
+  id: string
+  title: string
+  notes?: string
+  due?: string
+  status: "needsAction" | "completed"
+}
+
+export function DashboardTasks() {
+  const [tasks, setTasks] = useState<Task[] | null>(null)
+  const [error, setError] = useState("")
+  const [newTitle, setNewTitle] = useState("")
+  const [adding, setAdding] = useState(false)
+
+  async function load() {
+    setError("")
+    const res = await fetch("/api/tasks")
+    const data = await res.json()
+    if (!res.ok) {
+      setError(data.error || "Couldn't load tasks.")
+      setTasks(null)
+      return
+    }
+    setTasks(data.tasks)
+  }
+
+  useEffect(() => {
+    load()
+  }, [])
+
+  async function toggle(task: Task) {
+    const nextCompleted = task.status !== "completed"
+    setTasks((prev) =>
+      prev?.map((t) => (t.id === task.id ? { ...t, status: nextCompleted ? "completed" : "needsAction" } : t)) ?? null
+    )
+    const res = await fetch(`/api/tasks/${encodeURIComponent(task.id)}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ completed: nextCompleted }),
+    })
+    if (!res.ok) load() // revert by re-fetching on failure
+  }
+
+  async function handleAdd(e: FormEvent) {
+    e.preventDefault()
+    const title = newTitle.trim()
+    if (!title) return
+    setAdding(true)
+    const res = await fetch("/api/tasks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title }),
+    })
+    setAdding(false)
+    if (res.ok) {
+      setNewTitle("")
+      load()
+    }
+  }
+
+  if (error) {
+    const notConnected = error.toLowerCase().includes("not connected") || error.toLowerCase().includes("isn't connected")
+    return (
+      <div className="mx-auto max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--ink-muted)]">
+        {notConnected ? (
+          <>
+            Google Tasks isn&rsquo;t connected yet.{" "}
+            <a href="/api/auth/google" className="font-medium text-[var(--olive)] underline">
+              Connect Google Tasks
+            </a>
+          </>
+        ) : (
+          error
+        )}
+      </div>
+    )
+  }
+
+  if (!tasks) {
+    return (
+      <div className="mx-auto max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--ink-muted)]">
+        Loading tasks&hellip;
+      </div>
+    )
+  }
+
+  return (
+    <div className="mx-auto max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm">
+      <form onSubmit={handleAdd} className="mb-4 flex gap-2">
+        <input
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+          placeholder="Add a task"
+          className="flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
+        />
+        <button
+          type="submit"
+          disabled={adding}
+          className="flex items-center gap-1 rounded-md bg-[var(--ink)] px-3 py-2 text-sm text-[var(--primary-foreground)] transition hover:opacity-90 disabled:opacity-50"
+        >
+          <Plus className="h-4 w-4" />
+          Add
+        </button>
+      </form>
+
+      {tasks.length === 0 ? (
+        <p className="text-center text-sm text-[var(--ink-muted)]">No tasks. Nice.</p>
+      ) : (
+        <ul className="flex flex-col gap-1">
+          {tasks.map((task) => (
+            <li key={task.id}>
+              <button
+                onClick={() => toggle(task)}
+                className="flex w-full items-center gap-3 rounded-md px-2 py-2 text-left transition-colors hover:bg-[var(--background)]"
+              >
+                {task.status === "completed" ? (
+                  <CircleCheck className="h-5 w-5 shrink-0 text-[var(--olive)]" />
+                ) : (
+                  <Circle className="h-5 w-5 shrink-0 text-[var(--ink-muted)]" />
+                )}
+                <span
+                  className={`text-sm ${
+                    task.status === "completed" ? "text-[var(--ink-muted)] line-through" : "text-[var(--ink)]"
+                  }`}
+                >
+                  {task.title}
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
