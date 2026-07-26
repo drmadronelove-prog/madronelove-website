@@ -70,10 +70,10 @@ function DashboardTile({ tile }: { tile: Tile }) {
 
 const STREAMS = [
   { id: "CXYr04BWvmc", label: "Bay Bridge" },
-  { id: "vytmBNhc9ig", label: "Earth Live (ISS)" },
-  { id: "AwwY_FB2WPU", label: "Live Stream 2" },
-  { id: "iMqrD-HBDGo", label: "Live Stream 3" },
-  { id: "CijNX_Wsdbo", label: "Live Stream 4" },
+  { id: "vytmBNhc9ig", label: "Namibia" },
+  { id: "AwwY_FB2WPU", label: "New York" },
+  { id: "iMqrD-HBDGo", label: "Norway" },
+  { id: "CijNX_Wsdbo", label: "San Francisco" },
 ]
 
 function DashboardContent({ onLock }: { onLock: () => void }) {
