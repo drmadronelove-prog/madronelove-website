@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, type FormEvent } from "react"
+import { useEffect, useRef, useState, type FormEvent } from "react"
 import {
   Bike,
   Flower2,
@@ -68,6 +68,66 @@ function DashboardTile({ tile }: { tile: Tile }) {
   )
 }
 
+function BouncingTitle({ text }: { text: string }) {
+  const boxRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLHeadingElement>(null)
+  const posRef = useRef({ x: 12, y: 8 })
+  const velRef = useRef({ x: 1.3, y: 1.0 })
+
+  useEffect(() => {
+    let frameId: number
+
+    function tick() {
+      const box = boxRef.current
+      const el = textRef.current
+      if (box && el) {
+        const maxX = Math.max(0, box.clientWidth - el.offsetWidth)
+        const maxY = Math.max(0, box.clientHeight - el.offsetHeight)
+        let { x, y } = posRef.current
+        let { x: vx, y: vy } = velRef.current
+
+        x += vx
+        y += vy
+
+        if (x <= 0) {
+          x = 0
+          vx = Math.abs(vx)
+        } else if (x >= maxX) {
+          x = maxX
+          vx = -Math.abs(vx)
+        }
+
+        if (y <= 0) {
+          y = 0
+          vy = Math.abs(vy)
+        } else if (y >= maxY) {
+          y = maxY
+          vy = -Math.abs(vy)
+        }
+
+        posRef.current = { x, y }
+        velRef.current = { x: vx, y: vy }
+        el.style.transform = `translate(${x}px, ${y}px)`
+      }
+      frameId = requestAnimationFrame(tick)
+    }
+
+    frameId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frameId)
+  }, [])
+
+  return (
+    <div ref={boxRef} className="relative h-24 w-full overflow-hidden rounded-xl bg-[var(--background)] sm:h-32">
+      <h1
+        ref={textRef}
+        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-[var(--ink)] md:text-4xl"
+      >
+        {text}
+      </h1>
+    </div>
+  )
+}
+
 const STREAMS = [
   { id: "CXYr04BWvmc", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Namibia" },
@@ -101,18 +161,18 @@ function DashboardContent({ onLock }: { onLock: () => void }) {
           </aside>
 
           <div className="min-w-0">
-            <header className="mb-8 flex items-start justify-between rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm md:p-8">
-              <div>
-                <h1 className="font-serif text-3xl text-[var(--ink)] md:text-4xl">Madrone&rsquo;s Dashboard</h1>
-                <p className="mt-1 text-[var(--ink-muted)]">{today}</p>
+            <header className="mb-8 rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm md:p-8">
+              <div className="mb-4 flex items-start justify-between">
+                <p className="text-[var(--ink-muted)]">{today}</p>
+                <button
+                  onClick={onLock}
+                  className="flex shrink-0 items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-xs text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
+                >
+                  <Lock className="h-3.5 w-3.5" />
+                  Lock
+                </button>
               </div>
-              <button
-                onClick={onLock}
-                className="flex shrink-0 items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-xs text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
-              >
-                <Lock className="h-3.5 w-3.5" />
-                Lock
-              </button>
+              <BouncingTitle text="Madrone’s Dashboard" />
             </header>
 
             <section className="mt-10">
