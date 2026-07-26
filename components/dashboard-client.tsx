@@ -14,6 +14,7 @@ import {
   Lock,
   Gem,
   Bot,
+  Radio,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 
@@ -36,6 +37,7 @@ const TILES: Tile[] = [
   { label: "Olive Clinical Assessment Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
   { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
   { label: "Glow Up", href: "/dashboard/glow-up", icon: Gem, configured: true, external: false },
+  { label: "Radio", href: "/dashboard/radio", icon: Radio, configured: true, external: false },
   { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
 ]
 
