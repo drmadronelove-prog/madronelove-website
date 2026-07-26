@@ -383,7 +383,7 @@ const STREAMS = [
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
 
 const HEADER_RADIO_STATIONS: HeaderStation[] = [
-  { id: "kalx", label: "KALX", kind: "audio", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
+  { id: "kalx", label: "KALX", kind: "iframe", src: "https://kalx.berkeley.edu/media/live-streaming/" },
   { id: "kpoo", label: "KPOO", kind: "audio", src: "https://kpoo.streamguys1.com/xstream" },
   { id: "kfjc", label: "KFJC", kind: "iframe", src: "https://kfjc.org/player/" },
 ]
