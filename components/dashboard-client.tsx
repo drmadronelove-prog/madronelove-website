@@ -380,12 +380,12 @@ const STREAMS = [
   { id: "ydYDqZQpim8", label: "Namibia" },
 ]
 
-type HeaderStation = { id: string; label: string; src: string }
+type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
 
 const HEADER_RADIO_STATIONS: HeaderStation[] = [
-  { id: "kalx", label: "KALX", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
-  { id: "kpoo", label: "KPOO", src: "https://kpoo.streamguys1.com/xstream" },
-  { id: "kfjc", label: "KFJC", src: "https://kfjc.org/listen/netcast/kfjc_320.m3u" },
+  { id: "kalx", label: "KALX", kind: "audio", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
+  { id: "kpoo", label: "KPOO", kind: "audio", src: "https://kpoo.streamguys1.com/xstream" },
+  { id: "kfjc", label: "KFJC", kind: "iframe", src: "https://kfjc.org/player/" },
 ]
 
 function DashboardContent() {
@@ -424,8 +424,8 @@ function DashboardContent() {
           </aside>
 
           <div className="min-w-0">
-            <div className="mb-8 flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-start">
-              <header className="w-full flex-1 rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
+            <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
+              <header className="flex w-full flex-1 flex-col justify-center rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
                 <div className="mb-2 flex items-center justify-between gap-3">
                   <p className="text-sm text-white/80">{today}</p>
                   <HeaderTimer />
@@ -433,8 +433,8 @@ function DashboardContent() {
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div className="w-80 max-w-[90vw] shrink-0 overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
-                <div className="flex">
+              <div className="flex w-80 max-w-[90vw] shrink-0 flex-col overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
+                <div className="flex shrink-0">
                   {HEADER_RADIO_STATIONS.map((station) => (
                     <button
                       key={station.id}
@@ -449,12 +449,25 @@ function DashboardContent() {
                     </button>
                   ))}
                 </div>
-                <div className="flex flex-col items-center gap-3 p-4">
-                  <p className="font-serif text-lg text-[var(--ink)]">{headerStation.label}</p>
-                  <audio key={headerStation.id} controls autoPlay className="w-full" src={headerStation.src}>
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
+                {headerStation.kind === "audio" ? (
+                  <div className="flex flex-1 flex-col items-center justify-center gap-3 p-4">
+                    <p className="font-serif text-lg text-[var(--ink)]">{headerStation.label}</p>
+                    <audio key={headerStation.id} controls autoPlay className="w-full" src={headerStation.src}>
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                ) : (
+                  <div className="min-h-[160px] flex-1">
+                    <iframe
+                      key={headerStation.id}
+                      className="h-full w-full"
+                      src={headerStation.src}
+                      title={`${headerStation.label} live stream`}
+                      allow="autoplay"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
               </div>
             </div>
 
