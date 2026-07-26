@@ -380,8 +380,18 @@ const STREAMS = [
   { id: "ydYDqZQpim8", label: "Namibia" },
 ]
 
+type HeaderStation = { id: string; label: string; src: string }
+
+const HEADER_RADIO_STATIONS: HeaderStation[] = [
+  { id: "kalx", label: "KALX", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
+  { id: "kpoo", label: "KPOO", src: "https://kpoo.streamguys1.com/xstream" },
+  { id: "kfjc", label: "KFJC", src: "https://kfjc.org/listen/netcast/kfjc_320.m3u" },
+]
+
 function DashboardContent() {
   const [streamId, setStreamId] = useState(STREAMS[0].id)
+  const [headerStationId, setHeaderStationId] = useState(HEADER_RADIO_STATIONS[0].id)
+  const headerStation = HEADER_RADIO_STATIONS.find((s) => s.id === headerStationId)!
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -423,14 +433,28 @@ function DashboardContent() {
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div className="aspect-[4/3] w-80 max-w-[90vw] shrink-0 overflow-hidden rounded-2xl border border-white/50 shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
-                <iframe
-                  className="h-full w-full"
-                  src="https://kpoo.com/stream"
-                  title="KPOO 89.5 live stream"
-                  allow="autoplay"
-                  loading="lazy"
-                />
+              <div className="w-80 max-w-[90vw] shrink-0 overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
+                <div className="flex">
+                  {HEADER_RADIO_STATIONS.map((station) => (
+                    <button
+                      key={station.id}
+                      onClick={() => setHeaderStationId(station.id)}
+                      className={`flex-1 px-3 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                        headerStationId === station.id
+                          ? "bg-[var(--olive)] text-white"
+                          : "bg-[var(--background)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
+                      }`}
+                    >
+                      {station.label}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex flex-col items-center gap-3 p-4">
+                  <p className="font-serif text-lg text-[var(--ink)]">{headerStation.label}</p>
+                  <audio key={headerStation.id} controls autoPlay className="w-full" src={headerStation.src}>
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
               </div>
             </div>
 
