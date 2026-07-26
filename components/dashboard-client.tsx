@@ -360,7 +360,7 @@ function BouncingTitle({ text }: { text: string }) {
   }, [])
 
   return (
-    <div ref={boxRef} className="relative h-16 w-full overflow-hidden rounded-xl sm:h-20">
+    <div ref={boxRef} className="relative h-20 w-full overflow-hidden rounded-xl sm:h-24">
       <h1
         ref={textRef}
         className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)] md:text-4xl"
@@ -383,7 +383,7 @@ const STREAMS = [
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
 
 const HEADER_RADIO_STATIONS: HeaderStation[] = [
-  { id: "kalx", label: "KALX", kind: "iframe", src: "https://kalx.berkeley.edu/media/live-streaming/" },
+  { id: "kalx", label: "KALX", kind: "audio", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
   { id: "kpoo", label: "KPOO", kind: "audio", src: "https://kpoo.streamguys1.com/xstream" },
   { id: "kfjc", label: "KFJC", kind: "iframe", src: "https://kfjc.org/player/" },
 ]
@@ -425,7 +425,7 @@ function DashboardContent() {
 
           <div className="min-w-0">
             <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
-              <header className="flex w-full flex-1 flex-col justify-center rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
+              <header className="flex w-full flex-col justify-center rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] lg:flex-[4_4_0%]">
                 <div className="mb-2 flex items-center justify-between gap-3">
                   <p className="text-sm text-white/80">{today}</p>
                   <HeaderTimer />
@@ -433,7 +433,7 @@ function DashboardContent() {
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div className="flex w-80 max-w-[90vw] shrink-0 flex-col overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)]">
+              <div className="flex w-full max-w-[90vw] flex-col overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)] lg:w-auto lg:flex-[1_1_0%]">
                 <div className="flex shrink-0">
                   {HEADER_RADIO_STATIONS.map((station) => (
                     <button
@@ -472,7 +472,7 @@ function DashboardContent() {
             </div>
 
             <section className="mt-10">
-              <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
+              <div className="rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
                 <h2 className="mb-4 text-center font-serif text-xl text-white">Live Streams</h2>
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
                   {STREAMS.map((stream) => (
