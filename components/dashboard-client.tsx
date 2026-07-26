@@ -31,7 +31,7 @@ const TILES: Tile[] = [
   { label: "Work Email", href: "https://mail.google.com/mail/?authuser=madrone@madronelove.com", icon: Briefcase, configured: true, external: true },
   { label: "Personal Email", href: "https://mail.google.com/mail/?authuser=drmadrone.love@gmail.com", icon: Mail, configured: true, external: true },
   { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
-  { label: "Olive Clinical Assessment Dashboard", href: "#", icon: ClipboardCheck, configured: false, external: true },
+  { label: "Olive Clinical Assessment Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", icon: ClipboardCheck, configured: true, external: true },
   { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
   { label: "Thrive Guide", href: "/dashboard/thrive", icon: HeartHandshake, configured: true, external: false },
   { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
