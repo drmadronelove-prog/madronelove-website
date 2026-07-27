@@ -310,7 +310,7 @@ function TimeTimerWidget() {
   }
 
   const isActive = running || (remaining > 0 && !done)
-  const percentRemaining = totalSeconds > 0 ? (remaining / 3600) * 100 : 100
+  const percentRemaining = totalSeconds > 0 ? (remaining / totalSeconds) * 100 : 100
   const mm = String(Math.floor(remaining / 60)).padStart(2, "0")
   const ss = String(remaining % 60).padStart(2, "0")
 
