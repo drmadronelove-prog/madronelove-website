@@ -19,6 +19,8 @@ import {
   Microscope,
   ChevronDown,
   FolderKanban,
+  Star,
+  Mountain,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList } from "@/components/dashboard-shopping-list"
@@ -111,6 +113,28 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
       { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
       { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
+      {
+        label: "Judaism",
+        icon: Star,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "Kehilla", href: "https://kehillasynagogue.org/", external: true },
+          { label: "Chochmat HaLev", href: "https://chochmat.org/", external: true },
+          { label: "Wilderness Torah", href: "https://wildernesstorah.org/", external: true },
+          { label: "SVARA", href: "https://svara.org/", external: true },
+        ],
+      },
+      {
+        label: "Buddhism",
+        icon: Mountain,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "Insight Meditation Center", href: "https://www.insightmeditationcenter.org/", external: true },
+          { label: "Insight Retreat Center", href: "https://www.insightretreatcenter.org/", external: true },
+        ],
+      },
     ],
   },
 ]
