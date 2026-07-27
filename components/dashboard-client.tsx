@@ -567,8 +567,10 @@ function DashboardContent() {
             </div>
 
             <section className="mt-4">
-              <div className={PANEL_CLASS}>
-                <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
+              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)]">
+                <h2 className="mb-4 text-center font-serif text-xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)]">
+                  Live Streams
+                </h2>
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
                   {STREAMS.map((stream) => (
                     <button
