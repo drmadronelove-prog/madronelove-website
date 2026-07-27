@@ -168,7 +168,7 @@ const PANEL_SHADOW =
 const PANEL_CLASS = `rounded-2xl border border-white/50 bg-white/80 p-3 ${PANEL_SHADOW} backdrop-blur-sm`
 
 const TILE_CLASS =
-  "group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left shadow-[0_1px_0_rgba(255,255,255,0.6)] transition-all duration-150 hover:bg-white hover:shadow-[0_4px_12px_-4px_rgba(194,38,110,0.35)] active:scale-[0.98] active:bg-[var(--olive)]/10"
+  "group flex w-full items-center gap-3 rounded-lg border border-white/40 bg-white/50 px-3 py-2.5 text-left shadow-[0_1px_0_rgba(255,255,255,0.6),0_6px_14px_-6px_rgba(59,31,61,0.25)] backdrop-blur-sm transition-all duration-150 hover:bg-white/80 hover:shadow-[0_4px_12px_-4px_rgba(194,38,110,0.35)] active:scale-[0.98] active:bg-[var(--olive)]/10"
 
 function DashboardTile({ tile }: { tile: Tile }) {
   const Icon = tile.icon
@@ -233,7 +233,7 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
-            className="rounded-lg bg-[var(--olive)]/5 px-3 py-2 text-sm text-[var(--ink)] transition-colors hover:bg-[var(--olive)]/15 hover:text-[var(--clay)]"
+            className="rounded-lg border border-white/40 bg-white/50 px-3 py-2 text-sm text-[var(--ink)] backdrop-blur-sm transition-colors hover:bg-white/80 hover:text-[var(--clay)]"
           >
             {item.label}
           </a>
@@ -431,7 +431,7 @@ function BouncingTitle({ text }: { text: string }) {
     <div ref={boxRef} className="relative h-28 w-full overflow-hidden rounded-xl sm:h-32">
       <h1
         ref={textRef}
-        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)] md:text-4xl"
+        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-[var(--ink)] [text-shadow:0_1px_0_rgba(255,255,255,0.5)] md:text-4xl"
       >
         {text}
       </h1>
@@ -513,8 +513,10 @@ function DashboardContent() {
 
           <div className="min-w-0">
             <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
-              <header className="flex w-full flex-col justify-center rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] lg:flex-[4_4_0%]">
-                <p className="mb-2 text-sm text-white/80">{today}</p>
+              <header
+                className={`flex w-full flex-col justify-center overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-4 backdrop-blur-sm ${PANEL_SHADOW} lg:flex-[4_4_0%]`}
+              >
+                <p className="mb-2 text-sm text-[var(--ink-muted)]">{today}</p>
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
