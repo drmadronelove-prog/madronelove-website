@@ -451,6 +451,9 @@ const STREAMS = [
   { id: "ydYDqZQpim8", label: "Namibia" },
   { id: "TCpM7RvAVCo", label: "Redwood City" },
   { id: "Vl-IBa9JTH4", label: "Oahu" },
+  { id: "J7ZrIDvqlic", label: "Alaska" },
+  { id: "dfVK7ld38Ys", label: "Tokyo" },
+  { id: "tAWFO8_O_7M", label: "Norway Train" },
 ]
 
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
