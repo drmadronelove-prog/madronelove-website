@@ -312,11 +312,11 @@ function TimeTimerWidget() {
   const ss = String(remaining % 60).padStart(2, "0")
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 p-4">
+    <div className="flex h-full flex-col items-center justify-center gap-2 p-3">
       <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">Timer</p>
 
       <div
-        className="relative flex h-28 w-28 shrink-0 items-center justify-center rounded-full border-4 border-[#D9481F]/30 shadow-inner"
+        className="relative flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-4 border-[#D9481F]/30 shadow-inner"
         style={{
           background:
             isActive || done
@@ -324,8 +324,8 @@ function TimeTimerWidget() {
               : "#F0E6DC",
         }}
       >
-        <div className="flex h-[76px] w-[76px] items-center justify-center rounded-full bg-[var(--card)]">
-          <span className="font-mono text-base font-semibold text-[var(--ink)]">
+        <div className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[var(--card)]">
+          <span className="font-mono text-sm font-semibold text-[var(--ink)]">
             {isActive || done ? `${mm}:${ss}` : `${String(minutes).padStart(2, "0")}:00`}
           </span>
         </div>
@@ -428,10 +428,10 @@ function BouncingTitle({ text }: { text: string }) {
   }, [])
 
   return (
-    <div ref={boxRef} className="relative h-28 w-full overflow-hidden rounded-xl sm:h-32">
+    <div ref={boxRef} className="relative h-full min-h-[6.3rem] w-full flex-1 overflow-hidden rounded-xl sm:min-h-[7.2rem]">
       <h1
         ref={textRef}
-        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-[var(--ink)] [text-shadow:0_1px_0_rgba(255,255,255,0.5)] md:text-4xl"
+        className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)] md:text-4xl"
       >
         {text}
       </h1>
@@ -512,11 +512,9 @@ function DashboardContent() {
           </aside>
 
           <div className="min-w-0">
-            <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
-              <header
-                className={`relative flex w-full flex-col justify-center overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-4 backdrop-blur-sm ${PANEL_SHADOW} lg:flex-[4_4_0%]`}
-              >
-                <p className="absolute left-4 top-4 text-sm text-[var(--ink-muted)]">{today}</p>
+            <div className="mb-4 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
+              <header className="relative flex w-full flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] lg:flex-[4_4_0%]">
+                <p className="absolute left-4 top-4 z-10 text-sm text-white/80">{today}</p>
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
@@ -568,7 +566,7 @@ function DashboardContent() {
               </div>
             </div>
 
-            <section className="mt-10">
+            <section className="mt-4">
               <div className={PANEL_CLASS}>
                 <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
