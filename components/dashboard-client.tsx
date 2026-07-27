@@ -307,7 +307,7 @@ function TimeTimerWidget() {
   }
 
   const isActive = running || (remaining > 0 && !done)
-  const percentRemaining = totalSeconds > 0 ? (remaining / totalSeconds) * 100 : 100
+  const percentRemaining = totalSeconds > 0 ? (remaining / 3600) * 100 : 100
   const mm = String(Math.floor(remaining / 60)).padStart(2, "0")
   const ss = String(remaining % 60).padStart(2, "0")
 
@@ -520,7 +520,7 @@ function DashboardContent() {
 
               <div className="flex w-full max-w-[90vw] flex-col gap-4 lg:w-auto lg:min-w-[220px] lg:flex-[1_1_0%]">
                 <div
-                  className={`overflow-hidden rounded-2xl border border-white/50 bg-white/80 ${PANEL_SHADOW} backdrop-blur-sm`}
+                  className={`overflow-hidden rounded-2xl border border-white/50 bg-white/60 ${PANEL_SHADOW} backdrop-blur-sm`}
                 >
                   <div className="flex">
                     {HEADER_RADIO_STATIONS.map((station) => (
@@ -559,7 +559,7 @@ function DashboardContent() {
                 </div>
 
                 <div
-                  className={`flex-1 overflow-hidden rounded-2xl border border-white/50 bg-white/80 ${PANEL_SHADOW} backdrop-blur-sm`}
+                  className={`flex-1 overflow-hidden rounded-2xl border border-white/50 bg-white/60 ${PANEL_SHADOW} backdrop-blur-sm`}
                 >
                   <TimeTimerWidget />
                 </div>
@@ -567,7 +567,7 @@ function DashboardContent() {
             </div>
 
             <section className="mt-4">
-              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[var(--olive)]/80 via-[var(--clay)]/80 to-[var(--gold)]/80 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] backdrop-blur-sm">
+              <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[var(--olive)]/30 via-[var(--clay)]/30 to-[var(--gold)]/30 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] backdrop-blur-sm">
                 <h2 className="mb-4 text-center font-serif text-xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)]">
                   Live Streams
                 </h2>
