@@ -145,8 +145,10 @@ const KEY_CLASS =
 const KEY_CLASS_PRESSED =
   "translate-y-[3px] rounded-full border border-white/10 bg-gradient-to-b from-[var(--olive)] to-[var(--clay)] px-4 py-2 text-xs font-semibold text-white shadow-[inset_0_2px_5px_rgba(0,0,0,0.55)]"
 
-const PANEL_CLASS =
-  "rounded-2xl border border-white/50 bg-white/80 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),inset_0_-2px_6px_rgba(59,31,61,0.06),0_14px_30px_-12px_rgba(59,31,61,0.35)] backdrop-blur-sm"
+const PANEL_SHADOW =
+  "shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)]"
+
+const PANEL_CLASS = `rounded-2xl border border-white/50 bg-white/80 p-3 ${PANEL_SHADOW} backdrop-blur-sm`
 
 const TILE_CLASS =
   "group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left shadow-[0_1px_0_rgba(255,255,255,0.6)] transition-all duration-150 hover:bg-white hover:shadow-[0_4px_12px_-4px_rgba(194,38,110,0.35)] active:scale-[0.98] active:bg-[var(--olive)]/10"
@@ -432,11 +434,14 @@ function DashboardContent() {
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
           <aside className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:pr-1">
             {TILE_SECTIONS.map((section) => (
-              <div key={section.title} className={`${PANEL_CLASS} mb-6`}>
-                <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
-                  {section.title}
-                </p>
-                <nav className="flex flex-col gap-1">
+              <div key={section.title} className={`${PANEL_CLASS} group/section mb-6`}>
+                <div className="flex items-center justify-between gap-2 px-1">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
+                    {section.title}
+                  </p>
+                  <ChevronDown className="h-3.5 w-3.5 shrink-0 text-[var(--olive)] transition-transform duration-150 group-hover/section:rotate-180" />
+                </div>
+                <nav className="mt-2 hidden flex-col gap-1 group-hover/section:flex">
                   {section.tiles.map((tile) => (
                     <DashboardTile key={tile.label} tile={tile} />
                   ))}
@@ -457,7 +462,9 @@ function DashboardContent() {
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div className="w-full max-w-[90vw] overflow-hidden rounded-2xl border border-white/50 bg-[var(--card)] shadow-[0_20px_45px_-15px_rgba(59,31,61,0.5)] lg:w-auto lg:min-w-[220px] lg:flex-[1_1_0%]">
+              <div
+                className={`w-full max-w-[90vw] overflow-hidden rounded-2xl border border-white/50 bg-white/80 ${PANEL_SHADOW} backdrop-blur-sm lg:w-auto lg:min-w-[220px] lg:flex-[1_1_0%]`}
+              >
                 <div className="flex">
                   {HEADER_RADIO_STATIONS.map((station) => (
                     <button
@@ -496,8 +503,8 @@ function DashboardContent() {
             </div>
 
             <section className="mt-10">
-              <div className="rounded-2xl bg-gradient-to-b from-[#2A1530] to-[#3B1F3D] p-4 shadow-[inset_0_3px_10px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.06)]">
-                <h2 className="mb-4 text-center font-serif text-xl text-white">Live Streams</h2>
+              <div className={PANEL_CLASS}>
+                <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Live Streams</h2>
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
                   {STREAMS.map((stream) => (
                     <button
