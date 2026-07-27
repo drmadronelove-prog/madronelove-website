@@ -110,7 +110,7 @@ function DashboardChecklist({ title, storageKey, pdfFileName, placeholder, empty
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={placeholder}
-          className="flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
+          className="min-w-0 flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
         />
         <button
           type="submit"

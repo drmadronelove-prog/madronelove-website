@@ -116,17 +116,6 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
       { label: "Book Club", href: "https://madronelove.com/bookclub", icon: Book, configured: true, external: false },
       {
-        label: "Finance",
-        icon: Wallet,
-        configured: true,
-        trigger: "click",
-        items: [
-          { label: "Bank of America", href: "https://www.bankofamerica.com/", external: true },
-          { label: "Coinbase", href: "https://www.coinbase.com/", external: true },
-          { label: "Robinhood", href: "https://robinhood.com/", external: true },
-        ],
-      },
-      {
         label: "Dog Friend",
         icon: PawPrint,
         configured: true,
@@ -155,6 +144,14 @@ const TILE_SECTIONS: TileSection[] = [
           { label: "Insight Retreat Center", href: "https://www.insightretreatcenter.org/", external: true },
         ],
       },
+    ],
+  },
+  {
+    title: "Finance",
+    tiles: [
+      { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
+      { label: "Coinbase", href: "https://www.coinbase.com/", icon: Wallet, configured: true, external: true },
+      { label: "Robinhood", href: "https://robinhood.com/", icon: Wallet, configured: true, external: true },
     ],
   },
 ]
