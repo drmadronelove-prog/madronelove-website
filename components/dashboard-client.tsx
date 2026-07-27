@@ -188,9 +188,7 @@ function DashboardTile({ tile }: { tile: Tile }) {
       onClick={tile.configured ? undefined : (e) => e.preventDefault()}
       className={`${TILE_CLASS} ${tile.configured ? "" : "opacity-60 cursor-not-allowed"}`}
     >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--olive)] to-[var(--clay)] shadow-sm transition-transform duration-150 group-hover:scale-110">
-        <Icon className="h-4 w-4 text-white" />
-      </span>
+      <Icon className="h-4 w-4 shrink-0 text-[var(--olive)] transition-transform duration-150 group-hover:scale-110" />
       <span className="text-sm font-medium text-[var(--ink)]">{tile.label}</span>
       {!tile.configured && (
         <span className="ml-auto text-[10px] uppercase tracking-wide text-[var(--ink-muted)]">link needed</span>
@@ -216,9 +214,7 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
         onClick={isHover ? undefined : () => setOpen((v) => !v)}
         className={TILE_CLASS}
       >
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--olive)] to-[var(--clay)] shadow-sm">
-          <Icon className="h-4 w-4 text-white" />
-        </span>
+        <Icon className="h-4 w-4 shrink-0 text-[var(--olive)]" />
         <span className="text-sm font-medium text-[var(--ink)]">{tile.label}</span>
         <ChevronDown
           className={`ml-auto h-4 w-4 shrink-0 text-[var(--ink-muted)] transition-transform duration-150 ${
