@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, type FormEvent } from "react"
+import { createContext, useContext, useEffect, useRef, useState, type FormEvent } from "react"
 import {
   Bike,
   Flower2,
@@ -24,6 +24,8 @@ import {
   Wallet,
   Book,
   PawPrint,
+  X,
+  ExternalLink,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -40,9 +42,14 @@ type Tile = {
   icon: typeof Bike
   configured: boolean
   external?: boolean
+  embed?: boolean
   items?: SubLink[]
   trigger?: "click" | "hover"
 }
+
+const EmbedModalContext = createContext<{ open: (url: string, label: string) => void }>({
+  open: () => {},
+})
 
 type TileSection = {
   title: string
@@ -53,7 +60,7 @@ const TILE_SECTIONS: TileSection[] = [
   {
     title: "Morning",
     tiles: [
-      { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true, external: true },
+      { label: "Peloton", href: "https://members.onepeloton.com/login", icon: Bike, configured: true, embed: true },
       { label: "Meditation", href: "https://www.audiodharma.org/series/22033", icon: Flower2, configured: true, external: true },
       {
         label: "Radio",
@@ -172,9 +179,30 @@ const TILE_CLASS =
 
 function DashboardTile({ tile }: { tile: Tile }) {
   const Icon = tile.icon
+  const { open } = useContext(EmbedModalContext)
 
   if (tile.items) {
     return <DashboardDropdownTile tile={tile} />
+  }
+
+  if (tile.embed) {
+    return (
+      <button
+        type="button"
+        title={tile.configured ? tile.label : `${tile.label} — link not set yet`}
+        onClick={tile.configured ? () => open(tile.href!, tile.label) : undefined}
+        disabled={!tile.configured}
+        className={`${TILE_CLASS} ${tile.configured ? "" : "opacity-60 cursor-not-allowed"}`}
+      >
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--olive)] to-[var(--clay)] shadow-sm transition-transform duration-150 group-hover:scale-110">
+          <Icon className="h-4 w-4 text-white" />
+        </span>
+        <span className="text-sm font-medium text-[var(--ink)]">{tile.label}</span>
+        {!tile.configured && (
+          <span className="ml-auto text-[10px] uppercase tracking-wide text-[var(--ink-muted)]">link needed</span>
+        )}
+      </button>
+    )
   }
 
   return (
@@ -238,6 +266,54 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
             {item.label}
           </a>
         ))}
+      </div>
+    </div>
+  )
+}
+
+function EmbedModal({ url, label, onClose }: { url: string; label: string; onClose: () => void }) {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose()
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [onClose])
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm" onClick={onClose}>
+      <div
+        className="flex h-[85vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-[var(--card)] shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between gap-3 border-b border-[var(--border)] px-4 py-3">
+          <p className="text-sm font-semibold text-[var(--ink)]">{label}</p>
+          <div className="flex items-center gap-3">
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              Open in new tab
+            </a>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close"
+              className="rounded-full p-1 text-[var(--ink-muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--ink)]"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+        <div className="relative flex-1 bg-white">
+          <iframe src={url} title={label} className="h-full w-full" />
+          <p className="pointer-events-none absolute inset-x-0 bottom-2 text-center text-[10px] text-[var(--ink-muted)]">
+            Blank? This site may block embedding — use &ldquo;Open in new tab&rdquo; above.
+          </p>
+        </div>
       </div>
     </div>
   )
@@ -442,11 +518,12 @@ function BouncingTitle({ text }: { text: string }) {
 const STREAMS = [
   { id: "CXYr04BWvmc", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
-  { id: "9tS32adLk28", label: "New York" },
+  { id: "_NmK1u6ZU8U", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
   { id: "CijNX_Wsdbo", label: "San Francisco" },
   { id: "ydYDqZQpim8", label: "Namibia" },
   { id: "TCpM7RvAVCo", label: "Redwood City" },
+  { id: "Vl-IBa9JTH4", label: "Oahu" },
 ]
 
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
@@ -489,6 +566,7 @@ function DashboardContent() {
   const [streamId, setStreamId] = useState(STREAMS[0].id)
   const [headerStationId, setHeaderStationId] = useState(HEADER_RADIO_STATIONS[0].id)
   const headerStation = HEADER_RADIO_STATIONS.find((s) => s.id === headerStationId)!
+  const [embedTarget, setEmbedTarget] = useState<{ url: string; label: string } | null>(null)
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -497,6 +575,7 @@ function DashboardContent() {
   })
 
   return (
+    <EmbedModalContext.Provider value={{ open: (url, label) => setEmbedTarget({ url, label }) }}>
     <div
       className="dashboard-theme min-h-screen bg-[var(--background)] bg-cover bg-center bg-fixed px-6 py-12"
       style={{ backgroundImage: "url('/pixelpro-vibes-wPwkjUNkR5I-unsplash.jpg')" }}
@@ -621,7 +700,12 @@ function DashboardContent() {
           </div>
         </div>
       </div>
+
+      {embedTarget && (
+        <EmbedModal url={embedTarget.url} label={embedTarget.label} onClose={() => setEmbedTarget(null)} />
+      )}
     </div>
+    </EmbedModalContext.Provider>
   )
 }
 
