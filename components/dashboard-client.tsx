@@ -21,9 +21,12 @@ import {
   FolderKanban,
   Star,
   Mountain,
+  Wallet,
+  Book,
+  PawPrint,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
-import { DashboardShoppingList } from "@/components/dashboard-shopping-list"
+import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
 
 type SubLink = {
   label: string
@@ -99,7 +102,6 @@ const TILE_SECTIONS: TileSection[] = [
         configured: true,
         trigger: "click",
         items: [
-          { label: "Book Club", href: "https://madronelove.com/bookclub", external: true },
           { label: "Sati Dashboard", href: "https://drmadronelove-prog.github.io/Satistudies/#", external: true },
           { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", external: true },
         ],
@@ -112,7 +114,25 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "Glow Up", href: "/dashboard/glow-up", icon: Gem, configured: true, external: false },
       { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
       { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
-      { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
+      { label: "Book Club", href: "https://madronelove.com/bookclub", icon: Book, configured: true, external: false },
+      {
+        label: "Finance",
+        icon: Wallet,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "Bank of America", href: "https://www.bankofamerica.com/", external: true },
+          { label: "Coinbase", href: "https://www.coinbase.com/", external: true },
+          { label: "Robinhood", href: "https://robinhood.com/", external: true },
+        ],
+      },
+      {
+        label: "Dog Friend",
+        icon: PawPrint,
+        configured: true,
+        trigger: "click",
+        items: [{ label: "Petfinder", href: "https://www.petfinder.com/", external: true }],
+      },
       {
         label: "Judaism",
         icon: Star,
@@ -414,6 +434,34 @@ const HEADER_RADIO_STATIONS: HeaderStation[] = [
   { id: "kfjc", label: "KFJC", kind: "iframe", src: "https://kfjc.org/player/" },
 ]
 
+function SidebarSectionPanel({ section }: { section: TileSection }) {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className={`${PANEL_CLASS} mb-6`}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between gap-2 px-1"
+      >
+        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">{section.title}</p>
+        <ChevronDown
+          className={`h-3.5 w-3.5 shrink-0 text-[var(--olive)] transition-transform duration-150 ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {open && (
+        <nav className="mt-2 flex flex-col gap-1">
+          {section.tiles.map((tile) => (
+            <DashboardTile key={tile.label} tile={tile} />
+          ))}
+        </nav>
+      )}
+    </div>
+  )
+}
+
 function DashboardContent() {
   const [streamId, setStreamId] = useState(STREAMS[0].id)
   const [headerStationId, setHeaderStationId] = useState(HEADER_RADIO_STATIONS[0].id)
@@ -434,22 +482,11 @@ function DashboardContent() {
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
           <aside className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:pr-1">
             {TILE_SECTIONS.map((section) => (
-              <div key={section.title} className={`${PANEL_CLASS} group/section mb-6`}>
-                <div className="flex items-center justify-between gap-2 px-1">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">
-                    {section.title}
-                  </p>
-                  <ChevronDown className="h-3.5 w-3.5 shrink-0 text-[var(--olive)] transition-transform duration-150 group-hover/section:rotate-180" />
-                </div>
-                <nav className="mt-2 hidden flex-col gap-1 group-hover/section:flex">
-                  {section.tiles.map((tile) => (
-                    <DashboardTile key={tile.label} tile={tile} />
-                  ))}
-                </nav>
-              </div>
+              <SidebarSectionPanel key={section.title} section={section} />
             ))}
 
             <DashboardShoppingList />
+            <DashboardNotes />
           </aside>
 
           <div className="min-w-0">
