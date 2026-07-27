@@ -662,7 +662,7 @@ export function DashboardClient() {
       >
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 text-center shadow-lg"
+          className={`w-full max-w-sm overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-8 text-center backdrop-blur-sm ${PANEL_SHADOW}`}
         >
           <p className="font-serif text-2xl text-[var(--ink)]">Madrone&rsquo;s Dashboard</p>
           <p className="mb-6 mt-2 text-[var(--ink-muted)]">Enter the password to continue.</p>

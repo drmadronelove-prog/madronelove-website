@@ -11,9 +11,17 @@ type ChecklistProps = {
   pdfFileName: string
   placeholder: string
   emptyLabel: string
+  variant?: "default" | "sticky"
 }
 
-function DashboardChecklist({ title, storageKey, pdfFileName, placeholder, emptyLabel }: ChecklistProps) {
+function DashboardChecklist({
+  title,
+  storageKey,
+  pdfFileName,
+  placeholder,
+  emptyLabel,
+  variant = "default",
+}: ChecklistProps) {
   const [items, setItems] = useState<Item[]>([])
   const [text, setText] = useState("")
   const [loaded, setLoaded] = useState(false)
@@ -91,13 +99,33 @@ function DashboardChecklist({ title, storageKey, pdfFileName, placeholder, empty
     doc.save(pdfFileName)
   }
 
+  const isSticky = variant === "sticky"
+
+  const containerClass = isSticky
+    ? "mt-8 -rotate-1 rounded-sm border border-[#E8D25A]/60 bg-gradient-to-b from-[#FFF9C4] to-[#FCE988] p-4 shadow-[2px_6px_14px_rgba(59,31,61,0.25)]"
+    : "mt-8 overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)] backdrop-blur-sm"
+
+  const labelClass = isSticky
+    ? "text-xs font-semibold uppercase tracking-widest text-[#7A6A1E]"
+    : "text-xs font-semibold uppercase tracking-widest text-[var(--olive)]"
+
+  const pdfButtonClass = isSticky
+    ? "flex shrink-0 items-center gap-1 rounded-md border border-[#E8D25A]/70 px-2 py-1 text-[10px] uppercase tracking-wide text-[#7A6A1E] transition-colors hover:text-[var(--ink)]"
+    : "flex shrink-0 items-center gap-1 rounded-md border border-[var(--border)] px-2 py-1 text-[10px] uppercase tracking-wide text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
+
+  const inputClass = isSticky
+    ? "min-w-0 flex-1 rounded-md border border-[#E8D25A]/70 bg-white/70 px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
+    : "min-w-0 flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
+
+  const hoverBgClass = isSticky ? "hover:bg-black/5" : "hover:bg-[var(--background)]"
+
   return (
-    <div className="mt-8 rounded-xl border border-[var(--border)] bg-[var(--card)] p-4 shadow-sm">
+    <div className={containerClass}>
       <div className="mb-3 flex items-center justify-between gap-2">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">{title}</p>
+        <p className={labelClass}>{title}</p>
         <button
           onClick={downloadPdf}
-          className="flex shrink-0 items-center gap-1 rounded-md border border-[var(--border)] px-2 py-1 text-[10px] uppercase tracking-wide text-[var(--ink-muted)] transition-colors hover:text-[var(--ink)]"
+          className={pdfButtonClass}
           aria-label={`Download ${title} as PDF`}
         >
           <Download className="h-3 w-3" />
@@ -105,16 +133,16 @@ function DashboardChecklist({ title, storageKey, pdfFileName, placeholder, empty
         </button>
       </div>
 
-      <form onSubmit={addItem} className="mb-3 flex gap-2">
+      <form onSubmit={addItem} className="mb-3 flex min-w-0 items-center gap-2">
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={placeholder}
-          className="min-w-0 flex-1 rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
+          className={inputClass}
         />
         <button
           type="submit"
-          className="flex shrink-0 items-center justify-center rounded-md bg-[var(--ink)] px-3 py-2 text-[var(--primary-foreground)] transition hover:opacity-90"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[var(--ink)] text-[var(--primary-foreground)] transition hover:opacity-90"
           aria-label={`Add to ${title}`}
         >
           <Plus className="h-4 w-4" />
@@ -126,7 +154,7 @@ function DashboardChecklist({ title, storageKey, pdfFileName, placeholder, empty
       ) : (
         <ul className="flex flex-col gap-1">
           {items.map((item) => (
-            <li key={item.id} className="group flex items-center gap-2 rounded-md px-1 py-1.5 hover:bg-[var(--background)]">
+            <li key={item.id} className={`group flex items-center gap-2 rounded-md px-1 py-1.5 ${hoverBgClass}`}>
               <input
                 type="checkbox"
                 checked={item.done}
@@ -173,6 +201,7 @@ export function DashboardNotes() {
       pdfFileName="notes.pdf"
       placeholder="Add a note"
       emptyLabel="No notes yet."
+      variant="sticky"
     />
   )
 }

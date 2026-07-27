@@ -66,7 +66,7 @@ export function DashboardTasks() {
   if (error) {
     const notConnected = error.toLowerCase().includes("not connected") || error.toLowerCase().includes("isn't connected")
     return (
-      <div className="mx-auto max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--ink-muted)]">
+      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-6 text-center text-sm text-[var(--ink-muted)] shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)] backdrop-blur-sm">
         {notConnected ? (
           <>
             Google Tasks isn&rsquo;t connected yet.{" "}
@@ -83,14 +83,14 @@ export function DashboardTasks() {
 
   if (!tasks) {
     return (
-      <div className="mx-auto max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-center text-sm text-[var(--ink-muted)]">
+      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-6 text-center text-sm text-[var(--ink-muted)] shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)] backdrop-blur-sm">
         Loading tasks&hellip;
       </div>
     )
   }
 
   return (
-    <div className="mx-auto max-w-3xl rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm">
+    <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-5 shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)] backdrop-blur-sm">
       <form onSubmit={handleAdd} className="mb-4 flex gap-2">
         <input
           value={newTitle}
