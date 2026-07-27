@@ -25,7 +25,6 @@ import {
   Book,
   PawPrint,
   Video,
-  ExternalLink,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -171,7 +170,7 @@ const PANEL_SHADOW =
 const PANEL_CLASS = `rounded-2xl border border-white/50 bg-white/80 p-3 ${PANEL_SHADOW} backdrop-blur-sm`
 
 const TILE_CLASS =
-  "group flex w-full items-center gap-3 rounded-lg border border-white/40 bg-white/50 px-3 py-2.5 text-left shadow-[0_1px_0_rgba(255,255,255,0.6),0_6px_14px_-6px_rgba(59,31,61,0.25)] backdrop-blur-sm transition-all duration-150 hover:bg-white/80 hover:shadow-[0_4px_12px_-4px_rgba(194,38,110,0.35)] active:scale-[0.98] active:bg-[var(--olive)]/10"
+  "group flex w-full items-center gap-3 rounded-full border border-white/40 bg-white/50 px-4 py-2.5 text-left shadow-[0_1px_2px_rgba(59,31,61,0.15),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-sm transition-all duration-150 hover:bg-white/80 hover:shadow-[0_4px_12px_-4px_rgba(194,38,110,0.35)] active:scale-[0.98] active:bg-[var(--olive)]/10"
 
 function DashboardTile({ tile }: { tile: Tile }) {
   const Icon = tile.icon
@@ -240,7 +239,6 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
           >
             <Icon className="h-3.5 w-3.5 shrink-0 text-[var(--olive)]" />
             <span>{item.label}</span>
-            {item.external && <ExternalLink className="ml-auto h-3.5 w-3.5 shrink-0 text-[var(--ink-muted)]" />}
           </a>
         ))}
       </div>
