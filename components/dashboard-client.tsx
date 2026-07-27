@@ -243,8 +243,9 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
   )
 }
 
-function HeaderTimer() {
-  const [minutes, setMinutes] = useState(5)
+function TimeTimerWidget() {
+  const [minutes, setMinutes] = useState(20)
+  const [totalSeconds, setTotalSeconds] = useState(0)
   const [remaining, setRemaining] = useState(0)
   const [running, setRunning] = useState(false)
   const [done, setDone] = useState(false)
@@ -292,7 +293,9 @@ function HeaderTimer() {
 
   function start() {
     setDone(false)
-    setRemaining(minutes * 60)
+    const secs = minutes * 60
+    setTotalSeconds(secs)
+    setRemaining(secs)
     setRunning(true)
   }
 
@@ -300,56 +303,78 @@ function HeaderTimer() {
     setRunning(false)
     setDone(false)
     setRemaining(0)
+    setTotalSeconds(0)
   }
 
   const isActive = running || (remaining > 0 && !done)
+  const percentRemaining = totalSeconds > 0 ? (remaining / totalSeconds) * 100 : 100
   const mm = String(Math.floor(remaining / 60)).padStart(2, "0")
   const ss = String(remaining % 60).padStart(2, "0")
 
-  if (done) {
-    return (
-      <div className="flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-sm">
-        <span className="text-xs font-semibold text-white">Time&rsquo;s up!</span>
-        <button onClick={reset} className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40">
-          Reset
-        </button>
-      </div>
-    )
-  }
-
-  if (isActive) {
-    return (
-      <div className="flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-sm">
-        <span className="font-mono text-sm font-semibold text-white">
-          {mm}:{ss}
-        </span>
-        <button
-          onClick={() => setRunning((r) => !r)}
-          className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40"
-        >
-          {running ? "Pause" : "Resume"}
-        </button>
-        <button onClick={reset} className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40">
-          Reset
-        </button>
-      </div>
-    )
-  }
-
   return (
-    <div className="flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-sm">
-      <input
-        type="number"
-        min={1}
-        max={180}
-        value={minutes}
-        onChange={(e) => setMinutes(Math.max(1, Number(e.target.value) || 1))}
-        className="w-10 rounded bg-white/25 px-1 py-0.5 text-center text-xs text-white outline-none"
-      />
-      <span className="text-xs text-white/80">min</span>
-      <button onClick={start} className="rounded-full bg-white/30 px-2.5 py-1 text-xs font-medium text-white hover:bg-white/40">
-        Start
-      </button>
+    <div className="flex h-full flex-col items-center justify-center gap-3 p-4">
+      <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">Timer</p>
+
+      <div
+        className="relative flex h-28 w-28 shrink-0 items-center justify-center rounded-full border-4 border-[#D9481F]/30 shadow-inner"
+        style={{
+          background:
+            isActive || done
+              ? `conic-gradient(#D9481F ${percentRemaining}%, #F0E6DC ${percentRemaining}% 100%)`
+              : "#F0E6DC",
+        }}
+      >
+        <div className="flex h-[76px] w-[76px] items-center justify-center rounded-full bg-[var(--card)]">
+          <span className="font-mono text-base font-semibold text-[var(--ink)]">
+            {isActive || done ? `${mm}:${ss}` : `${String(minutes).padStart(2, "0")}:00`}
+          </span>
+        </div>
+      </div>
+
+      {done ? (
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold text-[var(--clay)]">Time&rsquo;s up!</span>
+          <button
+            onClick={reset}
+            className="rounded-full border border-[var(--border)] px-2.5 py-1 text-xs font-medium text-[var(--ink-muted)] hover:text-[var(--ink)]"
+          >
+            Reset
+          </button>
+        </div>
+      ) : isActive ? (
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setRunning((r) => !r)}
+            className="rounded-full border border-[var(--border)] px-2.5 py-1 text-xs font-medium text-[var(--ink-muted)] hover:text-[var(--ink)]"
+          >
+            {running ? "Pause" : "Resume"}
+          </button>
+          <button
+            onClick={reset}
+            className="rounded-full border border-[var(--border)] px-2.5 py-1 text-xs font-medium text-[var(--ink-muted)] hover:text-[var(--ink)]"
+          >
+            Reset
+          </button>
+        </div>
+      ) : (
+        <div className="flex items-center gap-2">
+          <input
+            type="number"
+            min={1}
+            max={60}
+            value={minutes}
+            onChange={(e) => setMinutes(Math.min(60, Math.max(1, Number(e.target.value) || 1)))}
+            className="w-12 rounded border border-[var(--border)] bg-[var(--background)] px-1 py-1 text-center text-xs text-[var(--ink)] outline-none"
+          />
+          <span className="text-xs text-[var(--ink-muted)]">min</span>
+          <button
+            onClick={start}
+            className="rounded-full bg-[var(--ink)] px-2.5 py-1 text-xs font-medium text-[var(--primary-foreground)] hover:opacity-90"
+          >
+            Start
+          </button>
+        </div>
+      )}
     </div>
   )
 }
@@ -403,7 +428,7 @@ function BouncingTitle({ text }: { text: string }) {
   }, [])
 
   return (
-    <div ref={boxRef} className="relative h-24 w-full overflow-hidden rounded-xl sm:h-28">
+    <div ref={boxRef} className="relative h-28 w-full overflow-hidden rounded-xl sm:h-32">
       <h1
         ref={textRef}
         className="absolute left-0 top-0 whitespace-nowrap font-serif text-3xl text-white [text-shadow:0_2px_12px_rgba(59,31,61,0.35)] md:text-4xl"
@@ -487,52 +512,57 @@ function DashboardContent() {
           </aside>
 
           <div className="min-w-0">
-            <div className="mb-8 flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-start">
+            <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
               <header className="flex w-full flex-col justify-center rounded-2xl bg-gradient-to-br from-[var(--olive)] via-[var(--clay)] to-[var(--gold)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-3px_8px_rgba(59,31,61,0.2),0_25px_50px_-15px_rgba(194,38,110,0.55)] lg:flex-[4_4_0%]">
-                <div className="mb-2 flex items-center justify-between gap-3">
-                  <p className="text-sm text-white/80">{today}</p>
-                  <HeaderTimer />
-                </div>
+                <p className="mb-2 text-sm text-white/80">{today}</p>
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
-              <div
-                className={`w-full max-w-[90vw] overflow-hidden rounded-2xl border border-white/50 bg-white/80 ${PANEL_SHADOW} backdrop-blur-sm lg:w-auto lg:min-w-[220px] lg:flex-[1_1_0%]`}
-              >
-                <div className="flex">
-                  {HEADER_RADIO_STATIONS.map((station) => (
-                    <button
-                      key={station.id}
-                      onClick={() => setHeaderStationId(station.id)}
-                      className={`flex-1 whitespace-nowrap px-2 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                        headerStationId === station.id
-                          ? "bg-[var(--olive)] text-white"
-                          : "bg-[var(--background)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
-                      }`}
-                    >
-                      {station.label}
-                    </button>
-                  ))}
+              <div className="flex w-full max-w-[90vw] flex-col gap-4 lg:w-auto lg:min-w-[220px] lg:flex-[1_1_0%]">
+                <div
+                  className={`overflow-hidden rounded-2xl border border-white/50 bg-white/80 ${PANEL_SHADOW} backdrop-blur-sm`}
+                >
+                  <div className="flex">
+                    {HEADER_RADIO_STATIONS.map((station) => (
+                      <button
+                        key={station.id}
+                        onClick={() => setHeaderStationId(station.id)}
+                        className={`flex-1 whitespace-nowrap px-2 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                          headerStationId === station.id
+                            ? "bg-[var(--olive)] text-white"
+                            : "bg-[var(--background)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
+                        }`}
+                      >
+                        {station.label}
+                      </button>
+                    ))}
+                  </div>
+                  {headerStation.kind === "audio" ? (
+                    <div className="flex flex-col items-center gap-3 p-4">
+                      <p className="font-serif text-lg text-[var(--ink)]">{headerStation.label}</p>
+                      <audio key={headerStation.id} controls autoPlay className="w-full" src={headerStation.src}>
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                  ) : (
+                    <div className="aspect-video">
+                      <iframe
+                        key={headerStation.id}
+                        className="h-full w-full"
+                        src={headerStation.src}
+                        title={`${headerStation.label} live stream`}
+                        allow="autoplay"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
                 </div>
-                {headerStation.kind === "audio" ? (
-                  <div className="flex flex-col items-center gap-3 p-4">
-                    <p className="font-serif text-lg text-[var(--ink)]">{headerStation.label}</p>
-                    <audio key={headerStation.id} controls autoPlay className="w-full" src={headerStation.src}>
-                      Your browser does not support the audio element.
-                    </audio>
-                  </div>
-                ) : (
-                  <div className="aspect-video">
-                    <iframe
-                      key={headerStation.id}
-                      className="h-full w-full"
-                      src={headerStation.src}
-                      title={`${headerStation.label} live stream`}
-                      allow="autoplay"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
+
+                <div
+                  className={`flex-1 overflow-hidden rounded-2xl border border-white/50 bg-white/80 ${PANEL_SHADOW} backdrop-blur-sm`}
+                >
+                  <TimeTimerWidget />
+                </div>
               </div>
             </div>
 
