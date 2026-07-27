@@ -514,9 +514,9 @@ function DashboardContent() {
           <div className="min-w-0">
             <div className="mb-8 flex flex-col items-stretch justify-center gap-6 lg:flex-row">
               <header
-                className={`flex w-full flex-col justify-center overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-4 backdrop-blur-sm ${PANEL_SHADOW} lg:flex-[4_4_0%]`}
+                className={`relative flex w-full flex-col justify-center overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-4 backdrop-blur-sm ${PANEL_SHADOW} lg:flex-[4_4_0%]`}
               >
-                <p className="mb-2 text-sm text-[var(--ink-muted)]">{today}</p>
+                <p className="absolute left-4 top-4 text-sm text-[var(--ink-muted)]">{today}</p>
                 <BouncingTitle text="Madrone’s Dashboard" />
               </header>
 
