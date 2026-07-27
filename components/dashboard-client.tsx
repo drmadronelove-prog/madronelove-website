@@ -24,6 +24,8 @@ import {
   Wallet,
   Book,
   PawPrint,
+  Video,
+  ExternalLink,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -85,6 +87,7 @@ const TILE_SECTIONS: TileSection[] = [
         ],
       },
       { label: "SimplePractice", href: "https://account.simplepractice.com/", icon: Stethoscope, configured: true, external: true },
+      { label: "Zoom", href: "https://zoom.us/signin", icon: Video, configured: true, external: true },
       {
         label: "Work Tools",
         icon: Briefcase,
@@ -94,7 +97,6 @@ const TILE_SECTIONS: TileSection[] = [
           { label: "Kagi", href: "https://kagi.com/", external: true },
           { label: "Claude", href: "https://claude.ai/", external: true },
           { label: "Open Evidence", href: "https://www.openevidence.com/", external: true },
-          { label: "Zoom", href: "https://zoom.us/signin", external: true },
         ],
       },
       {
@@ -226,7 +228,7 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
         />
       </button>
       <div
-        className={`${isHover ? "hidden group-hover/drop:flex" : showOpen ? "flex" : "hidden"} mt-2 flex-col gap-2 pl-4`}
+        className={`${isHover ? "hidden group-hover/drop:flex" : showOpen ? "flex" : "hidden"} mt-2 flex-col gap-2 pl-6`}
       >
         {tile.items!.map((item) => (
           <a
@@ -234,9 +236,11 @@ function DashboardDropdownTile({ tile }: { tile: Tile }) {
             href={item.href}
             target={item.external ? "_blank" : undefined}
             rel={item.external ? "noopener noreferrer" : undefined}
-            className="rounded-lg border border-white/40 bg-white/50 px-3 py-2 text-sm text-[var(--ink)] backdrop-blur-sm transition-colors hover:bg-white/80 hover:text-[var(--clay)]"
+            className="flex items-center gap-2 rounded-full border border-white/40 bg-white/50 px-4 py-2.5 text-sm text-[var(--ink)] shadow-[0_1px_2px_rgba(59,31,61,0.15),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-sm transition-colors hover:bg-white/80 hover:text-[var(--clay)]"
           >
-            {item.label}
+            <Icon className="h-3.5 w-3.5 shrink-0 text-[var(--olive)]" />
+            <span>{item.label}</span>
+            {item.external && <ExternalLink className="ml-auto h-3.5 w-3.5 shrink-0 text-[var(--ink-muted)]" />}
           </a>
         ))}
       </div>
@@ -317,7 +321,7 @@ function TimeTimerWidget() {
       <p className="text-xs font-semibold uppercase tracking-widest text-[var(--olive)]">Timer</p>
 
       <div
-        className="relative flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-4 border-[#D9481F]/30 shadow-inner"
+        className="relative flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-black/10 shadow-inner"
         style={{
           background:
             isActive || done
