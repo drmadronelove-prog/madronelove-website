@@ -94,6 +94,7 @@ const TILE_SECTIONS: TileSection[] = [
           { label: "Kagi", href: "https://kagi.com/", external: true },
           { label: "Claude", href: "https://claude.ai/", external: true },
           { label: "Open Evidence", href: "https://www.openevidence.com/", external: true },
+          { label: "Zoom", href: "https://zoom.us/signin", external: true },
         ],
       },
       {
