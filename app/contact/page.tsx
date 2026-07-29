@@ -42,20 +42,23 @@ export default function ContactPage() {
               <div className="flex flex-col justify-between gap-6">
                 <div className="border border-[var(--border)] p-8">
                   <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                    Oakland
-                  </p>
-                  <p className="text-[var(--ink)]">Olive Clinical</p>
-                  <p className="text-[var(--ink-muted)] mt-1">541 Athol</p>
-                  <p className="text-[var(--ink-muted)]">Oakland, CA 94606</p>
-                </div>
-
-                <div className="border border-[var(--border)] p-8">
-                  <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                     Berkeley
                   </p>
                   <p className="text-[var(--ink)]">Anam Cara Therapy Center</p>
                   <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
                   <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
+                  <p className="text-[var(--ink-muted)] mt-2">5 min drive from UC Berkeley Campus</p>
+                  <div className="mt-4 aspect-video w-full border border-[var(--border)]">
+                    <iframe
+                      src="https://www.google.com/maps?q=Anam+Cara+Therapy+Center,+2915+Martin+Luther+King+Junior+Way,+Berkeley,+CA+94703&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Map showing Anam Cara Therapy Center location"
+                    />
+                  </div>
                 </div>
 
                 <div className="border border-[var(--border)] p-8 space-y-4">
