@@ -31,7 +31,7 @@ export function Footer() {
               >
                 415-484-3302
               </Link>
-              <p className="mt-2">
+              <p>
                 Berkeley, CA
               </p>
               <p>
