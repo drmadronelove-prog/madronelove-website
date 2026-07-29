@@ -439,7 +439,7 @@ function BouncingTitle({ text }: { text: string }) {
 }
 
 const STREAMS = [
-  { id: "CXYr04BWvmc", label: "Bay Bridge" },
+  { id: "_VqvVJfmyfs", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
   { id: "_NmK1u6ZU8U", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
