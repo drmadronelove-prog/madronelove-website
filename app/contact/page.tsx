@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { LocationMap } from "@/components/location-map"
 import { useState } from "react"
 
 export default function ContactPage() {
@@ -49,15 +50,7 @@ export default function ContactPage() {
                   <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
                   <p className="text-[var(--ink-muted)] mt-2">5 min drive from UC Berkeley Campus</p>
                   <div className="mt-4 aspect-video w-full border border-[var(--border)]">
-                    <iframe
-                      src="https://www.google.com/maps?q=Anam+Cara+Therapy+Center,+2915+Martin+Luther+King+Junior+Way,+Berkeley,+CA+94703&output=embed"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Map showing Anam Cara Therapy Center location"
-                    />
+                    <LocationMap lat={37.8549079} lng={-122.271285} label="Anam Cara Therapy Center" />
                   </div>
                 </div>
 

@@ -32,7 +32,7 @@ export function Footer() {
                 415-484-3302
               </Link>
               <p className="mt-2">
-                Berkeley
+                Berkeley, CA
               </p>
               <p>
                 Telehealth throughout California
