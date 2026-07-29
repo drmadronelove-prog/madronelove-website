@@ -24,7 +24,8 @@ export function LocationMap({ lat, lng, label }: LocationMapProps) {
 
       const map = L.map(containerRef.current, {
         center: [lat, lng],
-        zoom: 16,
+        zoom: 15.7,
+        zoomSnap: 0.1,
         scrollWheelZoom: false,
       })
       mapRef.current = map
@@ -35,7 +36,7 @@ export function LocationMap({ lat, lng, label }: LocationMapProps) {
       }).addTo(map)
 
       const logoIcon = L.icon({
-        iconUrl: "/logo.png",
+        iconUrl: "/logo-pin.png",
         iconSize: [44, 44],
         iconAnchor: [22, 44],
         popupAnchor: [0, -44],

@@ -48,7 +48,7 @@ export default function ContactPage() {
                   <p className="text-[var(--ink)]">Anam Cara Therapy Center</p>
                   <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
                   <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
-                  <p className="text-[var(--ink-muted)] mt-2">5 min drive from UC Berkeley Campus</p>
+                  <p className="text-[var(--ink-muted)] mt-2 font-bold italic">5 min drive from UC Berkeley Campus</p>
                   <div className="mt-4 aspect-video w-full border border-[var(--border)]">
                     <LocationMap lat={37.8549079} lng={-122.271285} label="Anam Cara Therapy Center" />
                   </div>
