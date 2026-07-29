@@ -1,0 +1,100 @@
+.page {
+  --cream: #fbf7f0;
+  --warm-white: #fffcf7;
+  --tan: #e8dfd4;
+  --brown-light: #c4a882;
+  --brown-dark: #3a2e22;
+  --muted: #8b7b68;
+
+  font-family: var(--font-thrive-sans), "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--brown-dark);
+  min-height: 100vh;
+}
+
+.backLink {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  padding-top: 24px;
+}
+
+.backLink:hover {
+  color: var(--brown-dark);
+}
+
+.siteHeader {
+  text-align: center;
+  padding: 40px 24px 32px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.siteHeader h1 {
+  font-family: var(--font-thrive-serif), "Cormorant Garamond", serif;
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 600;
+  color: var(--brown-dark);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.headerRule {
+  width: 48px;
+  height: 1px;
+  background: var(--tan);
+  margin: 20px auto 0;
+}
+
+.content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.card {
+  background: var(--warm-white);
+  border: 1px solid var(--tan);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 32px rgba(58, 46, 34, 0.06);
+}
+
+.gateNote {
+  max-width: 360px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 120px 24px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.gateNote a {
+  color: var(--brown-dark);
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+}
