@@ -450,6 +450,7 @@ const STREAMS = [
   { id: "J7ZrIDvqlic", label: "Alaska" },
   { id: "dfVK7ld38Ys", label: "Tokyo" },
   { id: "tAWFO8_O_7M", label: "Norway Train" },
+  { id: "UrKkchVOOAs", label: "Napa (Replay)" },
 ]
 
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
