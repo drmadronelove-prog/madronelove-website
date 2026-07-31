@@ -451,6 +451,7 @@ const STREAMS = [
   { id: "dfVK7ld38Ys", label: "Tokyo" },
   { id: "tAWFO8_O_7M", label: "Norway Train" },
   { id: "UrKkchVOOAs", label: "Napa (Replay)" },
+  { id: "EFum1rGUdkk", label: "Europe" },
 ]
 
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
