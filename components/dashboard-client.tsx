@@ -28,6 +28,7 @@ import {
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
+import { DashboardDictionary } from "@/components/dashboard-dictionary"
 
 type SubLink = {
   label: string
@@ -515,6 +516,7 @@ function DashboardContent() {
 
             <DashboardShoppingList />
             <DashboardNotes />
+            <DashboardDictionary />
           </aside>
 
           <div className="min-w-0">
