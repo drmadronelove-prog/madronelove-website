@@ -446,15 +446,12 @@ const STREAMS = [
   { id: "vytmBNhc9ig", label: "Outer Space" },
   { id: "_NmK1u6ZU8U", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
-  { id: "CijNX_Wsdbo", label: "San Francisco" },
   { id: "ydYDqZQpim8", label: "Namibia" },
-  { id: "TCpM7RvAVCo", label: "Redwood City" },
   { id: "Vl-IBa9JTH4", label: "Oahu" },
   { id: "J7ZrIDvqlic", label: "Alaska" },
   { id: "dfVK7ld38Ys", label: "Tokyo" },
   { id: "tAWFO8_O_7M", label: "Norway Train" },
   { id: "UrKkchVOOAs", label: "Napa (Replay)" },
-  { id: "EFum1rGUdkk", label: "Europe" },
 ]
 
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
