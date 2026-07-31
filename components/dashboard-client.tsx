@@ -440,7 +440,9 @@ function BouncingTitle({ text }: { text: string }) {
 }
 
 const STREAMS = [
-  { id: "_VqvVJfmyfs", label: "Bay Bridge" },
+  { id: "BSWhGNXxT9A", label: "Bay Bridge" },
+  { id: "BSWhGNXxT9A", label: "Los Angeles" },
+  { id: "MW3fisTCXRQ", label: "Thailand" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
   { id: "_NmK1u6ZU8U", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
@@ -492,7 +494,8 @@ function SidebarSectionPanel({ section }: { section: TileSection }) {
 }
 
 function DashboardContent() {
-  const [streamId, setStreamId] = useState(STREAMS[0].id)
+  const [streamLabel, setStreamLabel] = useState(STREAMS[0].label)
+  const streamId = STREAMS.find((s) => s.label === streamLabel)!.id
   const [headerStationId, setHeaderStationId] = useState(HEADER_RADIO_STATIONS[0].id)
   const headerStation = HEADER_RADIO_STATIONS.find((s) => s.id === headerStationId)!
 
@@ -582,9 +585,9 @@ function DashboardContent() {
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
                   {STREAMS.map((stream) => (
                     <button
-                      key={stream.id}
-                      onClick={() => setStreamId(stream.id)}
-                      className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
+                      key={stream.label}
+                      onClick={() => setStreamLabel(stream.label)}
+                      className={streamLabel === stream.label ? KEY_CLASS_PRESSED : KEY_CLASS}
                     >
                       {stream.label}
                     </button>
