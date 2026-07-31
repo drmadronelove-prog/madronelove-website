@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { LocationMap } from "@/components/location-map"
 import { useState } from "react"
 
 export default function ContactPage() {
@@ -42,20 +43,15 @@ export default function ContactPage() {
               <div className="flex flex-col justify-between gap-6">
                 <div className="border border-[var(--border)] p-8">
                   <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
-                    Oakland
-                  </p>
-                  <p className="text-[var(--ink)]">Olive Clinical</p>
-                  <p className="text-[var(--ink-muted)] mt-1">541 Athol</p>
-                  <p className="text-[var(--ink-muted)]">Oakland, CA 94606</p>
-                </div>
-
-                <div className="border border-[var(--border)] p-8">
-                  <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                     Berkeley
                   </p>
                   <p className="text-[var(--ink)]">Anam Cara Therapy Center</p>
                   <p className="text-[var(--ink-muted)] mt-1">2915 Martin Luther King Junior Way</p>
                   <p className="text-[var(--ink-muted)]">Berkeley, CA 94703</p>
+                  <p className="text-[var(--ink-muted)] mt-2 font-bold italic">5 min drive from UC Berkeley Campus</p>
+                  <div className="mt-4 aspect-video w-full border border-[var(--border)]">
+                    <LocationMap lat={37.8549079} lng={-122.271285} label="Anam Cara Therapy Center" />
+                  </div>
                 </div>
 
                 <div className="border border-[var(--border)] p-8 space-y-4">
