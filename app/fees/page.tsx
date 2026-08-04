@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 export const metadata = {
   title: "Fees | Dr. Madrone Love, PsyD",
   description:
-    "Out-of-network fee information and options for insurance reimbursement, including Reimbursify, Thrizer, and Mentaya.",
+    "Out-of-network fee information and options for insurance reimbursement, including Reimbursify and Mentaya.",
 }
 
 // Drop a logo at public/images/logos/<slug>.(svg|png|webp) and the card picks
@@ -27,13 +27,6 @@ const reimbursementOptions = [
     href: "https://reimbursify.com",
     description:
       "File your own claims from your phone. You submit each superbill through the app and your insurer reimburses you directly.",
-  },
-  {
-    slug: "thrizer",
-    name: "Thrizer",
-    href: "https://www.thrizer.com",
-    description:
-      "Pay only your portion at the time of session. Thrizer covers the rest of the fee upfront and handles the claim with your insurer on your behalf.",
   },
   {
     slug: "mentaya",
@@ -98,7 +91,7 @@ export default function FeesPage() {
               Many clients with out-of-network benefits are reimbursed for a meaningful portion of the cost of care. I provide a monthly superbill you can submit to your insurer, and the services below can handle much of that process for you.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-x-12 gap-y-12">
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12">
               {reimbursementOptions.map((option) => {
                 const logo = logoFor(option.slug)
                 return (

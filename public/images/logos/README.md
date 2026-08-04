@@ -5,7 +5,6 @@ plain wordmark when the file is missing. Add files named after the slug in
 `app/fees/page.tsx`:
 
 - `reimbursify.svg`
-- `thrizer.svg`
 - `mentaya.svg`
 
 `.svg` is preferred; `.png` and `.webp` also work. Logos render at 28px tall,
