@@ -10,26 +10,26 @@ export const metadata = {
 
 const reimbursementOptions = [
   {
-    number: "01",
+    kicker: "You file",
     name: "Reimbursify",
     href: "https://reimbursify.com",
-    surface: "fee-card-sage",
+    surface: "fee-card-champagne",
     description:
       "File your own claims from your phone. You submit each superbill through the app and your insurer reimburses you directly.",
   },
   {
-    number: "02",
+    kicker: "Pay your share",
     name: "Thrizer",
     href: "https://www.thrizer.com",
-    surface: "fee-card-stone",
+    surface: "fee-card-rose",
     description:
       "Pay only your portion at the time of session. Thrizer covers the rest of the fee upfront and handles the claim with your insurer on your behalf.",
   },
   {
-    number: "03",
+    kicker: "Filed for you",
     name: "Mentaya",
     href: "https://mentaya.com",
-    surface: "fee-card-gold",
+    surface: "fee-card-verde",
     description:
       "Claims are submitted for you automatically after each session. You pay the full fee upfront and your reimbursement is sent to you directly.",
   },
@@ -93,8 +93,8 @@ export default function FeesPage() {
               {reimbursementOptions.map((option) => (
                 <div key={option.name} className={`fee-card ${option.surface} p-8 flex flex-col`}>
                   <div className="relative flex flex-col flex-1">
-                    <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">
-                      {option.number}
+                    <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-[#8a6d33]">
+                      {option.kicker}
                     </span>
                     <h2 className="mt-3 font-serif text-2xl text-[var(--ink)] font-light">
                       {option.name}
