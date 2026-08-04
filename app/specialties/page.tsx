@@ -46,7 +46,7 @@ export default function SpecialtiesPage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7">
-                <h1 className="font-[var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
+                <h1 className="font-[family-name:var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight max-w-3xl">
                   Areas of Focus
                 </h1>
               </div>

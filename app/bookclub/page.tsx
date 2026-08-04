@@ -54,7 +54,7 @@ export default function BookclubPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4 print:hidden">
               Book Club
             </p>
-            <h1 className="font-[var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
+            <h1 className="font-[family-name:var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
               Book Club Reading List
             </h1>
             <p className="mt-6 text-lg text-[var(--ink-light)] leading-relaxed max-w-2xl">
