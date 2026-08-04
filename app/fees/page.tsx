@@ -12,21 +12,18 @@ const reimbursementOptions = [
   {
     name: "Reimbursify",
     href: "https://reimbursify.com",
-    surface: "fee-card-champagne",
     description:
       "File your own claims from your phone. You submit each superbill through the app and your insurer reimburses you directly.",
   },
   {
     name: "Thrizer",
     href: "https://www.thrizer.com",
-    surface: "fee-card-rose",
     description:
       "Pay only your portion at the time of session. Thrizer covers the rest of the fee upfront and handles the claim with your insurer on your behalf.",
   },
   {
     name: "Mentaya",
     href: "https://mentaya.com",
-    surface: "fee-card-silver",
     description:
       "Claims are submitted for you automatically after each session. You pay the full fee upfront and your reimbursement is sent to you directly.",
   },
@@ -41,7 +38,7 @@ export default function FeesPage() {
         {/* Header */}
         <section className="py-24 md:py-32">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <h1 className="font-[family-name:var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
+            <h1 className="font-[var(--font-classic)] text-4xl md:text-5xl lg:text-6xl font-light text-[var(--ink)] leading-[1.1] tracking-tight">
               Fees
             </h1>
           </div>
@@ -93,15 +90,15 @@ export default function FeesPage() {
                   href={option.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`fee-card ${option.surface} p-8 flex flex-col`}
+                  className="fee-card p-8 flex flex-col"
                 >
-                  <h2 className="font-[family-name:var(--font-classic)] text-[1.9rem] leading-none tracking-[0.02em] text-[var(--fee-ink)]">
+                  <h2 className="font-[var(--font-classic)] text-[1.9rem] leading-none tracking-[0.02em] text-[#3b2c12]">
                     {option.name}
                   </h2>
-                  <p className="mt-5 flex-1 text-[0.95rem] leading-relaxed text-[var(--fee-ink-soft)]">
+                  <p className="mt-5 flex-1 text-[0.95rem] leading-relaxed text-[#4a3a1d]">
                     {option.description}
                   </p>
-                  <span className="mt-7 text-[11px] font-medium tracking-[0.2em] uppercase text-[var(--fee-ink)]">
+                  <span className="mt-7 text-[11px] font-medium tracking-[0.2em] uppercase text-[#3b2c12]">
                     Visit <span className="fee-card-arrow">&rarr;</span>
                   </span>
                 </Link>
@@ -122,7 +119,7 @@ export default function FeesPage() {
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">
                   Next step
                 </p>
-                <h2 className="font-[family-name:var(--font-classic)] text-3xl md:text-4xl text-[var(--ink)] font-light">
+                <h2 className="font-[var(--font-classic)] text-3xl md:text-4xl text-[var(--ink)] font-light">
                   Begin with a <em className="text-[var(--gold)]">free</em> consultation
                 </h2>
               </div>

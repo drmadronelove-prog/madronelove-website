@@ -187,14 +187,15 @@
   width: 100%;
 }
 
-/* Reimbursement option cards — each a framed metal plate the visitor presses.
-   Heavy outer band plus a bright inner fillet reads as a picture frame. */
+/* Reimbursement option cards — flat gold plates the visitor presses.
+   Heavy outer band plus a fine inner fillet reads as a picture frame. */
 .fee-card {
   position: relative;
-  border: 5px solid;
+  border: 5px solid #ab8838;
+  background-color: #d9b87c;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.34),
     0 1px 2px rgba(61, 68, 69, 0.06),
     0 14px 26px -16px rgba(61, 68, 69, 0.32);
 }
@@ -219,49 +220,6 @@
 .fee-card:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
-}
-
-/* Off-axis stops read as a specular sweep across brushed metal */
-.fee-card-champagne {
-  border-color: #b8963f;
-  --fee-ink: #63501f;
-  --fee-ink-soft: #745f30;
-  background-image: linear-gradient(
-    148deg,
-    #f8f2e4 0%,
-    #ede0c5 27%,
-    #fcf7ed 45%,
-    #e5d5b4 70%,
-    #f4ebd7 100%
-  );
-}
-
-.fee-card-rose {
-  border-color: #b07f5f;
-  --fee-ink: #6a422c;
-  --fee-ink-soft: #7c543d;
-  background-image: linear-gradient(
-    148deg,
-    #f9ede3 0%,
-    #eed6c3 27%,
-    #fdf5ee 45%,
-    #e2c5ad 70%,
-    #f5e4d5 100%
-  );
-}
-
-.fee-card-silver {
-  border-color: #8b959b;
-  --fee-ink: #363f47;
-  --fee-ink-soft: #4b555e;
-  background-image: linear-gradient(
-    148deg,
-    #f7f8f9 0%,
-    #dce1e4 27%,
-    #fdfdfe 45%,
-    #c9d0d5 70%,
-    #eaedef 100%
-  );
 }
 
 /* Arrow slides on hover to reinforce the press affordance */
