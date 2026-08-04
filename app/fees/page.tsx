@@ -13,6 +13,7 @@ const reimbursementOptions = [
     number: "01",
     name: "Reimbursify",
     href: "https://reimbursify.com",
+    surface: "fee-card-sage",
     description:
       "File your own claims from your phone. You submit each superbill through the app and your insurer reimburses you directly.",
   },
@@ -20,6 +21,7 @@ const reimbursementOptions = [
     number: "02",
     name: "Thrizer",
     href: "https://www.thrizer.com",
+    surface: "fee-card-stone",
     description:
       "Pay only your portion at the time of session. Thrizer covers the rest of the fee upfront and handles the claim with your insurer on your behalf.",
   },
@@ -27,6 +29,7 @@ const reimbursementOptions = [
     number: "03",
     name: "Mentaya",
     href: "https://mentaya.com",
+    surface: "fee-card-gold",
     description:
       "Claims are submitted for you automatically after each session. You pay the full fee upfront and your reimbursement is sent to you directly.",
   },
@@ -60,9 +63,6 @@ export default function FeesPage() {
                 <p className="text-lg text-[var(--ink-light)] leading-relaxed">
                   I am an out-of-network provider, and my fee is commensurate with my training and experience.
                 </p>
-                <p className="text-lg text-[var(--ink-light)] leading-relaxed">
-                  Many clients with out-of-network benefits are reimbursed for a meaningful portion of the cost of care. I provide a monthly superbill you can submit to your insurer, and the services below can handle much of that process for you.
-                </p>
                 <p className="text-[var(--ink-muted)] leading-relaxed">
                   Fee specifics are discussed during the consultation, and you will receive a{" "}
                   <Link
@@ -81,30 +81,36 @@ export default function FeesPage() {
         {/* Reimbursement options */}
         <section className="py-16 lg:py-24 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-16">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
               Reimbursement Options
+            </p>
+
+            <p className="text-lg text-[var(--ink-light)] leading-relaxed max-w-3xl mb-16">
+              Many clients with out-of-network benefits are reimbursed for a meaningful portion of the cost of care. I provide a monthly superbill you can submit to your insurer, and the services below can handle much of that process for you.
             </p>
 
             <div className="grid md:grid-cols-3 gap-x-12 gap-y-12">
               {reimbursementOptions.map((option) => (
-                <div key={option.name} className="group flex flex-col">
-                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">
-                    {option.number}
-                  </span>
-                  <h2 className="mt-3 font-serif text-2xl text-[var(--ink)] font-light">
-                    {option.name}
-                  </h2>
-                  <p className="mt-4 flex-1 text-[var(--ink-muted)] leading-relaxed">
-                    {option.description}
-                  </p>
-                  <Link
-                    href={option.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-block self-start text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
-                  >
-                    Visit
-                  </Link>
+                <div key={option.name} className={`fee-card ${option.surface} p-8 flex flex-col`}>
+                  <div className="relative flex flex-col flex-1">
+                    <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">
+                      {option.number}
+                    </span>
+                    <h2 className="mt-3 font-serif text-2xl text-[var(--ink)] font-light">
+                      {option.name}
+                    </h2>
+                    <p className="mt-4 flex-1 text-[var(--ink-light)] leading-relaxed">
+                      {option.description}
+                    </p>
+                    <Link
+                      href={option.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-block self-start text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                    >
+                      Visit
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
