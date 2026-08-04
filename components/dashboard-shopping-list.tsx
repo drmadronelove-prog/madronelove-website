@@ -102,7 +102,7 @@ function DashboardChecklist({
   const isSticky = variant === "sticky"
 
   const containerClass = isSticky
-    ? "mt-8 -rotate-1 rounded-sm border border-[#E8D25A]/60 bg-gradient-to-b from-[#FFF9C4] to-[#FCE988] p-4 shadow-[2px_6px_14px_rgba(59,31,61,0.25)]"
+    ? "relative z-10 rounded-sm border border-[#E8D25A]/60 bg-gradient-to-b from-[#FFF9C4] to-[#FCE988] p-4 shadow-[2px_6px_14px_rgba(59,31,61,0.25)]"
     : "mt-8 overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)] backdrop-blur-sm"
 
   const labelClass = isSticky
@@ -120,7 +120,14 @@ function DashboardChecklist({
   const hoverBgClass = isSticky ? "hover:bg-black/5" : "hover:bg-[var(--background)]"
 
   return (
-    <div className={containerClass}>
+    <div className={isSticky ? "relative mt-8" : ""}>
+      {isSticky && (
+        <div
+          aria-hidden
+          className="absolute inset-0 -rotate-1 rounded-sm border border-[#E8D25A]/60 bg-gradient-to-b from-[#FFF9C4] to-[#FCE988] shadow-[2px_6px_14px_rgba(59,31,61,0.25)]"
+        />
+      )}
+      <div className={containerClass}>
       <div className="mb-3 flex items-center justify-between gap-2">
         <p className={labelClass}>{title}</p>
         <button
@@ -177,6 +184,7 @@ function DashboardChecklist({
           ))}
         </ul>
       )}
+      </div>
     </div>
   )
 }

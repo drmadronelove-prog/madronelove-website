@@ -28,6 +28,7 @@ import {
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
+import { DashboardDictionary } from "@/components/dashboard-dictionary"
 
 type SubLink = {
   label: string
@@ -439,17 +440,16 @@ function BouncingTitle({ text }: { text: string }) {
 }
 
 const STREAMS = [
-  { id: "_VqvVJfmyfs", label: "Bay Bridge" },
+  { id: "BSWhGNXxT9A", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
   { id: "_NmK1u6ZU8U", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
-  { id: "CijNX_Wsdbo", label: "San Francisco" },
   { id: "ydYDqZQpim8", label: "Namibia" },
-  { id: "TCpM7RvAVCo", label: "Redwood City" },
   { id: "Vl-IBa9JTH4", label: "Oahu" },
   { id: "J7ZrIDvqlic", label: "Alaska" },
   { id: "dfVK7ld38Ys", label: "Tokyo" },
   { id: "tAWFO8_O_7M", label: "Norway Train" },
+  { id: "UrKkchVOOAs", label: "Napa (Replay)" },
 ]
 
 type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
@@ -489,7 +489,8 @@ function SidebarSectionPanel({ section }: { section: TileSection }) {
 }
 
 function DashboardContent() {
-  const [streamId, setStreamId] = useState(STREAMS[0].id)
+  const [streamLabel, setStreamLabel] = useState(STREAMS[0].label)
+  const streamId = STREAMS.find((s) => s.label === streamLabel)!.id
   const [headerStationId, setHeaderStationId] = useState(HEADER_RADIO_STATIONS[0].id)
   const headerStation = HEADER_RADIO_STATIONS.find((s) => s.id === headerStationId)!
 
@@ -513,6 +514,7 @@ function DashboardContent() {
 
             <DashboardShoppingList />
             <DashboardNotes />
+            <DashboardDictionary />
           </aside>
 
           <div className="min-w-0">
@@ -578,9 +580,9 @@ function DashboardContent() {
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
                   {STREAMS.map((stream) => (
                     <button
-                      key={stream.id}
-                      onClick={() => setStreamId(stream.id)}
-                      className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
+                      key={stream.label}
+                      onClick={() => setStreamLabel(stream.label)}
+                      className={streamLabel === stream.label ? KEY_CLASS_PRESSED : KEY_CLASS}
                     >
                       {stream.label}
                     </button>
