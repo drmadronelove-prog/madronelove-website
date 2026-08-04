@@ -187,38 +187,28 @@
   width: 100%;
 }
 
-/* Reimbursement option cards — flat gold plates the visitor presses.
-   Heavy outer band plus a fine inner fillet reads as a picture frame. */
+/* Reimbursement option cards — the site's hairline box, lifted just enough
+   off the page to read as selectable. Gold arrives only on hover. */
 .fee-card {
   position: relative;
-  border: 5px solid #ab8838;
-  background-color: #d9b87c;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.34),
-    0 1px 2px rgba(61, 68, 69, 0.06),
-    0 14px 26px -16px rgba(61, 68, 69, 0.32);
+  background-color: #fff;
+  border: 1px solid var(--border);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .fee-card:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
-    0 2px 5px rgba(61, 68, 69, 0.07),
-    0 24px 38px -18px rgba(61, 68, 69, 0.4);
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 28px -18px rgba(61, 68, 69, 0.35);
 }
 
-/* Presses back toward the page when clicked */
 .fee-card:active {
   transform: translateY(-1px);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    0 1px 2px rgba(61, 68, 69, 0.08),
-    0 8px 16px -10px rgba(61, 68, 69, 0.34);
+  box-shadow: 0 6px 14px -10px rgba(61, 68, 69, 0.3);
 }
 
 .fee-card:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 1px solid var(--ink);
   outline-offset: 3px;
 }
 
@@ -230,6 +220,15 @@
 
 .fee-card:hover .fee-card-arrow {
   transform: translateX(4px);
+}
+
+.fee-card-cta {
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.fee-card:hover .fee-card-cta {
+  color: var(--clay);
+  border-color: var(--clay);
 }
 
 /* Map marker using site logo */

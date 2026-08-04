@@ -1,3 +1,5 @@
+import fs from "node:fs"
+import path from "node:path"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -8,20 +10,33 @@ export const metadata = {
     "Out-of-network fee information and options for insurance reimbursement, including Reimbursify, Thrizer, and Mentaya.",
 }
 
+// Drop a logo at public/images/logos/<slug>.(svg|png|webp) and the card picks
+// it up automatically; until then the card falls back to the wordmark.
+function logoFor(slug: string): string | null {
+  for (const ext of ["svg", "png", "webp"]) {
+    const file = `/images/logos/${slug}.${ext}`
+    if (fs.existsSync(path.join(process.cwd(), "public", file))) return file
+  }
+  return null
+}
+
 const reimbursementOptions = [
   {
+    slug: "reimbursify",
     name: "Reimbursify",
     href: "https://reimbursify.com",
     description:
       "File your own claims from your phone. You submit each superbill through the app and your insurer reimburses you directly.",
   },
   {
+    slug: "thrizer",
     name: "Thrizer",
     href: "https://www.thrizer.com",
     description:
       "Pay only your portion at the time of session. Thrizer covers the rest of the fee upfront and handles the claim with your insurer on your behalf.",
   },
   {
+    slug: "mentaya",
     name: "Mentaya",
     href: "https://mentaya.com",
     description:
@@ -84,25 +99,37 @@ export default function FeesPage() {
             </p>
 
             <div className="grid md:grid-cols-3 gap-x-12 gap-y-12">
-              {reimbursementOptions.map((option) => (
+              {reimbursementOptions.map((option) => {
+                const logo = logoFor(option.slug)
+                return (
                 <Link
                   key={option.name}
                   href={option.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="fee-card p-8 flex flex-col"
+                  className="fee-card p-10 flex flex-col"
                 >
-                  <h2 className="font-[var(--font-classic)] text-[1.9rem] leading-none tracking-[0.02em] text-[#3b2c12]">
-                    {option.name}
+                  <h2 className="font-serif text-2xl font-light text-[var(--ink)]">
+                    {logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={logo}
+                        alt={option.name}
+                        className="h-7 w-auto max-w-[70%] object-contain object-left"
+                      />
+                    ) : (
+                      option.name
+                    )}
                   </h2>
-                  <p className="mt-5 flex-1 text-[0.95rem] leading-relaxed text-[#4a3a1d]">
+                  <p className="mt-4 flex-1 text-[var(--ink-muted)] leading-relaxed">
                     {option.description}
                   </p>
-                  <span className="mt-7 text-[11px] font-medium tracking-[0.2em] uppercase text-[#3b2c12]">
+                  <span className="fee-card-cta mt-8 self-start text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1">
                     Visit <span className="fee-card-arrow">&rarr;</span>
                   </span>
                 </Link>
-              ))}
+                )
+              })}
             </div>
 
             <p className="mt-16 text-sm text-[var(--ink-muted)] leading-relaxed max-w-3xl">
