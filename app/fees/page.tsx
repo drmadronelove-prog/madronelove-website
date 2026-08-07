@@ -59,17 +59,17 @@ export default function FeesPage() {
               </div>
               <div className="lg:col-span-8 space-y-6">
                 <p className="text-lg text-[var(--ink-light)] leading-relaxed">
-                  I am an out-of-network provider, and my fee is commensurate with my training and experience.
+                  I am an out-of-network provider, and my fees are commensurate with my training and experience. Fee specifics are discussed during the consultation.
                 </p>
-                <p className="text-[var(--ink-muted)] leading-relaxed">
-                  Fee specifics are discussed during the consultation, and you will receive a{" "}
+                <p className="text-lg text-[var(--ink-light)] leading-relaxed">
+                  I currently have low-fee spots available in my assessment practice &mdash; you are welcome to{" "}
                   <Link
-                    href="/contact"
-                    className="text-[var(--ink)] hover:text-[var(--clay)] transition-colors duration-300"
+                    href="mailto:therapy@madronelove.com"
+                    className="text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
                   >
-                    Good Faith Estimate
+                    email me
                   </Link>{" "}
-                  in writing before we begin.
+                  for more information.
                 </p>
               </div>
             </div>
