@@ -25,15 +25,11 @@ const reimbursementOptions = [
     slug: "reimbursify",
     name: "Reimbursify",
     href: "https://reimbursify.com",
-    description:
-      "File your own claims from your phone. You submit each superbill through the app and your insurer reimburses you directly.",
   },
   {
     slug: "mentaya",
     name: "Mentaya",
     href: "https://mentaya.com",
-    description:
-      "Claims are submitted for you automatically after each session. You pay the full fee upfront and your reimbursement is sent to you directly.",
   },
 ]
 
@@ -102,7 +98,7 @@ export default function FeesPage() {
                   rel="noopener noreferrer"
                   className="fee-card p-10 flex flex-col"
                 >
-                  <h2 className="font-serif text-2xl font-light text-[var(--ink)]">
+                  <h2 className="flex-1 font-serif text-2xl font-light text-[var(--ink)]">
                     {logo ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
@@ -114,9 +110,6 @@ export default function FeesPage() {
                       option.name
                     )}
                   </h2>
-                  <p className="mt-4 flex-1 text-[var(--ink-muted)] leading-relaxed">
-                    {option.description}
-                  </p>
                   <span className="fee-card-cta mt-8 self-start text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1">
                     Visit <span className="fee-card-arrow">&rarr;</span>
                   </span>

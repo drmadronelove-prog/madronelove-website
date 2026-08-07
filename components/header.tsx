@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 const navigation = [
   { name: "About", href: "/#about" },
   { name: "Specialties", href: "/specialties" },
+  { name: "Assessment", href: "/assessment" },
   { name: "Fees", href: "/fees" },
   { name: "Get in Touch", href: "/contact" },
   { name: "Blog", href: "https://www.oliveclinical.com/blog", external: true },
