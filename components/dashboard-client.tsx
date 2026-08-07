@@ -29,6 +29,7 @@ import {
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
 import { DashboardDictionary } from "@/components/dashboard-dictionary"
+import { DashboardWordOfTheDay } from "@/components/dashboard-word-of-the-day"
 
 type SubLink = {
   label: string
@@ -508,6 +509,8 @@ function DashboardContent() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
           <aside className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:pr-1">
+            <DashboardWordOfTheDay />
+
             {TILE_SECTIONS.map((section) => (
               <SidebarSectionPanel key={section.title} section={section} />
             ))}
