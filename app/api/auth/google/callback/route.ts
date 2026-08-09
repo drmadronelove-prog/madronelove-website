@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { hasDashboardSession } from "@/lib/dashboard-auth"
+import { tokenPage } from "@/lib/google-setup-page"
 
 export async function GET(req: NextRequest) {
   if (!(await hasDashboardSession())) {
@@ -48,12 +49,5 @@ export async function GET(req: NextRequest) {
     )
   }
 
-  return new NextResponse(
-    "Google Tasks connected.\n\n" +
-      "Copy this value into the GOOGLE_TASKS_REFRESH_TOKEN environment variable in your Vercel project " +
-      "settings, then redeploy:\n\n" +
-      `${data.refresh_token}\n\n` +
-      "This value is shown only once here and is not stored anywhere by this app.",
-    { status: 200, headers: { "Content-Type": "text/plain" } }
-  )
+  return tokenPage(data.refresh_token as string)
 }

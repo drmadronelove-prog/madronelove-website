@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { hasDashboardSession } from "@/lib/dashboard-auth"
+import { setupPage } from "@/lib/google-setup-page"
 
 // One-time setup: visit this route while logged into /dashboard to grant
 // this app access to your Google Tasks. The callback route shows a
@@ -10,11 +11,15 @@ export async function GET(req: NextRequest) {
   }
 
   const clientId = process.env.GOOGLE_CLIENT_ID
-  if (!clientId) {
-    return new NextResponse("GOOGLE_CLIENT_ID is not set in the environment.", { status: 500 })
+  const clientSecret = process.env.GOOGLE_CLIENT_SECRET
+  const redirectUri = new URL("/api/auth/google/callback", req.url).toString()
+
+  // Both are needed before Google can hand back a refresh token, so check
+  // them together rather than failing one at a time.
+  if (!clientId || !clientSecret) {
+    return setupPage({ redirectUri })
   }
 
-  const redirectUri = new URL("/api/auth/google/callback", req.url).toString()
   const params = new URLSearchParams({
     client_id: clientId,
     redirect_uri: redirectUri,
