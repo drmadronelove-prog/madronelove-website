@@ -12,7 +12,12 @@ export type FunThing = {
   days?: number[]
   /** Only on the Nth occurrence of its weekday in the month (e.g. First Friday). */
   nthWeekOfMonth?: number
+  /** 0=Jan..11=Dec. For seasonal things like lifeguarded lake swimming. */
+  months?: number[]
 }
+
+/** Roughly the lifeguarded / comfortable outdoor swim season here. */
+const SWIM_SEASON = [4, 5, 6, 7, 8, 9]
 
 export const CATEGORY_LABEL: Record<FunCategory, string> = {
   outdoors: "Outdoors & Nature",
@@ -101,6 +106,61 @@ export const FUN_THINGS: FunThing[] = [
     desc: "Climb the terraced fountain stairs at Joaquin Miller, then pick up the Sunset Trail into the redwoods behind the amphitheater.",
     place: "Woodminster Amphitheater, Joaquin Miller Park, Oakland, CA",
     link: "https://www.oaklandca.gov/locations/joaquin-miller-park",
+  },
+
+  // ---- Swimming (pools, lakes, and bay beaches) ----
+  {
+    id: "lake-anza",
+    cat: "outdoors",
+    name: "Swim at Lake Anza",
+    desc: "A sandy swim beach tucked in the Tilden hills, lifeguarded through the warm months. Shaded picnic tables in the eucalyptus behind the sand.",
+    place: "Lake Anza, Tilden Regional Park, Berkeley, CA",
+    link: "https://www.ebparks.org/parks/tilden",
+    months: SWIM_SEASON,
+  },
+  {
+    id: "lake-temescal",
+    cat: "outdoors",
+    name: "Swim at Lake Temescal",
+    desc: "Small lifeguarded beach on the north end, five minutes off Highway 24 — the easiest real swim to reach from the flats.",
+    place: "Lake Temescal, 6500 Broadway Terrace, Oakland, CA",
+    link: "https://www.ebparks.org/parks/temescal",
+    months: SWIM_SEASON,
+  },
+  {
+    id: "roberts-pool",
+    cat: "outdoors",
+    name: "Roberts Regional pool in the redwoods",
+    desc: "Heated outdoor pool ringed by second-growth redwoods up on Skyline — swimming with tree canopy overhead rather than a parking lot.",
+    place: "Roberts Regional Recreation Area, 10570 Skyline Blvd, Oakland, CA",
+    link: "https://www.ebparks.org/parks/roberts",
+    months: SWIM_SEASON,
+  },
+  {
+    id: "crown-beach-swim",
+    cat: "outdoors",
+    name: "Bay swim at Crown Memorial Beach",
+    desc: "Two and a half miles of sand on the Alameda side, and the warmest, calmest bay water anywhere near Oakland thanks to the shallow shelf.",
+    place: "Robert W. Crown Memorial State Beach, Alameda, CA",
+    link: "https://www.ebparks.org/parks/crown-beach",
+    months: SWIM_SEASON,
+  },
+  {
+    id: "richmond-plunge",
+    cat: "outdoors",
+    name: "Laps at the Richmond Plunge",
+    desc: "Restored 1926 natatorium with a barrel-vaulted roof and clerestory light over the water. Indoor and heated, so it works in any weather.",
+    place: "Richmond Plunge, 1 E Richmond Ave, Richmond, CA",
+    link: "https://www.ci.richmond.ca.us/1200/The-Plunge",
+  },
+  {
+    id: "keller-beach",
+    cat: "outdoors",
+    name: "Keller Beach at Miller/Knox",
+    desc: "A small protected cove in Point Richmond that most people drive past — sheltered water, and the Brickyard Cove hills behind you.",
+    place: "Keller Beach, Miller/Knox Regional Shoreline, Richmond, CA",
+    link: "https://www.ebparks.org/parks/miller-knox",
+    months: SWIM_SEASON,
   },
 
   // ---- Arts & culture ----
@@ -300,15 +360,19 @@ function nthWeekdayOfMonth(date: Date): number {
 /** Things that actually happen on the given day. */
 export function availableOn(date: Date, cat: FunCategory): FunThing[] {
   const dow = date.getDay()
+  const month = date.getMonth()
   const nth = nthWeekdayOfMonth(date)
   const matches = FUN_THINGS.filter((t) => {
     if (t.cat !== cat) return false
     if (t.days && !t.days.includes(dow)) return false
+    if (t.months && !t.months.includes(month)) return false
     if (t.nthWeekOfMonth && t.nthWeekOfMonth !== nth) return false
     return true
   })
   // Never return an empty category, even on an odd calendar day.
-  return matches.length > 0 ? matches : FUN_THINGS.filter((t) => t.cat === cat && !t.days)
+  return matches.length > 0
+    ? matches
+    : FUN_THINGS.filter((t) => t.cat === cat && !t.days && !t.months)
 }
 
 export function dateKey(date: Date): string {
