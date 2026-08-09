@@ -30,6 +30,7 @@ import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
 import { DashboardDictionary } from "@/components/dashboard-dictionary"
 import { DashboardWordOfTheDay } from "@/components/dashboard-word-of-the-day"
+import { DashboardFunThings } from "@/components/dashboard-fun-things"
 
 type SubLink = {
   label: string
@@ -628,6 +629,8 @@ function DashboardContent() {
               <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Tasks</h2>
               <DashboardTasks />
             </section>
+
+            <DashboardFunThings />
           </div>
         </div>
       </div>
