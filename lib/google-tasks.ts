@@ -30,6 +30,26 @@ function requireEnv() {
   return { clientId, clientSecret, refreshToken }
 }
 
+// Google explains refusals in the response body; surface that instead of a
+// bare status code, which leaves no way to tell a disabled API from a scope
+// problem or an expired grant.
+async function describeFailure(res: Response, action: string): Promise<string> {
+  let detail = ""
+  try {
+    const body = await res.text()
+    try {
+      const parsed = JSON.parse(body)
+      detail = parsed?.error?.message || parsed?.error_description || parsed?.error || ""
+    } catch {
+      detail = body.slice(0, 300)
+    }
+  } catch {
+    // fall through to the bare status
+  }
+  const base = `${action} (${res.status})`
+  return detail ? `${base}: ${detail}` : base
+}
+
 async function getAccessToken() {
   const { clientId, clientSecret, refreshToken } = requireEnv()
   const res = await fetch(TOKEN_URL, {
@@ -44,7 +64,7 @@ async function getAccessToken() {
     cache: "no-store",
   })
   if (!res.ok) {
-    throw new Error(`Failed to refresh Google access token (${res.status})`)
+    throw new Error(await describeFailure(res, "Failed to refresh Google access token"))
   }
   const data = await res.json()
   return data.access_token as string
@@ -56,7 +76,7 @@ export async function listTasks(): Promise<DashboardTask[]> {
     `${TASKS_BASE}/lists/@default/tasks?showCompleted=true&showHidden=false&maxResults=100`,
     { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
   )
-  if (!res.ok) throw new Error(`Failed to list tasks (${res.status})`)
+  if (!res.ok) throw new Error(await describeFailure(res, "Failed to list tasks"))
   const data = await res.json()
   const items: DashboardTask[] = (data.items || []).map((t: any) => ({
     id: t.id,
@@ -75,7 +95,7 @@ export async function setTaskStatus(id: string, completed: boolean) {
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
     body: JSON.stringify({ status: completed ? "completed" : "needsAction" }),
   })
-  if (!res.ok) throw new Error(`Failed to update task (${res.status})`)
+  if (!res.ok) throw new Error(await describeFailure(res, "Failed to update task"))
   return res.json()
 }
 
@@ -86,6 +106,6 @@ export async function addTask(title: string) {
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
     body: JSON.stringify({ title }),
   })
-  if (!res.ok) throw new Error(`Failed to add task (${res.status})`)
+  if (!res.ok) throw new Error(await describeFailure(res, "Failed to add task"))
   return res.json()
 }
