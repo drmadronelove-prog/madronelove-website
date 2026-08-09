@@ -1,4 +1,4 @@
-export type FunCategory = "outdoors" | "arts" | "community"
+export type FunCategory = "outdoors" | "arts" | "community" | "getaway"
 
 export type FunThing = {
   id: string
@@ -14,6 +14,8 @@ export type FunThing = {
   nthWeekOfMonth?: number
   /** 0=Jan..11=Dec. For seasonal things like lifeguarded lake swimming. */
   months?: number[]
+  /** Rough one-way drive from Oakland, shown on getaway cards. */
+  travel?: string
 }
 
 /** Roughly the lifeguarded / comfortable outdoor swim season here. */
@@ -23,6 +25,7 @@ export const CATEGORY_LABEL: Record<FunCategory, string> = {
   outdoors: "Outdoors & Nature",
   arts: "Arts & Culture",
   community: "Concerts & Jewish Community",
+  getaway: "Out of Town",
 }
 
 export const FUN_THINGS: FunThing[] = [
@@ -143,6 +146,15 @@ export const FUN_THINGS: FunThing[] = [
     desc: "Two and a half miles of sand on the Alameda side, and the warmest, calmest bay water anywhere near Oakland thanks to the shallow shelf.",
     place: "Robert W. Crown Memorial State Beach, Alameda, CA",
     link: "https://www.ebparks.org/parks/crown-beach",
+    months: SWIM_SEASON,
+  },
+  {
+    id: "dimond-pool",
+    cat: "outdoors",
+    name: "Swim at Dimond Pool",
+    desc: "The neighborhood outdoor pool tucked into Dimond Park, with Sausal Creek and the redwoods right behind it. Lap and rec swim both.",
+    place: "Dimond Park Pool, 3860 Hanly Rd, Oakland, CA",
+    link: "https://www.oaklandca.gov/topics/swimming-pools-and-aquatics",
     months: SWIM_SEASON,
   },
   {
@@ -351,7 +363,167 @@ export const FUN_THINGS: FunThing[] = [
   },
 ]
 
+// ---- Out of town (weekends only) ----
+export const GETAWAYS: FunThing[] = [
+  {
+    id: "point-reyes",
+    cat: "getaway",
+    name: "Point Reyes National Seashore",
+    desc: "The Cypress Tree Tunnel, then the 300-odd steps down to the lighthouse. Chimney Rock for elephant seals, and oysters on the way back through Marshall.",
+    place: "Point Reyes National Seashore, CA",
+    link: "https://www.nps.gov/pore/planyourvisit/conditions.htm",
+    travel: "~1 hr 45 min",
+  },
+  {
+    id: "marin-headlands",
+    cat: "getaway",
+    name: "Marin Headlands",
+    desc: "Hawk Hill for the classic bridge view, then the suspension footbridge out to Point Bonita Lighthouse and dark sand at Rodeo Beach.",
+    place: "Marin Headlands, Sausalito, CA",
+    link: "https://www.nps.gov/goga/planyourvisit/marin-headlands.htm",
+    travel: "~40 min",
+  },
+  {
+    id: "angel-island",
+    cat: "getaway",
+    name: "Bike Angel Island",
+    desc: "Ferry across and ride the five-mile perimeter road for a 360° lap of the bay, with the immigration station museum on the north side.",
+    place: "Angel Island State Park, Tiburon, CA",
+    link: "https://www.parks.ca.gov/?page_id=468",
+    travel: "~1 hr with ferry",
+  },
+  {
+    id: "mount-diablo",
+    cat: "getaway",
+    name: "Drive to the Mount Diablo summit",
+    desc: "On a clear winter day the view from the summit is supposedly one of the largest in the world. Rock City's wind caves are worth a stop on the way up.",
+    place: "Mount Diablo State Park, Walnut Creek, CA",
+    link: "https://www.parks.ca.gov/?page_id=517",
+    travel: "~1 hr",
+  },
+  {
+    id: "muir-woods",
+    cat: "getaway",
+    name: "Muir Woods old growth",
+    desc: "Cathedral Grove is genuinely quiet by policy. Parking and shuttle reservations are required and sell out, so book before you go.",
+    place: "Muir Woods National Monument, Mill Valley, CA",
+    link: "https://gomuirwoods.com/",
+    travel: "~50 min",
+  },
+  {
+    id: "santa-cruz",
+    cat: "getaway",
+    name: "Santa Cruz coast",
+    desc: "West Cliff Drive end to end, the arch at Natural Bridges, and the 1924 Giant Dipper on the boardwalk if you want the whole thing.",
+    place: "Santa Cruz, CA",
+    link: "https://www.santacruz.org/",
+    travel: "~1 hr 15 min",
+  },
+  {
+    id: "henry-cowell",
+    cat: "getaway",
+    name: "Henry Cowell Redwoods & Roaring Camp",
+    desc: "Flat old-growth loop through 1,500-year-old trees, plus a narrow-gauge steam train that climbs Bear Mountain from the same parking lot.",
+    place: "Henry Cowell Redwoods State Park, Felton, CA",
+    link: "https://www.parks.ca.gov/?page_id=546",
+    travel: "~1 hr 30 min",
+  },
+  {
+    id: "purisima-half-moon",
+    cat: "getaway",
+    name: "Purisima Creek & Half Moon Bay",
+    desc: "Fog-fed redwood canyon on the ridge above the coast, then down to the harbor at Pillar Point for the rest of the afternoon.",
+    place: "Purisima Creek Redwoods, Half Moon Bay, CA",
+    link: "https://www.openspace.org/preserves/purisima-creek-redwoods",
+    travel: "~1 hr",
+  },
+  {
+    id: "sonoma-coast",
+    cat: "getaway",
+    name: "Bodega Bay & the Sonoma Coast",
+    desc: "Goat Rock where the Russian River meets the sea, harbor seals on the spit, and whale spouts off Bodega Head in migration season.",
+    place: "Bodega Bay, CA",
+    link: "https://www.parks.ca.gov/?page_id=451",
+    travel: "~2 hr",
+  },
+  {
+    id: "armstrong-russian-river",
+    cat: "getaway",
+    name: "Armstrong Redwoods & the Russian River",
+    desc: "A grove of 1,400-year-old coast redwoods above Guerneville, then down to the river at Johnson's Beach for a swim.",
+    place: "Armstrong Redwoods State Natural Reserve, Guerneville, CA",
+    link: "https://www.parks.ca.gov/?page_id=450",
+    travel: "~2 hr",
+  },
+  {
+    id: "pinnacles",
+    cat: "getaway",
+    name: "Pinnacles National Park",
+    desc: "Talus caves you scramble through with a headlamp, and one of the few places to see California condors overhead. Bring water, it bakes.",
+    place: "Pinnacles National Park, CA",
+    link: "https://www.nps.gov/pinn/planyourvisit/conditions.htm",
+    travel: "~2 hr 30 min",
+  },
+  {
+    id: "monterey",
+    cat: "getaway",
+    name: "Monterey Bay & Point Lobos",
+    desc: "The aquarium's kelp forest tank, then the cypress headlands at Point Lobos, which Robert Louis Stevenson supposedly used for Treasure Island.",
+    place: "Monterey, CA",
+    link: "https://www.montereybayaquarium.org/visit",
+    travel: "~2 hr",
+  },
+  {
+    id: "calistoga",
+    cat: "getaway",
+    name: "Calistoga hot springs",
+    desc: "Volcanic mud baths and mineral pools at the top of the Napa Valley, with the Petrified Forest and Old Faithful geyser nearby.",
+    place: "Calistoga, CA",
+    link: "https://visitcalistoga.com/",
+    travel: "~1 hr 30 min",
+  },
+  {
+    id: "tahoe",
+    cat: "getaway",
+    name: "Lake Tahoe weekend",
+    desc: "Far enough to want a night. Emerald Bay and the Rubicon Trail in summer, everything else in winter.",
+    place: "Lake Tahoe, CA",
+    link: "https://visitlaketahoe.com/",
+    travel: "~3 hr 30 min",
+  },
+  {
+    id: "yosemite",
+    cat: "getaway",
+    name: "Yosemite Valley",
+    desc: "A long day or an easy overnight. Check whether a peak-hours reservation is in effect before you drive out.",
+    place: "Yosemite National Park, CA",
+    link: "https://www.nps.gov/yose/planyourvisit/conditions.htm",
+    travel: "~4 hr",
+  },
+  {
+    id: "mendocino",
+    cat: "getaway",
+    name: "Mendocino headlands",
+    desc: "Water-tower village on a bluff with trails around the whole headland. Worth a night rather than a round trip.",
+    place: "Mendocino, CA",
+    link: "https://www.parks.ca.gov/?page_id=442",
+    travel: "~3 hr 30 min",
+  },
+]
+
+FUN_THINGS.push(...GETAWAYS)
+
 export const CATEGORY_ORDER: FunCategory[] = ["outdoors", "arts", "community"]
+
+export function isWeekend(date: Date): boolean {
+  const d = date.getDay()
+  return d === 0 || d === 6
+}
+
+/** Weekends get an extra out-of-town card. */
+export function categoriesFor(date: Date): FunCategory[] {
+  return isWeekend(date) ? [...CATEGORY_ORDER, "getaway"] : CATEGORY_ORDER
+}
 
 function nthWeekdayOfMonth(date: Date): number {
   return Math.floor((date.getDate() - 1) / 7) + 1
@@ -402,7 +574,7 @@ export function mulberry32(seed: number): () => number {
 /** One pick per category. Same picks all day unless shuffled. */
 export function pickForDate(date: Date, rng?: () => number): FunThing[] {
   const random = rng ?? mulberry32(hashStr(dateKey(date)))
-  return CATEGORY_ORDER.map((cat) => {
+  return categoriesFor(date).map((cat) => {
     const opts = availableOn(date, cat)
     return opts[Math.floor(random() * opts.length)]
   })

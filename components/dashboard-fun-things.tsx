@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
-import { Shuffle, MapPin, CalendarDays } from "lucide-react"
+import { Shuffle, MapPin, CalendarDays, Car } from "lucide-react"
 import {
   CATEGORY_LABEL,
   dateKey,
@@ -17,6 +17,7 @@ const TAG_CLASS: Record<FunCategory, string> = {
   outdoors: "bg-[#e5f1e6] text-[#3a6b3f]",
   arts: "bg-[#f0e7f7] text-[#6b3f8c]",
   community: "bg-[#fdeee0] text-[#a05a1c]",
+  getaway: "bg-[#e2edf5] text-[#2f5d7c]",
 }
 
 export function DashboardFunThings() {
@@ -69,10 +70,11 @@ export function DashboardFunThings() {
   return (
     <section className="mb-6 mt-10">
       <h2 className="mb-1 text-center font-serif text-xl text-[var(--ink)]">
-        3 fun things to do today
+        {picks?.length ?? 3} fun things to do today
       </h2>
       <p className="mb-4 text-center text-xs text-[var(--ink-muted)]">
         Outdoors &amp; nature · arts &amp; culture · concerts &amp; Jewish community
+        {picks?.some((p) => p.cat === "getaway") && <> · out of town</>}
         {dateLabel && <> &middot; {dateLabel}</>}
       </p>
 
@@ -91,6 +93,12 @@ export function DashboardFunThings() {
             <p className="mt-1 text-sm leading-relaxed text-[var(--ink-muted)]">{thing.desc}</p>
 
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
+              {thing.travel && (
+                <span className="inline-flex items-center gap-1.5 text-xs text-[var(--ink-muted)]">
+                  <Car className="h-3.5 w-3.5" />
+                  {thing.travel}
+                </span>
+              )}
               {thing.link && (
                 <a
                   href={thing.link}
