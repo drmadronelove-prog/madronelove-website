@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { hasDashboardSession } from "@/lib/dashboard-auth"
+import { GOOGLE_SCOPES } from "@/lib/google-auth"
 import { setupPage } from "@/lib/google-setup-page"
 
 // One-time setup: visit this route while logged into /dashboard to grant
@@ -24,7 +25,7 @@ export async function GET(req: NextRequest) {
     client_id: clientId,
     redirect_uri: redirectUri,
     response_type: "code",
-    scope: "https://www.googleapis.com/auth/tasks",
+    scope: GOOGLE_SCOPES,
     access_type: "offline",
     prompt: "consent",
   })

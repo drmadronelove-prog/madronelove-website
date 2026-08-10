@@ -31,6 +31,7 @@ import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-sh
 import { DashboardDictionary } from "@/components/dashboard-dictionary"
 import { DashboardWordOfTheDay } from "@/components/dashboard-word-of-the-day"
 import { DashboardFunThings } from "@/components/dashboard-fun-things"
+import { DashboardCalendar } from "@/components/dashboard-calendar"
 
 type SubLink = {
   label: string
@@ -626,19 +627,7 @@ function DashboardContent() {
 
             <section className="mt-10">
               <h2 className="mb-4 text-center font-serif text-xl text-[var(--ink)]">Calendar</h2>
-              <div className="mx-auto max-w-3xl overflow-hidden rounded-xl border border-[var(--border)] shadow-sm">
-                <iframe
-                  className="h-[600px] w-full"
-                  src="https://calendar.google.com/calendar/embed?src=madrone%40madronelove.com&ctz=America%2FLos_Angeles"
-                  title="Calendar"
-                  loading="lazy"
-                />
-              </div>
-              <p className="mx-auto mt-3 max-w-3xl text-center text-xs text-[var(--ink-muted)]">
-                Showing the calendar for madrone@madronelove.com. If it looks empty, open that calendar in Google
-                Calendar &rarr; Settings and sharing &rarr; Access permissions &rarr; check &ldquo;Make available to
-                public,&rdquo; or swap in a different calendar&rsquo;s ID in the code.
-              </p>
+              <DashboardCalendar />
             </section>
 
             <section className="mb-6 mt-10">
