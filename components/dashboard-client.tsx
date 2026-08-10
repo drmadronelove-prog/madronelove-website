@@ -457,12 +457,24 @@ const STREAMS = [
   { id: "EFum1rGUdkk", label: "Europe" },
 ]
 
-type HeaderStation = { id: string; label: string; kind: "audio" | "iframe"; src: string }
+type HeaderStation = {
+  id: string
+  label: string
+  kind: "audio" | "iframe"
+  src: string
+  /** Fixed frame height. Falls back to a 16:9 box when omitted. */
+  height?: string
+}
+
+// Swap in any Spotify playlist, album, or show: open it in Spotify, Share ->
+// Copy link, and keep the id after the last slash.
+const SPOTIFY_EMBED = "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M"
 
 const HEADER_RADIO_STATIONS: HeaderStation[] = [
   { id: "kalx", label: "KALX", kind: "audio", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
   { id: "kpoo", label: "KPOO", kind: "audio", src: "https://kpoo.streamguys1.com/xstream" },
   { id: "kfjc", label: "KFJC", kind: "iframe", src: "https://kfjc.org/player/" },
+  { id: "spotify", label: "Spotify", kind: "iframe", src: SPOTIFY_EMBED, height: "152px" },
 ]
 
 function SidebarSectionPanel({ section }: { section: TileSection }) {
@@ -539,7 +551,7 @@ function DashboardContent() {
                       <button
                         key={station.id}
                         onClick={() => setHeaderStationId(station.id)}
-                        className={`flex-1 whitespace-nowrap px-2 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                        className={`flex-1 whitespace-nowrap px-1.5 py-2 text-[11px] font-semibold uppercase tracking-tight transition-colors ${
                           headerStationId === station.id
                             ? "bg-[var(--olive)] text-white"
                             : "bg-[var(--background)] text-[var(--ink-muted)] hover:text-[var(--ink)]"
@@ -557,13 +569,17 @@ function DashboardContent() {
                       </audio>
                     </div>
                   ) : (
-                    <div className="aspect-video">
+                    <div
+                      className={headerStation.height ? undefined : "aspect-video"}
+                      style={headerStation.height ? { height: headerStation.height } : undefined}
+                    >
                       <iframe
                         key={headerStation.id}
                         className="h-full w-full"
                         src={headerStation.src}
-                        title={`${headerStation.label} live stream`}
-                        allow="autoplay"
+                        title={`${headerStation.label} player`}
+                        // encrypted-media is required or Spotify refuses to play
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"
                       />
                     </div>
