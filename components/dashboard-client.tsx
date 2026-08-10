@@ -468,13 +468,13 @@ type HeaderStation = {
 
 // Swap in any Spotify playlist, album, or show: open it in Spotify, Share ->
 // Copy link, and keep the id after the last slash.
-const SPOTIFY_EMBED = "https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M"
+const SPOTIFY_EMBED = "https://open.spotify.com/embed/playlist/4dfupZS7irGvBanWKxNl9U"
 
 const HEADER_RADIO_STATIONS: HeaderStation[] = [
   { id: "kalx", label: "KALX", kind: "audio", src: "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3.m3u" },
   { id: "kpoo", label: "KPOO", kind: "audio", src: "https://kpoo.streamguys1.com/xstream" },
   { id: "kfjc", label: "KFJC", kind: "iframe", src: "https://kfjc.org/player/" },
-  { id: "spotify", label: "Spotify", kind: "iframe", src: SPOTIFY_EMBED, height: "152px" },
+  { id: "spotify", label: "Spotify", kind: "iframe", src: SPOTIFY_EMBED, height: "352px" },
 ]
 
 function SidebarSectionPanel({ section }: { section: TileSection }) {
