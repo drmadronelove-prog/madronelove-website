@@ -9,8 +9,9 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const { id } = await params
   const body = await req.json().catch(() => ({}))
   const completed = Boolean(body.completed)
+  const listId = typeof body.listId === "string" && body.listId ? body.listId : undefined
   try {
-    return NextResponse.json({ task: await setTaskStatus(id, completed) })
+    return NextResponse.json({ task: await setTaskStatus(id, completed, listId) })
   } catch (err) {
     return NextResponse.json({ error: err instanceof Error ? err.message : "unknown error" }, { status: 500 })
   }

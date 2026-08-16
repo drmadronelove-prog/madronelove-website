@@ -25,6 +25,7 @@ import {
   Book,
   PawPrint,
   Video,
+  Baby,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -127,6 +128,13 @@ const TILE_SECTIONS: TileSection[] = [
         configured: true,
         trigger: "click",
         items: [{ label: "Petfinder", href: "https://www.petfinder.com/", external: true }],
+      },
+      {
+        label: "Adoption",
+        icon: Baby,
+        configured: true,
+        trigger: "click",
+        items: [{ label: "PACT", href: "https://pactadopt.org/adopting-a-child/", external: true }],
       },
       {
         label: "Judaism",
