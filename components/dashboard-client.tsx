@@ -127,7 +127,13 @@ const TILE_SECTIONS: TileSection[] = [
         icon: PawPrint,
         configured: true,
         trigger: "click",
-        items: [{ label: "Petfinder", href: "https://www.petfinder.com/", external: true }],
+        items: [
+          {
+            label: "New Puppy Guide",
+            href: "https://static1.squarespace.com/static/5e2f96a24a605c076d3dfbee/t/67d1e09c12b65d2c6db99979/1741807794889/PNWD+Puppy+Packet_New+Puppy+Guide.pdf",
+            external: true,
+          },
+        ],
       },
       {
         label: "Adoption",
