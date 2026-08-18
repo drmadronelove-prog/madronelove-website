@@ -4,6 +4,17 @@ import { useCallback, useEffect, useState } from "react"
 import { CalendarDays, Loader2, MapPin, RefreshCw } from "lucide-react"
 import type { CalendarEvent } from "@/lib/google-calendar"
 
+/** Not connected, or connected with a token that predates the calendar scope. */
+function needsReconnect(error: string): boolean {
+  const lower = error.toLowerCase()
+  return (
+    lower.includes("not connected") ||
+    lower.includes("isn't connected") ||
+    lower.includes("insufficient") ||
+    lower.includes("scope")
+  )
+}
+
 function startOfDay(d: Date): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate())
 }
@@ -94,7 +105,20 @@ export function DashboardCalendar() {
         </button>
       </div>
 
-      {error && <p className="py-2 text-sm text-[var(--clay)]">{error}</p>}
+      {error && (
+        <p className="py-2 text-sm text-[var(--clay)]">
+          {needsReconnect(error) ? (
+            <>
+              Google Calendar isn&rsquo;t connected yet.{" "}
+              <a href="/api/auth/google" className="font-medium underline">
+                Connect Google Calendar
+              </a>
+            </>
+          ) : (
+            error
+          )}
+        </p>
+      )}
 
       {!error && loading && events === null && (
         <p className="py-2 text-sm text-[var(--ink-muted)]">Loading…</p>

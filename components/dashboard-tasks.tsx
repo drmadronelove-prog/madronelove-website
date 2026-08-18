@@ -11,15 +11,24 @@ type Task = {
   status: "needsAction" | "completed"
 }
 
+type TaskList = {
+  id: string
+  title: string
+}
+
+const LIST_STORAGE_KEY = "dashboard-task-list-id"
+
 export function DashboardTasks() {
   const [tasks, setTasks] = useState<Task[] | null>(null)
+  const [lists, setLists] = useState<TaskList[]>([])
+  const [listId, setListId] = useState<string>("@default")
   const [error, setError] = useState("")
   const [newTitle, setNewTitle] = useState("")
   const [adding, setAdding] = useState(false)
 
-  async function load() {
+  async function load(forListId: string) {
     setError("")
-    const res = await fetch("/api/tasks")
+    const res = await fetch(`/api/tasks?listId=${encodeURIComponent(forListId)}`)
     const data = await res.json()
     if (!res.ok) {
       setError(data.error || "Couldn't load tasks.")
@@ -30,8 +39,25 @@ export function DashboardTasks() {
   }
 
   useEffect(() => {
-    load()
+    const stored = typeof window !== "undefined" ? window.localStorage.getItem(LIST_STORAGE_KEY) : null
+    const initialListId = stored || "@default"
+    setListId(initialListId)
+    load(initialListId)
+
+    fetch("/api/tasks/lists")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data.lists)) setLists(data.lists)
+      })
+      .catch(() => {})
   }, [])
+
+  function handleListChange(newListId: string) {
+    setListId(newListId)
+    window.localStorage.setItem(LIST_STORAGE_KEY, newListId)
+    setTasks(null)
+    load(newListId)
+  }
 
   async function toggle(task: Task) {
     const nextCompleted = task.status !== "completed"
@@ -41,9 +67,9 @@ export function DashboardTasks() {
     const res = await fetch(`/api/tasks/${encodeURIComponent(task.id)}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ completed: nextCompleted }),
+      body: JSON.stringify({ completed: nextCompleted, listId }),
     })
-    if (!res.ok) load() // revert by re-fetching on failure
+    if (!res.ok) load(listId) // revert by re-fetching on failure
   }
 
   async function handleAdd(e: FormEvent) {
@@ -54,12 +80,12 @@ export function DashboardTasks() {
     const res = await fetch("/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title }),
+      body: JSON.stringify({ title, listId }),
     })
     setAdding(false)
     if (res.ok) {
       setNewTitle("")
-      load()
+      load(listId)
     }
   }
 
@@ -91,6 +117,19 @@ export function DashboardTasks() {
 
   return (
     <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/50 bg-white/80 p-5 shadow-[inset_0_2px_0_rgba(255,255,255,0.9),inset_0_-3px_8px_rgba(59,31,61,0.12),0_20px_40px_-14px_rgba(59,31,61,0.4)] backdrop-blur-sm">
+      {lists.length > 1 && (
+        <select
+          value={listId}
+          onChange={(e) => handleListChange(e.target.value)}
+          className="mb-3 w-full rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
+        >
+          {lists.map((list) => (
+            <option key={list.id} value={list.id}>
+              {list.title}
+            </option>
+          ))}
+        </select>
+      )}
       <form onSubmit={handleAdd} className="mb-4 flex gap-2">
         <input
           value={newTitle}
