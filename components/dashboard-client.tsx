@@ -462,7 +462,11 @@ const STREAMS = [
   { id: "vytmBNhc9ig", label: "Outer Space" },
   { id: "_NmK1u6ZU8U", label: "New York" },
   { id: "iMqrD-HBDGo", label: "Norway" },
-  { id: "CijNX_Wsdbo", label: "San Francisco" },
+  {
+    id: "jerusalem",
+    label: "Jerusalem",
+    src: "https://www.skylinewebcams.com/en/webcam/israel/jerusalem-district/jerusalem/western-wall.html",
+  },
   { id: "ydYDqZQpim8", label: "Namibia" },
   { id: "TCpM7RvAVCo", label: "Redwood City" },
   { id: "Vl-IBa9JTH4", label: "Oahu" },
