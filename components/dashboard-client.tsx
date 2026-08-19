@@ -456,6 +456,7 @@ function BouncingTitle({ text }: { text: string }) {
   )
 }
 
+/** Most streams are YouTube video IDs; a stream can set `src` directly for a non-YouTube embed. */
 const STREAMS = [
   { id: "_VqvVJfmyfs", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
@@ -469,7 +470,11 @@ const STREAMS = [
   { id: "dfVK7ld38Ys", label: "Tokyo" },
   { id: "tAWFO8_O_7M", label: "Norway Train" },
   { id: "UrKkchVOOAs", label: "Napa (Replay)" },
-  { id: "EFum1rGUdkk", label: "Europe" },
+  {
+    id: "rome",
+    label: "Rome",
+    src: "https://www.skylinewebcams.com/en/webcam/italia/lazio/roma/pantheon.html",
+  },
 ]
 
 type HeaderStation = {
@@ -629,7 +634,10 @@ function DashboardContent() {
                   <iframe
                     key={streamId}
                     className="h-full w-full"
-                    src={`https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`}
+                    src={
+                      STREAMS.find((s) => s.id === streamId)?.src ??
+                      `https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`
+                    }
                     title="Live stream"
                     allow="autoplay; encrypted-media; picture-in-picture"
                     loading="lazy"
