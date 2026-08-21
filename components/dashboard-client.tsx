@@ -464,7 +464,11 @@ function BouncingTitle({ text }: { text: string }) {
   )
 }
 
-/** Most streams are YouTube video IDs; a stream can set `src` directly for a non-YouTube embed. */
+/**
+ * Most streams are YouTube video IDs embedded inline. SkylineWebcams (and
+ * similar aggregator sites) block iframe embedding, so those instead carry
+ * `href` and open in a new tab rather than trying to load in the player.
+ */
 const STREAMS = [
   { id: "_VqvVJfmyfs", label: "Bay Bridge" },
   { id: "vytmBNhc9ig", label: "Outer Space" },
@@ -473,7 +477,7 @@ const STREAMS = [
   {
     id: "jerusalem",
     label: "Jerusalem",
-    src: "https://www.skylinewebcams.com/en/webcam/israel/jerusalem-district/jerusalem/western-wall.html",
+    href: "https://www.skylinewebcams.com/en/webcam/israel/jerusalem-district/jerusalem/western-wall.html",
   },
   { id: "ydYDqZQpim8", label: "Namibia" },
   { id: "TCpM7RvAVCo", label: "Redwood City" },
@@ -485,7 +489,7 @@ const STREAMS = [
   {
     id: "rome",
     label: "Rome",
-    src: "https://www.skylinewebcams.com/en/webcam/italia/lazio/roma/pantheon.html",
+    href: "https://www.skylinewebcams.com/en/webcam/italia/lazio/roma/pantheon.html",
   },
 ]
 
@@ -632,24 +636,33 @@ function DashboardContent() {
                   Live Streams
                 </h2>
                 <div className="mb-4 flex flex-wrap justify-center gap-3">
-                  {STREAMS.map((stream) => (
-                    <button
-                      key={stream.id}
-                      onClick={() => setStreamId(stream.id)}
-                      className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
-                    >
-                      {stream.label}
-                    </button>
-                  ))}
+                  {STREAMS.map((stream) =>
+                    stream.href ? (
+                      <a
+                        key={stream.id}
+                        href={stream.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={KEY_CLASS}
+                      >
+                        {stream.label}
+                      </a>
+                    ) : (
+                      <button
+                        key={stream.id}
+                        onClick={() => setStreamId(stream.id)}
+                        className={streamId === stream.id ? KEY_CLASS_PRESSED : KEY_CLASS}
+                      >
+                        {stream.label}
+                      </button>
+                    )
+                  )}
                 </div>
                 <div className="aspect-video overflow-hidden rounded-xl border border-white/10 shadow-sm">
                   <iframe
                     key={streamId}
                     className="h-full w-full"
-                    src={
-                      STREAMS.find((s) => s.id === streamId)?.src ??
-                      `https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`
-                    }
+                    src={`https://www.youtube.com/embed/${streamId}?autoplay=1&mute=1&playsinline=1`}
                     title="Live stream"
                     allow="autoplay; encrypted-media; picture-in-picture"
                     loading="lazy"
