@@ -26,6 +26,7 @@ import {
   PawPrint,
   Video,
   Baby,
+  Feather,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -122,6 +123,13 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
       { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
       { label: "Book Club", href: "https://madronelove.com/bookclub", icon: Book, configured: true, external: false },
+      {
+        label: "Becoming Madrone",
+        href: "https://claude.ai/code/artifact/1e41df02-cd5d-43e2-a972-4916f6a24391",
+        icon: Feather,
+        configured: true,
+        external: true,
+      },
       {
         label: "Dog Friend",
         icon: PawPrint,
