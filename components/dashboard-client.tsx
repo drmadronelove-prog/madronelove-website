@@ -149,7 +149,10 @@ const TILE_SECTIONS: TileSection[] = [
         icon: Baby,
         configured: true,
         trigger: "click",
-        items: [{ label: "PACT", href: "https://pactadopt.org/adopting-a-child/", external: true }],
+        items: [
+          { label: "PACT", href: "https://pactadopt.org/adopting-a-child/", external: true },
+          { label: "The Long Way Home", href: "/foster-to-adopt-guide.html", external: false },
+        ],
       },
       {
         label: "Judaism",

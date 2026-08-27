@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Long Way Home</title>
+<meta name="description" content="A step-by-step guide to foster-to-adopt in California — what actually happens, in what order, and how long each part really takes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F1F4F3;
+  --surface:#FFFFFF;
+  --sunk:#E7ECEA;
+  --ink:#141E22;
+  --slate:#56676C;
+  --rule:#D5DEDB;
+  --pine:#2C6A57;
+  --pine-soft:#E2EDE8;
+  --amber:#9C5F26;
+  --amber-soft:#F6EBDC;
+  --shadow:0 1px 2px rgba(20,30,34,.05),0 8px 24px -12px rgba(20,30,34,.14);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1719;
+    --surface:#162023;
+    --sunk:#1B2629;
+    --ink:#E4EBE8;
+    --slate:#93A4A6;
+    --rule:#263235;
+    --pine:#68B394;
+    --pine-soft:#182E28;
+    --amber:#DA9E5C;
+    --amber-soft:#2B2118;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1719;
+  --surface:#162023;
+  --sunk:#1B2629;
+  --ink:#E4EBE8;
+  --slate:#93A4A6;
+  --rule:#263235;
+  --pine:#68B394;
+  --pine-soft:#182E28;
+  --amber:#DA9E5C;
+  --amber-soft:#2B2118;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- progress rail ---------- */
+.rail{position:fixed;top:0;left:0;right:0;height:3px;background:transparent;z-index:50}
+.rail i{display:block;height:100%;width:0;background:var(--pine);transition:width .1s linear}
+
+/* ---------- shell ---------- */
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.5rem}
+.bleed{max-width:60rem;margin:0 auto;padding:0 1.5rem}
+
+h1,h2,h3{font-family:Newsreader,ui-serif,Georgia,serif;font-weight:500;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.6rem,7vw,4.1rem);line-height:1.02;letter-spacing:-.02em}
+h2{font-size:clamp(1.65rem,3.6vw,2.15rem);line-height:1.14;letter-spacing:-.012em}
+h3{font-size:1.16rem;line-height:1.3;font-weight:600}
+p{margin:0}
+a{color:var(--pine);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pine);outline-offset:3px;border-radius:2px}
+
+.label{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(4rem,11vw,7.5rem) 0 clamp(2.5rem,6vw,4rem)}
+.hero .label{display:block;margin-bottom:1.6rem;color:var(--pine)}
+.hero h1{margin-bottom:1.7rem}
+.hero h1 em{font-style:italic;color:var(--pine)}
+.deck{font-size:1.19rem;color:var(--slate);max-width:34rem;display:flex;flex-direction:column;gap:1rem}
+.byline{
+  margin-top:2.6rem;padding-top:1.3rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;
+}
+
+/* ---------- thesis ---------- */
+.thesis{
+  margin:clamp(2.5rem,6vw,4rem) 0;padding:clamp(1.6rem,4vw,2.4rem);
+  background:var(--pine-soft);border-radius:3px;
+  border-left:3px solid var(--pine);
+  display:flex;flex-direction:column;gap:1rem;
+}
+.thesis p:first-of-type{
+  font-family:Newsreader,ui-serif,Georgia,serif;font-size:1.42rem;line-height:1.32;
+  letter-spacing:-.01em;text-wrap:balance;
+}
+
+/* ---------- sections ---------- */
+section{padding:clamp(2.4rem,5.5vw,3.6rem) 0}
+.sechead{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.7rem}
+.stack{display:flex;flex-direction:column;gap:1.05rem}
+
+/* ---------- steps ---------- */
+.step{
+  display:grid;grid-template-columns:2.6rem 1fr;gap:0 1.15rem;
+  padding:1.9rem 0;border-top:1px solid var(--rule);
+}
+.step:first-of-type{border-top:2px solid var(--ink)}
+.num{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.82rem;font-weight:600;
+  color:var(--pine);padding-top:.34rem;font-variant-numeric:tabular-nums;
+}
+.step-body{display:flex;flex-direction:column;gap:.9rem;min-width:0}
+.meta{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.74rem;letter-spacing:.04em;
+  color:var(--slate);display:flex;flex-wrap:wrap;gap:.3rem .9rem;
+}
+.meta b{color:var(--ink);font-weight:500}
+
+ul.plain{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.5rem}
+ul.plain li::marker{color:var(--pine)}
+
+/* ---------- callouts ---------- */
+.note{
+  padding:1.1rem 1.25rem;border-radius:3px;background:var(--sunk);
+  display:flex;flex-direction:column;gap:.6rem;font-size:.96rem;
+}
+.note .label{color:var(--slate)}
+.real{background:var(--amber-soft);box-shadow:inset 3px 0 0 var(--amber)}
+.real .label{color:var(--amber)}
+
+/* ---------- clock ---------- */
+.clock{background:var(--surface);border:1px solid var(--rule);border-radius:4px;box-shadow:var(--shadow);overflow:hidden}
+.clock-head{padding:1.5rem 1.5rem 1.2rem;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:.55rem}
+.clock-scroll{overflow-x:auto;padding:2rem 1.5rem 1.6rem}
+.track{min-width:39rem;position:relative;padding-top:2.9rem}
+.line{position:absolute;top:2.5rem;left:0;right:0;height:2px;background:var(--rule)}
+.line i{position:absolute;left:0;top:0;bottom:0;width:47%;background:var(--pine)}
+.hint{display:none;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.08em;color:var(--slate)}
+@media (max-width:760px){.hint{display:block}}
+.ticks{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem}
+.tick{position:relative;padding-top:1.5rem;display:flex;flex-direction:column;gap:.35rem}
+.tick::before{
+  content:"";position:absolute;top:-.34rem;left:0;width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--rule);
+}
+.tick.on::before{background:var(--pine);border-color:var(--pine)}
+.tick.end::before{background:var(--amber);border-color:var(--amber)}
+.tick .when{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.tick .what{font-size:.83rem;line-height:1.4;color:var(--slate)}
+.clock-foot{padding:1.15rem 1.5rem;border-top:1px solid var(--rule);background:var(--sunk);font-size:.9rem;color:var(--slate)}
+
+/* ---------- fork ---------- */
+.fork{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.card{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:1.3rem;
+  display:flex;flex-direction:column;gap:.65rem;
+}
+.card .big{font-family:Newsreader,ui-serif,Georgia,serif;font-size:2.1rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.card.a .big{color:var(--pine)}
+.card.b .big{color:var(--amber)}
+.card p{font-size:.92rem;color:var(--slate)}
+
+/* ---------- money ---------- */
+.rows{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.row{display:flex;flex-wrap:wrap;gap:.3rem 1rem;justify-content:space-between;align-items:baseline;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.row dt{font-weight:500;flex:1 1 14rem;margin:0}
+.row dd{margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88rem;color:var(--pine);font-variant-numeric:tabular-nums;text-align:right}
+.row small{display:block;font-family:"Public Sans",sans-serif;color:var(--slate);font-size:.85rem;font-weight:400;margin-top:.15rem}
+
+/* ---------- monday ---------- */
+.monday{background:var(--ink);color:var(--paper);border-radius:4px;padding:clamp(1.6rem,4.5vw,2.5rem);display:flex;flex-direction:column;gap:1.2rem}
+.monday h2{color:var(--paper)}
+.monday .label{color:var(--pine)}
+.monday a{color:var(--pine)}
+.monday ol{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.monday ol::marker{color:var(--pine)}
+.call{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.28rem;font-weight:600;
+  letter-spacing:-.01em;display:inline-block;
+}
+
+/* ---------- foot ---------- */
+footer{padding:3rem 0 4.5rem;border-top:1px solid var(--rule);margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+footer p,footer li{font-size:.86rem;color:var(--slate);line-height:1.55}
+footer ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .fork{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:.5rem}
+  .num{padding-top:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="rail"><i id="railfill"></i></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="label">California · Alameda County</span>
+    <h1>You don’t adopt a foster child. You <em>foster</em> one.</h1>
+    <div class="deck">
+      <p>And sometimes — not usually, but sometimes — that child stays.</p>
+      <p>Every honest guide to foster-to-adopt has to start there, because almost every dishonest one starts somewhere else. Here is the actual sequence, the actual clock, and the actual phone number.</p>
+    </div>
+    <div class="byline">
+      <span class="label">9 steps</span>
+      <span class="label">~12 min read</span>
+      <span class="label">Updated August 2026</span>
+    </div>
+  </header>
+
+  <div class="thesis">
+    <p>“Foster-to-adopt” is not a program you enroll in. It’s a description of what happens when a family says yes to fostering, the court eventually rules out going home, and the person the child already lives with turns out to be you.</p>
+    <p>You can’t apply for the last part. You can only be standing there when it happens.</p>
+  </div>
+
+  <section>
+    <div class="sechead">
+      <span class="label">Before anything else</span>
+      <h2>The math nobody puts on the brochure</h2>
+    </div>
+    <div class="stack">
+      <div class="fork">
+        <div class="card a">
+          <span class="big">~60,000</span>
+          <h3>children in California foster care</h3>
+          <p>The majority have a case plan aimed at going home to their parents. Your job, for most of any placement, is to help that succeed.</p>
+        </div>
+        <div class="card b">
+          <span class="big">15,386</span>
+          <h3>waiting to be adopted</h3>
+          <p>These are the children whose parents’ rights have already ended. They skew older, they’re often in sibling groups, and they wait a long time.</p>
+        </div>
+      </div>
+      <div class="note real">
+        <span class="label">Reality check</span>
+        <p>If your goal is specifically to adopt, and you’re open to a child who is nine rather than nine months, ask the county about children already <em>legally free</em>. That’s a shorter, more certain road. Foster-to-adopt is the longer one, and it asks you to want something for a family that isn’t yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <span class="label">Part one · Getting approved</span>
+      <h2>Nine steps to a placement</h2>
+      <p style="color:var(--slate)">California folded foster licensing, guardianship approval, and adoption home studies into one process in 2017. It’s called <strong>Resource Family Approval</strong>, and clearing it once clears you for all three.</p>
+    </div>
+
+    <div class="step">
+      <span class="num">01</span>
+      <div class="step-body">
+        <h3>Go to an orientation</h3>
+        <div class="meta"><span><b>Time:</b> one evening</span><span><b>Cost:</b> $0</span></div>
+        <p>Two hours in a room, free, no commitment. Alameda County runs these regularly. Go to one before you decide anything — it will tell you more than any website, including this one.</p>
+        <p>Bring one question that would end the whole idea if answered badly. Ask it out loud.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">02</span>
+      <div class="step-body">
+        <h3>Apply, and get fingerprinted</h3>
+        <div class="meta"><span><b>Time:</b> 2–4 weeks</span><span><b>Cost:</b> ~$100–300</span></div>
+        <p>The application is form RFA-01A plus a stack of documents: ID, proof of income, proof of residence, a DMV record, a health questionnaire, and character references from people who’ll actually pick up the phone.</p>
+        <p>Then background checks — and they are thorough:</p>
+        <ul class="plain">
+          <li>Live Scan fingerprinting against state <em>and</em> federal criminal records</li>
+          <li>The Child Abuse Central Index</li>
+          <li>Sex offender registry and licensing databases</li>
+          <li>Everyone in the household over 18, not just you</li>
+        </ul>
+        <div class="note">
+          <span class="label">Old record?</span>
+          <p>Not automatically disqualifying. There’s a formal criminal record exemption process, and it turns on what the offense was and how long ago. Disclose it yourself at the start. Being found out later is what ends applications.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">03</span>
+      <div class="step-body">
+        <h3>Pass the home inspection</h3>
+        <div class="meta"><span><b>Time:</b> one visit</span><span><b>Cost:</b> whatever you have to fix</span></div>
+        <p>This is where more applications stall than anywhere else, almost always over bedrooms. The rules that actually catch people:</p>
+        <ul class="plain">
+          <li><strong>A room used for anything else isn’t a bedroom.</strong> Not the dining room, not the hallway, not the garage, and not a living room with a partition across it. This applies to <em>your</em> room too, so you can’t sleep behind a curtain and give the child the bedroom.</li>
+          <li><strong>Every bedroom needs a direct emergency exit</strong> to the outside — a window or door that opens.</li>
+          <li><strong>Children over two don’t share a bedroom with an adult.</strong> Infants can: up to two of them may sleep in your room.</li>
+          <li><strong>Children can share with each other</strong> — up to four of the same gender identity per room. A private bedroom is not required.</li>
+          <li>Bunk beds max two tiers, rails on top, nobody under six up there.</li>
+          <li>Firearms locked and stored separately from ammunition. Pools fenced. Medications and chemicals locked.</li>
+        </ul>
+        <div class="note real">
+          <span class="label">The one-bedroom problem</span>
+          <p>If you live in a one-bedroom, you are not out — you’re limited to an infant. Everything else needs a real second bedroom with walls, a door, and a window. A permitted conversion counts. A bookshelf does not.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">04</span>
+      <div class="step-body">
+        <h3>Do the training</h3>
+        <div class="meta"><span><b>Time:</b> ~12 hours + a CPR class</span><span><b>Cost:</b> usually free</span></div>
+        <p>Twelve hours of pre-approval training is the state floor; Alameda runs about twelve and a half. Plus pediatric CPR and first aid, which you’ll do at a Red Cross or community college session.</p>
+        <p>The training is mostly about trauma — what it does to a developing brain, why a child might rage over a closed door or hoard food in a house that has plenty. It is the most useful part of the entire process and the part people most want to skip.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">05</span>
+      <div class="step-body">
+        <h3>Sit through the family evaluation</h3>
+        <div class="meta"><span><b>Time:</b> 2+ interviews, one at home</span></div>
+        <p>A social worker interviews you at least twice, once in your house, watching how your household actually runs. They ask about your childhood, your discipline philosophy, your relationships, your money, your mental health, your substance use, your losses.</p>
+        <p>They’re assessing one thing above all: <strong>can you work with a birth family?</strong> Not tolerate — work with. Drive a child to a visit with a parent you have feelings about, and hand them over at the door without making it heavy.</p>
+        <div class="note">
+          <span class="label">How to do this well</span>
+          <p>Don’t perform. Evaluators have read a thousand of these and can smell a curated answer. Say the true thing, including the parts where you’re not sure. "I don’t know how I’d handle that" is a better answer than a polished one.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">06</span>
+      <div class="step-body">
+        <h3>Get approved</h3>
+        <div class="meta"><span><b>Statutory clock:</b> 90 calendar days</span><span><b>Realistic:</b> 3–6 months total</span></div>
+        <p>By law the county has 90 days from your application to finish the written assessment, absent good cause. In practice the whole thing — orientation to approval — usually runs three to six months, and the delays are almost always paperwork you owe them, not the other way around.</p>
+        <p>Approval doesn’t guarantee a placement. It makes you eligible for one.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">07</span>
+      <div class="step-body">
+        <h3>Take the call</h3>
+        <div class="meta"><span><b>Notice:</b> sometimes hours</span></div>
+        <p>A placement call gives you a first name, an age, a few sentences about why the child was removed, and a decision window that can be very short. You will not get a complete history, because nobody has one yet.</p>
+        <p>You’re allowed to say no. Say it when the answer is no — a placement that breaks down is worse for the child than one that never started. But notice whether you’re saying no to <em>this child</em> or to the fact that it’s suddenly real.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <span class="label">Part two · The clock you don’t control</span>
+      <h2>What happens in dependency court</h2>
+      <p style="color:var(--slate)">From the day a child is removed, a statutory clock runs. Everything about whether you eventually adopt is decided on this timeline, by a judge, mostly without you in the room.</p>
+    </div>
+
+    <div class="clock">
+      <div class="clock-head">
+        <span class="label">California dependency timeline</span>
+        <p style="font-size:.93rem;color:var(--slate)">Measured from the child’s removal. Reunification is the goal at every mark until it isn’t. The green span is where most cases land.</p>
+        <span class="hint">Scroll the timeline sideways →</span>
+      </div>
+      <div class="clock-scroll">
+        <div class="track">
+          <div class="line"><i></i></div>
+          <div class="ticks">
+            <div class="tick on">
+              <span class="when">Days 1–60</span>
+              <span class="what">Petition, detention hearing, jurisdiction, disposition. The court decides the child was unsafe at home and orders reunification services.</span>
+            </div>
+            <div class="tick on">
+              <span class="when">Month 6</span>
+              <span class="what">First review. For children under three, services can end here — the shortest clock in the system.</span>
+            </div>
+            <div class="tick on">
+              <span class="when">Month 12</span>
+              <span class="what">Permanency hearing. The court must return the child unless returning is shown to be detrimental.</span>
+            </div>
+            <div class="tick">
+              <span class="when">Month 18</span>
+              <span class="what">Permanency review. Extending past here takes strong findings; 24 months is the outer limit.</span>
+            </div>
+            <div class="tick end">
+              <span class="when">+120 days</span>
+              <span class="what">The .26 hearing. Once services are terminated, this is set within 120 days — and adoption is the first option the court must consider.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clock-foot">Median time in care in California: <strong>12–20 months.</strong> Most of that, you are a foster parent, not a prospective adoptive one.</div>
+    </div>
+
+    <div class="stack" style="margin-top:1.6rem">
+      <div class="note real">
+        <span class="label">The part that hurts</span>
+        <p>Reunification succeeding is the system working. You will be asked to help it succeed — to show up at visits, speak well of a parent in front of their kid, keep a bedroom that a child might leave. Some people can hold that and grieve it at the same time. Some can’t. Both are honest; only one should foster.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <span class="label">Part three · If the answer becomes adoption</span>
+      <h2>The last two steps</h2>
+    </div>
+
+    <div class="step">
+      <span class="num">08</span>
+      <div class="step-body">
+        <h3>The .26 hearing</h3>
+        <p>Named for Welfare &amp; Institutions Code §366.26. The judge picks a permanent plan from a ranked list, and <strong>adoption sits at the top</strong> — guardianship and long-term placement are what the court chooses when adoption isn’t possible.</p>
+        <p>If adoption is selected, parental rights are terminated at this hearing. California law gives strong preference to the family the child is already living with. That’s the whole quiet logic of foster-to-adopt: you don’t get chosen at the end, you get chosen because you were already there.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="num">09</span>
+      <div class="step-body">
+        <h3>Finalize</h3>
+        <div class="meta"><span><b>Time:</b> a few months after TPR</span><span><b>Cost:</b> $0–500</span></div>
+        <p>Because your RFA approval already covers adoption, there’s no second home study. An adoption assessment is completed, a petition is filed, and you go to court one last time — a hearing that takes about fifteen minutes and is, by a wide margin, the happiest thing that happens in a dependency courtroom.</p>
+        <p>People bring their whole family. The judge lets the kid bang the gavel. Take the day off.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <span class="label">Part four</span>
+      <h2>What it costs, what you get</h2>
+      <p style="color:var(--slate)">Adopting from foster care is the least expensive adoption there is, and it comes with ongoing support that private adoption does not.</p>
+    </div>
+    <dl class="rows">
+      <div class="row">
+        <dt>Agency fee<small>Public agencies may charge up to $500 — often deferred, reduced, or waived entirely.</small></dt>
+        <dd>$0–500</dd>
+      </div>
+      <div class="row">
+        <dt>Getting approved<small>Fingerprinting, medical exams, CPR certification. Frequently reimbursable.</small></dt>
+        <dd>$100–300</dd>
+      </div>
+      <div class="row">
+        <dt>Adoption Assistance Program<small>A negotiated monthly payment based on the child’s needs, not your income — a means test is prohibited. Runs to 18, sometimes 21.</small></dt>
+        <dd>monthly</dd>
+      </div>
+      <div class="row">
+        <dt>Medi-Cal for the child<small>Health coverage continues after the adoption is final.</small></dt>
+        <dd>included</dd>
+      </div>
+      <div class="row">
+        <dt>Nonrecurring expense reimbursement<small>Court and attorney costs tied to finalizing.</small></dt>
+        <dd>up to $400</dd>
+      </div>
+      <div class="row">
+        <dt>Federal adoption tax credit (2026)<small>Children receiving AAP meet the special-needs test, so you can claim the full credit even with no expenses. Up to $5,000 is refundable. Phases out from $265,080 of income.</small></dt>
+        <dd>$17,670</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <span class="label">Part five</span>
+      <h2>Six things people wish they’d known</h2>
+    </div>
+    <div class="stack">
+      <div class="note">
+        <span class="label">01 · The honeymoon ends</span>
+        <p>The first few weeks are often eerily good. Children who’ve learned that adults are unpredictable are careful before they’re comfortable. The behavior that shows up in week six isn’t regression — it’s trust.</p>
+      </div>
+      <div class="note">
+        <span class="label">02 · You’ll be managed, not consulted</span>
+        <p>Social workers change. Court dates move. You’ll learn things about your own household from a hearing report. Keep your own written log of dates, appointments, and incidents from day one; you will need it and nobody will ask you for it until you do.</p>
+      </div>
+      <div class="note">
+        <span class="label">03 · Discipline rules are different</span>
+        <p>No physical discipline of any kind, ever. There are rules about where the child can sleep, who can babysit, and whether they can leave the county. It’s a real loss of autonomy and it surprises people.</p>
+      </div>
+      <div class="note">
+        <span class="label">04 · Siblings are the open door</span>
+        <p>The children waiting longest are older kids and sibling groups. If you can take two, you will be placed faster and you will be doing the harder, more needed thing.</p>
+      </div>
+      <div class="note">
+        <span class="label">05 · Find your people before you need them</span>
+        <p>Foster parent support groups exist in every county and are full of people who’ve been through exactly the week you’re having. Join one during approval, not during a crisis.</p>
+      </div>
+      <div class="note">
+        <span class="label">06 · Say yes to the first placement anyway</span>
+        <p>Most families’ first placement is not the child they adopt. It’s the one that teaches them how to do this. That’s not a wasted year — it’s a child who got a safe place while their family got itself back.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="monday">
+      <span class="label">Start here</span>
+      <h2>What to actually do Monday</h2>
+      <ol>
+        <li><strong>Call the county.</strong> Ask for the next orientation date and say plainly that you’re interested in foster-to-adopt. They’ll tell you the truth about wait times and current need.</li>
+        <li><strong>Measure your bedrooms.</strong> Confirm each one has walls, a door, and a window that opens. This determines what ages you can be approved for, and everything else follows from it.</li>
+        <li><strong>Write down your no.</strong> Ages, behaviors, medical needs, sibling groups. Being specific now protects a child from a placement that breaks down later.</li>
+      </ol>
+      <p><span class="label">Alameda County · foster &amp; adoption line</span><br>
+      <a class="call" href="tel:+15102593575">510-259-3575</a><br>
+      <a href="mailto:info@myresourcefamily.org">info@myresourcefamily.org</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>A note on scope.</strong> This guide describes California’s Resource Family Approval process, with details specific to Alameda County. Other states run entirely different systems. Nothing here is legal advice, timelines vary by case, and the county is always the authority over anything written here.</p>
+    <p class="label">Sources</p>
+    <ul>
+      <li><a href="https://www.myresourcefamily.org/">My Resource Family — Alameda County Social Services</a></li>
+      <li><a href="https://www.cdss.ca.gov/cfsweb/res/RFA/pdf/RFA-03.pdf">Resource Family Home Environment Checklist (RFA-03) — CDSS</a></li>
+      <li><a href="https://advokids.org/resource-family-approval-rfa-program/">Resource Family Approval Program — Advokids</a></li>
+      <li><a href="https://advokids.org/legal-tools/juvenile-court-process/">Juvenile Court Process and Statutory Timelines — Advokids</a></li>
+      <li><a href="https://cdss.ca.gov/inforesources/adoptions/adoption-assistance-program">Adoption Assistance Program — California Department of Social Services</a></li>
+      <li><a href="https://adoptuskids.org/adoption-and-foster-care/how-to-adopt-and-foster/state-information/california">California Foster Care and Adoption — AdoptUSKids</a></li>
+      <li><a href="https://www.kiplinger.com/taxes/adoption-tax-credit">Adoption Tax Credit 2026 — Kiplinger</a></li>
+      <li><a href="https://www.law.cornell.edu/regulations/california/22-CCR-89387">22 CCR §89387, Buildings and Grounds</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var fill=document.getElementById('railfill');
+  function up(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var p=h>0?(window.scrollY/h)*100:0;
+    fill.style.width=Math.min(100,Math.max(0,p))+'%';
+  }
+  window.addEventListener('scroll',up,{passive:true});
+  window.addEventListener('resize',up);
+  up();
+})();
+</script>
+
+</body>
+</html>
