@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A modular first-month manual for a nine-month-old mini poodle in a small apartment.">
+  <title>The Earthwind Manual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+</head>
+<body>
+<style>
+:root{
+  --ground:#E7EAE8;
+  --surface:#FBFBFA;
+  --surface-2:#F1F3F1;
+  --ink:#2E2320;
+  --ink-soft:#6A5B54;
+  --line:#D2D7D3;
+  --line-strong:#B9C1BB;
+  --accent:#A8632B;
+  --accent-ink:#FFFFFF;
+  --accent-wash:#F2E4D8;
+  --cool:#3F6168;
+  --cool-wash:#DFE8E9;
+  --good:#3F6E45;
+  --good-wash:#DDE9DD;
+  --warn:#8A5E10;
+  --warn-wash:#F2E7CE;
+  --shadow:0 1px 2px rgba(46,35,32,.06), 0 8px 24px rgba(46,35,32,.07);
+  --display:"Fraunces", Georgia, serif;
+  --body:"Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16191A;
+    --surface:#1E2223;
+    --surface-2:#262B2C;
+    --ink:#E9E5E0;
+    --ink-soft:#A69C94;
+    --line:#323839;
+    --line-strong:#454C4D;
+    --accent:#DB934C;
+    --accent-ink:#1A1210;
+    --accent-wash:#38271A;
+    --cool:#8CB4BB;
+    --cool-wash:#1F2C2E;
+    --good:#84B48B;
+    --good-wash:#1E2A20;
+    --warn:#D9AC52;
+    --warn-wash:#2E2617;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16191A;
+  --surface:#1E2223;
+  --surface-2:#262B2C;
+  --ink:#E9E5E0;
+  --ink-soft:#A69C94;
+  --line:#323839;
+  --line-strong:#454C4D;
+  --accent:#DB934C;
+  --accent-ink:#1A1210;
+  --accent-wash:#38271A;
+  --cool:#8CB4BB;
+  --cool-wash:#1F2C2E;
+  --good:#84B48B;
+  --good-wash:#1E2A20;
+  --warn:#D9AC52;
+  --warn-wash:#2E2617;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px 96px}
+
+/* ---------- masthead ---------- */
+.mast{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+.mast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin:0 0 10px
+}
+h1{
+  font-family:var(--display);
+  font-variation-settings:"SOFT" 20,"WONK" 1;
+  font-weight:800;
+  font-size:clamp(2.5rem,6.4vw,4.1rem);
+  line-height:.98;letter-spacing:-.02em;margin:0;text-wrap:balance;
+}
+h1 .amp{color:var(--accent)}
+.dek{margin:16px 0 0;max-width:60ch;color:var(--ink-soft);font-size:1.02rem}
+.themebtn{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);
+  border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap;
+}
+.themebtn:hover{border-color:var(--line-strong);color:var(--ink)}
+
+/* ---------- progress ---------- */
+.prog{margin-top:26px;display:flex;align-items:center;gap:14px}
+.prog-track{flex:1;height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.prog-fill{height:100%;width:0;background:var(--accent);transition:width .45s cubic-bezier(.4,0,.2,1)}
+.prog-label{font-family:var(--mono);font-size:12px;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- layout ---------- */
+.cols{display:grid;grid-template-columns:264px 1fr;gap:44px;margin-top:38px;align-items:start}
+.cols > *{min-width:0}
+@media (max-width:900px){.cols{grid-template-columns:1fr;gap:26px}}
+
+nav.rail{position:sticky;top:20px;min-width:0}
+@media (max-width:900px){nav.rail{position:static}}
+.rail-h{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px}
+.rail-list{display:flex;flex-direction:column;gap:3px;margin:0;padding:0;list-style:none}
+@media (max-width:900px){.rail-list{flex-direction:row;overflow-x:auto;padding-bottom:8px;gap:8px;min-width:0;scrollbar-width:thin}}
+.rail-btn{
+  display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+  background:none;border:none;border-radius:8px;padding:9px 11px;cursor:pointer;
+  font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.3;
+}
+@media (max-width:900px){.rail-btn{width:auto;white-space:nowrap;background:var(--surface);border:1px solid var(--line)}}
+.rail-btn:hover{background:var(--surface-2);color:var(--ink)}
+.rail-btn.on{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:var(--shadow)}
+.rail-num{
+  font-family:var(--mono);font-size:10.5px;flex:none;width:22px;height:22px;border-radius:6px;
+  display:grid;place-items:center;background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line);
+}
+.rail-btn.on .rail-num{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.rail-btn.done .rail-num{background:var(--good-wash);color:var(--good);border-color:transparent}
+.rail-btn.done.on .rail-num{background:var(--accent);color:var(--accent-ink)}
+
+/* ---------- module ---------- */
+.mod{display:none;animation:rise .34s ease both}
+.mod.on{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .mod{animation:none}
+  .prog-fill{transition:none}
+}
+.mod-tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+h2{
+  font-family:var(--display);font-variation-settings:"SOFT" 20,"WONK" 1;font-weight:800;
+  font-size:clamp(1.85rem,3.6vw,2.6rem);line-height:1.05;letter-spacing:-.015em;margin:0 0 12px;text-wrap:balance;
+}
+h3{
+  font-family:var(--display);font-weight:600;font-size:1.28rem;line-height:1.25;
+  margin:34px 0 8px;letter-spacing:-.005em;text-wrap:balance;
+}
+h4{font-family:var(--body);font-weight:700;font-size:1rem;margin:20px 0 4px}
+p{margin:0 0 14px;max-width:66ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:64ch}
+li{margin-bottom:7px}
+strong{font-weight:700}
+em{font-style:italic}
+a{color:var(--accent)}
+
+.lede{font-size:1.1rem;color:var(--ink-soft);max-width:60ch}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.card > :last-child{margin-bottom:0}
+.card h4:first-child{margin-top:0}
+
+.note{border-left:3px solid var(--cool);background:var(--cool-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.note > :last-child{margin-bottom:0}
+.note .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cool);display:block;margin-bottom:5px}
+
+.alarm{border-left:3px solid var(--accent);background:var(--accent-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.alarm > :last-child{margin-bottom:0}
+.alarm .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+.mini{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.mini h4{margin:0 0 4px}
+.mini p{margin:0;font-size:.94rem;color:var(--ink-soft)}
+
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:18px 0}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+/* ---------- interactive: stack meter ---------- */
+.stack{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.chip{
+  font-family:var(--body);font-size:14px;background:var(--surface-2);color:var(--ink);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.16s;
+}
+.chip:hover{border-color:var(--accent)}
+.chip.hit{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.meter{position:relative;height:34px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;margin-top:22px}
+.meter-fill{height:100%;width:0;border-radius:7px 0 0 7px;background:linear-gradient(90deg,var(--good),var(--warn) 62%,var(--accent));transition:width .4s cubic-bezier(.4,0,.2,1)}
+.meter-thresh{position:absolute;top:-18px;bottom:-1px;left:72%;width:2px;background:var(--ink);opacity:.5}
+.meter-thresh::after{
+  content:"threshold";position:absolute;left:6px;top:-4px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
+}
+.readout{margin-top:12px;font-size:.95rem;color:var(--ink-soft);min-height:3em}
+.readout.over{color:var(--accent);font-weight:700}
+
+/* ---------- interactive: sort ---------- */
+.sort-pool{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.bins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:560px){.bins{grid-template-columns:1fr}}
+.bin{background:var(--surface-2);border:1px dashed var(--line-strong);border-radius:10px;padding:14px;min-height:110px}
+.bin h4{margin:0 0 4px;font-size:.95rem}
+.bin .hint{font-size:.85rem;color:var(--ink-soft);margin:0 0 10px}
+.bin-items{display:flex;flex-wrap:wrap;gap:6px}
+.tok{font-size:13.5px;border-radius:999px;padding:6px 12px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.tok.sel{outline:2px solid var(--accent);outline-offset:1px}
+.tok.right{background:var(--good-wash);border-color:transparent;color:var(--good);font-weight:700;cursor:default}
+.tok.wrong{background:var(--accent-wash);border-color:transparent;color:var(--accent);font-weight:700;cursor:default}
+
+/* ---------- interactive: quiz ---------- */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.quiz .q{font-weight:700;margin:0 0 12px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{
+  text-align:left;font-family:var(--body);font-size:15px;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:11px 14px;cursor:pointer;transition:.15s;
+}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt[disabled]{cursor:default}
+.opt.correct{background:var(--good-wash);border-color:var(--good);color:var(--good);font-weight:700}
+.opt.incorrect{background:var(--accent-wash);border-color:var(--accent);color:var(--accent)}
+.fb{margin-top:12px;font-size:.95rem;color:var(--ink-soft);display:none}
+.fb.show{display:block}
+
+/* ---------- reflection ---------- */
+.reflect{margin:22px 0}
+.reflect label{display:block;font-weight:700;margin-bottom:6px}
+.reflect .sub{font-size:.9rem;color:var(--ink-soft);margin:0 0 8px}
+textarea{
+  width:100%;min-height:96px;resize:vertical;font-family:var(--body);font-size:15.5px;line-height:1.55;
+  color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+}
+textarea:focus,.opt:focus-visible,.chip:focus-visible,.tok:focus-visible,.rail-btn:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px
+}
+
+/* ---------- footer nav ---------- */
+.modfoot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.btn{
+  font-family:var(--body);font-weight:700;font-size:15px;border-radius:9px;padding:11px 20px;cursor:pointer;
+  background:var(--accent);color:var(--accent-ink);border:1px solid transparent;
+}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--ink-soft);border-color:var(--line)}
+.btn.ghost:hover{color:var(--ink);border-color:var(--line-strong);filter:none}
+.btn.done{background:var(--good-wash);color:var(--good);border-color:transparent}
+
+.finish{text-align:center;padding:30px 0}
+.finish h2{margin-bottom:6px}
+.bigpct{font-family:var(--display);font-weight:800;font-size:4.4rem;color:var(--accent);line-height:1;margin:14px 0 4px;font-variant-numeric:tabular-nums}
+
+.tinylist{list-style:none;padding:0;max-width:64ch}
+.tinylist li{display:flex;gap:10px;margin-bottom:10px}
+.tinylist .n{font-family:var(--mono);font-size:11px;color:var(--accent);flex:none;padding-top:4px}
+
+.phone{font-family:var(--mono);font-weight:600;font-size:1.05rem;color:var(--ink)}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <div>
+        <p class="eyebrow">Owner's manual · mini poodle · 9 months</p>
+        <h1>The Earthwind<br>Manual<span class="amp">.</span></h1>
+      </div>
+      <button class="themebtn" id="themebtn" type="button">Theme</button>
+    </div>
+    <p class="dek">Everything worth knowing in the first month with a brown phantom mini poodle in a 600 square foot apartment. Nine modules. Work through them in any order. Your place is saved.</p>
+    <div class="prog">
+      <div class="prog-track"><div class="prog-fill" id="progfill"></div></div>
+      <span class="prog-label" id="proglabel">0 of 9 complete</span>
+    </div>
+  </header>
+
+  <div class="cols">
+    <nav class="rail" aria-label="Modules">
+      <p class="rail-h">Modules</p>
+      <ul class="rail-list" id="rail"></ul>
+    </nav>
+
+    <main id="stage">
+
+      <!-- ============ 0 ============ -->
+      <section class="mod on" data-title="Day Four">
+        <p class="mod-tag">Module 01</p>
+        <h2>Day Four</h2>
+        <p class="lede">You have had a dog for ninety-six hours. Here is what is actually happening, and what is not your fault.</p>
+
+        <p>Earthwind is nine months old. He left the only home he knew, arrived somewhere with unfamiliar smells, a hallway full of strangers, and one person he has known for four days. His entire frame of reference got deleted.</p>
+
+        <p>What that produces is a dog who looks unpredictable. Fine one hour, unreachable the next. That is not a character flaw and it is not a training failure. It is a nervous system with no baseline yet.</p>
+
+        <h3>The three-week shape</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Days 1&ndash;3</h4><p>Overwhelmed. Often quiet, sometimes eerily well-behaved. Not his real personality.</p></div>
+          <div class="mini"><h4>Weeks 1&ndash;3</h4><p>He starts to relax, and the actual dog appears. Testing, barking, opinions. This looks like regression. It is progress.</p></div>
+          <div class="mini"><h4>Month 2&ndash;3</h4><p>He starts to believe he lives here. Routines stick. This is when training begins to hold.</p></div>
+          <div class="mini"><h4>Months 9&ndash;18</h4><p>Adolescence, separately. Trained dogs appear to forget everything. They have not.</p></div>
+        </div>
+
+        <div class="note">
+          <span class="k">Worth holding onto</span>
+          <p>Nothing you observe this week is a permanent fact about him. Judge him at week four, not week one.</p>
+        </div>
+
+        <h3>What actually matters right now</h3>
+        <ul>
+          <li>Sleep. Adolescent dogs need fourteen to sixteen hours. Most household chaos is an overtired dog, not an under-exercised one.</li>
+          <li>Predictability. The same sequence of events every day does more than any technique.</li>
+          <li>Food out of your hand instead of a bowl, so you become the source of good outcomes.</li>
+          <li>Not much else. This month is for settling, not for building a resume.</li>
+        </ul>
+
+        <div class="reflect">
+          <label for="r0">What surprised you in the first four days?</label>
+          <p class="sub">No right answer. This is here so you can read it back in a month.</p>
+          <textarea id="r0" data-save="r0" placeholder="Write freely."></textarea>
+        </div>
+      </section>
+
+      <!-- ============ 1 ============ -->
+      <section class="mod" data-title="Reading Earthwind">
+        <p class="mod-tag">Module 02</p>
+        <h2>Reading Earthwind</h2>
+        <p class="lede">The single most useful skill you can build. Everything else in this manual depends on it.</p>
+
+        <h3>Arousal is one system</h3>
+        <p>Excitement and aggression run on the same wiring. Not related systems. The same one. A dog spiking with joy has exactly as little impulse control as a dog spiking with fear, which is why the friendliest moment of the day is often the one where something goes wrong.</p>
+
+        <p>Below a certain level, a dog can think, hear cues, and make choices. Above it, he cannot. That line is his <strong>threshold</strong>, and no training exists above it.</p>
+
+        <h3>Trigger stacking</h3>
+        <p>Stressors accumulate. Each one lands before the last has cleared, and arousal ratchets up instead of resetting. A dog who bites at 6pm was usually climbing since noon.</p>
+
+        <div class="stack">
+          <h4 style="margin-top:0">Try it: stack a day on him</h4>
+          <p style="font-size:.94rem;color:var(--ink-soft)">Tap the things that happened. Watch where he ends up.</p>
+          <div class="chips" id="chips"></div>
+          <div class="meter"><div class="meter-fill" id="mfill"></div><div class="meter-thresh"></div></div>
+          <p class="readout" id="readout">Nothing yet. He is asleep on the rug and life is good.</p>
+        </div>
+
+        <h3>Settling versus shutting down</h3>
+        <p>Both look like a calm dog. They are opposites. A settling dog has come down. A shut-down dog has run out of options and gone still, and the next signal he gives will come with less warning.</p>
+
+        <div class="stack">
+          <h4 style="margin-top:0">Sort these</h4>
+          <p style="font-size:.94rem;color:var(--ink-soft)">Tap a sign, then tap the bin it belongs in.</p>
+          <div class="sort-pool" id="sortpool"></div>
+          <div class="bins">
+            <div class="bin" data-bin="settle">
+              <h4>Genuinely settling</h4>
+              <p class="hint">He came down on his own</p>
+              <div class="bin-items" data-items="settle"></div>
+            </div>
+            <div class="bin" data-bin="shut">
+              <h4>Shutting down</h4>
+              <p class="hint">He ran out of options</p>
+              <div class="bin-items" data-items="shut"></div>
+            </div>
+          </div>
+          <p class="readout" id="sortread">0 of 8 sorted.</p>
+        </div>
+
+        <div class="alarm">
+          <span class="k">The reliable tell</span>
+          <p>Eating. A dog who takes food, chews it, and finishes a meal is under threshold. A dog who ignores food he normally loves is over it, no matter how still he looks.</p>
+        </div>
+
+        <h3>When he is over threshold</h3>
+        <p>Do not train, correct, or reason. Cut the input. The crate with the door shut, in a quiet room, is not a punishment, it is the only intervention that works up there. He comes down, and then you have a dog you can work with again.</p>
+      </section>
+
+      <!-- ============ 2 ============ -->
+      <section class="mod" data-title="Being Alone">
+        <p class="mod-tag">Module 03</p>
+        <h2>Being Alone</h2>
+        <p class="lede">Two separate skills get tangled here. Untangling them is most of the work.</p>
+
+        <p>One skill is <strong>being in the crate</strong>. The other is <strong>being without you</strong>. Earthwind already has the first. He rests in there with people home. The second is the one being built.</p>
+
+        <h3>Which problem you have</h3>
+        <div class="scroller">
+        <table>
+          <tr><th>What you hear</th><th>What it is</th><th>What it needs</th></tr>
+          <tr><td>Crying that winds down within 10&ndash;20 minutes</td><td>Protest. Normal, and it fades.</td><td>Gradual duration building</td></tr>
+          <tr><td>Escalating and never stopping, drooling, damage at doors, refusing food, self-injury</td><td>Separation anxiety. A different condition.</td><td>A behavior professional, sometimes medication</td></tr>
+        </table>
+        </div>
+        <p>A cheap indoor camera answers this in one afternoon and is the best forty dollars in this manual.</p>
+
+        <h3>Building duration</h3>
+        <p>The whole game is staying under the point where he panics. Ten seconds. Then thirty. Then two minutes. If a duration produces distress you went too far, and you drop back. Progress is measured in weeks and it is never a straight line.</p>
+
+        <ul class="tinylist">
+          <li><span class="n">01</span><span>Leave casually and predictably. Sneaking out keeps him vigilant, which is the opposite of the goal.</span></li>
+          <li><span class="n">02</span><span>Drain the departure cues. Pick up your keys, put on your shoes, then sit back down. Twenty times. They stop meaning anything.</span></li>
+          <li><span class="n">03</span><span>A frozen stuffed Kong goes with him. It is a distraction and a test at once.</span></li>
+          <li><span class="n">04</span><span>Come home boring. Quiet entry, no greeting through the bars, let him out once he is settled rather than while he is frantic.</span></li>
+        </ul>
+
+        <div class="quiz" data-quiz="q1" data-answer="1">
+          <p class="q">You come home and the frozen Kong is untouched. What does that tell you?</p>
+          <div class="opts">
+            <button class="opt" type="button">He wasn't hungry, so nothing.</button>
+            <button class="opt" type="button">He was too stressed to eat, so that duration was too long.</button>
+            <button class="opt" type="button">He is holding out for better food.</button>
+          </div>
+          <p class="fb">Eating is the threshold test. An untouched Kong means he spent the whole absence above the line, and the next session should be shorter, not longer.</p>
+        </div>
+
+        <h3>Limits and logistics</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Overnight</h4><p>Fine at nine months. He can hold it seven to eight hours. Crate beside your bed, not across the room.</p></div>
+          <div class="mini"><h4>Daytime</h4><p>Four to five hours is the usual ceiling. A full workday needs a walker, a lunch trip, or daycare.</p></div>
+          <div class="mini"><h4>More space?</h4><p>Does not help a frightened dog. Panic is not about square footage. It helps a bored one.</p></div>
+          <div class="mini"><h4>Two crates</h4><p>Fine and good. Give each a consistent job: bedroom for night, living room for departures.</p></div>
+        </div>
+
+        <div class="note">
+          <span class="k">Placement</span>
+          <p>Away from the front door, backed into a corner, out of the traffic path, near where you are. The front door is where all the hallway noise arrives, and a crate parked next to it keeps him working all day instead of sleeping.</p>
+        </div>
+      </section>
+
+      <!-- ============ 3 ============ -->
+      <section class="mod" data-title="The Barking">
+        <p class="mod-tag">Module 04</p>
+        <h2>The Barking</h2>
+        <p class="lede">Mini poodles are a vocal breed. In an apartment with shared walls this is the thing most likely to become a real problem, and it is very workable.</p>
+
+        <h3>First, which kind</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Alert barking at outside sounds</h4><p>Hardest in an apartment, because the building generates a trigger every few minutes. This is Earthwind's.</p></div>
+          <div class="mini"><h4>Demand barking at you</h4><p>Annoying, very trainable. Do not pay it, pay the quiet on either side of it.</p></div>
+          <div class="mini"><h4>Excitement at the door or on leash</h4><p>Manageable. Mostly an arousal problem, see Module 02.</p></div>
+          <div class="mini"><h4>Barking when alone</h4><p>The one that ends leases, because you find out from a note. See Module 03.</p></div>
+        </div>
+
+        <h3>Management beats training in month one</h3>
+        <p>For alert barking specifically, the environment does more than any protocol. You are not trying to drown out the building, only to raise the floor enough that individual footsteps stop registering as events.</p>
+        <ul>
+          <li>White noise machine, box fan, or low talk radio near the front door. Human voices blur into human voices.</li>
+          <li>A draft stopper along the bottom of the door. It cuts sound and, just as importantly, scent. Half of what he alerts to is smelling someone pass.</li>
+          <li>Crate and bed as far from the entry as the floor plan allows. Blinds closed on any window facing a walkway.</li>
+        </ul>
+
+        <h3>Then change what the sound means</h3>
+        <p>Right now a noise in the hallway means intruder. You want it to mean cheese.</p>
+        <p>Sit near the door with treats. The instant a noise happens, <em>before he reacts</em>, drop a treat on the floor. Every time. You are not asking him to do anything. You are pairing the sound with food, over and over, until it predicts something good.</p>
+        <div class="alarm">
+          <span class="k">Timing is the whole thing</span>
+          <p>You have to beat the bark. Once he is going, he is too aroused to learn and you are just feeding a barking dog.</p>
+        </div>
+
+        <h3>Give him a job for the ones that get through</h3>
+        <p>Teach a mat. When a noise sets him off: acknowledge it, send him to the mat, pay him there. Two barks and then a job is a realistic target. Total silence usually is not, and chasing it will frustrate you both.</p>
+
+        <div class="quiz" data-quiz="q2" data-answer="2">
+          <p class="q">Which of these buys you the most, fastest, in week one?</p>
+          <div class="opts">
+            <button class="opt" type="button">A firm verbal correction every time he barks.</button>
+            <button class="opt" type="button">A long walk every morning so he's tired.</button>
+            <button class="opt" type="button">A fan by the front door and a draft stopper.</button>
+          </div>
+          <p class="fb">Management first. Removing the trigger outperforms both training and exercise in the first month, and it costs about thirty dollars. Correction tends to add arousal to a dog who is already aroused.</p>
+        </div>
+
+        <div class="note">
+          <span class="k">The neighbors</span>
+          <p>Introducing yourself and saying you are working on it converts a future complaint into a heads-up. It is the highest-return five minutes available to you.</p>
+        </div>
+
+        <p><strong>Timeline:</strong> four to eight weeks for meaningful change. Some of it also resolves on its own as the building stops being novel to him.</p>
+      </section>
+
+      <!-- ============ 4 ============ -->
+      <section class="mod" data-title="A Busy Brain">
+        <p class="mod-tag">Module 05</p>
+        <h2>A Busy Brain</h2>
+        <p class="lede">Poodles are working dogs in a small package. Legs are not the answer. Nose and brain are.</p>
+
+        <p>Physical exercise alone builds an athlete with more stamina to make trouble with. Sniffing, licking, chewing and foraging are the behaviors that actually regulate a dog downward.</p>
+
+        <h3>Retire the food bowl</h3>
+        <p>The highest-return change in this entire manual. Every meal becomes work.</p>
+        <div class="grid2">
+          <div class="mini"><h4>Scatter feeding</h4><p>Kibble tossed across a towel or snuffle mat. Ten minutes of hunting beats a half hour walk.</p></div>
+          <div class="mini"><h4>Frozen Kong or Toppl</h4><p>Soaked kibble with a little plain yogurt or pumpkin, frozen solid. Twenty to forty minutes.</p></div>
+          <div class="mini"><h4>The cardboard box</h4><p>Kibble wrapped in crumpled paper inside a box. Costs nothing, deeply satisfying, supervise it.</p></div>
+          <div class="mini"><h4>Find it</h4><p>Hide five pieces around a room, release him with a cue. Scales up forever, tires him fastest.</p></div>
+        </div>
+
+        <h3>Chewing is a need</h3>
+        <p>Adolescents chew because they have to. Bully sticks, yak chews, beef trachea, supervised.</p>
+        <div class="alarm">
+          <span class="k">Skip entirely</span>
+          <p>Antlers, hooves, and hard nylon bones. Slab fractures on molars are a common and expensive vet finding, and they come from exactly these.</p>
+        </div>
+
+        <h3>Training counts</h3>
+        <p>Five minute sessions of trick work. Spin, chin rest, targeting, anything. Mental effort exhausts a poodle in a way physical effort does not, and it happens to rebuild the training you are worried about losing.</p>
+
+        <h3>Rotate the toys</h3>
+        <p>Keep four or five out, the rest in a bin, swap weekly. Novelty is what makes a toy interesting. A dog with twenty toys available has none.</p>
+
+        <div class="note">
+          <span class="k">When he is into everything</span>
+          <p>Check the clock before you check the toy box. A dog who has been awake and stimulated all afternoon looks manic rather than sleepy. Enforced naps in the crate, an hour or two at a time, fix more chaos than another walk.</p>
+        </div>
+
+        <p>And when he does steal something: trade, do not chase. Chasing teaches him that stealing starts a great game. Walking to the treat jar teaches him that bringing you things pays.</p>
+      </section>
+
+      <!-- ============ 5 ============ -->
+      <section class="mod" data-title="Keeping His Training">
+        <p class="mod-tag">Module 06</p>
+        <h2>Keeping His Training</h2>
+        <p class="lede">Two thousand dollars of professional work came with him. It is not gone. It is addressed to someone else.</p>
+
+        <p>What breaks in a handover is almost never the dog forgetting. It is a vocabulary mismatch. He knows a specific word, said a specific way, followed by a specific reward. You say something slightly different and he looks blank, and it reads as training that did not stick.</p>
+
+        <h3>Get the four things from his trainer</h3>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>The exact cue words.</strong> "Down" and "lie down" and "place" are three different words to him.</span></li>
+          <li><span class="n">02</span><span><strong>The hand signals.</strong> Often the hand is doing the actual work and the word is decoration.</span></li>
+          <li><span class="n">03</span><span><strong>His marker.</strong> A clicker, or a word like "yes," meaning correct and food is coming. Without it, half his training has no bridge to you.</span></li>
+          <li><span class="n">04</span><span><strong>What he was paid with,</strong> and whether he was still being fed for everything or had moved to intermittent.</span></li>
+        </ul>
+        <p>A video of him working with the trainer is worth more than a written list, because you will see timing and body language you would never think to ask about. Many trainers will also do one handover session.</p>
+
+        <h3>Maintenance is not sessions</h3>
+        <p>It is asking for something small before things he already wants. Sit before the leash clips on. Sit before the bowl goes down. Wait before the door opens. That is a dozen repetitions a day folded into things you were doing anyway, at no extra cost in time.</p>
+        <p>Then five minutes, twice a day, on whatever you want sharp. Short beats long with a poodle.</p>
+
+        <h3>Two things to expect</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Pay him generously</h4><p>For the first month, even for things he already knows. He is not being retrained. He is learning that <em>you</em> are a source of good outcomes.</p></div>
+          <div class="mini"><h4>He will test</h4><p>Around week two or three, once he is comfortable, cues that worked on day one get ignored. That is a settling dog, not a broken one.</p></div>
+        </div>
+
+        <h3>Teaching him to go in the crate on his own</h3>
+        <p>Toss a treat in. He walks in. Mark and feed a second one. Let him walk back out. In and out, over and over, door never closing. Once he is going in fast and confidently, you start saying the word as he commits. The word attaches to a behavior he is already doing, rather than being used to make him do it.</p>
+        <p>Lifting him in is not harmful. It just slowly teaches him that hands near the crate mean getting put somewhere, which is a small thing now and an annoying one in six months.</p>
+      </section>
+
+      <!-- ============ 6 ============ -->
+      <section class="mod" data-title="The Coat">
+        <p class="mod-tag">Module 07</p>
+        <h2>The Coat</h2>
+        <p class="lede">A curly coat does not shed, which is the good news and also the entire problem.</p>
+
+        <p>Human curly hair sheds about a hundred strands a day into the drain. His does not. Dead hair stays in, wraps around live hair, and felts against the skin. So the job is not detangling, it is actively removing hair that has nowhere else to go.</p>
+
+        <h3>The daily version</h3>
+        <p>Ten to fifteen minutes with a slicker brush and a metal comb, most days. <strong>The comb is the test.</strong> Brush it out, then run a metal comb down to the skin. If the comb does not pass through, it is matted, no matter how good it looks.</p>
+        <p>Line brushing is the technique: part the coat and work in sections from the skin outward, rather than skimming the surface.</p>
+        <p>Mats form first at friction points. Behind the ears, armpits, where the collar or harness sits, tail base, between the toes.</p>
+
+        <h3>Bathing, in order</h3>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>Comb him out completely first.</strong> Water shrinks tangles into felt. A mat that was workable dry becomes a shave wet.</span></li>
+          <li><span class="n">02</span><span>Non-slip surface. Most dogs who hate baths hate slipping. A lick mat suctioned to the wall helps enormously.</span></li>
+          <li><span class="n">03</span><span>Dilute the shampoo in a cup of water first. A dense curly coat repels undiluted shampoo, which then sits on top and never rinses out.</span></li>
+          <li><span class="n">04</span><span>Keep water out of his ears. Poodles have hair in the canal and are prone to infections.</span></li>
+          <li><span class="n">05</span><span>Rinse past the point where you think you are done. Residue makes him itchy and mats the coat faster.</span></li>
+          <li><span class="n">06</span><span>Squeeze and blot, never rub. Rubbing a curly coat is how you make mats.</span></li>
+          <li><span class="n">07</span><span><strong>Dry with air while brushing.</strong> Air drying alone is the main cause of matted poodles, because the curl tightens as it dries and pulls the coat into itself.</span></li>
+        </ul>
+
+        <div class="alarm">
+          <span class="k">Never human shampoo</span>
+          <p>Wrong pH for dog skin. And if the castile soap in your cabinet is the tea tree one, keep it away from him entirely. Tea tree oil is toxic to dogs.</p>
+        </div>
+
+        <h3>The hard stretch</h3>
+        <p>Somewhere between eight and fourteen months the puppy coat sheds out underneath the adult coat. That stretch mats invisibly, right at the skin, while the surface still looks fine. Earthwind is entering it now. Get through it with daily combing and you are mostly clear.</p>
+
+        <h3>Money and time</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Professional groom</h4><p>Every four to six weeks. Roughly $60&ndash;$85 for a twelve pound dog in the East Bay.</p></div>
+          <div class="mini"><h4>Doing it yourself</h4><p>A high velocity dryer matters more than clippers. $120&ndash;$250, and it does more for the coat than anything else you can buy.</p></div>
+          <div class="mini"><h4>The realistic split</h4><p>You do brushing, bathing, drying and tidying. A groomer resets the shape two or three times a year.</p></div>
+          <div class="mini"><h4>Keep him short</h4><p>An inch or less. Long doodle-style coat is the high maintenance version and the source of every matting horror story.</p></div>
+        </div>
+
+        <div class="note">
+          <span class="k">Start now</span>
+          <p>Touch his paws, ears, muzzle and tail every day. A dog who was never taught to tolerate handling becomes an adult who has to be sedated to be groomed. Also: run the dryer across the room during meals for a week before you ever point it at him.</p>
+        </div>
+      </section>
+
+      <!-- ============ 7 ============ -->
+      <section class="mod" data-title="Body and Danger">
+        <p class="mod-tag">Module 08</p>
+        <h2>Body and Danger</h2>
+        <p class="lede">The reference module. Put the two numbers in your phone before you read anything else on this page.</p>
+
+        <div class="card">
+          <h4>Poison control, 24 hours</h4>
+          <p style="margin-bottom:4px">ASPCA Animal Poison Control &nbsp; <span class="phone">(888) 426-4435</span></p>
+          <p style="margin-bottom:10px">Pet Poison Helpline &nbsp; <span class="phone">(855) 764-7661</span></p>
+          <p style="margin:0;font-size:.94rem;color:var(--ink-soft)">Both are staffed by veterinary toxicologists and give your vet a case number. A consultation fee applies. Do not induce vomiting unless they or a vet tell you to, since some substances do more damage coming back up.</p>
+        </div>
+
+        <h3>Know these cold</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Xylitol / birch sugar</h4><p>The worst one. Blood sugar crash, then liver failure, at tiny doses for a twelve pound dog. In sugar-free gum, mints, protein bars, toothpaste, and <strong>some peanut butters</strong>. Read every label before it goes in a Kong.</p></div>
+          <div class="mini"><h4>Grapes, raisins, currants</h4><p>Acute kidney failure. No established safe amount. For his size, a few grapes is a phone call.</p></div>
+          <div class="mini"><h4>Sago palm</h4><p>Common in California landscaping. Every part is toxic and it causes liver failure.</p></div>
+          <div class="mini"><h4>Wild mushrooms</h4><p>Death cap grows under oaks all over Northern California in the wet months. Anything he grabs on a walk after rain is worth a call.</p></div>
+          <div class="mini"><h4>Cannabis</h4><p>Now one of the most common poisoning calls in the Bay Area. Edibles combine THC with chocolate or xylitol.</p></div>
+          <div class="mini"><h4>Human pain relief</h4><p>Ibuprofen, naproxen, acetaminophen. All seriously toxic. Never give any of them.</p></div>
+        </div>
+
+        <p>Also: chocolate, worse the darker it is; onion, garlic, leeks and chives, including powdered; macadamia nuts; alcohol; caffeine; raw bread dough; antifreeze; nicotine and vape pods; vitamin D supplements; expanding glues. Cooked bones are not toxic but they splinter.</p>
+
+        <div class="stack">
+          <h4 style="margin-top:0">Quick sort</h4>
+          <p style="font-size:.94rem;color:var(--ink-soft)">Tap an item, then tap a bin. Eight to go.</p>
+          <div class="sort-pool" id="toxpool"></div>
+          <div class="bins">
+            <div class="bin" data-bin="bad"><h4>Call someone</h4><p class="hint">Toxic to dogs</p><div class="bin-items" data-items="bad"></div></div>
+            <div class="bin" data-bin="ok"><h4>He's fine</h4><p class="hint">Not a poisoning</p><div class="bin-items" data-items="ok"></div></div>
+          </div>
+          <p class="readout" id="toxread">0 of 8 sorted.</p>
+        </div>
+
+        <h3>The paperwork side</h3>
+        <ul>
+          <li><strong>Pet insurance,</strong> enrolled before his next vet visit. Anything a vet writes down first becomes a pre-existing condition. His parents were health tested but he is not covered by anything meaningful in writing, so insurance is what actually does the job people expect a health guarantee to do.</li>
+          <li><strong>A vet you like,</strong> established early rather than during an emergency, plus the nearest 24-hour emergency hospital saved in your phone.</li>
+          <li><strong>His records,</strong> including which vaccines he had and when. Some vets restart a series given outside a clinic.</li>
+        </ul>
+
+        <div class="note">
+          <span class="k">Size changes the math</span>
+          <p>He is twelve pounds. Quantities that would be trivial for a large dog matter for him. Half a bar of dark chocolate. A handful of grapes. One piece of sugar-free gum.</p>
+        </div>
+      </section>
+
+      <!-- ============ 8 ============ -->
+      <section class="mod" data-title="A Day, Shaped">
+        <p class="mod-tag">Module 09</p>
+        <h2>A Day, Shaped</h2>
+        <p class="lede">Everything above, compressed into something you can actually run on a Tuesday.</p>
+
+        <div class="scroller">
+        <table>
+          <tr><th>When</th><th>What</th><th>Why it's there</th></tr>
+          <tr><td>Morning</td><td>Out to potty during a quiet moment, before he's barking</td><td>Barking shouldn't be what starts the day</td></tr>
+          <tr><td></td><td>Breakfast scattered on a towel or in a puzzle</td><td>Twenty minutes of work instead of ninety seconds of eating</td></tr>
+          <tr><td></td><td>Sniffy walk. His nose sets the pace, not you</td><td>Sniffing regulates. Marching does not</td></tr>
+          <tr><td>Work block</td><td>Chew or frozen Kong, then crate or a tether near your desk</td><td>Enforced nap. He needs 14&ndash;16 hours</td></tr>
+          <tr><td>Midday</td><td>Potty, five minutes of trick training</td><td>Mental work, plus maintaining his cues</td></tr>
+          <tr><td></td><td>Back down for a real nap</td><td>Overtired is what looks like manic</td></tr>
+          <tr><td>Afternoon</td><td>Find-it game or a walk somewhere new</td><td>Novelty and nose</td></tr>
+          <tr><td>Evening</td><td>Dinner, also out of a puzzle</td><td>Same reason as breakfast</td></tr>
+          <tr><td></td><td>Ten minutes of combing, down to the skin</td><td>The coat change is happening now</td></tr>
+          <tr><td>Wind-down</td><td>No play for the last half hour. A chew instead</td><td>Chewing brings him down. Play winds him up</td></tr>
+          <tr><td>Bed</td><td>Last potty, crate beside your bed, white noise on</td><td>Same order every night is the whole mechanism</td></tr>
+        </table>
+        </div>
+
+        <div class="note">
+          <span class="k">The point of the table</span>
+          <p>Not the specific times. The sameness. Dogs settle on predictability more than on any technique, and within a week or two the first step starts predicting the rest.</p>
+        </div>
+
+        <h3>What changes, and when</h3>
+        <div class="grid2">
+          <div class="mini"><h4>By week four</h4><p>You will know his real personality. Routines will start to stick.</p></div>
+          <div class="mini"><h4>Around 12 months</h4><p>The coat change ends. Grooming gets noticeably easier.</p></div>
+          <div class="mini"><h4>Around 18 months</h4><p>Adolescence winds down. The dog you have been building shows up.</p></div>
+          <div class="mini"><h4>Somewhere in there</h4><p>He stops being a project and starts being your dog. Nobody can tell you the date.</p></div>
+        </div>
+
+        <div class="reflect">
+          <label for="r8">What is the one thing you want to be true about him in three months?</label>
+          <p class="sub">Come back and read this in three months.</p>
+          <textarea id="r8" data-save="r8" placeholder="Write freely."></textarea>
+        </div>
+      </section>
+
+      <!-- ============ finish ============ -->
+      <section class="mod" data-title="Done">
+        <div class="finish">
+          <p class="mod-tag">Complete</p>
+          <h2>That's the manual.</h2>
+          <p class="bigpct" id="finalpct">0%</p>
+          <p class="lede" style="margin:0 auto 26px">of the modules marked complete</p>
+          <p style="max-width:52ch;margin:0 auto 26px">None of this needs to be done well in the first month. It needs to be done roughly, most days, while he figures out that he lives here now.</p>
+          <button class="btn ghost" id="resetbtn" type="button">Clear my progress and notes</button>
+        </div>
+      </section>
+
+      <div class="modfoot">
+        <button class="btn ghost" id="prevbtn" type="button">&larr; Back</button>
+        <button class="btn" id="donebtn" type="button">Mark complete &amp; continue</button>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- storage that never throws ---------- */
+  var mem = {};
+  var store = {
+    get: function(k){ try { var v = localStorage.getItem(k); return v === null ? mem[k] : v; } catch(e){ return mem[k]; } },
+    set: function(k,v){ mem[k] = v; try { localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ delete mem[k]; try { localStorage.removeItem(k); } catch(e){} }
+  };
+  var KEY = "augustManual.v1";
+
+  var state = { done: {}, notes: {} };
+  try { var raw = store.get(KEY); if (raw) state = JSON.parse(raw); } catch(e){}
+  if (!state.done) state.done = {};
+  if (!state.notes) state.notes = {};
+  function save(){ store.set(KEY, JSON.stringify(state)); }
+
+  /* ---------- theme ---------- */
+  var tkey = "augustManual.theme";
+  var saved = store.get(tkey);
+  if (saved === "dark" || saved === "light") document.documentElement.setAttribute("data-theme", saved);
+  document.getElementById("themebtn").addEventListener("click", function(){
+    var cur = document.documentElement.getAttribute("data-theme");
+    var isDark = cur ? cur === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    store.set(tkey, next);
+  });
+
+  /* ---------- modules ---------- */
+  var mods = Array.prototype.slice.call(document.querySelectorAll(".mod"));
+  var contentCount = mods.length - 1; // last one is the finish screen
+  var rail = document.getElementById("rail");
+  var current = 0;
+
+  mods.forEach(function(m, i){
+    if (i === contentCount) return;
+    var li = document.createElement("li");
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "rail-btn";
+    b.innerHTML = '<span class="rail-num"></span><span class="rail-txt"></span>';
+    b.querySelector(".rail-txt").textContent = m.dataset.title;
+    b.addEventListener("click", function(){ go(i); });
+    li.appendChild(b);
+    rail.appendChild(li);
+  });
+  var railBtns = Array.prototype.slice.call(rail.querySelectorAll(".rail-btn"));
+
+  function paint(){
+    var n = 0;
+    railBtns.forEach(function(b, i){
+      var isDone = !!state.done[i];
+      if (isDone) n++;
+      b.classList.toggle("done", isDone);
+      b.classList.toggle("on", i === current);
+      b.querySelector(".rail-num").textContent = isDone ? "✓" : String(i + 1);
+    });
+    var pct = Math.round(n / contentCount * 100);
+    document.getElementById("progfill").style.width = pct + "%";
+    document.getElementById("proglabel").textContent = n + " of " + contentCount + " complete";
+    document.getElementById("finalpct").textContent = pct + "%";
+
+    var db = document.getElementById("donebtn");
+    if (current === contentCount) {
+      db.style.display = "none";
+    } else {
+      db.style.display = "";
+      var d = !!state.done[current];
+      db.classList.toggle("done", d);
+      db.textContent = d
+        ? (current === contentCount - 1 ? "✓ Complete — finish" : "✓ Complete — next")
+        : "Mark complete & continue";
+    }
+    document.getElementById("prevbtn").style.visibility = current === 0 ? "hidden" : "visible";
+  }
+
+  function go(i){
+    current = Math.max(0, Math.min(mods.length - 1, i));
+    mods.forEach(function(m, j){ m.classList.toggle("on", j === current); });
+    paint();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.getElementById("donebtn").addEventListener("click", function(){
+    state.done[current] = true; save();
+    go(current + 1);
+  });
+  document.getElementById("prevbtn").addEventListener("click", function(){ go(current - 1); });
+
+  document.getElementById("resetbtn").addEventListener("click", function(){
+    state = { done: {}, notes: {} };
+    store.del(KEY);
+    document.querySelectorAll("textarea[data-save]").forEach(function(t){ t.value = ""; });
+    go(0);
+  });
+
+  /* ---------- notes ---------- */
+  document.querySelectorAll("textarea[data-save]").forEach(function(t){
+    var k = t.dataset.save;
+    if (state.notes[k]) t.value = state.notes[k];
+    t.addEventListener("input", function(){ state.notes[k] = t.value; save(); });
+  });
+
+  /* ---------- trigger stack meter ---------- */
+  var triggers = [
+    { t: "You snuck out the back door", v: 18 },
+    { t: "Alone for 30 minutes", v: 12 },
+    { t: "A stranger came in", v: 22 },
+    { t: "She let him out of the crate", v: 14 },
+    { t: "Three hours of not settling", v: 20 },
+    { t: "You came home. Big reunion", v: 24 },
+    { t: "Someone stood up to leave", v: 16 },
+    { t: "Missed his afternoon nap", v: 14 }
+  ];
+  var picked = [];
+  var chipWrap = document.getElementById("chips");
+  triggers.forEach(function(tr, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = tr.t;
+    b.addEventListener("click", function(){
+      var at = picked.indexOf(i);
+      if (at > -1) picked.splice(at, 1); else picked.push(i);
+      b.classList.toggle("hit", picked.indexOf(i) > -1);
+      renderMeter();
+    });
+    chipWrap.appendChild(b);
+  });
+  function renderMeter(){
+    var total = picked.reduce(function(s, i){ return s + triggers[i].v; }, 0);
+    var pct = Math.min(100, total);
+    document.getElementById("mfill").style.width = pct + "%";
+    var r = document.getElementById("readout");
+    r.classList.toggle("over", pct >= 72);
+    if (pct === 0) r.textContent = "Nothing yet. He is asleep on the rug and life is good.";
+    else if (pct < 35) r.textContent = "Mildly up. Still thinking clearly, still takes food, still hears you.";
+    else if (pct < 58) r.textContent = "Climbing. Slower to respond to cues. This is where a nap would fix everything.";
+    else if (pct < 72) r.textContent = "Close to the line. Pacing, whining, hard to interrupt. Cut the input now and he comes back down.";
+    else r.textContent = "Over threshold. No training is available up here. This is where the bite came from — not from one event, from all of them.";
+  }
+
+  /* ---------- generic tap-to-sort ---------- */
+  function buildSort(poolId, readId, items, total){
+    var pool = document.getElementById(poolId);
+    var read = document.getElementById(readId);
+    var sel = null, placed = 0, right = 0;
+
+    items.forEach(function(it){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "tok"; b.textContent = it.t; b.dataset.bin = it.bin;
+      b.addEventListener("click", function(){
+        if (b.classList.contains("right") || b.classList.contains("wrong")) return;
+        if (sel) sel.classList.remove("sel");
+        sel = (sel === b) ? null : b;
+        if (sel) sel.classList.add("sel");
+      });
+      pool.appendChild(b);
+    });
+
+    pool.closest(".stack").querySelectorAll(".bin").forEach(function(bin){
+      bin.addEventListener("click", function(){
+        if (!sel) return;
+        var ok = sel.dataset.bin === bin.dataset.bin;
+        sel.classList.remove("sel");
+        sel.classList.add(ok ? "right" : "wrong");
+        bin.querySelector(".bin-items").appendChild(sel);
+        sel = null;
+        placed++; if (ok) right++;
+        read.textContent = placed < total
+          ? placed + " of " + total + " sorted. " + right + " right so far."
+          : "All " + total + " sorted. " + right + " of " + total + " correct. Anything in orange is worth a reread.";
+      });
+    });
+  }
+
+  buildSort("sortpool", "sortread", [
+    { t: "Loose, soft body", bin: "settle" },
+    { t: "Whites of the eyes showing", bin: "shut" },
+    { t: "Leaning into you", bin: "settle" },
+    { t: "Tight closed mouth", bin: "shut" },
+    { t: "Takes a treat normally", bin: "settle" },
+    { t: "Tucked, very still, rigid", bin: "shut" },
+    { t: "Sighs and stretches out", bin: "settle" },
+    { t: "Repeated lip licking", bin: "shut" }
+  ], 8);
+
+  buildSort("toxpool", "toxread", [
+    { t: "Sugar-free peanut butter", bin: "bad" },
+    { t: "Plain pumpkin puree", bin: "ok" },
+    { t: "Four grapes", bin: "bad" },
+    { t: "A carrot", bin: "ok" },
+    { t: "Onion powder in gravy", bin: "bad" },
+    { t: "Plain cooked chicken", bin: "ok" },
+    { t: "A mushroom from the sidewalk", bin: "bad" },
+    { t: "Blueberries", bin: "ok" }
+  ], 8);
+
+  /* ---------- quizzes ---------- */
+  document.querySelectorAll(".quiz").forEach(function(q){
+    var answer = parseInt(q.dataset.answer, 10);
+    var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+    opts.forEach(function(o, i){
+      o.addEventListener("click", function(){
+        opts.forEach(function(x, j){
+          x.disabled = true;
+          if (j === answer) x.classList.add("correct");
+          else if (j === i) x.classList.add("incorrect");
+        });
+        q.querySelector(".fb").classList.add("show");
+      });
+    });
+  });
+
+  renderMeter();
+  paint();
+})();
+</script>
+</body>
+</html>

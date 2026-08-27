@@ -27,6 +27,7 @@ import {
   Video,
   Baby,
   Feather,
+  BookText,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -143,6 +144,7 @@ const TILE_SECTIONS: TileSection[] = [
           },
         ],
       },
+      { label: "Earthwind", href: "/earthwind-manual.html", icon: BookText, configured: true, external: false },
       {
         label: "Adoption",
         icon: Baby,
