@@ -144,7 +144,6 @@ const TILE_SECTIONS: TileSection[] = [
           },
         ],
       },
-      { label: "Earthwind", href: "/earthwind-manual.html", icon: BookText, configured: true, external: false },
       {
         label: "Adoption",
         icon: Baby,
@@ -172,6 +171,25 @@ const TILE_SECTIONS: TileSection[] = [
         items: [
           { label: "Insight Meditation Center", href: "https://www.insightmeditationcenter.org/", external: true },
           { label: "Insight Retreat Center", href: "https://www.insightretreatcenter.org/", external: true },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Earthwind",
+    tiles: [
+      { label: "The Manual", href: "/earthwind-manual.html", icon: BookText, configured: true, external: false },
+      {
+        label: "Puppy Guide",
+        icon: PawPrint,
+        configured: true,
+        trigger: "click",
+        items: [
+          {
+            label: "New Puppy Guide",
+            href: "https://static1.squarespace.com/static/5e2f96a24a605c076d3dfbee/t/67d1e09c12b65d2c6db99979/1741807794889/PNWD+Puppy+Packet_New+Puppy+Guide.pdf",
+            external: true,
+          },
         ],
       },
     ],
