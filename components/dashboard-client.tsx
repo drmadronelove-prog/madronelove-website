@@ -28,6 +28,8 @@ import {
   Baby,
   Feather,
   BookText,
+  Youtube,
+  GraduationCap,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -132,19 +134,6 @@ const TILE_SECTIONS: TileSection[] = [
         external: true,
       },
       {
-        label: "Dog Friend",
-        icon: PawPrint,
-        configured: true,
-        trigger: "click",
-        items: [
-          {
-            label: "New Puppy Guide",
-            href: "https://static1.squarespace.com/static/5e2f96a24a605c076d3dfbee/t/67d1e09c12b65d2c6db99979/1741807794889/PNWD+Puppy+Packet_New+Puppy+Guide.pdf",
-            external: true,
-          },
-        ],
-      },
-      {
         label: "Adoption",
         icon: Baby,
         configured: true,
@@ -195,6 +184,8 @@ const TILE_SECTIONS: TileSection[] = [
           },
         ],
       },
+      { label: "YouTube", href: "https://www.youtube.com/channel/UC5QwYlOxcT1higtcJVGzCCg", icon: Youtube, configured: true, external: true },
+      { label: "The Online Dog Trainer", href: "https://theonlinedogtrainer.com/", icon: GraduationCap, configured: true, external: true },
     ],
   },
   {
