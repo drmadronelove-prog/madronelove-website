@@ -1,0 +1,1847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Volume Two of the Earthwind Manual: fourteen sourced modules on how dogs learn and how to train one, from the crate to reactivity to finding a trainer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<title>The Earthwind Training Manual</title>
+<style>
+:root{
+  --ground:#E7EAE8;
+  --surface:#FBFBFA;
+  --surface-2:#F1F3F1;
+  --ink:#2E2320;
+  --ink-soft:#6A5B54;
+  --line:#D2D7D3;
+  --line-strong:#B9C1BB;
+  --accent:#A8632B;
+  --accent-ink:#FFFFFF;
+  --accent-wash:#F2E4D8;
+  --cool:#3F6168;
+  --cool-wash:#DFE8E9;
+  --moss:#5A6E43;
+  --moss-ink:#FFFFFF;
+  --moss-wash:#E4EADC;
+  --good:#3F6E45;
+  --good-wash:#DDE9DD;
+  --warn:#8A5E10;
+  --warn-wash:#F2E7CE;
+  --shadow:0 1px 2px rgba(46,35,32,.06), 0 8px 24px rgba(46,35,32,.07);
+  --display:"Fraunces", Georgia, serif;
+  --body:"Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16191A; --surface:#1E2223; --surface-2:#262B2C;
+    --ink:#E9E5E0; --ink-soft:#A69C94; --line:#323839; --line-strong:#454C4D;
+    --accent:#DB934C; --accent-ink:#1A1210; --accent-wash:#38271A;
+    --cool:#8CB4BB; --cool-wash:#1F2C2E;
+    --moss:#A3BB84; --moss-ink:#161A11; --moss-wash:#232A1C;
+    --good:#84B48B; --good-wash:#1E2A20;
+    --warn:#D9AC52; --warn-wash:#2E2617;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16191A; --surface:#1E2223; --surface-2:#262B2C;
+  --ink:#E9E5E0; --ink-soft:#A69C94; --line:#323839; --line-strong:#454C4D;
+  --accent:#DB934C; --accent-ink:#1A1210; --accent-wash:#38271A;
+  --cool:#8CB4BB; --cool-wash:#1F2C2E;
+  --moss:#A3BB84; --moss-ink:#161A11; --moss-wash:#232A1C;
+  --good:#84B48B; --good-wash:#1E2A20;
+  --warn:#D9AC52; --warn-wash:#2E2617;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1220px;margin:0 auto;padding:0 20px 96px}
+
+/* masthead */
+.mast{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+.mast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+h1{font-family:var(--display);font-variation-settings:"SOFT" 20,"WONK" 1;font-weight:800;font-size:clamp(2.4rem,6vw,3.9rem);line-height:.98;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1 .amp{color:var(--accent)}
+.dek{margin:16px 0 0;max-width:62ch;color:var(--ink-soft);font-size:1.02rem}
+.themebtn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.themebtn:hover{border-color:var(--line-strong);color:var(--ink)}
+.prog{margin-top:26px;display:flex;align-items:center;gap:14px}
+.prog-track{flex:1;height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.prog-fill{height:100%;width:0;background:var(--accent);transition:width .45s cubic-bezier(.4,0,.2,1)}
+.prog-label{font-family:var(--mono);font-size:12px;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* layout */
+.cols{display:grid;grid-template-columns:274px 1fr;gap:44px;margin-top:38px;align-items:start}
+.cols > *{min-width:0}
+@media (max-width:960px){.cols{grid-template-columns:1fr;gap:26px}}
+nav.rail{position:sticky;top:20px;min-width:0}
+@media (max-width:960px){nav.rail{position:static}}
+.rail-h{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px}
+.rail-list{display:flex;flex-direction:column;gap:3px;margin:0;padding:0;list-style:none}
+@media (max-width:960px){.rail-list{flex-direction:row;overflow-x:auto;padding-bottom:8px;gap:8px;min-width:0;scrollbar-width:thin}}
+.rail-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:9px 11px;cursor:pointer;font-family:var(--body);font-size:14.5px;color:var(--ink-soft);line-height:1.3}
+@media (max-width:960px){.rail-btn{width:auto;white-space:nowrap;background:var(--surface);border:1px solid var(--line)}}
+.rail-btn:hover{background:var(--surface-2);color:var(--ink)}
+.rail-btn.on{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:var(--shadow)}
+.rail-num{font-family:var(--mono);font-size:10.5px;flex:none;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line)}
+.rail-btn.on .rail-num{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.rail-btn.done .rail-num{background:var(--good-wash);color:var(--good);border-color:transparent}
+.rail-btn.done.on .rail-num{background:var(--accent);color:var(--accent-ink)}
+
+/* module */
+.mod{display:none;animation:rise .34s ease both}
+.mod.on{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.mod{animation:none}.prog-fill,.meter-fill{transition:none}}
+.mod-tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+h2{font-family:var(--display);font-variation-settings:"SOFT" 20,"WONK" 1;font-weight:800;font-size:clamp(1.85rem,3.6vw,2.6rem);line-height:1.05;letter-spacing:-.015em;margin:0 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.25;margin:38px 0 8px;letter-spacing:-.005em;text-wrap:balance}
+h4{font-family:var(--body);font-weight:700;font-size:1rem;margin:20px 0 4px}
+p{margin:0 0 14px;max-width:68ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:66ch}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+.lede{font-size:1.1rem;color:var(--ink-soft);max-width:62ch}
+
+/* citation */
+.cite{font-family:var(--mono);font-size:.66em;vertical-align:super;line-height:0;color:var(--cool);text-decoration:none;border-bottom:none;padding:0 1px;cursor:pointer;font-weight:600}
+.cite:hover{color:var(--accent)}
+.cite::before{content:"["}
+.cite::after{content:"]"}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.card > :last-child{margin-bottom:0}
+.card h4:first-child{margin-top:0}
+
+.note{border-left:3px solid var(--cool);background:var(--cool-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.note > :last-child{margin-bottom:0}
+.note .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cool);display:block;margin-bottom:5px}
+.alarm{border-left:3px solid var(--accent);background:var(--accent-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.alarm > :last-child{margin-bottom:0}
+.alarm .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+.myth{border-left:3px solid var(--warn);background:var(--warn-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.myth > :last-child{margin-bottom:0}
+.myth .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:5px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+.mini{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.mini h4{margin:0 0 4px}
+.mini p{margin:0;font-size:.94rem;color:var(--ink-soft)}
+
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:18px 0}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+/* protocol ladder */
+.proto{counter-reset:step;margin:22px 0;display:flex;flex-direction:column;gap:10px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:14px 18px 14px 52px;position:relative;box-shadow:var(--shadow)}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;font-family:var(--mono);font-size:11px;font-weight:600;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--accent-wash);color:var(--accent)}
+.step h4{margin:0 0 3px}
+.step p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+.step .crit{display:block;margin-top:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--good)}
+
+/* checklist ladder */
+.ladder{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin:22px 0;box-shadow:var(--shadow)}
+.rung{display:flex;gap:12px;align-items:flex-start;padding:11px 10px;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;width:100%;background:none;border-left:none;border-right:none;border-top:none;font-family:var(--body);color:var(--ink);font-size:15px;line-height:1.5}
+.ladder .rung:last-child{border-bottom:none}
+.rung:hover{background:var(--surface-2)}
+.box{flex:none;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line-strong);display:grid;place-items:center;margin-top:2px;font-size:12px;color:transparent}
+.rung.ck .box{background:var(--good);border-color:transparent;color:#fff}
+.rung.ck .rtxt{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line-strong)}
+.rung .sub{display:block;font-size:.88rem;color:var(--ink-soft);margin-top:2px}
+.ladder-foot{font-family:var(--mono);font-size:11px;color:var(--ink-soft);padding:10px;border-top:1px solid var(--line);letter-spacing:.06em}
+
+/* interactive shells */
+.stack{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.stack h4:first-child{margin-top:0}
+.hintline{font-size:.94rem;color:var(--ink-soft);margin:0 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.chip{font-family:var(--body);font-size:14px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.16s}
+.chip:hover{border-color:var(--accent)}
+.chip.hit{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.meter{position:relative;height:34px;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;margin-top:22px}
+.meter-fill{height:100%;width:0;border-radius:7px 0 0 7px;background:linear-gradient(90deg,var(--good),var(--warn) 62%,var(--accent));transition:width .4s cubic-bezier(.4,0,.2,1)}
+.meter-thresh{position:absolute;top:-18px;bottom:-1px;left:72%;width:2px;background:var(--ink);opacity:.5}
+.meter-thresh::after{content:"threshold";position:absolute;left:6px;top:-4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.readout{margin-top:12px;font-size:.95rem;color:var(--ink-soft);min-height:3em}
+.readout.over{color:var(--accent);font-weight:700}
+
+.sort-pool{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.bins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media (max-width:560px){.bins{grid-template-columns:1fr}}
+.bins.three{grid-template-columns:1fr 1fr 1fr}
+@media (max-width:760px){.bins.three{grid-template-columns:1fr}}
+.bin{background:var(--surface-2);border:1px dashed var(--line-strong);border-radius:10px;padding:14px;min-height:110px;cursor:pointer}
+.bin h4{margin:0 0 4px;font-size:.95rem}
+.bin .hint{font-size:.85rem;color:var(--ink-soft);margin:0 0 10px}
+.bin-items{display:flex;flex-wrap:wrap;gap:6px}
+.tok{font-size:13.5px;border-radius:999px;padding:6px 12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-family:var(--body);color:var(--ink)}
+.tok.sel{outline:2px solid var(--accent);outline-offset:1px}
+.tok.right{background:var(--good-wash);border-color:transparent;color:var(--good);font-weight:700;cursor:default}
+.tok.wrong{background:var(--accent-wash);border-color:transparent;color:var(--accent);font-weight:700;cursor:default}
+
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.quiz .q{font-weight:700;margin:0 0 12px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{text-align:left;font-family:var(--body);font-size:15px;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:11px 14px;cursor:pointer;transition:.15s}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt[disabled]{cursor:default}
+.opt.correct{background:var(--good-wash);border-color:var(--good);color:var(--good);font-weight:700}
+.opt.incorrect{background:var(--accent-wash);border-color:var(--accent);color:var(--accent)}
+.fb{margin-top:12px;font-size:.95rem;color:var(--ink-soft);display:none}
+.fb.show{display:block}
+
+/* games */
+.gfilters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.gfilter{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer}
+.gfilter:hover{color:var(--ink);border-color:var(--line-strong)}
+.gfilter.on{background:var(--moss);color:var(--moss-ink);border-color:transparent}
+.gcount{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin:0 0 14px;letter-spacing:.06em}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.game{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0;box-shadow:var(--shadow);overflow:hidden}
+.game.hide{display:none}
+.ghead{width:100%;text-align:left;background:none;border:none;padding:16px 18px;cursor:pointer;font-family:var(--body);color:var(--ink);display:block}
+.ghead:hover{background:var(--surface-2)}
+.gname{font-family:var(--display);font-weight:600;font-size:1.1rem;line-height:1.2;display:block;margin-bottom:6px}
+.gtags{display:flex;flex-wrap:wrap;gap:5px}
+.gtag{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--moss-wash);color:var(--moss);border-radius:5px;padding:3px 7px}
+.gtag.lvl{background:var(--surface-2);color:var(--ink-soft)}
+.gbody{padding:0 18px 18px;display:none;border-top:1px solid var(--line);margin-top:0}
+.game.open .gbody{display:block;padding-top:14px}
+.gbody p{font-size:.94rem;margin:0 0 10px}
+.gbody .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:3px}
+.gbody ol{font-size:.94rem;padding-left:18px;margin:0 0 10px}
+.gbody > :last-child{margin-bottom:0}
+
+/* decision tree */
+.tree{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.tree-q{font-weight:700;margin:0 0 12px}
+.tree-a{display:flex;flex-wrap:wrap;gap:8px}
+.tree-btn{font-family:var(--body);font-size:14.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:10px 15px;cursor:pointer;color:var(--ink)}
+.tree-btn:hover{border-color:var(--moss);color:var(--ink)}
+.tree-out{margin-top:16px;padding:15px 18px;border-left:3px solid var(--moss);background:var(--moss-wash);border-radius:0 10px 10px 0;display:none}
+.tree-out.show{display:block}
+.tree-out h4{margin:0 0 6px}
+.tree-out p{margin:0;font-size:.95rem}
+.tree-back{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer;color:var(--ink-soft)}
+
+/* distance dial */
+.dial{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+input[type=range]{width:100%;accent-color:var(--accent);margin:16px 0 4px}
+.dial-num{font-family:var(--display);font-weight:800;font-size:2.6rem;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.dial-unit{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase}
+
+.reflect{margin:22px 0}
+.reflect label{display:block;font-weight:700;margin-bottom:6px}
+.reflect .sub{font-size:.9rem;color:var(--ink-soft);margin:0 0 8px}
+textarea{width:100%;min-height:96px;resize:vertical;font-family:var(--body);font-size:15.5px;line-height:1.55;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+textarea:focus,.opt:focus-visible,.chip:focus-visible,.tok:focus-visible,.rail-btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.modfoot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.btn{font-family:var(--body);font-weight:700;font-size:15px;border-radius:9px;padding:11px 20px;cursor:pointer;background:var(--accent);color:var(--accent-ink);border:1px solid transparent}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--ink-soft);border-color:var(--line)}
+.btn.ghost:hover{color:var(--ink);border-color:var(--line-strong);filter:none}
+.btn.done{background:var(--good-wash);color:var(--good);border-color:transparent}
+
+.finish{text-align:center;padding:30px 0}
+.bigpct{font-family:var(--display);font-weight:800;font-size:4.4rem;color:var(--accent);line-height:1;margin:14px 0 4px;font-variant-numeric:tabular-nums}
+
+.tinylist{list-style:none;padding:0;max-width:66ch}
+.tinylist li{display:flex;gap:10px;margin-bottom:10px}
+.tinylist .n{font-family:var(--mono);font-size:11px;color:var(--accent);flex:none;padding-top:4px}
+
+/* sources */
+.srclist{list-style:none;padding:0;margin:20px 0;counter-reset:src}
+.srcitem{display:flex;gap:14px;padding:14px 14px;border-radius:10px;border-bottom:1px solid var(--line);scroll-margin-top:24px}
+.srcitem.flash{background:var(--warn-wash)}
+.srcnum{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);flex:none;width:26px;padding-top:3px;font-variant-numeric:tabular-nums}
+.srcbody{min-width:0}
+.srcbody p{margin:0 0 4px;font-size:.95rem;max-width:74ch}
+.srcbody .why{font-size:.88rem;color:var(--ink-soft);margin:0}
+.srcbody a{word-break:break-word}
+.srcgroup{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:32px 0 6px}
+
+/* trainers directory */
+.trainers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media (max-width:640px){.trainers{grid-template-columns:1fr}}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.tcard h4{margin:0}
+.tcard h4 a{color:var(--ink);text-decoration:none}
+.tcard h4 a:hover{color:var(--accent)}
+.tcard p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+.tcard .visit{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:4px}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <div>
+        <p class="eyebrow">The Earthwind Manual &middot; Volume Two &middot; Training</p>
+        <h1>Teaching a Dog<br>Who Just Got Here<span class="amp">.</span></h1>
+      </div>
+      <button class="themebtn" id="themebtn" type="button">Theme</button>
+    </div>
+    <p class="dek">Fourteen modules on how dogs learn and how to teach one: the crate, the leash, the men in the hallway, the teeth. Written for someone who has never had a dog. Everything load-bearing is sourced. Your place, your checkboxes and your notes are saved in this browser.</p>
+    <div class="prog">
+      <div class="prog-track"><div class="prog-fill" id="progfill"></div></div>
+      <span class="prog-label" id="proglabel">0 of 15 complete</span>
+    </div>
+  </header>
+
+  <div class="cols">
+    <nav class="rail" aria-label="Modules">
+      <p class="rail-h">Modules</p>
+      <ul class="rail-list" id="rail"></ul>
+    </nav>
+
+    <main id="stage">
+
+      <!-- ============ 01 ============ -->
+      <section class="mod on" data-title="Four Ideas">
+        <p class="mod-tag">Module 01</p>
+        <h2>Four Ideas That Do Most of the Work</h2>
+        <p class="lede">If you read nothing else, read this page. Everything in the other modules is one of these four ideas applied to a specific problem.</p>
+
+        <p>You have had a dog for one week, you have never had a dog, and he arrived with a full set of behaviors you did not choose. That is a normal starting position and it is not a hole you dig out of with willpower. It is a hole you get out of with a small number of correct concepts, applied boringly, for about eight weeks.</p>
+
+        <h3>One. Behavior is not character. Behavior is consequences.</h3>
+        <p>Earthwind is not stubborn, dominant, spiteful, guilty, or testing you. Those are stories humans tell about behavior. What he actually is, is an animal doing whatever has worked recently. Pulling on the leash works, because pulling makes the interesting thing get closer. Barking at the door works, because the scary person always leaves afterward. Nipping works, because it makes the game get faster.</p>
+        <p>So the question is never "why is he like this." The question is <strong>what is paying for this, and what could I pay for instead.</strong></p>
+
+        <div class="myth">
+          <span class="k">Myth to drop on day one</span>
+          <p><strong>Dominance and "being the alpha."</strong> This comes from 1940s studies of unrelated captive wolves in a zoo enclosure, and the researcher who popularized it, L. David Mech, has spent decades publicly trying to retract it. Wild wolf packs are families. Dogs are not wolves, and your dog is not running a coup. Every technique built on this idea (alpha rolls, pinning, staring him down, eating first, going through doors first) has no evidence behind it and a measurable association with aggressive responses.</p>
+        </div>
+
+        <h3>Two. You cannot train a dog who is over threshold.</h3>
+        <p>There is a level of arousal above which a dog physically cannot learn. Not "will not." Cannot. Blood is routed to muscle, the stress response is running, and the parts of the brain that do associations are not the parts in charge. Above that line, every repetition is wasted, and worse, he is rehearsing the panic.</p>
+        <p>Practically: <strong>most training failures are actually distance failures.</strong> He isn't ignoring you, he's too close to the thing. Module 03 teaches you to see the line and Module 09 teaches you to work under it.</p>
+
+        <h3>Three. Management is not cheating. It is half the plan.</h3>
+        <p>Management means arranging the world so the behavior can't happen: a fan by the door so he doesn't hear footsteps, a baby gate so he can't rush guests, a long line so a recall can't fail. Novice owners feel like management is avoiding the real work. It isn't. Every rehearsal of a bad behavior makes it stronger, so preventing rehearsals is doing the work. Training is slow; management is instant, and it buys you the calm weeks in which training can happen.</p>
+
+        <h3>Four. Reward-based training is the method with the evidence.</h3>
+        <p>This is not a philosophical preference. It is the position of the American Veterinary Society of Animal Behavior, which recommends reward-based methods exclusively and states that aversive methods should not be used. The research is consistent: dogs trained with aversive methods show more stress signals during training, higher cortisol, and a more pessimistic outlook in cognitive bias tests weeks later, with no efficiency advantage. A survey of 140 owners of dogs with existing behavior problems found that confrontational methods produced an aggressive response a large fraction of the time: hitting or kicking (43%), growling at the dog (41%), alpha roll (31%), staring down (30%).</p>
+        <p>For a dog who is already afraid of men, this matters double. Punishing a fear response teaches the dog that the scary thing predicts pain, which is the exact opposite of the association you need.</p>
+
+        <div class="quiz" data-quiz="q01" data-answer="2">
+          <p class="q">Earthwind barks and lunges at a man in the hallway. Which response is most likely to make it worse next week?</p>
+          <div class="opts">
+            <button class="opt" type="button">Turn around and walk him away from the man.</button>
+            <button class="opt" type="button">Feed him a stream of treats the moment the man appears.</button>
+            <button class="opt" type="button">Correct him firmly so he learns lunging isn't allowed.</button>
+          </div>
+          <p class="fb">Correction adds an unpleasant event to a situation that already frightens him, which strengthens "men are bad" and can suppress the warning signals without touching the fear underneath. Leaving is management and it works immediately. Feeding is counterconditioning and it's the long game. Both are in Module 09.</p>
+        </div>
+
+        <h3>What this manual assumes</h3>
+        <ul>
+          <li>You want a dog who is comfortable, not a dog who is obedient. Obedience is a side effect of comfort.</li>
+          <li>You will do about ten minutes a day, in two or three pieces, most days. Not an hour on Saturday.</li>
+          <li>You will get some of this wrong. Dogs are extremely forgiving of inconsistent humans and extremely unforgiving of frightening ones.</li>
+        </ul>
+
+        <div class="reflect">
+          <label for="r01">What is the single behavior that is currently hardest to live with?</label>
+          <p class="sub">Name it concretely. "Barks at men in the hallway on the way out" is workable. "He's reactive" is not.</p>
+          <textarea id="r01" data-save="r01" placeholder="Write freely."></textarea>
+        </div>
+      </section>
+
+      <!-- ============ 02 ============ -->
+      <section class="mod" data-title="How Learning Works">
+        <p class="mod-tag">Module 02</p>
+        <h2>How Learning Works</h2>
+        <p class="lede">The actual mechanics. This is the module that makes every other module make sense, and it takes about fifteen minutes to understand.</p>
+
+        <h3>There are exactly two kinds of learning here</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Classical: what things predict</h4><p>Involuntary. He doesn't choose it. Hallway noise predicts a scary man, so hallway noise itself becomes scary. This is where fear lives, and where you fix fear.</p></div>
+          <div class="mini"><h4>Operant: what behavior pays</h4><p>Voluntary. He chooses it. Sitting produces cheese, so sitting increases. This is where skills live: sit, come, walk nicely, go to your mat.</p></div>
+        </div>
+        <p>Almost every mistake novice owners make is treating a classical problem (fear, reactivity, crate panic) as an operant one (disobedience). You cannot ask a dog to choose not to be afraid. You change what the thing <em>predicts</em>, and the feeling changes underneath.</p>
+
+        <h3>The operant half: four boxes</h3>
+        <div class="scroller">
+        <table>
+          <tr><th>Name</th><th>What happens</th><th>Effect</th><th>Example</th></tr>
+          <tr><td>Positive reinforcement</td><td>You add something good</td><td>Behavior increases</td><td>He sits, cheese appears. More sitting.</td></tr>
+          <tr><td>Negative reinforcement</td><td>You remove something bad</td><td>Behavior increases</td><td>Leash pressure stops when he moves. He moves to end pressure.</td></tr>
+          <tr><td>Positive punishment</td><td>You add something bad</td><td>Behavior decreases</td><td>Leash pop for lunging.</td></tr>
+          <tr><td>Negative punishment</td><td>You remove something good</td><td>Behavior decreases</td><td>Teeth touch skin, the game ends.</td></tr>
+        </table>
+        </div>
+        <p>"Positive" and "negative" here mean added and subtracted, not good and bad. You will live almost entirely in the first box and occasionally in the fourth. The fourth is how you handle nipping: the fun stops, nothing unpleasant is added.</p>
+
+        <div class="stack">
+          <h4>Sort these into the right box</h4>
+          <p class="hintline">Tap a scenario, then tap a bin. From Earthwind's actual week.</p>
+          <div class="sort-pool" id="quadpool"></div>
+          <div class="bins">
+            <div class="bin" data-bin="reinforce"><h4>Reinforcement</h4><p class="hint">The behavior will happen more</p><div class="bin-items" data-items="reinforce"></div></div>
+            <div class="bin" data-bin="punish"><h4>Punishment</h4><p class="hint">The behavior will happen less</p><div class="bin-items" data-items="punish"></div></div>
+          </div>
+          <p class="readout" id="quadread">0 of 8 sorted.</p>
+        </div>
+
+        <h3>The marker: the most useful thirty seconds in this manual</h3>
+        <p>Dogs learn from consequences that arrive within roughly a second of the behavior. You cannot get cheese out of your pocket in one second. So you need a sound that means <em>that, right there, is what earned it, food is coming.</em></p>
+        <p>Pick one: a clicker, or the word <strong>"yes"</strong> said crisply, always the same way. Then build it:</p>
+        <div class="proto">
+          <div class="step"><h4>Charge the marker</h4><p>Sit with twenty pieces of food. Say "yes," then hand him a piece. Wait a few seconds. Repeat. He does nothing to earn it. You are teaching the word, not a behavior.</p><span class="crit">Ready when: he looks at your hand the instant you say it</span></div>
+          <div class="step"><h4>Mark something he already does</h4><p>Wait for him to sit. The instant his rear touches down, "yes," then feed. Say nothing else. No cue yet.</p><span class="crit">Ready when: he offers sits deliberately to make you say it</span></div>
+          <div class="step"><h4>Add the word</h4><p>Now that sitting is a thing he does on purpose, say "sit" just as he begins to do it. After a week the word comes first.</p><span class="crit">Ready when: he sits on the word alone, eight times out of ten</span></div>
+        </div>
+        <p>Notice the order: <strong>behavior first, name it second.</strong> Novices say the word over and over at a dog who has no idea what it means, which teaches him the word means nothing. Get the behavior, then label it.</p>
+
+        <div class="alarm">
+          <span class="k">The one-second rule</span>
+          <p>Marker timing is the difference between training and confusion. If he sits, you fumble, and you mark two seconds later while he's standing up, you just paid for standing up. Mark late, feed late; that's fine. Just make sure the <em>sound</em> lands on the behavior.</p>
+        </div>
+
+        <h3>Reinforcement schedules, and why he gets worse before he gets better</h3>
+        <p>Early on, pay every single repetition. Once a behavior is fluent, you shift to paying unpredictably: sometimes, not always. Unpredictable payment is more durable than constant payment, for the same reason slot machines are more compelling than vending machines.</p>
+        <p>Related, and important: <strong>the extinction burst.</strong> When you stop paying a behavior that used to work, it does not fade quietly. It first gets louder, longer, and more intense, because that has worked before. The dog who barked for attention and got ignored barks harder for two days. If you cave on day two, you have just taught him that the price is now two days of barking. Decide before you start whether you can hold, because a half-finished extinction makes the behavior much worse than never starting.</p>
+
+        <h3>Four more concepts you will use constantly</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Dogs don't generalize</h4><p>A sit learned in your kitchen is a kitchen sit. He is not being defiant outdoors, he genuinely has not learned that one yet. Retrain every skill in every new room, then outside, then outside with distractions. Budget for this.</p></div>
+          <div class="mini"><h4>Premack principle</h4><p>A high-probability behavior reinforces a low-probability one. Translation: <em>"do this boring thing and you get the thing you actually want."</em> Check in with me, then go sniff. This is the single best tool for a dog who wants to sniff instead of walk.</p></div>
+          <div class="mini"><h4>Capturing, luring, shaping</h4><p>Capturing: wait for it, mark it. Luring: guide with food, then fade the food fast or it becomes a bribe. Shaping: pay successive approximations, the way you'd play hot-and-cold. Shaping builds the most confident dogs.</p></div>
+          <div class="mini"><h4>Poisoned cues</h4><p>If a word has ever predicted something unpleasant, it stays contaminated. Dogs who ignore "come" usually learned that come predicts the end of fun or a bath. If you've burned a word, get a new word.</p></div>
+        </div>
+
+        <div class="note">
+          <span class="k">Sessions</span>
+          <p>Two to five minutes. Ten to twenty repetitions. End while he still wants more, not when he's had enough. Two three-minute sessions a day beat one twenty-minute session by a wide margin, and a poodle will get bored and start offering nonsense long before you get bored.</p>
+        </div>
+
+        <div class="quiz" data-quiz="q02" data-answer="1">
+          <p class="q">Earthwind sits perfectly in the kitchen. On the sidewalk he stares past you and ignores "sit." What is happening?</p>
+          <div class="opts">
+            <button class="opt" type="button">He's being stubborn and needs a firmer cue.</button>
+            <button class="opt" type="button">He hasn't generalized it, and the sidewalk is more arousing. Both are training problems, not attitude.</button>
+            <button class="opt" type="button">He's forgotten it. Start over from scratch.</button>
+          </div>
+          <p class="fb">Skills are context-specific and degrade as arousal rises. The fix is to lower the difficulty, not raise the pressure: a quieter street, more distance from the trigger, better food, and a few easy reps to rebuild.</p>
+        </div>
+      </section>
+
+      <!-- ============ 03 ============ -->
+      <section class="mod" data-title="Reading Him">
+        <p class="mod-tag">Module 03</p>
+        <h2>Reading Him</h2>
+        <p class="lede">Dogs communicate continuously and almost entirely with their bodies. Learning to read it is the highest-leverage skill in this manual, because every protocol here depends on you knowing whether he is under threshold right now.</p>
+
+        <h3>Arousal is one system</h3>
+        <p>Excitement and fear and aggression are not separate wiring. They are the same activation, differently flavored. A dog spiking with joy has exactly as little impulse control as a dog spiking with fear, which is why the friendliest moment of the day is often where the nipping happens.</p>
+        <p>Below a certain level of arousal he can think, hear cues, and choose. Above it he cannot. That line is his <strong>threshold</strong>, and no training exists above it.</p>
+
+        <div class="alarm">
+          <span class="k">The one reliable field test</span>
+          <p><strong>Will he eat?</strong> A dog who takes food, chews it, and swallows normally is under threshold. A dog who ignores food he normally loves, or takes it and drops it, or takes it hard enough to hurt, is over. This works everywhere: in the crate, on the sidewalk, with a man approaching. It is more reliable than how calm he looks.</p>
+        </div>
+
+        <h3>The ladder</h3>
+        <p>Dogs escalate through a predictable sequence of signals when uncomfortable, sometimes called the ladder of aggression or the ladder of communication. They start at the bottom. They only climb when the lower rungs get ignored.</p>
+        <div class="scroller">
+        <table>
+          <tr><th>Rung</th><th>What it looks like</th><th>What he means</th></tr>
+          <tr><td>1</td><td>Blinking, yawning, nose licking</td><td>I'm uneasy</td></tr>
+          <tr><td>2</td><td>Turning head away, turning body away</td><td>Please stop</td></tr>
+          <tr><td>3</td><td>Walking away</td><td>I'm leaving this</td></tr>
+          <tr><td>4</td><td>Creeping, ears back, tail low</td><td>I'm scared</td></tr>
+          <tr><td>5</td><td>Lying down, leg up, freezing</td><td>I have no options</td></tr>
+          <tr><td>6</td><td>Stiffening, hard stare</td><td>Last warning</td></tr>
+          <tr><td>7</td><td>Growl</td><td>Serious warning</td></tr>
+          <tr><td>8</td><td>Snap</td><td>Deliberate miss</td></tr>
+          <tr><td>9</td><td>Bite</td><td>Out of warnings</td></tr>
+        </table>
+        </div>
+
+        <div class="myth">
+          <span class="k">Never punish a growl</span>
+          <p>A growl is a gift. It is a dog telling you, in advance and without damage, that he needs something to change. Punish it and you don't remove the feeling, you remove the warning, and the next escalation arrives with nothing in front of it. Dogs described as biting "with no warning" are very often dogs who were corrected for growling. When he growls: note what caused it, calmly increase distance, and put that trigger on your list to work on.</p>
+        </div>
+
+        <h3>The vocabulary, concretely</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Whale eye</h4><p>Whites of the eyes showing in a crescent, usually while his head is turned away but his eyes stay on the thing. Strong discomfort. Very common when someone leans over a dog.</p></div>
+          <div class="mini"><h4>Tongue flick</h4><p>A fast lick of the nose with no food anywhere. One of the earliest and most missed stress signals.</p></div>
+          <div class="mini"><h4>Shake off</h4><p>A full-body shake like he's wet, when he is dry. A reset. Usually means a stressful moment just ended. Good sign.</p></div>
+          <div class="mini"><h4>Loose vs stiff</h4><p>Look at the whole outline. A comfortable dog is a series of curves and his weight is even. A worried dog is straight lines: stiff legs, level topline, weight shifted forward or back.</p></div>
+          <div class="mini"><h4>The tail is not a mood ring</h4><p>Wagging means arousal, not friendliness. High and fast and stiff is a warning. Low, loose, whole-rear-end wag is friendly. Read it together with the mouth and eyes.</p></div>
+          <div class="mini"><h4>Mouth</h4><p>Open, loose, corners soft, tongue relaxed: fine. Closed suddenly and tight, corners pulled forward: not fine, and it usually happens a second before something else.</p></div>
+        </div>
+
+        <div class="stack">
+          <h4>Sort these signals</h4>
+          <p class="hintline">Tap a sign, then tap a bin. Both bins can look like "a calm dog" from across the room.</p>
+          <div class="sort-pool" id="bodypool"></div>
+          <div class="bins">
+            <div class="bin" data-bin="settle"><h4>Genuinely relaxed</h4><p class="hint">He came down on his own</p><div class="bin-items" data-items="settle"></div></div>
+            <div class="bin" data-bin="shut"><h4>Stressed or shutting down</h4><p class="hint">He ran out of options</p><div class="bin-items" data-items="shut"></div></div>
+          </div>
+          <p class="readout" id="bodyread">0 of 10 sorted.</p>
+        </div>
+
+        <h3>Trigger stacking</h3>
+        <p>Stress hormones do not clear instantly. Each new stressor lands on top of the residue of the last one, and arousal ratchets rather than resetting. This is why the dog who was fine with the delivery guy at ten is unreachable with the neighbor at six. <strong>A dog who reacts badly at 6pm was usually climbing since noon.</strong> After a genuinely big event, assume it takes the rest of the day, and give him a quiet one.</p>
+
+        <div class="stack">
+          <h4>Stack a Tuesday on him</h4>
+          <p class="hintline">Tap what happened. Watch where he ends up.</p>
+          <div class="chips" id="chips"></div>
+          <div class="meter"><div class="meter-fill" id="mfill"></div><div class="meter-thresh"></div></div>
+          <p class="readout" id="readout">Nothing yet. He's asleep on the rug and life is good.</p>
+        </div>
+
+        <h3>Settling versus shutting down</h3>
+        <p>Both look like a still dog. They are opposites. A settling dog has come down: he sighs, stretches out, his weight goes into the floor, he'll take a treat. A shut-down dog has run out of options and gone rigid: tucked, tight, hypervigilant eyes, refusing food. Shut-down dogs get labeled "so good in the crate" right up until they aren't, and the next signal comes with less warning.</p>
+
+        <div class="note">
+          <span class="k">When he's over threshold</span>
+          <p>Do not train, correct, or reason. Cut the input. Distance, or a quiet room, or the crate if he likes it. Then let twenty minutes pass. You are not giving up on the session, you are making the next one possible.</p>
+        </div>
+      </section>
+
+      <!-- ============ 04 ============ -->
+      <section class="mod" data-title="Nine Months, One Week">
+        <p class="mod-tag">Module 04</p>
+        <h2>Nine Months Old, One Week In</h2>
+        <p class="lede">Two things are happening at once and both of them make him look worse than he is. Knowing the shape of it will save you from concluding, in week three, that you adopted the wrong dog.</p>
+
+        <h3>Thing one: he is a teenager</h3>
+        <p>Dog adolescence is real and it is measurable. A study following the same dogs through puberty found that at around <strong>eight months of age</strong> they were significantly less likely to obey a cue from their own caregiver, and harder to train, while obedience to a stranger did not drop the same way. The effect was strongest in dogs with a more insecure attachment to their person. It resolves. It just resolves at eighteen months, not next week.</p>
+        <p>Earthwind is nine months old. He is squarely in it. Practically this means: cues that worked yesterday will fail today, he will be more reactive to novelty than he was at five months, and the impulse control is not there yet because the brain doing the controlling is not finished.</p>
+
+        <h3>Thing two: he just moved</h3>
+        <p>His entire frame of reference was deleted one week ago. Everything he knew about who feeds him, where he sleeps, what noises mean, and which humans are safe is gone.</p>
+        <p>You will hear the "3-3-3 rule" (three days to decompress, three weeks to settle, three months to feel at home). It's a useful shape and it has no research behind it. The research that does exist is less comforting and more useful: a study tracking 99 adopted shelter dogs with a validated behavior questionnaire at 7, 30, 90 and 180 days found that several problem categories <strong>increased</strong> over the first six months, including stranger-directed aggression, excitability, touch sensitivity, chasing, and training difficulty, while separation-related behavior and attention-seeking decreased. Owner-directed and dog-directed aggression didn't change. Despite all that, 93.7% of owners rated their dog's overall behavior as excellent or good at six months.</p>
+
+        <div class="note">
+          <span class="k">What that means for you</span>
+          <p>The reactivity toward men is likely to look worse at week six than it does now, and that is the documented normal trajectory of a settling dog, not evidence that you're failing. It means you should start the work in Module 09 this week rather than waiting to see if it resolves.</p>
+        </div>
+
+        <h3>The honeymoon, and its end</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Days 1&ndash;7</h4><p>Overwhelmed. Sometimes eerily well behaved, sometimes shut down. Not his personality. Do almost nothing but feed him, walk him, and let him sleep.</p></div>
+          <div class="mini"><h4>Weeks 2&ndash;4</h4><p>The real dog arrives. Opinions, barking, testing, guarding a spot on the couch. This reads as regression. It is the opposite: he has relaxed enough to have preferences.</p></div>
+          <div class="mini"><h4>Months 2&ndash;3</h4><p>He starts to believe he lives here. Routines stick. Training begins to hold across contexts. This is when your work starts visibly paying.</p></div>
+          <div class="mini"><h4>Months 12&ndash;18</h4><p>Adolescence winds down. Impulse control arrives. The dog you have been building shows up.</p></div>
+        </div>
+
+        <h3>Sleep is a training intervention</h3>
+        <p>Young dogs sleep a great deal, and adolescent dogs still need substantially more rest than adults; the descriptive cohort data on dogs up to twelve months shows daytime sleep declining across the first year while night sleep lengthens.</p>
+        <p>The practical version: <strong>an overtired dog looks exactly like an under-exercised one.</strong> Frantic, mouthy, can't settle, ignores cues. The novice response is another walk, which makes it worse. The correct response is an enforced nap: crate or pen or tether, in a quiet room, one to two hours. Most household chaos in the first month is sleep debt.</p>
+
+        <div class="quiz" data-quiz="q04" data-answer="2">
+          <p class="q">Week three. He's suddenly barking at things he ignored on day two, and his sit has fallen apart. What's the most likely explanation?</p>
+          <div class="opts">
+            <button class="opt" type="button">He's decided he can get away with things now.</button>
+            <button class="opt" type="button">The previous training was fake.</button>
+            <button class="opt" type="button">He's decompressed enough to show his real behavior, and he's an adolescent. Both are expected and documented.</button>
+          </div>
+          <p class="fb">Week three is when the honeymoon ends in almost every adoption, and nine months is the documented low point for caregiver-directed obedience. Nothing has broken. Keep the routine boring and keep paying him.</p>
+        </div>
+
+        <div class="reflect">
+          <label for="r04">Write down what he is like today, in five lines.</label>
+          <p class="sub">You will not remember this accurately in six weeks, and you will want to.</p>
+          <textarea id="r04" data-save="r04" placeholder="Sleeps here. Scared of. Loves. Ignores. Best thing about him."></textarea>
+        </div>
+      </section>
+
+      <!-- ============ 05 ============ -->
+      <section class="mod" data-title="The Crate">
+        <p class="mod-tag">Module 05</p>
+        <h2>The Crate, From Panic</h2>
+        <p class="lede">He cries and panics in it. That means the crate currently predicts something bad, and the entire job is changing what it predicts. This is a classical problem, not an obedience problem, and it takes weeks.</p>
+
+        <div class="alarm">
+          <span class="k">Before anything else</span>
+          <p><strong>Stop shutting him in there for now.</strong> Every panicked minute is a repetition that strengthens "crate means panic," and you cannot outrun that with good sessions later. Use a pen, a gated room, or a tether next to you for management this week, and rebuild the crate from zero on the side.</p>
+        </div>
+
+        <h3>First: which problem is it?</h3>
+        <p>Three different things get called "hates the crate," and they need different plans. A cheap indoor camera answers this in one afternoon and is the most useful forty dollars in this manual.</p>
+        <div class="scroller">
+        <table>
+          <tr><th>What you see</th><th>What it is</th><th>What it needs</th></tr>
+          <tr><td>Fine in the crate when you're home, panics only when you leave</td><td>Separation-related distress. The crate is incidental.</td><td>Module 06. The crate work won't fix it.</td></tr>
+          <tr><td>Panics in the crate even with you sitting right there</td><td>Confinement distress. The barrier itself is the trigger.</td><td>This module, plus consider whether a pen or gated room is the better long-term answer.</td></tr>
+          <tr><td>Settles after 5&ndash;20 minutes of complaining, then sleeps</td><td>Protest. Normal, and it fades.</td><td>Duration building. Don't let him out mid-protest.</td></tr>
+          <tr><td>Drooling, destroying the door, bloody paws or nose, refusing food for hours</td><td>Panic, not protest. Possible separation anxiety.</td><td>Stop. Get a veterinary behaviorist. Module 14.</td></tr>
+        </table>
+        </div>
+
+        <div class="note">
+          <span class="k">A crate is not compulsory</span>
+          <p>It is a management tool, and it's a genuinely useful one: vet stays, travel, injury recovery, and a safe place to decompress all go better if a dog crates happily. But if after eight honest weeks he still hates it, an exercise pen or a dog-proofed room with a baby gate does the same job for daily life. Do not turn this into a battle of principle.</p>
+        </div>
+
+        <h3>Set it up so it can work</h3>
+        <ul>
+          <li><strong>Placement.</strong> Away from the front door, backed into a corner, out of the traffic path, but in the room where people are. The front door is where every hallway noise and every scent arrives; a crate parked next to it keeps him working all day instead of sleeping.</li>
+          <li><strong>Two crates is fine and good.</strong> Bedroom for night, living room for departures. Give each a consistent job.</li>
+          <li><strong>Size.</strong> He should be able to stand, turn around, and lie fully stretched out. Bigger than that is fine for an adult dog who is house-trained.</li>
+          <li><strong>Cover it partially</strong> if it helps him disengage from visual triggers, but leave one side open so it doesn't feel like a trap.</li>
+          <li><strong>Door.</strong> Prop it fully open or take it off entirely for the first stage, so it can't swing shut and startle him.</li>
+          <li><strong>White noise or a fan</strong> nearby. It masks hallway footsteps, which for a dog reactive to people is doing real work.</li>
+          <li><strong>Never</strong> use it as a punishment, and never call him to you and then put him in it. Both poison it.</li>
+        </ul>
+
+        <h3>The protocol</h3>
+        <p>Each stage takes as many days as it takes. The rule for advancing is the same every time: <strong>he is eating comfortably and voluntarily choosing to be there.</strong> If a stage produces stress signals, you went too fast; drop back a stage, and next time split the difference.</p>
+
+        <div class="proto">
+          <div class="step"><h4>Make it furniture</h4><p>Door off or fixed open. Walk past it and drop a piece of food in, several times a day, saying nothing. He can go in or not. You are not looking at him. Do this for two or three days before anything else.</p><span class="crit">Advance when: he checks the crate on his own</span></div>
+          <div class="step"><h4>Feed at the threshold</h4><p>Put his meal in a bowl just inside the opening, where he can eat with his front feet in and his body out. No pressure to go further.</p><span class="crit">Advance when: he eats without hesitating</span></div>
+          <div class="step"><h4>Move the bowl back</h4><p>Over several meals, move it an inch or two further in each time, until he's eating at the back wall with his whole body inside.</p><span class="crit">Advance when: he walks in and eats with a loose body</span></div>
+          <div class="step"><h4>Ping-pong</h4><p>Toss a treat in. He goes in, eats, comes out. Toss another. In and out, twenty times, door never touched. This is the game that builds a dog who <em>likes</em> going in, because leaving is always allowed.</p><span class="crit">Advance when: he's running in eagerly</span></div>
+          <div class="step"><h4>Name it</h4><p>Now that entering is a fluent behavior, say your word ("crate," "bed," anything) just as he commits to going in. The word attaches to a thing he's already doing. Never use the word to make him do it.</p><span class="crit">Advance when: he goes in on the word alone</span></div>
+          <div class="step"><h4>Touch the door</h4><p>He's inside eating. Touch the door with one finger. Feed. Don't move it. Then swing it an inch and back. Feed. You are building a door that predicts food, not confinement.</p><span class="crit">Advance when: door movement doesn't make him look up</span></div>
+          <div class="step"><h4>Close for one second</h4><p>Push it shut, don't latch, immediately open. Feed. Then two seconds. Then one second again. Vary it. Never build in a straight line; a session that only ever gets harder teaches him to dread the next rep.</p><span class="crit">Advance when: 30 seconds closed, calm, taking food</span></div>
+          <div class="step"><h4>Latch it, with something great</h4><p>Now the frozen Kong or lick mat goes in with him and the door latches. You sit right there. He finishes or gets bored, you open the door. The food ends when the door opens, not before.</p><span class="crit">Advance when: he settles rather than working the door</span></div>
+          <div class="step"><h4>You get boring</h4><p>Same as above but you read a book across the room. Then you leave the room for five seconds and come back. Then thirty. Then you make a cup of tea. Ordinary, unremarkable comings and goings.</p><span class="crit">Advance when: he doesn't track you to the doorway</span></div>
+          <div class="step"><h4>Attach it to sleep</h4><p>Crate beside your bed at night, door closed, you within arm's reach. Nighttime is much easier than daytime departures because you're there. Most dogs get this stage weeks before they get real alone-time.</p><span class="crit">Advance when: he sleeps through</span></div>
+        </div>
+
+        <div class="ladder" data-ladder="crate">
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Crate is out, door open, food dropped in daily<span class="sub">Stage 1</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Eats a full meal at the threshold<span class="sub">Stage 2</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Eats a full meal at the back wall<span class="sub">Stage 3</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Runs in for ping-pong, 20 reps, loose body<span class="sub">Stage 4</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Goes in on the word alone<span class="sub">Stage 5</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Door swinging doesn't bother him<span class="sub">Stage 6</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">30 seconds closed, eating, calm<span class="sub">Stage 7</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Latched with a Kong, you in the room, settles<span class="sub">Stage 8</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">You leave the room for a minute, no distress<span class="sub">Stage 9</span></span></button>
+          <button class="rung" type="button"><span class="box">&#10003;</span><span class="rtxt">Sleeps through the night in it<span class="sub">Stage 10</span></span></button>
+          <p class="ladder-foot" data-lfoot="crate">0 of 10</p>
+        </div>
+
+        <h3>Five things that undo weeks of work</h3>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>Letting him out while he's screaming.</strong> You just paid, generously, for screaming. Wait for a gap: two seconds of quiet, even a breath, then open. If you truly cannot wait, get him out, but then make the next session dramatically easier so it doesn't happen again.</span></li>
+          <li><span class="n">02</span><span><strong>Lifting or pushing him in.</strong> Not cruel, just counterproductive: it teaches him that hands near the crate mean being put somewhere, and he starts avoiding you when you approach it.</span></li>
+          <li><span class="n">03</span><span><strong>Big emotional departures and reunions.</strong> A dramatic goodbye tells him something significant is happening. Leave like you're getting the mail.</span></li>
+          <li><span class="n">04</span><span><strong>Crating him wired.</strong> Crate after a sniffy walk and a meal, not after a wrestling session. You are asking his body to do something it currently can't.</span></li>
+          <li><span class="n">05</span><span><strong>Testing the limit.</strong> The temptation to see if he can do an hour today ends every good week. Increase duration in small varied steps and stay well under his ceiling.</span></li>
+        </ul>
+
+        <h3>What goes in there</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Frozen stuffed Kong</h4><p>Soaked kibble plus a spoon of plain yogurt, plain pumpkin, or xylitol-free peanut butter. Freeze solid. 20&ndash;40 minutes of licking, which is a self-soothing behavior.</p></div>
+          <div class="mini"><h4>Lick mat</h4><p>Smeared and frozen, suctioned to the crate wall or floor. Cheaper, faster to prep, easier to clean.</p></div>
+          <div class="mini"><h4>Long chew</h4><p>Bully stick, yak chew, beef trachea, supervised. Chewing lowers arousal. Skip antlers, hooves and hard nylon; slab fractures on molars are a common and expensive vet finding.</p></div>
+          <div class="mini"><h4>Nothing, eventually</h4><p>The goal is a dog who sleeps in there without a job. Food is scaffolding. Fade it once duration is easy, or you'll build a dog who only tolerates the crate while food lasts.</p></div>
+        </div>
+
+        <div class="alarm">
+          <span class="k">Read the leftovers</span>
+          <p>An untouched Kong is data. He was over threshold the whole time. Shorten the next session rather than lengthening it, no matter how quiet the camera looked.</p>
+        </div>
+
+        <h3>How long is reasonable</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Overnight</h4><p>Fine at nine months once he's comfortable. He can physically hold it seven to eight hours. Crate beside your bed, not across the apartment.</p></div>
+          <div class="mini"><h4>Daytime</h4><p>Four to five hours is the usual working ceiling for an adolescent, and that's after the training is done. A full workday needs a walker, a midday trip, or daycare.</p></div>
+          <div class="mini"><h4>More space?</h4><p>Doesn't help a frightened dog. Panic isn't about square footage. It does help a bored one, and it helps a dog with confinement distress specifically.</p></div>
+          <div class="mini"><h4>Timeline</h4><p>Expect four to twelve weeks for a dog who currently panics. Progress is not linear. Bad days are data, not failure.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ 06 ============ -->
+      <section class="mod" data-title="Being Alone">
+        <p class="mod-tag">Module 06</p>
+        <h2>Being Alone</h2>
+        <p class="lede">Two skills get tangled here and untangling them is most of the work. One is being in the crate. The other is being without you. They are trained separately.</p>
+
+        <h3>Protest, distress, or a diagnosable disorder</h3>
+        <p>Veterinary behaviorists have argued that "separation anxiety" is really an umbrella covering several distinct problems with different emotional drivers: fear of being alone, fear of something that happens while alone, frustration at being confined, boredom, and generalized anxiety among them. They look similar on the doorbell camera and they need different plans, which is one reason self-diagnosis goes wrong.</p>
+        <div class="scroller">
+        <table>
+          <tr><th>Pattern on camera</th><th>Likely</th><th>Plan</th></tr>
+          <tr><td>Fusses 5&ndash;20 minutes, winds down, sleeps</td><td>Protest, or boredom</td><td>Duration building plus enrichment. Fades on its own.</td></tr>
+          <tr><td>Settles alone in the room but not confined</td><td>Confinement distress</td><td>Module 05, and consider a pen or gated room</td></tr>
+          <tr><td>Escalates and never stops. Drooling, panting, pacing, damage focused on exits, refusing high-value food, self-injury, house-soiling in an otherwise clean dog</td><td>Separation-related distress. A clinical problem.</td><td>Veterinary behaviorist. Medication is often part of an effective plan and is not a failure.</td></tr>
+        </table>
+        </div>
+
+        <div class="note">
+          <span class="k">Get the camera</span>
+          <p>Any cheap indoor camera. Without footage you are guessing, and the two most common guesses (he's fine, he's destroying the place out of spite) are both usually wrong. Watch the first fifteen minutes: that's where the answer is.</p>
+        </div>
+
+        <h3>Building duration</h3>
+        <p>The whole game is staying under the point where he panics, every single time. Ten seconds. Then thirty. Then two minutes, then back to twenty seconds. Progress is measured in weeks and it is never a straight line, and every session that ends in panic costs you several good ones.</p>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>Leave casually and predictably.</strong> Sneaking out keeps him vigilant, which is the opposite of the goal.</span></li>
+          <li><span class="n">02</span><span><strong>Drain the departure cues.</strong> Pick up your keys and sit back down. Put on your shoes and make lunch. Open the door and close it. Twenty times a day, going nowhere. The cues stop predicting anything.</span></li>
+          <li><span class="n">03</span><span><strong>Vary the length wildly.</strong> Five seconds, four minutes, forty seconds, ten minutes. If every absence is longer than the last, he learns to brace.</span></li>
+          <li><span class="n">04</span><span><strong>Come home boring.</strong> Quiet entry, no greeting through the bars, let him out once he's settled rather than while he's frantic. A huge reunion makes the next departure worse by contrast.</span></li>
+          <li><span class="n">05</span><span><strong>Don't stack a hard absence on a hard day.</strong> Trigger stacking applies here too.</span></li>
+        </ul>
+
+        <div class="quiz" data-quiz="q06" data-answer="1">
+          <p class="q">You come home after 40 minutes. The frozen Kong is untouched. What does that tell you?</p>
+          <div class="opts">
+            <button class="opt" type="button">He wasn't hungry. Nothing to learn.</button>
+            <button class="opt" type="button">He was over threshold the whole time. That duration was too long.</button>
+            <button class="opt" type="button">He needs better food in the Kong.</button>
+          </div>
+          <p class="fb">Eating is the threshold test. An untouched Kong means the whole absence was spent above the line, so the next session should be much shorter, not longer. Note the number and cut it in half.</p>
+        </div>
+
+        <h3>Things that help around the edges</h3>
+        <ul>
+          <li><strong>Sound masking.</strong> A fan, white noise machine, or low talk radio near the front door. For a dog who alerts to hallway people this is doing more than you'd think, and it also covers the sound of the elevator, which is often the actual trigger.</li>
+          <li><strong>A draft stopper</strong> along the bottom of the door. Cuts sound and, just as importantly, scent. Half of what an apartment dog alerts to is smelling someone pass.</li>
+          <li><strong>A midday break</strong> for the first months: a walker, a neighbor, a lunch trip. Duration training and eight-hour absences cannot coexist; you can't teach him that absences are short while also doing long ones.</li>
+          <li><strong>Adaptil</strong> and similar pheromone diffusers have mixed evidence. Cheap, harmless, not a plan.</li>
+        </ul>
+
+        <div class="alarm">
+          <span class="k">When to stop DIY-ing</span>
+          <p>If he is injuring himself, destroying doorframes, or has not improved at all after four consistent weeks, that is a clinical presentation and it needs a veterinary behaviorist (DACVB) or a certified separation anxiety trainer, not more of the same protocol. Anti-anxiety medication frequently makes the behavioral work possible rather than replacing it.</p>
+        </div>
+      </section>
+
+      <!-- ============ 07 ============ -->
+      <section class="mod" data-title="The Leash: Pulling">
+        <p class="mod-tag">Module 07</p>
+        <h2>The Leash, Part One: Pulling</h2>
+        <p class="lede">He pulls because pulling works. Every time he pulls and the world gets closer, the behavior gets paid. That is the entire mechanism and it is also the entire solution.</p>
+
+        <h3>Why it's hard to fix</h3>
+        <p>Three things are stacked against you. First, a dog's comfortable walking pace is faster than yours, so the default state is him being ahead. Second, leash pressure is self-reinforcing: pressure builds, he leans into it, he gets closer to the thing, pressure paid off. Third, you cannot practice loose-leash walking during your actual walks while also getting anywhere, so the two goals fight.</p>
+        <p><strong>So split them.</strong> Training walks are short, boring, and go nowhere: ten minutes, one block, entirely about the leash. Getting-somewhere walks use management (a front-clip harness, a shorter route, a long line in a field) and you accept the pulling. Trying to train on every walk means training on none of them.</p>
+
+        <h3>Equipment, honestly</h3>
+        <p>The evidence here is thinner than the internet suggests, so here is what's actually known. A study comparing a martingale collar, a front-connection harness, a Starmark polymer collar and a metal prong collar found dogs pulled significantly harder on the plain martingale than on any of the other three, with no significant differences among those three, and the authors found no clear evidence of poorer welfare from equipment type in the behaviors they could measure. An earlier study comparing a collar to a harness found no significant behavioral difference in the parameters measured.</p>
+        <p>What that means: harnesses are not magic and prong collars are not uniquely effective. The reason to choose a well-fitted Y-front harness anyway is mechanical, not behavioral. A twelve-pound dog who lunges into a flat collar is putting his whole force through his trachea and cervical spine, and the professional bodies are unambiguous that aversive equipment (prong, choke, e-collar) should not be used.
+        </p>
+        <div class="grid2">
+          <div class="mini"><h4>Y-front harness, front and back clips</h4><p>Straps that clear the shoulder joint, not a horizontal band across the chest. Front clip for redirecting a lunge, back clip for relaxed walks and long lines. This is the default.</p></div>
+          <div class="mini"><h4>Six-foot leash for training</h4><p>Fixed length. Not retractable: retractables teach constant light pressure, which is exactly the sensation you're trying to make meaningful.</p></div>
+          <div class="mini"><h4>Fifteen-foot long line</h4><p>For decompression walks in open space. Transforms the quality of a walk for a dog who needs to sniff. Attach to the back clip.</p></div>
+          <div class="mini"><h4>Skip</h4><p>Prong, choke, slip leads, e-collars, and "no-pull" harnesses that tighten on the armpits. For a dog already fearful of men, adding pain to the moment a man appears is the worst available move.</p></div>
+        </div>
+
+        <h3>The core skill: pressure means something</h3>
+        <p>Before any of the games, teach him that a taut leash is information rather than an obstacle. This takes about three sessions in your hallway.</p>
+        <div class="proto">
+          <div class="step"><h4>Stand still, apply the lightest possible pressure</h4><p>Two fingers of tension toward you. Do not pull. Just hold it and wait, up to thirty seconds.</p></div>
+          <div class="step"><h4>Mark any movement toward you</h4><p>A weight shift, a head turn, a step. The instant the leash goes even slightly slack: "yes," release all pressure, feed. The release of pressure is itself part of the payment.</p></div>
+          <div class="step"><h4>Repeat until he yields instantly</h4><p>Ten reps a session, three sessions. Then take it outside where it's harder and drop the difficulty back down.</p><span class="crit">Ready when: light tension produces an immediate turn toward you</span></div>
+        </div>
+
+        <h3>The games that actually build a loose leash</h3>
+        <p>These come out of Leslie McDevitt's pattern-game work, which is built specifically for dogs who need predictability in order to think. A pattern is a short repeating loop the dog can predict; predictability lowers arousal, and a dog with lowered arousal can walk.</p>
+        <div class="grid2">
+          <div class="mini"><h4>1-2-3 Treat</h4><p>Count out loud, walking. On "three," food appears at your side. That's it. Within a day he starts orienting to you on "two." It's a portable rhythm you can start anywhere, including mid-meltdown.</p></div>
+          <div class="mini"><h4>Up-Down</h4><p>Drop food on the ground. He eats it, looks up at you, you mark and drop another. Builds a repeating loop of look-at-me that survives distraction, because eating off the floor is calming in itself.</p></div>
+          <div class="mini"><h4>Magnet hand</h4><p>Food held at your left seam, he follows it for three steps, gets it. Then four steps. A crude lure at first; fade the food out of the hand within a week so the hand position alone becomes the cue.</p></div>
+          <div class="mini"><h4>Silky leash</h4><p>Practise the pressure exercise above at walking speed. Feather-light tension, he yields, pressure vanishes, he's paid. Never escalate the pressure; if he doesn't respond, you were too close to something.</p></div>
+        </div>
+
+        <h3>Two techniques you'll read about, with caveats</h3>
+        <div class="myth">
+          <span class="k">"Be a tree"</span>
+          <p>Stop dead every time the leash tightens, move again when it slackens. It works, slowly, on a dog who is pulling out of enthusiasm. It does very little for a dog who is pulling out of fear or who is over threshold, and it makes walks so tedious that most people abandon it in week two. Use it as a habit, not as the plan.</p>
+        </div>
+        <div class="myth">
+          <span class="k">Penalty yards</span>
+          <p>Walk backward a few steps every time he pulls. Same story: fine for enthusiasm, actively bad if the thing he's pulling toward is something he's afraid of, because now you're yanking a scared dog around.</p>
+        </div>
+
+        <h3>The realistic standard</h3>
+        <p>Do not aim for a heel. A heel is a competition behavior and it's miserable for both of you on a daily walk. Aim for: <strong>leash stays slack, he checks in occasionally, he can be redirected when you need it.</strong> Everything else is a bonus.</p>
+        <p>Practically, tell him which mode you're in. A harness back clip and a long line means "go be a dog." The front clip and a short leash means "we're walking together." Dogs read equipment as context extremely fast, and having a clear signal for each is worth more than any single technique.</p>
+
+        <div class="quiz" data-quiz="q07" data-answer="0">
+          <p class="q">He drags you toward every corner and lamppost for the first five minutes of every walk. Best first move?</p>
+          <div class="opts">
+            <button class="opt" type="button">Give him five minutes of long-line sniffing at the start, then ask for walking.</button>
+            <button class="opt" type="button">Stop every time and refuse to move until he's beside you.</button>
+            <button class="opt" type="button">Tire him out first with fetch so he has less energy to pull.</button>
+          </div>
+          <p class="fb">The first five minutes of a walk are the highest-arousal, highest-information part of a dog's day. Let him unload it. Asking a dog to do precision work at his peak arousal, before he's read the news, is asking for a fight you don't need to have. Fetch beforehand raises arousal rather than lowering it.</p>
+        </div>
+      </section>
+
+      <!-- ============ 08 ============ -->
+      <section class="mod" data-title="The Leash: Stopping">
+        <p class="mod-tag">Module 08</p>
+        <h2>The Leash, Part Two: When He Won't Move</h2>
+        <p class="lede">He plants, or he finds a smell and refuses to leave it. These look like the same problem and they are not. One is a feeling; one is a negotiation. Different fixes.</p>
+
+        <div class="alarm">
+          <span class="k">The one absolute rule</span>
+          <p><strong>Never drag him.</strong> Dragging a planted dog does three things at once: it teaches him that the leash is something to brace against, it pairs your hands with an unpleasant sensation, and if he planted out of fear, it forces him toward the frightening thing while he's already over threshold. It also risks real injury to a twelve-pound neck. Wait, or change what you're asking.</p>
+        </div>
+
+        <h3>First, diagnose it</h3>
+        <div class="tree" data-tree="stop">
+          <p class="tree-q" data-treeq>He just stopped walking. Which is it?</p>
+          <div class="tree-a" data-treea></div>
+          <div class="tree-out" data-treeout></div>
+          <button class="tree-back" type="button" data-treeback>Start over</button>
+        </div>
+
+        <h3>The fear stop</h3>
+        <p>Body low or stiff, ears back, weight shifted backward, staring at something specific, won't take food. This is not stubbornness, it's a dog telling you he can't. What to do:</p>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>Stop asking.</strong> Let the leash go slack and stand still. Silence. Give him ten to twenty seconds to look at the thing and process it.</span></li>
+          <li><span class="n">02</span><span><strong>Increase distance without going toward the trigger.</strong> Move sideways or backward, and let him follow. A dog who can move away regains the ability to think.</span></li>
+          <li><span class="n">03</span><span><strong>Offer food at nose level</strong> once you have distance. If he eats, you're back under threshold and can walk. If he won't, you need more distance.</span></li>
+          <li><span class="n">04</span><span><strong>Then go home or go around.</strong> Do not push through it. Pushing through builds the exact association you're trying to avoid.</span></li>
+        </ul>
+
+        <h3>The sniff stop, and the single best tool for it</h3>
+        <p>He has found something and he is not leaving. This is not defiance, it's that sniffing is one of the most rewarding things a dog does. Nosework has been shown to shift dogs toward measurably more optimistic judgment in a cognitive bias test. It is, in the most literal sense, good for him.</p>
+        <p>So don't fight it. Put it on cue and then use it as currency. This is the <strong>Premack principle</strong> and it's the highest-return trick in this entire module.</p>
+        <div class="proto">
+          <div class="step"><h4>Name the thing he already wants</h4><p>When he's already sniffing something, say "go sniff" in a warm voice. Do this for a week. The phrase attaches to permission.</p></div>
+          <div class="step"><h4>Buy walking with sniffing</h4><p>Take five steps of loose leash, then "go sniff!" and let him go to the nearest interesting thing. Walking now predicts sniffing rather than preventing it.</p><span class="crit">This inverts the whole dynamic. He stops seeing you as the obstacle.</span></div>
+          <div class="step"><h4>Add a release from the sniff</h4><p>After 20&ndash;30 seconds, say "let's go" cheerfully, take one step, and pay him when he catches up. Never yank on "let's go" or the phrase becomes a threat.</p><span class="crit">Ready when: he leaves a smell on the phrase, most times</span></div>
+          <div class="step"><h4>Extend the walking</h4><p>Five steps becomes ten becomes half a block. Keep the ratio generous; a dog who has to walk two blocks per sniff will stop believing you.</p></div>
+        </div>
+
+        <div class="note">
+          <span class="k">Design the walk around this</span>
+          <p>Give him one genuinely long <strong>decompression walk</strong> a week: fifteen-foot line, somewhere green, no destination, his nose sets the pace for forty minutes. Then the daily walks can be shorter and more structured without him feeling starved of the thing he needs. A dog who never gets to sniff freely will fight you for it on every walk.</p>
+        </div>
+
+        <h3>The overwhelm stop</h3>
+        <p>Some stops are neither fear nor negotiation: he is simply flooded. Too much street, too many people, too much noise for a nine-month-old who lived somewhere else last month. Signs are scattered rather than pointed: he stops, starts, spins, can't commit, won't sniff either.</p>
+        <p>The answer is not to build tolerance by staying out longer. It's to make the walk smaller. Ten minutes on a quiet street. The same route every day for two weeks, so the route stops being new information. Then add one variable at a time.</p>
+
+        <h3>Getting him moving again, mechanically</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Scatter and go</h4><p>Toss five pieces of food on the ground in the direction you want to travel. He eats his way there. Movement restarts without any pressure on the leash.</p></div>
+          <div class="mini"><h4>Turn into a curve</h4><p>Don't walk directly at what stopped him. Arc wide around it. Curving is what dogs do naturally to defuse a tense approach, and it lowers the stakes.</p></div>
+          <div class="mini"><h4>1-2-3 Treat</h4><p>Start counting. The pattern is familiar and portable, and it gives a stuck dog something predictable to do, which is often enough to unstick him.</p></div>
+          <div class="mini"><h4>Change your body</h4><p>Turn side-on, crouch slightly, look away from him, take a step. Facing a dog head-on and staring is social pressure; turning away invites following.</p></div>
+        </div>
+
+        <div class="quiz" data-quiz="q08" data-answer="2">
+          <p class="q">Halfway down the block he plants, stares at a doorway, and won't take chicken. You're two minutes from home. Best move?</p>
+          <div class="opts">
+            <button class="opt" type="button">Wait him out. He'll move eventually.</button>
+            <button class="opt" type="button">Scoop him up and carry him home.</button>
+            <button class="opt" type="button">Move sideways and back until he'll take the chicken, then go home a different way.</button>
+          </div>
+          <p class="fb">Refusing food is the threshold test failing. Distance is the only thing that fixes it, and the direction that matters is away from the trigger, not toward home. Carrying him is fine as a last resort in a genuine emergency, but it teaches him nothing and it removes his ability to move away himself.</p>
+        </div>
+      </section>
+
+      <!-- ============ 09 ============ -->
+      <section class="mod" data-title="Men &amp; Doorways">
+        <p class="mod-tag">Module 09</p>
+        <h2>Men, Strangers, and the Door</h2>
+        <p class="lede">The hardest module and the most important one. Almost all of it comes down to a single variable you control completely: distance.</p>
+
+        <h3>What reactivity actually is</h3>
+        <p>Reactivity is not aggression and it is usually not confidence. It is a <strong>distance-increasing display</strong>: barking, lunging, growling, whose function is to make the scary thing go away. It works every time, because the man in the hallway always does eventually go away, which is why it gets stronger.</p>
+        <p>Underneath it is almost always fear or conflict, not dominance. A dog who was truly comfortable would ignore the man.</p>
+
+        <h3>Why men, specifically</h3>
+        <p>Fear of unfamiliar people is one of the most common canine anxiety problems, and men specifically, for a small dog, present a stack of features that are all individually startling: larger body mass, deeper voice at a frequency that carries, heavier and more direct gait, more direct approach and eye contact, and frequently hats, beards, sunglasses, hoods, backpacks and boots, none of which the average puppy is deliberately socialised to. Add that his critical socialisation window (roughly 3 to 12&ndash;14 weeks) closed months before you met him, and you may simply be looking at a gap in his early experience. It is also possible something specific happened. You will never know which, and it does not change the plan.</p>
+
+        <div class="note">
+          <span class="k">The plan does not require knowing the cause</span>
+          <p>Counterconditioning works on the association regardless of how the association got there. Stop investigating and start pairing.</p>
+        </div>
+
+        <h3>Distance is the dial</h3>
+        <p>Everything below only works below threshold, and distance is the only variable that reliably moves him below it. Before you train anything, find his current number.</p>
+
+        <div class="dial">
+          <h4 style="margin-top:0">Find his working distance</h4>
+          <p class="hintline">Drag to see roughly what happens at each distance for a typical dog at his stage. Your real number comes from watching him, not from this slider, but this is the shape of it.</p>
+          <label for="distrange" class="dial-unit">Distance from the man</label>
+          <input type="range" id="distrange" min="1" max="12" value="4" step="1">
+          <p style="margin:0"><span class="dial-num" id="distnum">40</span> <span class="dial-unit">feet</span></p>
+          <p class="readout" id="distread"></p>
+        </div>
+
+        <h3>The core protocol: counterconditioning</h3>
+        <p>You are changing what a man predicts. Right now: man appears, bad thing follows. Target: man appears, chicken rains from the sky. The order is not negotiable and this is where nearly everyone gets it wrong.</p>
+        <div class="proto">
+          <div class="step"><h4>Man appears at a distance where Earthwind notices but does not react</h4><p>He looks. Body stays loose. He can still eat. That distance is your starting line, and on a bad day it might be a hundred feet.</p></div>
+          <div class="step"><h4>The instant he sees the man, food starts</h4><p>Not after he looks at you. Not as a reward for calm. The food is triggered by the man's appearance, like a switch. Feed continuously, piece after piece, while the man is visible.</p><span class="crit">Trigger first, food second. Always.</span></div>
+          <div class="step"><h4>The man disappears. The food stops instantly.</h4><p>Dead silence, no food, nothing interesting. The contrast is the whole lesson: men are the only time the good stuff happens.</p></div>
+          <div class="step"><h4>Repeat until you see the head-whip</h4><p>After enough repetitions he'll see a man and immediately look at <em>you</em> with a happy expression. That's the conditioned emotional response flipping. It is the moment you're working toward and you'll know it when it happens.</p><span class="crit">Only now do you decrease distance, by a little</span></div>
+          <div class="step"><h4>Shrink the distance slowly, and let it go backward</h4><p>Some days you'll need more room than yesterday. That's trigger stacking, not regression. Take the distance he needs today.</p></div>
+        </div>
+
+        <div class="myth">
+          <span class="k">The most common mistake</span>
+          <p><strong>Feeding to distract him before he notices the man.</strong> If the food comes first and the man second, you've taught him that food predicts men, which makes food mildly scary and does nothing for the man. Let him see the man. Then pay.</p>
+        </div>
+        <div class="myth">
+          <span class="k">The second most common mistake</span>
+          <p><strong>Working too close because progress feels too slow.</strong> Every reaction over threshold is a rehearsal that undoes several good sessions. Boring, easy, far-away repetitions are the fast route. This will not feel like it.</p>
+        </div>
+
+        <h3>Games that make it an activity instead of an ordeal</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Look At That</h4><p>From Leslie McDevitt's Control Unleashed. Teach "look at that" as a cue meaning <em>go ahead and look, then come back to me for payment</em>. Turns the trigger into the first step of a game he knows how to win.</p></div>
+          <div class="mini"><h4>Engage&ndash;Disengage</h4><p>Stage one: mark and pay the instant he looks at the man. Stage two: wait for him to look away on his own, then mark and pay. Stage two builds a dog who checks in voluntarily.</p></div>
+          <div class="mini"><h4>1-2-3 Treat</h4><p>Your emergency pattern. Start counting the moment a man turns the corner and keep walking. It gives him something predictable to do and gives you something to do with your hands and voice besides tightening the leash.</p></div>
+          <div class="mini"><h4>Find It</h4><p>Toss food on the ground away from the trigger. Sniffing and eating are both incompatible with barking, and the head-down posture lowers arousal.</p></div>
+          <div class="mini"><h4>Treat and Retreat</h4><p>For men who are stationary. The man tosses food <em>behind</em> Earthwind, so approaching to get it is always followed by moving away. Removes the trap of luring a scared dog too close to something he can't leave.</p></div>
+          <div class="mini"><h4>BAT-style walks</h4><p>Behavior Adjustment Training: a long line, a big open space, a stooge at distance, and you follow the dog while he gathers information at his own pace and chooses to disengage. Powerful, and worth a trainer's help to set up.</p></div>
+        </div>
+
+        <h3>Scripts for the humans</h3>
+        <p>Half of this problem is other people. Have the sentences ready so you're not improvising while your dog is escalating.</p>
+        <ul>
+          <li><em>"He's in training, please ignore him."</em> Said early, warmly, while moving. Works on most people.</li>
+          <li><em>"Please don't reach for him."</em> Direct. Use it before the hand is moving, not after.</li>
+          <li><em>"Can you toss this behind him instead?"</em> For a friend who wants to help. Hand them food and point.</li>
+          <li>To a neighbor you'll see daily: <em>"He's nervous about new people, so we're going to walk past for a couple of weeks before he says hello."</em> This buys you enormous goodwill and converts a future complaint into a heads-up.</li>
+          <li>A bright leash sleeve or vest that says <strong>NERVOUS</strong> or <strong>DO NOT PET</strong> does more work than any sentence.</li>
+        </ul>
+
+        <div class="alarm">
+          <span class="k">Nobody feeds him but you, for now</span>
+          <p>There are two schools here. Having strangers feed a fearful dog can lure him into a proximity he isn't ready for, and the conflict (I want the food, I'm scared of the hand) is exactly the state that produces bites. Start with strangers being predictors of food from <em>you</em>. Move to Treat-and-Retreat, with the food thrown behind him, only once he's genuinely relaxed at close range. Direct hand-feeding by strangers is the last step, if ever.</p>
+        </div>
+
+        <h3>The door</h3>
+        <p>The doorway is its own problem because it's the highest-arousal square metre in the apartment, and because every single knock has, so far, been followed by a stranger materialising inside his home.</p>
+        <div class="proto">
+          <div class="step"><h4>Manage it completely for two weeks</h4><p>Baby gate across the hall, or he goes to the bedroom before the door opens, every time. No exceptions, including for the delivery guy. You're stopping the rehearsals.</p></div>
+          <div class="step"><h4>Decouple the sound</h4><p>Knock on your own wall or play a doorbell recording at low volume. The instant it sounds, food appears. Nobody comes in. Twenty reps a day, several days. Then raise the volume.</p><span class="crit">Ready when: the sound makes him look at you expectantly</span></div>
+          <div class="step"><h4>Build a station</h4><p>Teach a mat or bed six to ten feet from the door as the place where food happens (see Mat Work in the games library). Then add the sound. Sound, go to mat, get paid there.</p><span class="crit">Ready when: the knock sends him to the mat on his own</span></div>
+          <div class="step"><h4>Rehearse with a friend</h4><p>An accomplice knocks and leaves. Then knocks and comes in and ignores him completely, no eye contact, no talking to him, sits down. Then repeat with a man. Pay throughout.</p></div>
+          <div class="step"><h4>Real guests, with rules</h4><p>He is behind a gate or on a leash for the first fifteen minutes. Guests do not greet him, look at him, or offer a hand. He gets to approach or not. Most dogs who are allowed to investigate a seated, disinterested stranger relax within ten minutes; most dogs who are approached do not.</p></div>
+        </div>
+
+        <div class="note">
+          <span class="k">Apartment specifics</span>
+          <p>Blinds closed on any window facing a walkway. Crate and bed as far from the entry as the floor plan allows. Fan or white noise at the door. If you have a peephole camera, learn the delivery window and pre-empt it with a chew. Take the stairs at busy hours so you're not trapped in an elevator with a man at three feet.</p>
+        </div>
+
+        <h3>Muzzle training, before you need it</h3>
+        <p>Train a basket muzzle now, while nothing has happened. A muzzle-trained dog can be safely handled at the vet, groomed, and walked past a surprise without risk, and the training itself is a pleasant food game. Dogs who are muzzled for the first time during an emergency learn that muzzles predict emergencies. It is a competence, not an admission.</p>
+
+        <div class="quiz" data-quiz="q09" data-answer="1">
+          <p class="q">A man rounds the corner ten feet away. Earthwind is already barking and won't take food. What do you do?</p>
+          <div class="opts">
+            <button class="opt" type="button">Hold your ground and feed him until he calms down, so he learns men mean food.</button>
+            <button class="opt" type="button">Leave. Get distance immediately, then note that ten feet is too close and work further out tomorrow.</button>
+            <button class="opt" type="button">Ask the man to give him a treat so he learns men are friendly.</button>
+          </div>
+          <p class="fb">He's over threshold, so no learning is available and every second is a rehearsal. Leaving isn't giving up; it's the correct move and it also teaches him that you'll get him out of things, which is what builds the trust the rest of this depends on. Feeding a dog who won't eat isn't counterconditioning, it's just standing there.</p>
+        </div>
+
+        <h3>Timeline and expectations</h3>
+        <ul>
+          <li><strong>Four to eight weeks</strong> for visible change with consistent daily work, and it will be uneven.</li>
+          <li><strong>Six months to a year</strong> for a genuinely relaxed dog, if you get there.</li>
+          <li><strong>The honest ceiling:</strong> some dogs become comfortable with strangers, and some become dogs who can walk past a man without a scene while never wanting to meet him. The second outcome is a complete success. Do not aim him at a personality he doesn't have.</li>
+        </ul>
+      </section>
+
+      <!-- ============ 10 ============ -->
+      <section class="mod" data-title="Teeth">
+        <p class="mod-tag">Module 10</p>
+        <h2>Teeth</h2>
+        <p class="lede">At nine months this is not teething. Adult teeth are in. Nipping now is about arousal, play, frustration, or a request, and each one has a different fix.</p>
+
+        <h3>Diagnose the nip</h3>
+        <div class="scroller">
+        <table>
+          <tr><th>When it happens</th><th>What it is</th><th>What to do</th></tr>
+          <tr><td>During play, body loose, bouncy, play-bows, soft eyes</td><td>Play mouthing. Normal dog social behavior aimed at the wrong species.</td><td>Redirect to a toy <em>before</em> it starts. End play sooner.</td></tr>
+          <tr><td>At the end of play, or late afternoon, escalating and hard to interrupt</td><td>Over-arousal. He's past the point of choosing.</td><td>Stop earlier. Enforced nap. This is the most common cause.</td></tr>
+          <tr><td>When you stop doing something he wants, or when you take something</td><td>Frustration. A demand.</td><td>Teach a "that's all" cue and trade rather than take.</td></tr>
+          <tr><td>At ankles and trouser hems while you walk</td><td>Movement-triggered. Poodles are working dogs; motion is compelling.</td><td>Carry a toy. Freeze, then redirect. Never run.</td></tr>
+          <tr><td>When you touch a specific body part, or reach for something he has</td><td>Not play. Handling discomfort or resource guarding.</td><td>Different problem entirely. Stop, don't punish, see the note below.</td></tr>
+        </table>
+        </div>
+
+        <div class="alarm">
+          <span class="k">Tell the difference</span>
+          <p>Play mouthing comes with a loose wiggly body, a play bow, exaggerated movement, and pauses. Warning bites come with stillness, a hard stare, a closed tight mouth, a growl, or a freeze first. If you're seeing the second kind, this module is not your module: go to Module 14 and get a professional. Do not punish it and do not push through it.</p>
+        </div>
+
+        <h3>The mechanism, and why "yelp" often backfires</h3>
+        <p>The standard advice is to yelp when teeth touch skin, imitating a littermate. It works for some puppies. For an aroused adolescent it very often does the opposite: a high-pitched squeal is an excellent play signal and it makes the game more exciting. If yelping has made things worse, that's why.</p>
+        <p>The reliable version is <strong>negative punishment</strong>: teeth touch skin, and the thing he wants (you, the game, the attention) instantly stops. Nothing unpleasant is added. He learns that his teeth end the fun.</p>
+        <div class="proto">
+          <div class="step"><h4>Decide the line in advance</h4><p>Any tooth contact with skin ends it. Not "hard" contact. A blurry rule teaches a dog to test where the line is today.</p></div>
+          <div class="step"><h4>Mark it neutrally and leave</h4><p>A flat "oops" or nothing at all, then stand up, fold your arms, turn your back, or step over a baby gate. Twenty to thirty seconds. No scolding, no eye contact, no drama; drama is attention.</p></div>
+          <div class="step"><h4>Come back and resume</h4><p>Calmly. The game continues. He needs the chance to do it correctly, or he's just learning that you disappear randomly.</p></div>
+          <div class="step"><h4>Repeat with total consistency</h4><p>Everyone in the household, every time, for two to three weeks. One person who lets him mouth keeps the behavior alive for everybody.</p><span class="crit">Expect an extinction burst first. It gets worse before it stops.</span></div>
+        </div>
+
+        <h3>The part that actually fixes it: prevent, don't respond</h3>
+        <p>Responding well to a nip is damage control. The real work is upstream.</p>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>Have a toy in your hand before the interaction starts.</strong> A dog who is already holding something cannot be holding your wrist. Keep a tug rope in every room.</span></li>
+          <li><span class="n">02</span><span><strong>End play one minute before he'd end it.</strong> Track when the nipping usually starts, then stop three minutes earlier. Every session that ends calmly is a rep of calm; every session that ends in teeth is a rep of teeth.</span></li>
+          <li><span class="n">03</span><span><strong>Check the clock, not the toy box.</strong> A dog who has been awake and stimulated all afternoon looks manic rather than sleepy. Nipping that starts at 5pm daily is a nap problem.</span></li>
+          <li><span class="n">04</span><span><strong>Give the mouth a legal job.</strong> Chewing and licking lower arousal. A bully stick after play is a better intervention than any correction.</span></li>
+          <li><span class="n">05</span><span><strong>Build an off switch.</strong> Play, pause, ask for a sit, resume. Repeatedly interrupting play and restarting it teaches him to come back down from excitement, which is the underlying skill.</span></li>
+        </ul>
+
+        <h3>Tug, with rules, is the best possible outlet</h3>
+        <p>Tug is not aggressive and it does not make dogs dominant. It's a cooperative predatory game and it's an excellent way to teach a mouthy dog exactly where his teeth are allowed. Rules:</p>
+        <ul>
+          <li>You start it, with a cue ("get it").</li>
+          <li>Teeth on skin, even accidentally: game stops for 20 seconds. Every time.</li>
+          <li>He must release on a cue ("drop"). Teach it by holding still and offering food; the moment he lets go, mark, feed, and immediately restart the game. The reward for dropping is more tug.</li>
+          <li>Let him win often. Winning is not a status event, it's what makes the game worth playing.</li>
+          <li>Two or three short bouts, then it goes away. The toy lives out of reach so it stays special.</li>
+        </ul>
+
+        <div class="note">
+          <span class="k">Bite inhibition</span>
+          <p>Bite inhibition is a dog's learned control over jaw pressure, built mostly in puppyhood through play with other dogs. It's the single thing that determines whether a future startled dog leaves a bruise or a puncture. At nine months you can't build it from scratch, but you can maintain it: keep his safe, well-matched play with the downstairs neighbor's dog going, since that's where dogs practice calibrating their mouths.</p>
+        </div>
+
+        <div class="quiz" data-quiz="q10" data-answer="2">
+          <p class="q">Every evening around six, play escalates and he starts grabbing sleeves. You've tried yelping and it made him wilder. Best plan?</p>
+          <div class="opts">
+            <button class="opt" type="button">Switch to a firm "no" and hold his muzzle shut.</button>
+            <button class="opt" type="button">Play longer so he gets it out of his system.</button>
+            <button class="opt" type="button">Move play earlier, keep it shorter, end it before six, and give him a chew and a nap in that window instead.</button>
+          </div>
+          <p class="fb">A predictable daily time means it's an arousal-and-fatigue pattern, not a training gap. Playing longer raises arousal; muzzle-holding adds an aversive to an over-threshold dog and risks making hands frightening. Change the schedule and the behavior often disappears without being trained at all.</p>
+        </div>
+      </section>
+
+      <!-- ============ 11 ============ -->
+      <section class="mod" data-title="The Games Library">
+        <p class="mod-tag">Module 11</p>
+        <h2>The Games Library</h2>
+        <p class="lede">Twenty-eight games, each one a training protocol in disguise. Filter by what you're trying to fix, or by how much brain you have left today. Tap a card to open it.</p>
+
+        <p>Two framing notes before you start. First, <strong>mental work tires a dog far more than physical work</strong>, and a tired-out athlete is just a fitter dog with more stamina for trouble. Ten minutes of nosework beats a half-hour march. Second, <strong>retire the food bowl.</strong> Every meal that comes out of a game instead of a dish is free training, free enrichment, and free relationship-building, at no cost in time you weren't already spending.</p>
+
+        <div class="gfilters" id="gfilters"></div>
+        <p class="gcount" id="gcount"></p>
+
+        <div class="games" id="games">
+
+          <div class="game" data-cat="calm brain" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Find It</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag">Brain</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Arousal reduction, a portable emergency behavior, and confidence in new spaces.</p>
+              <span class="lab">How</span><ol><li>Show him a piece of food, say "find it," and toss it a foot away.</li><li>When that's easy, hide five pieces around one room while he waits in another.</li><li>Release him with the cue. Let him work. Don't help.</li><li>Scale up: harder hiding places, a whole apartment, then outdoors on a long line.</li></ol>
+              <span class="lab">Why it works</span><p>Sniffing engages a huge amount of neural real estate and lowers heart rate. Nosework has been shown to shift dogs toward more optimistic judgments in cognitive bias testing, meaning the effect outlasts the game. It is also physically incompatible with barking.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="calm brain" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Scatter Feeding</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag">Brain</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Slower eating, ten to twenty minutes of foraging out of a ninety-second meal, and a fast way to bring a wound-up dog down.</p>
+              <span class="lab">How</span><ol><li>Take his measured meal and scatter it across a towel, a snuffle mat, or a patch of grass.</li><li>Walk away. Let him hunt.</li></ol>
+              <span class="lab">Why it works</span><p>Foraging is a natural behavior with its own intrinsic reward. Head-down sniffing posture is also a self-calming position, which is why this works as an intervention as well as a meal.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="brain" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">The Cardboard Box</span><span class="gtags"><span class="gtag">Brain</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Problem-solving, persistence, and a legal outlet for destruction.</p>
+              <span class="lab">How</span><ol><li>Wrap kibble in crumpled paper. Put the parcels in a cardboard box with more crumpled paper.</li><li>Give it to him. Supervise so he shreds rather than swallows.</li><li>Make it progressively harder: taped flaps, boxes inside boxes, an egg carton.</li></ol>
+              <span class="lab">Why it works</span><p>Costs nothing, satisfies the shredding urge on something you chose, and builds the willingness to keep working at a problem, which transfers to training.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="brain" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Muffin Tin Puzzle</span><span class="gtags"><span class="gtag">Brain</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Persistence and paw-nose coordination. A ten-minute activity from things you own.</p>
+              <span class="lab">How</span><ol><li>Drop food into the cups of a muffin tin.</li><li>Cover each cup with a tennis ball or a rolled sock.</li><li>Let him work them out. Start with only half the cups covered.</li></ol>
+              <span class="lab">Why it works</span><p>A free version of a commercial puzzle feeder, and easy to make harder as he gets better at it.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="brain focus" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Which Hand</span><span class="gtags"><span class="gtag">Brain</span><span class="gtag">Focus</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Impulse control, nose-based decision making, and a two-minute game you can play anywhere including a vet waiting room.</p>
+              <span class="lab">How</span><ol><li>Hide food in one closed fist, offer both.</li><li>He sniffs and indicates one. Open it. If he's right, he gets it; if not, show him the empty hand and try again.</li><li>Never let him mouth or paw at your hands; wait for a nose touch.</li></ol>
+              <span class="lab">Why it works</span><p>Rewards deliberate information-gathering over grabbing, which is exactly the habit you want in a mouthy adolescent.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="leash reactivity focus" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">1-2-3 Treat</span><span class="gtags"><span class="gtag">Leash</span><span class="gtag">Reactivity</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Forward movement past distractions, and a predictable pattern a frightened dog can hold onto. Probably the single most useful game here for Earthwind.</p>
+              <span class="lab">How</span><ol><li>Walking, count out loud: "one, two, three." On "three," deliver food at your side.</li><li>Repeat continuously. Keep the rhythm identical every time.</li><li>Once he anticipates "three," start using it when something mildly interesting appears.</li><li>Then use it as the man comes around the corner.</li></ol>
+              <span class="lab">Why it works</span><p>From Leslie McDevitt's pattern games. A predictable pattern gives an aroused dog something known to do, which lowers arousal enough for him to keep functioning. It also keeps you moving, which stops you from freezing and tightening the leash.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="leash reactivity" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Up-Down</span><span class="gtags"><span class="gtag">Leash</span><span class="gtag">Reactivity</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Voluntary check-ins, and a loop of look-at-me that survives distraction.</p>
+              <span class="lab">How</span><ol><li>Drop a piece of food at your feet.</li><li>He eats it and looks up at you. That look is the behavior.</li><li>Mark it and drop another. Repeat.</li><li>Do this while a mild distraction is at a distance.</li></ol>
+              <span class="lab">Why it works</span><p>You never ask for anything, so it can't fail, which makes it usable when a dog is too aroused to take cues. Eating off the ground is calming; looking up is the check-in you actually want.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="focus" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Whiplash Name Game</span><span class="gtags"><span class="gtag">Focus</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>An instant head-turn to his name, which is the foundation of every recall and every emergency redirect.</p>
+              <span class="lab">How</span><ol><li>Say "Earthwind" once, in a neutral voice, when he isn't looking at you.</li><li>The instant his head turns, mark and pay generously. Three pieces, not one.</li><li>Never repeat the name. If he doesn't turn, you were too far, too loud, or he was too aroused. Get easier.</li><li>Practise ten times a day for a month. Never use his name for anything unpleasant.</li></ol>
+              <span class="lab">Why it works</span><p>Most dogs learn their name means nothing in particular because it's used constantly. Paid every time, it becomes the most reliable cue you own.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="reactivity focus" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Look At That</span><span class="gtags"><span class="gtag">Reactivity</span><span class="gtag">Focus</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Turns "there is a man" from a threat into the opening move of a game he knows how to win.</p>
+              <span class="lab">How</span><ol><li>Start with a boring object at a distance: a trash can, a parked bike.</li><li>He looks at it. Mark and pay. Repeat until he looks at it deliberately to earn the mark.</li><li>Add the cue "look at that" just before he looks.</li><li>Only now transfer it to real triggers, at a distance where he's comfortable.</li></ol>
+              <span class="lab">Why it works</span><p>From Control Unleashed. It gives the dog permission to look, which removes the conflict of being told to ignore something he needs to monitor. Dogs who are allowed to look tend to look less.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="reactivity" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Engage&ndash;Disengage</span><span class="gtags"><span class="gtag">Reactivity</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Voluntary disengagement from a trigger, which is the skill that eventually replaces the barking.</p>
+              <span class="lab">How</span><ol><li><strong>Stage one:</strong> the instant he notices the trigger, mark and feed. Every time. For days.</li><li><strong>Stage two:</strong> once he's reliably turning back to you after the mark, stop marking the look. Wait. The moment he looks away from the trigger on his own, mark and jackpot.</li><li>If he can't disengage within a few seconds, you're too close. Move.</li></ol>
+              <span class="lab">Why it works</span><p>Stage one builds the positive association; stage two hands him the choice. The transfer of control is what makes it stick outside of training sessions.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="reactivity" data-lvl="Advanced">
+            <button class="ghead" type="button"><span class="gname">Treat and Retreat</span><span class="gtags"><span class="gtag">Reactivity</span><span class="gtag lvl">Advanced</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Safe, voluntary approach to a stationary stranger, without trapping him in proximity.</p>
+              <span class="lab">How</span><ol><li>The stranger sits, turned side-on, no eye contact, no talking to the dog.</li><li>They toss a piece of food <em>past</em> Earthwind, behind him.</li><li>He moves away to get it, then chooses whether to come back. Every approach is followed by a retreat.</li><li>Over sessions, occasionally toss one slightly closer to the person. Never lure him past his comfort.</li></ol>
+              <span class="lab">Why it works</span><p>Developed by Suzanne Clothier and widely used for fearful dogs. The retreat is the active ingredient: it guarantees the dog never gets stuck close to something he's afraid of, which is where bites happen.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="reactivity focus" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Middle</span><span class="gtags"><span class="gtag">Reactivity</span><span class="gtag">Focus</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A portable safe place: the dog stands between your feet, facing forward, with your legs as a physical shield.</p>
+              <span class="lab">How</span><ol><li>Stand with feet apart. Lure him through from behind with food.</li><li>Feed while he's in position. Release, repeat.</li><li>Add the cue "middle." Build duration to twenty seconds.</li><li>Use it when a cyclist passes or someone approaches on a narrow sidewalk.</li></ol>
+              <span class="lab">Why it works</span><p>Gives a small nervous dog a defensible position that he chose, instead of being scooped up, which removes his agency and often escalates the panic.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="focus cooperative" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Hand Target</span><span class="gtags"><span class="gtag">Focus</span><span class="gtag">Cooperative care</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A way to move him anywhere without touching him. Underrated. It is a recall, a leash-free redirect, and the basis of vet handling.</p>
+              <span class="lab">How</span><ol><li>Hold a flat palm two inches from his nose. He investigates. The instant his nose touches, mark and pay.</li><li>Repeat until deliberate, then add "touch."</li><li>Move the hand: to the side, lower, higher, two steps away, so he follows it.</li><li>Use it to move him off the couch, out of the doorway, into the crate, onto the scale at the vet.</li></ol>
+              <span class="lab">Why it works</span><p>Replaces grabbing a collar, which is the single most common way owners accidentally teach a dog to avoid them.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="cooperative calm" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Chin Rest</span><span class="gtags"><span class="gtag">Cooperative care</span><span class="gtag">Calm</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A stationary, consenting position for ear cleaning, eye drops, brushing his face, and vet exams.</p>
+              <span class="lab">How</span><ol><li>Hold your open palm flat, low. Lure his chin into it with food held under your hand.</li><li>Mark the moment his chin makes contact. Build to five seconds, then twenty.</li><li>Once solid, add handling: touch an ear while his chin is resting. If he lifts his head, stop immediately.</li></ol>
+              <span class="lab">Why it works</span><p>Lifting his head is a clear, easy way for him to say stop, and honoring it every time is what makes him willing to stay. A dog who has a reliable "no" needs it far less often.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="cooperative" data-lvl="Advanced">
+            <button class="ghead" type="button"><span class="gname">The Bucket Game</span><span class="gtags"><span class="gtag">Cooperative care</span><span class="gtag lvl">Advanced</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Explicit consent for grooming and handling. For a poodle facing a lifetime of clipping and combing, this is a major quality-of-life investment.</p>
+              <span class="lab">How</span><ol><li>Put a clear bucket of food where he can see it, at his eye level, off to the side.</li><li>Teach that looking at the bucket earns a piece from it. Looking at the bucket is now "I'm ready."</li><li>While he's looking at the bucket, touch a paw briefly, then pay from the bucket.</li><li>If he looks away, everything stops. That's his "not yet." Wait for him to look back.</li><li>Build up: paw, brush stroke, ear, nail clipper touching a nail.</li></ol>
+              <span class="lab">Why it works</span><p>Developed by Chirag Patel. The dog controls the pace, which converts restraint into cooperation. Dogs who can stop a procedure reliably tend to tolerate far more of it.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="cooperative" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">The Muzzle Game</span><span class="gtags"><span class="gtag">Cooperative care</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A dog who happily shoves his face into a basket muzzle. Insurance for vet visits, grooming, and anything unexpected on the street.</p>
+              <span class="lab">How</span><ol><li>Hold the basket muzzle, smear something good inside the end. He licks it out. Take it away.</li><li>Repeat until he pushes his nose in eagerly. Do not fasten anything yet.</li><li>Build duration with his nose inside, then touch the strap, then buckle for one second, then two.</li><li>Muzzle on for good things: a walk, dinner, a game. Never only for vet visits.</li></ol>
+              <span class="lab">Why it works</span><p>Muzzle conditioning is a normal, non-shameful competence, and doing it before an emergency is what makes it usable in one. Get a basket muzzle he can pant and drink in, not a fabric sleeve.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="calm" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Mat Work</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A portable off switch. Doorbell rings, he goes to the mat. Dinner is happening, he goes to the mat. Takes two weeks and pays out forever.</p>
+              <span class="lab">How</span><ol><li>Put a towel or small mat down. Mark and pay any interaction with it: a look, a paw, standing on it.</li><li>Pay only for four feet on. Then only for sitting. Then only for lying down.</li><li>Feed <em>on the mat</em>, always, so the mat is where good things happen.</li><li>Build duration, then distance, then distraction. Add the cue last.</li><li>Move the mat around the apartment so it isn't a location, it's an object.</li></ol>
+              <span class="lab">Why it works</span><p>Shaping rather than luring, so he figures it out himself, which produces a much more durable behavior. Also gives him a defined job during the chaotic moments that currently produce barking.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="calm" data-lvl="Advanced">
+            <button class="ghead" type="button"><span class="gname">Relaxation Protocol</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag lvl">Advanced</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Actual physiological relaxation on a mat, under progressively harder conditions. A fifteen-day scripted program.</p>
+              <span class="lab">How</span><ol><li>Download Karen Overall's Protocol for Relaxation. Each day is a written list of tasks.</li><li>Day one: he holds a down while you take one step back, count to three, clap once, and so on.</li><li>By day fifteen you're leaving the room, ringing the doorbell, and dropping things.</li><li>Pay calmness, not compliance. If he's stiff and watchful, you're going too fast; repeat the day.</li></ol>
+              <span class="lab">Why it works</span><p>It systematically desensitises a dog to the small disturbances of household life while he's in a relaxed posture, so relaxation itself becomes the trained behavior rather than obedience. Widely used in veterinary behavior practice as a foundation for anxiety cases.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="calm" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Capturing Calm</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>More calm, by paying for it. Almost nobody does this and it changes dogs.</p>
+              <span class="lab">How</span><ol><li>Keep a jar of food on a shelf in the main room.</li><li>Any time you notice him lying down quietly on his own, walk over and calmly place one piece of food between his paws. Say nothing. Walk away.</li><li>Do this ten times a day. Do not make it exciting; the goal is to reinforce the state, not interrupt it.</li></ol>
+              <span class="lab">Why it works</span><p>Owners reliably reinforce noisy behavior with attention and ignore quiet behavior entirely. This inverts it. Reinforced states increase like any other behavior.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="brain focus" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">It's Yer Choice</span><span class="gtags"><span class="gtag">Brain</span><span class="gtag">Focus</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Impulse control as a general capacity, not a specific trick. The dog learns that backing off gets him the thing.</p>
+              <span class="lab">How</span><ol><li>Hold food in a closed fist near him. He'll paw, mouth, nudge. Say and do nothing.</li><li>The instant he backs off or stops, mark and open your hand to feed from the other hand.</li><li>Progress to an open flat palm, then food on the floor under your hand, then uncovered food on the floor.</li><li>Never let him self-serve. If he lunges, the hand closes.</li></ol>
+              <span class="lab">Why it works</span><p>Popularised by Susan Garrett. It teaches restraint by making restraint the thing that pays, without any correction. Generalises unusually well to real situations: dropped food, an open door, a passing dog.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="brain focus" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Trade &amp; Drop</span><span class="gtags"><span class="gtag">Brain</span><span class="gtag">Focus</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A dog who brings you things instead of running with them, and insurance against resource guarding.</p>
+              <span class="lab">How</span><ol><li>He has a boring toy. Show him something better, say "drop," and swap. Give the toy back.</li><li>Repeat many times a day with low-value objects. Always give it back.</li><li>Work up to more valuable objects. Never take without paying.</li><li>When he steals something real: walk calmly to the treat jar, don't look at him, and trade.</li></ol>
+              <span class="lab">Why it works</span><p>Chasing a dog who has stolen something teaches him that stealing starts an excellent game and that human approach means losing things, which is how guarding is built. Trading teaches the opposite.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="body focus" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Tug, With Rules</span><span class="gtags"><span class="gtag">Body</span><span class="gtag">Focus</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Physical outlet, a legal target for teeth, and impulse control if you build the rules in.</p>
+              <span class="lab">How</span><ol><li>You start it with a cue. Long toy, so his teeth are far from your hands.</li><li>Pull side to side, not up and down, to protect his neck and spine.</li><li>Teeth on skin ends it, twenty seconds, every time.</li><li>Ask for "drop," then immediately restart. The reward for dropping is more tug.</li><li>Let him win frequently. Two or three short rounds, then the toy disappears.</li></ol>
+              <span class="lab">Why it works</span><p>Tug does not create aggression or "dominance." What it does create is a structured, rule-bound way for a mouthy adolescent to use his mouth hard, with you, on something that isn't you.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="body" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Flirt Pole</span><span class="gtags"><span class="gtag">Body</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Serious physical exercise in a small apartment or a small yard, plus practise at switching arousal off.</p>
+              <span class="lab">How</span><ol><li>A pole with a rope and a lure. Drag it along the ground in wide circles, never yanking it upward.</li><li>Let him catch it regularly. A chase he can never win is frustrating rather than satisfying.</li><li>Ask for a sit or a down every thirty seconds, then restart. That interruption is the point.</li><li>Two to three minutes, then done. This is high-intensity work.</li></ol>
+              <span class="lab">Why it works</span><p>Satisfies the chase part of the predatory sequence, which is otherwise aimed at ankles and bicycles. The stop-start structure is where the off-switch gets built.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="body focus" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Two-Toy Retrieve</span><span class="gtags"><span class="gtag">Body</span><span class="gtag">Focus</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A retrieve that comes back, for the dog who fetches once and then keeps the toy.</p>
+              <span class="lab">How</span><ol><li>Two identical toys. Throw one.</li><li>When he picks it up, make the second one interesting: move it, squeak it.</li><li>He drops the first and returns. Throw the second as he arrives.</li><li>The return is what gets paid, not the pickup.</li></ol>
+              <span class="lab">Why it works</span><p>Removes the conflict of having to give something up before getting the next throw. Fixes most "won't bring it back" problems in a session.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="body calm" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">The Off-Switch Game</span><span class="gtags"><span class="gtag">Body</span><span class="gtag">Calm</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>The ability to come down from excitement, which is the actual underlying skill behind nipping, barking, and lunging.</p>
+              <span class="lab">How</span><ol><li>Play something exciting for fifteen seconds: tug, chase, flirt pole.</li><li>Stop dead. Stand still, hold the toy against your body, say nothing.</li><li>Wait. The instant he offers anything calm (four feet on the floor, a sit, a breath), mark and restart the game.</li><li>Build up the length of the pause. Then the intensity of the play before it.</li></ol>
+              <span class="lab">Why it works</span><p>The reward for calming down is the game restarting, which is the only reward a wound-up dog cares about. Practising the transition repeatedly is what builds the recovery, and food alone can't teach this because the dog doesn't want food at that moment.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="calm" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Crate Ping-Pong</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A dog who runs into the crate because it's a game, not because he was told to.</p>
+              <span class="lab">How</span><ol><li>Door propped fully open or removed.</li><li>Toss a treat in. He goes in, eats, comes back out. Nothing happens.</li><li>Toss another. Twenty repetitions. Never close the door during this game, ever.</li><li>Once he's diving in, name it as he commits.</li></ol>
+              <span class="lab">Why it works</span><p>Leaving is always permitted, which removes the trap. A dog who has never been shut in unexpectedly during this game keeps volunteering. See Module 05 for the full ladder.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="calm body" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">The Sniffari</span><span class="gtags"><span class="gtag">Calm</span><span class="gtag">Body</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Decompression. Not a training exercise; a welfare one, and it makes every training exercise work better.</p>
+              <span class="lab">How</span><ol><li>Fifteen-foot line, back clip of the harness, somewhere quiet and green.</li><li>You go where he goes. No cues, no direction, no destination.</li><li>Forty minutes. Once or twice a week.</li></ol>
+              <span class="lab">Why it works</span><p>Sustained free sniffing shifts dogs toward measurably more optimistic judgments. A dog who gets this regularly fights you far less about sniffing on ordinary walks, because the need is already met.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="leash focus" data-lvl="Medium">
+            <button class="ghead" type="button"><span class="gname">Ping Pong Recall</span><span class="gtags"><span class="gtag">Leash</span><span class="gtag">Focus</span><span class="gtag lvl">Medium</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>A recall that's fun rather than obedient, built indoors where it can't fail.</p>
+              <span class="lab">How</span><ol><li>Two people, opposite ends of a hallway, food each.</li><li>One calls him, pays lavishly when he arrives. Then the other calls.</li><li>Ten rounds. Then take it outside on a long line.</li><li>Use a brand new word ("here!") rather than a word that has ever failed.</li></ol>
+              <span class="lab">Why it works</span><p>Builds huge reinforcement history for the recall word in a context where he can't get it wrong. Never call him for anything unpleasant, or the word is spent.</p>
+            </div>
+          </div>
+
+          <div class="game" data-cat="brain cooperative" data-lvl="Easy">
+            <button class="ghead" type="button"><span class="gname">Handling Practice</span><span class="gtags"><span class="gtag">Brain</span><span class="gtag">Cooperative care</span><span class="gtag lvl">Easy</span></span></button>
+            <div class="gbody">
+              <span class="lab">Builds</span><p>Tolerance for the grooming a poodle needs for the rest of his life. Start now, before it's urgent.</p>
+              <span class="lab">How</span><ol><li>Touch one paw for one second. Mark and feed. That's the whole session.</li><li>Over days: hold the paw, spread the toes, touch a nail, touch a nail with the clipper, clip one nail.</li><li>Same for ears, muzzle, tail, armpits. One body part per session.</li><li>Run the dryer or the clippers across the room during meals for a week before you ever point one at him.</li></ol>
+              <span class="lab">Why it works</span><p>Dogs who were never taught to tolerate handling become adults who need sedation to be groomed. Ten seconds a day now prevents that entirely.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="note">
+          <span class="k">How to actually use this page</span>
+          <p>Pick three games this week. Not fifteen. One from Calm, one from Reactivity, one from Brain. Run them daily for a week, then swap one out. Consistency on three beats dabbling in twenty-eight, and you'll actually remember the mechanics.</p>
+        </div>
+      </section>
+
+      <!-- ============ 12 ============ -->
+      <section class="mod" data-title="The Week, Built">
+        <p class="mod-tag">Module 12</p>
+        <h2>The Week, Built</h2>
+        <p class="lede">Everything above, compressed into something you can run on a Tuesday when you're tired. The specific times don't matter. The sameness does.</p>
+
+        <h3>A day</h3>
+        <div class="scroller">
+        <table>
+          <tr><th>When</th><th>What</th><th>Why it's there</th></tr>
+          <tr><td>Morning</td><td>Out to potty during a quiet moment, before the hallway is busy</td><td>Don't start the day with a reaction. Timing is management.</td></tr>
+          <tr><td></td><td>Breakfast scattered on a towel or in a puzzle</td><td>Twenty minutes of foraging instead of ninety seconds of eating</td></tr>
+          <tr><td></td><td>Sniffy walk, his nose sets the pace</td><td>Sniffing regulates. Marching does not.</td></tr>
+          <tr><td>Work block</td><td>Chew or frozen Kong, then crate work or a tether near your desk</td><td>Enforced nap. He needs far more sleep than he'll take voluntarily.</td></tr>
+          <tr><td>Midday</td><td>Potty, then five minutes of one game</td><td>Mental work, and it maintains his cues without a session</td></tr>
+          <tr><td></td><td>Back down for a real nap</td><td>Overtired is what looks like manic</td></tr>
+          <tr><td>Afternoon</td><td>Counterconditioning session: sit somewhere with distance and pay men</td><td>The core work of Module 09. Fifteen minutes.</td></tr>
+          <tr><td>Evening</td><td>Dinner out of a puzzle. Five minutes of trick work.</td><td>Same reason as breakfast, plus he needs a win</td></tr>
+          <tr><td></td><td>Ten minutes of combing, down to the skin</td><td>The coat change is happening now (Volume One)</td></tr>
+          <tr><td>Wind-down</td><td>No play in the last half hour. A chew instead.</td><td>Chewing brings him down. Play winds him up.</td></tr>
+          <tr><td>Bed</td><td>Last potty, crate beside your bed, white noise on</td><td>The same order every night is the entire mechanism</td></tr>
+        </table>
+        </div>
+
+        <h3>A week of training, at ten minutes a day</h3>
+        <div class="scroller">
+        <table>
+          <tr><th>Day</th><th>5 min, morning</th><th>5 min, evening</th><th>Plus</th></tr>
+          <tr><td>Mon</td><td>Crate ladder, current stage</td><td>Name game &times; 10</td><td>Doorbell sound &times; 20</td></tr>
+          <tr><td>Tue</td><td>Leash pressure in the hallway</td><td>Mat work</td><td>Counterconditioning walk</td></tr>
+          <tr><td>Wed</td><td>Crate ladder</td><td>Hand target &amp; chin rest</td><td>Handling: one paw</td></tr>
+          <tr><td>Thu</td><td>1-2-3 on a quiet street</td><td>It's Yer Choice</td><td>Doorbell + mat</td></tr>
+          <tr><td>Fri</td><td>Crate ladder</td><td>Trade &amp; drop</td><td>Counterconditioning walk</td></tr>
+          <tr><td>Sat</td><td>Long decompression sniffari</td><td>Off-switch game</td><td>Bucket game</td></tr>
+          <tr><td>Sun</td><td>Nothing scheduled</td><td>Nothing scheduled</td><td>Rest day. Real ones matter.</td></tr>
+        </table>
+        </div>
+
+        <h3>Enrichment, non-negotiable</h3>
+        <div class="grid2">
+          <div class="mini"><h4>Retire the bowl</h4><p>Every meal from a puzzle, a scatter, a Kong, or a training session. Highest-return single change in this manual and it costs no extra time.</p></div>
+          <div class="mini"><h4>Chewing is a need</h4><p>Bully sticks, yak chews, beef trachea, supervised. Skip antlers, hooves, and hard nylon: slab fractures on molars are common and expensive.</p></div>
+          <div class="mini"><h4>Rotate the toys</h4><p>Four or five out, the rest in a bin, swap weekly. A dog with twenty toys available has none. Novelty is the whole value.</p></div>
+          <div class="mini"><h4>Sleep is the intervention</h4><p>Enforced naps, one to two hours, in a quiet room. Fixes more chaos than another walk ever will.</p></div>
+        </div>
+
+        <h3>Keep a log</h3>
+        <p>Two lines a day. It takes fifteen seconds and it's the only way you'll see progress, because progress at this timescale is invisible day to day and obvious month to month.</p>
+        <div class="card">
+          <h4>What to write down</h4>
+          <ul>
+            <li>Reactions today: how many, at what distance, how long to recover.</li>
+            <li>Longest calm crate time.</li>
+            <li>Anything new that scared him.</li>
+            <li>Anything he did today that he couldn't do last week.</li>
+          </ul>
+        </div>
+
+        <div class="reflect">
+          <label for="r12">This week's log</label>
+          <p class="sub">Saved in this browser. Start each entry with the date.</p>
+          <textarea id="r12" data-save="r12" style="min-height:180px" placeholder="Aug 29 &mdash; two reactions, both at about 15 ft, recovered in under a minute. Crate: 4 min with a Kong, ate all of it."></textarea>
+        </div>
+
+        <div class="note">
+          <span class="k">The point of the tables</span>
+          <p>Not the specific times. Dogs settle on predictability more than on any technique, and within a week or two the first step of a routine starts predicting the rest, which is doing the calming for you.</p>
+        </div>
+      </section>
+
+      <!-- ============ 13 ============ -->
+      <section class="mod" data-title="Getting Help">
+        <p class="mod-tag">Module 13</p>
+        <h2>Getting Help</h2>
+        <p class="lede">Dog training is an unregulated industry in the United States. Anyone can print a business card. Here is how to tell the difference, which matters more for a fear-reactive dog than for almost any other case.</p>
+
+        <div class="alarm">
+          <span class="k">Hire someone for this one</span>
+          <p>Fear-based reactivity toward people is the category where DIY most often goes wrong, and where a bad trainer does lasting damage. Budget for four to six sessions with someone qualified. This is the highest-value money in the first year.</p>
+        </div>
+
+        <h3>Credentials that mean something</h3>
+        <div class="scroller">
+        <table>
+          <tr><th>Letters</th><th>What it is</th><th>Use for</th></tr>
+          <tr><td>DACVB</td><td>Veterinary behaviorist. A veterinarian with a residency and board certification in behavior. The top of the field.</td><td>Severe fear, aggression, separation anxiety, anything that might need medication</td></tr>
+          <tr><td>CAAB / ACAAB</td><td>Certified Applied Animal Behaviorist. PhD or Master's in behavioral science, certified by the Animal Behavior Society.</td><td>Complex behavior cases without a medical component</td></tr>
+          <tr><td>CDBC / CBCC-KA</td><td>Certified behavior consultant, via IAABC or CCPDT. Assessed on behavior modification specifically, not just obedience.</td><td>Reactivity, fear, resource guarding</td></tr>
+          <tr><td>CPDT-KA / KPA-CTP</td><td>Certified professional trainer. Tested on learning theory and mechanics.</td><td>Manners, crate, leash, foundation skills</td></tr>
+          <tr><td>SAPT / CSAT</td><td>Separation anxiety specialists, trained in that protocol specifically. Usually work remotely by video, which is ideal for this problem.</td><td>Separation anxiety, exclusively</td></tr>
+        </table>
+        </div>
+        <p>None of these are perfect and a certification is not a guarantee. But they mean someone was assessed by a third party, which is more than "10 years experience" tells you.</p>
+
+        <h3>Questions to ask before you book</h3>
+        <ul class="tinylist">
+          <li><span class="n">01</span><span><strong>"What happens when the dog gets it wrong?"</strong> The single most revealing question. You want to hear about lowering criteria, more distance, better rewards. If you hear about correction, consequences, or "letting him know it's not acceptable," that's your answer.</span></li>
+          <li><span class="n">02</span><span><strong>"What equipment do you use?"</strong> Prong, choke, slip lead, or e-collar in the answer means walk away, for this dog in particular.</span></li>
+          <li><span class="n">03</span><span><strong>"What's your certification, and who assessed you?"</strong></span></li>
+          <li><span class="n">04</span><span><strong>"Can I watch a class or a session first?"</strong> Anyone who says no is telling you something.</span></li>
+          <li><span class="n">05</span><span><strong>"How would you handle a dog who's afraid of men?"</strong> You now know enough from Module 09 to evaluate the answer. Distance, counterconditioning, and going at the dog's pace are the words you want.</span></li>
+        </ul>
+
+        <div class="myth">
+          <span class="k">Red flags</span>
+          <p>"Balanced training." "Pack leader," "alpha," "dominance," "he's testing you." Guaranteed results or a guaranteed timeline. Board-and-train where you can't watch. Any refusal to explain the method. Aversive tools framed as "just communication." A trainer who tells you your fearful dog needs to be corrected out of it.</p>
+        </div>
+
+        <h3>Medication is not a failure</h3>
+        <p>For a dog whose baseline anxiety is high enough that he can't learn, behavioral medication (prescribed by a vet, ideally a DACVB) lowers the baseline enough for the training to work. It is not sedation and it is not a substitute for the protocols; it is what makes the protocols possible. Ask if you're four to eight weeks in with no movement.</p>
+
+        <h3>Bay Area trainers worth a call</h3>
+        <p>Four local trainers to compare against the questions above. None of these are an endorsement in place of asking them directly what happens when a dog gets it wrong &mdash; use the script in this module before booking.</p>
+        <div class="trainers">
+          <div class="tcard">
+            <h4><a href="https://www.holdenk9.com/" target="_blank" rel="noopener">Holden K9</a></h4>
+            <p>East Bay obedience and behavior training.</p>
+            <span class="visit">holdenk9.com</span>
+          </div>
+          <div class="tcard">
+            <h4><a href="https://www.oaklanddogtrainer.com/" target="_blank" rel="noopener">Oakland Dog Trainer</a></h4>
+            <p>Private in-home training based in Oakland.</p>
+            <span class="visit">oaklanddogtrainer.com</span>
+          </div>
+          <div class="tcard">
+            <h4><a href="https://www.bayninedogtraining.com/" target="_blank" rel="noopener">Bay Nine Dog Training</a></h4>
+            <p>Bay Area obedience, manners and behavior programs.</p>
+            <span class="visit">bayninedogtraining.com</span>
+          </div>
+          <div class="tcard">
+            <h4><a href="https://www.nexuscanine.com/store" target="_blank" rel="noopener">Nexus Canine</a></h4>
+            <p>Training programs and services, browsable by package.</p>
+            <span class="visit">nexuscanine.com</span>
+          </div>
+        </div>
+
+        <h3>Where else to look</h3>
+        <ul>
+          <li><strong>Veterinary behaviorists:</strong> the ACVB directory. In your area, the UC Davis veterinary hospital runs a behavior service and takes referrals.</li>
+          <li><strong>Behavior consultants:</strong> the IAABC and CCPDT directories, both searchable by zip.</li>
+          <li><strong>Local:</strong> the SF SPCA and Berkeley Humane both run reward-based training programs and their behavior resources are free to read.</li>
+          <li><strong>Your vet first,</strong> regardless. Sudden or worsening reactivity sometimes has a medical driver: pain, thyroid, vision. A dog who hurts is a dog with a shorter fuse, and it is worth ruling out before you spend three months on behavior work.</li>
+        </ul>
+
+        <h3>If he ever bites someone</h3>
+        <ol>
+          <li>Separate immediately. Crate or another room. Do not punish him; it will not help and it makes the next one more likely to come without warning.</li>
+          <li>Care for the person. Wash it, and get them medical attention. Be straightforward.</li>
+          <li>Write down everything within the hour: who, where, what happened in the ten seconds before, body language, how many contacts, whether skin was broken and how deeply.</li>
+          <li>Call your vet, and get a referral to a DACVB. A bite is a threshold event and it changes the plan.</li>
+          <li>Know your local reporting requirements. Being the person who handled it properly is far better than being the person who didn't.</li>
+        </ol>
+
+        <div class="reflect">
+          <label for="r13">Trainers to call</label>
+          <p class="sub">Name, credential, what they said when you asked question 01.</p>
+          <textarea id="r13" data-save="r13" placeholder="Name / cert / answer to 'what happens when the dog gets it wrong'"></textarea>
+        </div>
+      </section>
+
+      <!-- ============ finish ============ -->
+      <section class="mod" data-title="Done">
+        <div class="finish">
+          <p class="mod-tag">Complete</p>
+          <h2>That's the manual.</h2>
+          <p class="bigpct" id="finalpct">0%</p>
+          <p class="lede" style="margin:0 auto 26px">of the modules marked complete</p>
+          <p style="max-width:54ch;margin:0 auto 26px">None of this has to be done well. It has to be done roughly, most days, at a distance he can handle, while he works out that he lives here now. Three months from today he will be a different dog, and you will not be able to remember exactly when it changed.</p>
+          <button class="btn ghost" id="resetbtn" type="button">Clear my progress and notes</button>
+        </div>
+      </section>
+
+      <div class="modfoot">
+        <button class="btn ghost" id="prevbtn" type="button">&larr; Back</button>
+        <button class="btn" id="donebtn" type="button">Mark complete &amp; continue</button>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- storage that never throws ---------- */
+  var mem = {};
+  var store = {
+    get: function(k){ try { var v = localStorage.getItem(k); return v === null ? mem[k] : v; } catch(e){ return mem[k]; } },
+    set: function(k,v){ mem[k] = v; try { localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ delete mem[k]; try { localStorage.removeItem(k); } catch(e){} }
+  };
+  var KEY = "earthwindTraining.v1";
+  var state = { done:{}, notes:{}, checks:{} };
+  try { var raw = store.get(KEY); if (raw) state = JSON.parse(raw); } catch(e){}
+  if (!state.done) state.done = {};
+  if (!state.notes) state.notes = {};
+  if (!state.checks) state.checks = {};
+  function save(){ store.set(KEY, JSON.stringify(state)); }
+
+  /* ---------- theme ---------- */
+  var tkey = "earthwindTraining.theme";
+  var saved = store.get(tkey);
+  if (saved === "dark" || saved === "light") document.documentElement.setAttribute("data-theme", saved);
+  document.getElementById("themebtn").addEventListener("click", function(){
+    var cur = document.documentElement.getAttribute("data-theme");
+    var isDark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    store.set(tkey, next);
+  });
+
+  /* ---------- modules ---------- */
+  var mods = Array.prototype.slice.call(document.querySelectorAll(".mod"));
+  var contentCount = mods.length - 1;
+  var rail = document.getElementById("rail");
+  var current = 0;
+
+  mods.forEach(function(m, i){
+    if (i === contentCount) return;
+    var li = document.createElement("li");
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "rail-btn";
+    b.innerHTML = '<span class="rail-num"></span><span class="rail-txt"></span>';
+    b.querySelector(".rail-txt").textContent = m.dataset.title;
+    b.addEventListener("click", function(){ go(i); });
+    li.appendChild(b);
+    rail.appendChild(li);
+  });
+  var railBtns = Array.prototype.slice.call(rail.querySelectorAll(".rail-btn"));
+
+  function paint(){
+    var n = 0;
+    railBtns.forEach(function(b, i){
+      var isDone = !!state.done[i];
+      if (isDone) n++;
+      b.classList.toggle("done", isDone);
+      b.classList.toggle("on", i === current);
+      b.querySelector(".rail-num").textContent = isDone ? "✓" : String(i + 1);
+    });
+    var pct = Math.round(n / contentCount * 100);
+    document.getElementById("progfill").style.width = pct + "%";
+    document.getElementById("proglabel").textContent = n + " of " + contentCount + " complete";
+    document.getElementById("finalpct").textContent = pct + "%";
+    var db = document.getElementById("donebtn");
+    if (current === contentCount) { db.style.display = "none"; }
+    else {
+      db.style.display = "";
+      var d = !!state.done[current];
+      db.classList.toggle("done", d);
+      db.textContent = d ? (current === contentCount - 1 ? "✓ Complete — finish" : "✓ Complete — next") : "Mark complete & continue";
+    }
+    document.getElementById("prevbtn").style.visibility = current === 0 ? "hidden" : "visible";
+  }
+
+  function go(i, noScroll){
+    current = Math.max(0, Math.min(mods.length - 1, i));
+    mods.forEach(function(m, j){ m.classList.toggle("on", j === current); });
+    paint();
+    if (!noScroll) window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.getElementById("donebtn").addEventListener("click", function(){
+    state.done[current] = true; save(); go(current + 1);
+  });
+  document.getElementById("prevbtn").addEventListener("click", function(){ go(current - 1); });
+  document.getElementById("resetbtn").addEventListener("click", function(){
+    state = { done:{}, notes:{}, checks:{} };
+    store.del(KEY);
+    document.querySelectorAll("textarea[data-save]").forEach(function(t){ t.value = ""; });
+    document.querySelectorAll(".rung").forEach(function(r){ r.classList.remove("ck"); });
+    document.querySelectorAll("[data-lfoot]").forEach(paintLadderFoot);
+    go(0);
+  });
+
+  /* ---------- notes ---------- */
+  document.querySelectorAll("textarea[data-save]").forEach(function(t){
+    var k = t.dataset.save;
+    if (state.notes[k]) t.value = state.notes[k];
+    t.addEventListener("input", function(){ state.notes[k] = t.value; save(); });
+  });
+
+  /* ---------- checklist ladders ---------- */
+  function paintLadderFoot(foot){
+    var ladder = foot.closest(".ladder");
+    var rungs = ladder.querySelectorAll(".rung");
+    var n = ladder.querySelectorAll(".rung.ck").length;
+    foot.textContent = n + " of " + rungs.length + (n === rungs.length ? " — done. Go slower than you think you need to." : "");
+  }
+  document.querySelectorAll(".ladder").forEach(function(ladder){
+    var name = ladder.dataset.ladder;
+    var foot = ladder.querySelector("[data-lfoot]");
+    Array.prototype.slice.call(ladder.querySelectorAll(".rung")).forEach(function(r, i){
+      var key = name + ":" + i;
+      if (state.checks[key]) r.classList.add("ck");
+      r.addEventListener("click", function(){
+        r.classList.toggle("ck");
+        state.checks[key] = r.classList.contains("ck");
+        save();
+        paintLadderFoot(foot);
+      });
+    });
+    paintLadderFoot(foot);
+  });
+
+  /* ---------- trigger stack meter ---------- */
+  var triggers = [
+    { t:"A man passed in the hallway", v:20 },
+    { t:"Delivery knock at 11am", v:18 },
+    { t:"Missed his afternoon nap", v:16 },
+    { t:"A guest came through the door", v:24 },
+    { t:"Alone for 30 minutes", v:14 },
+    { t:"Crate session went badly", v:20 },
+    { t:"Big reunion when you got home", v:16 },
+    { t:"New route on the evening walk", v:12 }
+  ];
+  var picked = [];
+  var chipWrap = document.getElementById("chips");
+  if (chipWrap) {
+    triggers.forEach(function(tr, i){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "chip"; b.textContent = tr.t;
+      b.addEventListener("click", function(){
+        var at = picked.indexOf(i);
+        if (at > -1) picked.splice(at, 1); else picked.push(i);
+        b.classList.toggle("hit", picked.indexOf(i) > -1);
+        renderMeter();
+      });
+      chipWrap.appendChild(b);
+    });
+  }
+  function renderMeter(){
+    var total = picked.reduce(function(s, i){ return s + triggers[i].v; }, 0);
+    var pct = Math.min(100, total);
+    var f = document.getElementById("mfill"); if (!f) return;
+    f.style.width = pct + "%";
+    var r = document.getElementById("readout");
+    r.classList.toggle("over", pct >= 72);
+    if (pct === 0) r.textContent = "Nothing yet. He's asleep on the rug and life is good.";
+    else if (pct < 35) r.textContent = "Mildly up. Still thinking, still takes food, still hears his name. Train now if you're going to.";
+    else if (pct < 58) r.textContent = "Climbing. Slower to respond, quicker to bark. This is where a nap fixes everything and another walk does not.";
+    else if (pct < 72) r.textContent = "Close to the line. Pacing, whining, hard to interrupt, taking food roughly. Cut the input now and he comes back down in twenty minutes.";
+    else r.textContent = "Over threshold. No training is available up here, and the next thing that happens will look like it came out of nowhere. It didn't. It came from all of these.";
+  }
+
+  /* ---------- generic tap-to-sort ---------- */
+  function buildSort(poolId, readId, items){
+    var pool = document.getElementById(poolId);
+    if (!pool) return;
+    var read = document.getElementById(readId);
+    var total = items.length;
+    var sel = null, placed = 0, right = 0;
+    items.forEach(function(it){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "tok"; b.textContent = it.t; b.dataset.bin = it.bin;
+      b.addEventListener("click", function(){
+        if (b.classList.contains("right") || b.classList.contains("wrong")) return;
+        if (sel) sel.classList.remove("sel");
+        sel = (sel === b) ? null : b;
+        if (sel) sel.classList.add("sel");
+      });
+      pool.appendChild(b);
+    });
+    read.textContent = "0 of " + total + " sorted.";
+    pool.closest(".stack").querySelectorAll(".bin").forEach(function(bin){
+      bin.addEventListener("click", function(){
+        if (!sel) return;
+        var ok = sel.dataset.bin === bin.dataset.bin;
+        sel.classList.remove("sel");
+        sel.classList.add(ok ? "right" : "wrong");
+        bin.querySelector(".bin-items").appendChild(sel);
+        sel = null; placed++; if (ok) right++;
+        read.textContent = placed < total
+          ? placed + " of " + total + " sorted. " + right + " right so far."
+          : "All " + total + " sorted. " + right + " of " + total + " correct. Anything in orange is worth a reread.";
+      });
+    });
+  }
+
+  buildSort("quadpool", "quadread", [
+    { t:"He sits, cheese appears", bin:"reinforce" },
+    { t:"He barks, you say 'quiet' and look at him", bin:"reinforce" },
+    { t:"He pulls, you follow, he reaches the lamppost", bin:"reinforce" },
+    { t:"He whines in the crate, you open the door", bin:"reinforce" },
+    { t:"He goes to his mat, you drop food there", bin:"reinforce" },
+    { t:"Teeth touch skin, you stand up and leave", bin:"punish" },
+    { t:"He jumps up, you turn your back", bin:"punish" },
+    { t:"He lunges, you yank the leash", bin:"punish" }
+  ]);
+
+  buildSort("bodypool", "bodyread", [
+    { t:"Loose, curved body", bin:"settle" },
+    { t:"Whites of the eyes showing", bin:"shut" },
+    { t:"Sighs and stretches out", bin:"settle" },
+    { t:"Tight closed mouth, corners forward", bin:"shut" },
+    { t:"Takes a treat normally", bin:"settle" },
+    { t:"Tucked, very still, rigid", bin:"shut" },
+    { t:"Shakes off, then flops down", bin:"settle" },
+    { t:"Repeated lip licking, no food around", bin:"shut" },
+    { t:"Leaning into your leg, weight relaxed", bin:"settle" },
+    { t:"Refuses chicken he normally loves", bin:"shut" }
+  ]);
+
+  /* ---------- quizzes ---------- */
+  document.querySelectorAll(".quiz").forEach(function(q){
+    var answer = parseInt(q.dataset.answer, 10);
+    var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+    opts.forEach(function(o, i){
+      o.addEventListener("click", function(){
+        opts.forEach(function(x, j){
+          x.disabled = true;
+          if (j === answer) x.classList.add("correct");
+          else if (j === i) x.classList.add("incorrect");
+        });
+        q.querySelector(".fb").classList.add("show");
+      });
+    });
+  });
+
+  /* ---------- games library ---------- */
+  var gameEls = Array.prototype.slice.call(document.querySelectorAll(".game"));
+  gameEls.forEach(function(g){
+    g.querySelector(".ghead").addEventListener("click", function(){ g.classList.toggle("open"); });
+  });
+  var cats = [
+    { k:"all", label:"All" },
+    { k:"calm", label:"Calm" },
+    { k:"reactivity", label:"Reactivity" },
+    { k:"leash", label:"Leash" },
+    { k:"focus", label:"Focus" },
+    { k:"brain", label:"Brain" },
+    { k:"body", label:"Body" },
+    { k:"cooperative", label:"Cooperative care" }
+  ];
+  var gf = document.getElementById("gfilters");
+  var gcount = document.getElementById("gcount");
+  if (gf) {
+    cats.forEach(function(c, i){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "gfilter" + (i === 0 ? " on" : ""); b.textContent = c.label; b.dataset.k = c.k;
+      b.addEventListener("click", function(){
+        gf.querySelectorAll(".gfilter").forEach(function(x){ x.classList.remove("on"); });
+        b.classList.add("on");
+        applyFilter(c.k);
+      });
+      gf.appendChild(b);
+    });
+    applyFilter("all");
+  }
+  function applyFilter(k){
+    var n = 0;
+    gameEls.forEach(function(g){
+      var show = k === "all" || (" " + g.dataset.cat + " ").indexOf(" " + k + " ") > -1;
+      g.classList.toggle("hide", !show);
+      if (show) n++;
+    });
+    gcount.textContent = n + (n === 1 ? " game" : " games") + " shown";
+  }
+
+  /* ---------- decision tree ---------- */
+  var treeData = {
+    q: "He just stopped walking. What else is true?",
+    a: [
+      { t:"He's staring at something specific and won't take food",
+        h:"Fear stop",
+        p:"He is over threshold. Do not pull. Let the leash go slack, move sideways or backward until he will eat, and then go home a different way. Note the trigger and the distance; that distance is your starting line for Module 09." },
+      { t:"His nose is glued to one spot on the ground",
+        h:"Sniff stop",
+        p:"This is a negotiation, not a refusal. Give him twenty to thirty seconds, then use your release phrase and pay him when he catches up. Longer term, put sniffing on cue and spend it as currency: five steps of walking buys a sniff." },
+      { t:"He keeps starting, stopping, spinning, won't settle on anything",
+        h:"Overwhelm",
+        p:"Too much street for a nine-month-old who moved last month. Make the walk smaller, not longer: ten minutes on the quietest street you have, the same route daily for two weeks, then add one variable." },
+      { t:"He looks fine, he just doesn't want to go that way",
+        h:"Direction preference",
+        p:"Often there's something down that street he has learned to avoid, or the wind is carrying something. Take the other route today and treat the avoided one as a training project, at distance, with food." },
+      { t:"He does it near the end of every walk, tail low, moving slowly",
+        h:"He's done",
+        p:"Adolescents fatigue faster than they look like they should, and a small dog covers three times your distance. Shorten the walk and split it into two. Also worth mentioning to your vet: consistent reluctance to walk is occasionally pain." }
+    ]
+  };
+  document.querySelectorAll(".tree").forEach(function(tree){
+    var qEl = tree.querySelector("[data-treeq]");
+    var aEl = tree.querySelector("[data-treea]");
+    var oEl = tree.querySelector("[data-treeout]");
+    var back = tree.querySelector("[data-treeback]");
+    qEl.textContent = treeData.q;
+    treeData.a.forEach(function(opt){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "tree-btn"; b.textContent = opt.t;
+      b.addEventListener("click", function(){
+        oEl.innerHTML = "";
+        var h = document.createElement("h4"); h.textContent = opt.h;
+        var p = document.createElement("p"); p.textContent = opt.p;
+        oEl.appendChild(h); oEl.appendChild(p);
+        oEl.classList.add("show");
+      });
+      aEl.appendChild(b);
+    });
+    back.addEventListener("click", function(){ oEl.classList.remove("show"); oEl.innerHTML = ""; });
+  });
+
+  /* ---------- distance dial ---------- */
+  var dr = document.getElementById("distrange");
+  if (dr) {
+    var dn = document.getElementById("distnum");
+    var dread = document.getElementById("distread");
+    var bands = [
+      "Two feet. He is being touched by the thing he is afraid of. Nothing you say reaches him here and a bite is on the table. This is not a training distance, it is an emergency.",
+      "Ten feet. Fully over threshold for most reactive dogs. Barking, lunging, no food taken. Every second here is a rehearsal that costs you several good sessions.",
+      "Twenty feet. Still over for most. He may take food and spit it out, or grab it hard enough to catch your fingers. That is not eating.",
+      "Thirty feet. The edge for a lot of dogs. He notices, he stiffens, he might recover. Watch whether he can look away on his own; if he can't, back up.",
+      "Forty feet. Often workable. He sees the man, he looks, he can turn back to you. This is where counterconditioning actually happens.",
+      "Fifty feet. Comfortable for most dogs at this stage. Good for stage-two Engage&ndash;Disengage, where you wait for him to disengage himself.",
+      "Sixty feet. Easy. Use this on a bad day, after a hard morning, or with a new kind of trigger (a man with a hat, an umbrella, a hood).",
+      "Seventy feet. Almost too easy, which is fine. A session of easy reps banks progress; a session over threshold spends it.",
+      "Eighty feet. Barely registers. Good for a first session in an unfamiliar location, where everything else is already novel.",
+      "Ninety feet. Parking lot distance. Sit in the car with the window down and pay every person who walks past. One of the best setups there is.",
+      "A hundred feet. If he still reacts here, that is real information: he needs a professional, and probably a conversation about medication.",
+      "A hundred and ten feet. Beyond most dogs' trigger range entirely. If nothing is happening at all, come ten feet closer and see."
+    ];
+    var setDial = function(){
+      var v = parseInt(dr.value, 10);
+      dn.textContent = v * 10;
+      dread.innerHTML = bands[v - 1];
+      dread.classList.toggle("over", v <= 3);
+    };
+    dr.addEventListener("input", setDial);
+    setDial();
+  }
+
+  renderMeter();
+  paint();
+})();
+</script>
+</body>
+</html>
