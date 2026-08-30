@@ -172,6 +172,13 @@ const TILE_SECTIONS: TileSection[] = [
     tiles: [
       { label: "The Manual", href: "/earthwind-manual.html", icon: BookText, configured: true, external: false },
       {
+        label: "Training Manual",
+        href: "/earthwind-training-manual.html",
+        icon: BookText,
+        configured: true,
+        external: false,
+      },
+      {
         label: "Puppy Guide",
         icon: PawPrint,
         configured: true,
@@ -186,6 +193,18 @@ const TILE_SECTIONS: TileSection[] = [
       },
       { label: "YouTube", href: "https://www.youtube.com/channel/UC5QwYlOxcT1higtcJVGzCCg", icon: Youtube, configured: true, external: true },
       { label: "The Online Dog Trainer", href: "https://theonlinedogtrainer.com/", icon: GraduationCap, configured: true, external: true },
+      {
+        label: "Trainers",
+        icon: Users,
+        configured: true,
+        trigger: "click",
+        items: [
+          { label: "Holden K9", href: "https://www.holdenk9.com/", external: true },
+          { label: "Oakland Dog Trainer", href: "https://www.oaklanddogtrainer.com/", external: true },
+          { label: "Bay Nine Dog Training", href: "https://www.bayninedogtraining.com/", external: true },
+          { label: "Nexus Canine", href: "https://www.nexuscanine.com/store", external: true },
+        ],
+      },
     ],
   },
   {
