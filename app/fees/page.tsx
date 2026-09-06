@@ -121,6 +121,24 @@ export default function FeesPage() {
             <p className="mt-16 text-sm text-[var(--ink-muted)] leading-relaxed max-w-3xl">
               These are independent services, offered here for convenience rather than as endorsements. Coverage varies by plan, and reimbursement is never guaranteed. Checking your out-of-network benefits with your insurer directly is always worthwhile.
             </p>
+
+            <div className="mt-16 pt-16 border-t border-[var(--border)]">
+              <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
+                Free and Low Fee Services
+              </p>
+              <p className="text-lg text-[var(--ink-light)] leading-relaxed max-w-3xl">
+                For clients seeking low- or free-cost services in Alameda County, this{" "}
+                <Link
+                  href="https://alamedacountyfosterparentassociation.org/wp-content/uploads/2025/03/alameda-county-resource-guide-3.11.2024-1.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                >
+                  Alameda County resource guide
+                </Link>{" "}
+                is a good place to start.
+              </p>
+            </div>
           </div>
         </section>
 
