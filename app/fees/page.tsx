@@ -53,9 +53,9 @@ export default function FeesPage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
               <div className="lg:col-span-4">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                <h2 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
                   Out of Network
-                </p>
+                </h2>
               </div>
               <div className="lg:col-span-8 space-y-6">
                 <p className="text-lg text-[var(--ink-light)] leading-relaxed">
@@ -77,50 +77,55 @@ export default function FeesPage() {
         </section>
 
         {/* Reimbursement options */}
-        <section className="py-16 lg:py-24 border-t border-[var(--border)]">
+        <section className="py-16 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
-              Reimbursement Options
-            </p>
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+              <div className="lg:col-span-4">
+                <h2 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                  Reimbursement Options
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <p className="text-lg text-[var(--ink-light)] leading-relaxed">
+                  Many clients with out-of-network benefits are reimbursed for a meaningful portion of the cost of care. I provide a monthly superbill you can submit to your insurer, and the services below can handle much of that process for you.
+                </p>
 
-            <p className="text-lg text-[var(--ink-light)] leading-relaxed max-w-3xl mb-16">
-              Many clients with out-of-network benefits are reimbursed for a meaningful portion of the cost of care. I provide a monthly superbill you can submit to your insurer, and the services below can handle much of that process for you.
-            </p>
+                <div className="mt-10 grid sm:grid-cols-2 gap-6">
+                  {reimbursementOptions.map((option) => {
+                    const logo = logoFor(option.slug)
+                    return (
+                    <Link
+                      key={option.name}
+                      href={option.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="fee-card p-8 flex flex-col"
+                    >
+                      <h3 className="flex-1 font-serif text-2xl font-light text-[var(--ink)]">
+                        {logo ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={logo}
+                            alt={option.name}
+                            className="h-7 w-auto max-w-[70%] object-contain object-left"
+                          />
+                        ) : (
+                          option.name
+                        )}
+                      </h3>
+                      <span className="fee-card-cta mt-8 self-start text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1">
+                        Visit <span className="fee-card-arrow">&rarr;</span>
+                      </span>
+                    </Link>
+                    )
+                  })}
+                </div>
 
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12">
-              {reimbursementOptions.map((option) => {
-                const logo = logoFor(option.slug)
-                return (
-                <Link
-                  key={option.name}
-                  href={option.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="fee-card p-10 flex flex-col"
-                >
-                  <h2 className="flex-1 font-serif text-2xl font-light text-[var(--ink)]">
-                    {logo ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={logo}
-                        alt={option.name}
-                        className="h-7 w-auto max-w-[70%] object-contain object-left"
-                      />
-                    ) : (
-                      option.name
-                    )}
-                  </h2>
-                  <span className="fee-card-cta mt-8 self-start text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1">
-                    Visit <span className="fee-card-arrow">&rarr;</span>
-                  </span>
-                </Link>
-                )
-              })}
+                <p className="mt-10 text-sm text-[var(--ink-muted)] leading-relaxed">
+                  These are independent services, offered here for convenience rather than as endorsements. Coverage varies by plan, and reimbursement is never guaranteed. Checking your out-of-network benefits with your insurer directly is always worthwhile.
+                </p>
+              </div>
             </div>
-
-            <p className="mt-16 text-sm text-[var(--ink-muted)] leading-relaxed max-w-3xl">
-              These are independent services, offered here for convenience rather than as endorsements. Coverage varies by plan, and reimbursement is never guaranteed. Checking your out-of-network benefits with your insurer directly is always worthwhile.
-            </p>
           </div>
         </section>
 
@@ -129,9 +134,9 @@ export default function FeesPage() {
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
               <div className="lg:col-span-4">
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                <h2 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
                   Free and Low Fee Services
-                </p>
+                </h2>
               </div>
               <div className="lg:col-span-8 space-y-6">
                 <p className="text-lg text-[var(--ink-light)] leading-relaxed">
@@ -167,7 +172,7 @@ export default function FeesPage() {
                 href="https://calendar.app.google/wXJjtG5EBW9ZDy2R9"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                className="self-start inline-block text-[13px] font-medium tracking-[0.15em] uppercase text-[var(--ink)] border-b border-[var(--ink)] pb-1 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
               >
                 Schedule
               </Link>
