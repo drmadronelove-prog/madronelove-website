@@ -121,23 +121,32 @@ export default function FeesPage() {
             <p className="mt-16 text-sm text-[var(--ink-muted)] leading-relaxed max-w-3xl">
               These are independent services, offered here for convenience rather than as endorsements. Coverage varies by plan, and reimbursement is never guaranteed. Checking your out-of-network benefits with your insurer directly is always worthwhile.
             </p>
+          </div>
+        </section>
 
-            <div className="mt-16 pt-16 border-t border-[var(--border)]">
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-6">
-                Free and Low Fee Services
-              </p>
-              <p className="text-lg text-[var(--ink-light)] leading-relaxed max-w-3xl">
-                For clients seeking low- or free-cost services in Alameda County, this{" "}
-                <Link
-                  href="https://alamedacountyfosterparentassociation.org/wp-content/uploads/2025/03/alameda-county-resource-guide-3.11.2024-1.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
-                >
-                  Alameda County resource guide
-                </Link>{" "}
-                is a good place to start.
-              </p>
+        {/* Free and low fee services */}
+        <section className="py-16 border-t border-[var(--border)]">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
+              <div className="lg:col-span-4">
+                <p className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--ink-muted)]">
+                  Free and Low Fee Services
+                </p>
+              </div>
+              <div className="lg:col-span-8 space-y-6">
+                <p className="text-lg text-[var(--ink-light)] leading-relaxed">
+                  For clients seeking low- or free-cost services in Alameda County, this{" "}
+                  <Link
+                    href="https://alamedacountyfosterparentassociation.org/wp-content/uploads/2025/03/alameda-county-resource-guide-3.11.2024-1.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                  >
+                    Alameda County resource guide
+                  </Link>{" "}
+                  is a good place to start.
+                </p>
+              </div>
             </div>
           </div>
         </section>
