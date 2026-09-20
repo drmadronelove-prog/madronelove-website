@@ -9,12 +9,10 @@ import {
   Briefcase,
   Stethoscope,
   ClipboardCheck,
-  Sparkles,
   Landmark,
   Gem,
   Bot,
   Radio,
-  BookOpen,
   Search,
   Microscope,
   ChevronDown,
@@ -123,8 +121,6 @@ const TILE_SECTIONS: TileSection[] = [
     title: "Personal Life",
     tiles: [
       { label: "Glow Up", href: "/dashboard/glow-up", icon: Gem, configured: true, external: false },
-      { label: "neil.fun", href: "https://neil.fun/", icon: Sparkles, configured: true, external: true },
-      { label: "Libby", href: "https://libbyapp.com/", icon: BookOpen, configured: true, external: true },
       { label: "Book Club", href: "https://madronelove.com/bookclub", icon: Book, configured: true, external: false },
       {
         label: "Becoming Madrone",
@@ -140,6 +136,7 @@ const TILE_SECTIONS: TileSection[] = [
         trigger: "click",
         items: [
           { label: "PACT", href: "https://pactadopt.org/adopting-a-child/", external: true },
+          { label: "Resource Family Orientation", href: "https://www.myresourcefamily.org/orientation-video/", external: true },
           { label: "The Long Way Home", href: "/foster-to-adopt-guide.html", external: false },
         ],
       },
@@ -213,6 +210,13 @@ const TILE_SECTIONS: TileSection[] = [
       { label: "Bank of America", href: "https://www.bankofamerica.com/", icon: Landmark, configured: true, external: true },
       { label: "Coinbase", href: "https://www.coinbase.com/", icon: Wallet, configured: true, external: true },
       { label: "Robinhood", href: "https://robinhood.com/", icon: Wallet, configured: true, external: true },
+      {
+        label: "New Name, New Accounts",
+        href: "https://claude.ai/artifact/2zvWJumWTcQDKFizVMiJKg",
+        icon: ClipboardCheck,
+        configured: true,
+        external: true,
+      },
     ],
   },
 ]
