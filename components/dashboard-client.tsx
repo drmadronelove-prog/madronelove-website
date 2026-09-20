@@ -137,6 +137,8 @@ const TILE_SECTIONS: TileSection[] = [
         items: [
           { label: "PACT", href: "https://pactadopt.org/adopting-a-child/", external: true },
           { label: "Resource Family Orientation", href: "https://www.myresourcefamily.org/orientation-video/", external: true },
+          { label: "Binti Application", href: "https://family.binti.com/application/1034317/step/4", external: true },
+          { label: "CA Kids Connection", href: "https://www.cakidsconnection.org/ViewChild.php?ChildID=503170", external: true },
           { label: "The Long Way Home", href: "/foster-to-adopt-guide.html", external: false },
         ],
       },
