@@ -151,6 +151,18 @@ export default function FeesPage() {
                   </Link>{" "}
                   is a good place to start.
                 </p>
+                <p className="text-lg text-[var(--ink-light)] leading-relaxed">
+                  Families navigating Medi-Cal coverage may also find this guide on{" "}
+                  <Link
+                    href="https://searchcenter.ucr.edu/media/541/download?attachment"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--ink)] border-b border-[var(--ink)] pb-0.5 hover:text-[var(--clay)] hover:border-[var(--clay)] transition-colors duration-300"
+                  >
+                    how to get autism assessment and treatment through Medi-Cal
+                  </Link>{" "}
+                  useful.
+                </p>
               </div>
             </div>
           </div>
