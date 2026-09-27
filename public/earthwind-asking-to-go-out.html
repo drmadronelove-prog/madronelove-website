@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Teaching Earthwind a deliberate signal for needing out: why the order matters for a fearful dog, choosing a quiet signal over bells, the six-step protocol, and the over-asking fix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<title>Teaching Him to Ask &middot; Earthwind</title>
+<style>
+:root{
+  --ground:#E7EAE8; --surface:#FBFBFA; --surface-2:#F1F3F1;
+  --ink:#2E2320; --ink-soft:#6A5B54; --line:#D2D7D3; --line-strong:#B9C1BB;
+  --accent:#A8632B; --accent-ink:#FFFFFF; --accent-wash:#F2E4D8;
+  --cool:#3F6168; --cool-wash:#DFE8E9;
+  --moss:#5A6E43; --moss-wash:#E4EADC;
+  --good:#3F6E45; --good-wash:#DDE9DD;
+  --warn:#8A5E10; --warn-wash:#F2E7CE;
+  --shadow:0 1px 2px rgba(46,35,32,.06), 0 8px 24px rgba(46,35,32,.07);
+  --display:"Fraunces", Georgia, serif;
+  --body:"Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16191A; --surface:#1E2223; --surface-2:#262B2C;
+    --ink:#E9E5E0; --ink-soft:#A69C94; --line:#323839; --line-strong:#454C4D;
+    --accent:#DB934C; --accent-ink:#1A1210; --accent-wash:#38271A;
+    --cool:#8CB4BB; --cool-wash:#1F2C2E;
+    --moss:#A3BB84; --moss-wash:#232A1C;
+    --good:#84B48B; --good-wash:#1E2A20;
+    --warn:#D9AC52; --warn-wash:#2E2617;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16191A; --surface:#1E2223; --surface-2:#262B2C;
+  --ink:#E9E5E0; --ink-soft:#A69C94; --line:#323839; --line-strong:#454C4D;
+  --accent:#DB934C; --accent-ink:#1A1210; --accent-wash:#38271A;
+  --cool:#8CB4BB; --cool-wash:#1F2C2E;
+  --moss:#A3BB84; --moss-wash:#232A1C;
+  --good:#84B48B; --good-wash:#1E2A20;
+  --warn:#D9AC52; --warn-wash:#2E2617;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px 96px}
+.mast{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+.mast-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+h1{font-family:var(--display);font-variation-settings:"SOFT" 20,"WONK" 1;font-weight:800;font-size:clamp(2.4rem,6vw,3.6rem);line-height:.99;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.dek{margin:16px 0 0;max-width:62ch;color:var(--ink-soft);font-size:1.02rem}
+.themebtn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.themebtn:hover{border-color:var(--line-strong);color:var(--ink)}
+.toc{margin:30px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.toc a{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 13px;display:block}
+.toc a:hover{border-color:var(--accent);color:var(--ink)}
+section.sec{padding-top:14px;scroll-margin-top:18px}
+h2{font-family:var(--display);font-variation-settings:"SOFT" 20,"WONK" 1;font-weight:800;font-size:clamp(1.7rem,3.4vw,2.35rem);line-height:1.06;letter-spacing:-.015em;margin:46px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:1.28rem;line-height:1.25;margin:36px 0 8px;letter-spacing:-.005em;text-wrap:balance}
+h4{font-family:var(--body);font-weight:700;font-size:1rem;margin:20px 0 4px}
+p{margin:0 0 14px;max-width:68ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:66ch}
+li{margin-bottom:7px}
+a{color:var(--accent)}
+.lede{font-size:1.1rem;color:var(--ink-soft);max-width:62ch}
+.cite{font-family:var(--mono);font-size:.66em;vertical-align:super;line-height:0;color:var(--cool);text-decoration:none;padding:0 1px;cursor:pointer;font-weight:600}
+.cite:hover{color:var(--accent)}
+.cite::before{content:"["}
+.cite::after{content:"]"}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}
+.card > :last-child{margin-bottom:0}
+.card h4:first-child{margin-top:0}
+.note{border-left:3px solid var(--cool);background:var(--cool-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.note > :last-child{margin-bottom:0}
+.note .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cool);display:block;margin-bottom:5px}
+.alarm{border-left:3px solid var(--accent);background:var(--accent-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.alarm > :last-child{margin-bottom:0}
+.alarm .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px}
+.myth{border-left:3px solid var(--warn);background:var(--warn-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.myth > :last-child{margin-bottom:0}
+.myth .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:5px}
+.good{border-left:3px solid var(--good);background:var(--good-wash);border-radius:0 10px 10px 0;padding:15px 18px;margin:20px 0}
+.good > :last-child{margin-bottom:0}
+.good .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--good);display:block;margin-bottom:5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+.mini{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.mini h4{margin:0 0 4px}
+.mini p{margin:0;font-size:.94rem;color:var(--ink-soft)}
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:18px 0;min-width:520px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+td strong{font-weight:700}
+.pill{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap;background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line)}
+.pill.fit{background:var(--good-wash);color:var(--good);border-color:transparent}
+.pill.maybe{background:var(--warn-wash);color:var(--warn);border-color:transparent}
+.pill.no{background:var(--accent-wash);color:var(--accent);border-color:transparent}
+.proto{counter-reset:step;margin:22px 0;display:flex;flex-direction:column;gap:10px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:14px 18px 14px 52px;position:relative;box-shadow:var(--shadow)}
+.step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;font-family:var(--mono);font-size:11px;font-weight:600;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--accent-wash);color:var(--accent)}
+.step h4{margin:0 0 3px}
+.step p{margin:0 0 6px;font-size:.95rem;color:var(--ink-soft)}
+.step > :last-child{margin-bottom:0}
+.step .crit{display:block;margin-top:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--good)}
+.ladder{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin:22px 0;box-shadow:var(--shadow)}
+.rung{display:flex;gap:12px;align-items:flex-start;padding:11px 10px;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;width:100%;background:none;border-left:none;border-right:none;border-top:none;font-family:var(--body);color:var(--ink);font-size:15px;line-height:1.5}
+.ladder .rung:last-of-type{border-bottom:none}
+.rung:hover{background:var(--surface-2)}
+.box{flex:none;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line-strong);display:grid;place-items:center;margin-top:2px;font-size:12px;color:transparent}
+.rung.ck .box{background:var(--good);border-color:transparent;color:#fff}
+.rung.ck .rtxt{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--line-strong)}
+.rung .sub{display:block;font-size:.88rem;color:var(--ink-soft);margin-top:2px}
+.ladder-foot{font-family:var(--mono);font-size:11px;color:var(--ink-soft);padding:10px;border-top:1px solid var(--line);letter-spacing:.06em}
+.srclist{list-style:none;padding:0;margin:20px 0}
+.srcitem{display:flex;gap:14px;padding:14px;border-radius:10px;border-bottom:1px solid var(--line);scroll-margin-top:24px}
+.srcitem.flash{background:var(--warn-wash)}
+.srcnum{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);flex:none;width:26px;padding-top:3px;font-variant-numeric:tabular-nums}
+.srcbody{min-width:0}
+.srcbody p{margin:0 0 4px;font-size:.95rem;max-width:74ch}
+.srcbody .why{font-size:.88rem;color:var(--ink-soft);margin:0}
+.srcbody a{word-break:break-word}
+.srcgroup{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin:32px 0 6px}
+.foot{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink-soft)}
+.foot a{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="mast">
+  <div class="mast-top">
+    <div>
+      <p class="eyebrow">Earthwind &middot; a supplement to Volume Two</p>
+      <h1>Teaching Him to Ask</h1>
+    </div>
+    <button class="themebtn" id="themebtn" type="button">Theme</button>
+  </div>
+  <p class="dek">Module 13 taught you to read the signals he already gives. This is the other direction: giving him one deliberate, unmistakable way to tell you he needs out &mdash; built for a ten-month-old who is anxious, noise-sensitive, and lives up a hallway.</p>
+  <ul class="toc">
+    <li><a href="#order">The order matters</a></li>
+    <li><a href="#baseline">What he already does</a></li>
+    <li><a href="#choose">Choosing the signal</a></li>
+    <li><a href="#protocol">The protocol</a></li>
+    <li><a href="#wrong">When it goes wrong</a></li>
+    <li><a href="#fortnight">The fortnight</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</header>
+
+<section class="sec" id="order">
+<h2>The order matters, and it is not the order the internet gives you</h2>
+<p class="lede">Every bell-training article assumes a dog who wants to go outside. Yours is a dog for whom outside is the hard part.</p>
+<p>A dog signals to make something good happen. If stepping into the hallway means footsteps, strangers, and the thing Module 10 is still working on, then the signal predicts something he would rather avoid &mdash; and a behaviour that predicts something unpleasant gets quieter, not louder. Teach the signal too early and you don't get a silent dog. You get a dog who learned that touching the bell summons the scary corridor, and now won't touch it at all. That is harder to undo than never having started.</p>
+<p>Dogs also need to feel safe to eliminate at all. The muscles involved don't relax in a dog who is scanning.<a class="cite" href="#s5">5</a> If he holds it outside and goes the moment he is back in, that is not defiance and not a house-training failure &mdash; it is the same fear, showing up as a full bladder.<a class="cite" href="#s5">5</a></p>
+<div class="alarm">
+  <span class="k">Gate</span>
+  <p>Don't start this until his ordinary potty trips are boring. Concretely: he walks out without freezing, empties within a few minutes on most trips, and you are not timing every departure around the corridor. If you are still running the reset in Module 02, or still shifting trips twenty minutes to dodge neighbours, finish that first. The signal is the last brick, not the first.</p>
+</div>
+<div class="note">
+  <span class="k">Meanwhile</span>
+  <p>Nothing here delays anything. Keep running Module 13's schedule &mdash; on waking, ten to thirty minutes after meals, after anything exciting, last thing at night. A signal never replaces the clock; it catches the trips the clock misses.</p>
+</div>
+</section>
+
+<section class="sec" id="baseline">
+<h2>Step zero: write down what he already does</h2>
+<p>Module 13 names the usual tells &mdash; circling, sniffing the floor intently, suddenly leaving the room &mdash; and says his will be individual. Before you teach a new signal, spend a week learning his old one, because the whole trick of this training is catching him at the moment he is already asking.</p>
+<p>Keep a note on your phone. Every time he goes out and actually produces something, write what he did in the sixty seconds before. Inside a week you will see two or three repeats. Those are your raw material.</p>
+<div class="card">
+  <h4>What you are looking for</h4>
+  <div class="scroller">
+  <table>
+    <thead><tr><th>Kind of tell</th><th>Looks like</th><th>Why it is useful</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Orientation</strong></td><td>Looks at the door, walks toward it, stands near it and looks back at you</td><td>The best kind. Already a communication, already aimed at the door. Easiest to shape into a signal.</td></tr>
+      <tr><td><strong>Restlessness</strong></td><td>Circling, pacing, getting up and resettling, sniffing the floor intently</td><td>Reliable but vague &mdash; it looks the same as bored. Useful as your cue to offer a trip, not as his signal.</td></tr>
+      <tr><td><strong>Leaving</strong></td><td>Quietly goes to another room, or behind furniture</td><td>Often the last stop before an accident. Treat it as urgent and go now.</td></tr>
+      <tr><td><strong>Contact</strong></td><td>Comes to you, noses your leg, stares</td><td>Gold. If he already does this, build on it rather than on hardware &mdash; see below.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+<div class="myth">
+  <span class="k">Careful</span>
+  <p>A sudden change in how often he needs out is a vet question before it is a training question. New frequency, straining, accidents from a dog who had stopped having them, or drinking noticeably more &mdash; that is a urine sample, not a protocol.</p>
+</div>
+</section>
+
+<section class="sec" id="choose">
+<h2>Choosing the signal</h2>
+<p>The default advice is a strap of bells on the door handle. For most dogs it is fine. For this one it is the weakest of the four options, and for a reason that is already written into the rest of his manual: you are running white noise at night to mask hallway footsteps because sudden sharp sounds matter to him. A jangle of metal at nose height, produced by his own face, is a sudden sharp sound.</p>
+<div class="scroller">
+<table>
+  <thead><tr><th>Option</th><th>How it works</th><th>For him</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Come and get you</strong></td>
+      <td>You shape the contact he may already offer &mdash; come to you, nose your leg &mdash; into the ask.</td>
+      <td><span class="pill fit">Best</span> Silent. No hardware to be startled by. Builds on a behaviour he likely already has, and it strengthens the habit of bringing problems to you, which is the thing you want from a fearful dog generally.</td>
+    </tr>
+    <tr>
+      <td><strong>Nose target on a mat or card</strong></td>
+      <td>A felt square or index card taped by the door at nose height. He touches it; you open.</td>
+      <td><span class="pill fit">Good</span> Silent, unambiguous, tied to the door. Needs you in the room to see it, which is the trade for the quiet.</td>
+    </tr>
+    <tr>
+      <td><strong>Button</strong></td>
+      <td>A recordable button on the floor by the door, one word on it.</td>
+      <td><span class="pill maybe">Maybe</span> Audible from another room, which is the advantage. Introduce the sound before the training, at volume, paired with food &mdash; not discovered by accident with his own paw.</td>
+    </tr>
+    <tr>
+      <td><strong>Door bells</strong></td>
+      <td>The classic strap of bells, nudged with nose or paw.<a class="cite" href="#s1">1</a></td>
+      <td><span class="pill no">Last</span> Loudest, most startling, most likely to be rung for reasons other than a bladder.<a class="cite" href="#s3">3</a> If you use it anyway, muffle it first: tape over half the bells, or start with a single small one.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="note">
+  <span class="k">Pick one</span>
+  <p>One signal, one door, one meaning. Two channels means neither gets clear, and a dog with a reactive baseline does not need another ambiguity in his day.</p>
+</div>
+</section>
+
+<section class="sec" id="protocol">
+<h2>The protocol</h2>
+<p>This is the standard three-phase shape &mdash; teach the behaviour, attach it to the door, hand him the initiative<a class="cite" href="#s1">1</a><a class="cite" href="#s2">2</a> &mdash; with the pacing adjusted for a dog who is also doing crate work and stranger work in the same fortnight. Five minutes a day. It fits in the Module 14 table without displacing anything.</p>
+<div class="proto">
+  <div class="step">
+    <h4>Teach the touch, away from the door</h4>
+    <p>Living room, no door involved. Hold the target &mdash; your hand, the felt square, the muffled bell &mdash; a few inches from his nose. Dogs investigate what is offered; the instant his nose makes contact, mark it and pay.<a class="cite" href="#s1">1</a> Five to ten reps, then stop. Two or three of these sessions a day, none longer than a couple of minutes.</p>
+    <span class="crit">Move on when: ten out of ten touches, no hesitation</span>
+  </div>
+  <div class="step">
+    <h4>Name it, then move it</h4>
+    <p>Add a word as he is already committing to the touch, not before. Then start moving the target: lower, higher, in your other hand, held against a wall. You are teaching <em>touch this thing</em>, not <em>touch this thing in this one spot</em>.</p>
+    <span class="crit">Move on when: he touches it wherever you hold it</span>
+  </div>
+  <div class="step">
+    <h4>Mount it by the door, and pair it with leaving</h4>
+    <p>Fix the target at nose height by the door you actually use. Now the pairing: before every single potty trip, you cue the touch, he touches, the door opens.<a class="cite" href="#s1">1</a> Every trip, no exceptions, for several days. The association you are building is <em>touch &rarr; door opens</em>, and it is built entirely by your consistency, not by his cleverness.</p>
+    <span class="crit">Move on when: he touches it as you approach the door, before you ask</span>
+  </div>
+  <div class="step">
+    <h4>Pay outside, where it counts</h4>
+    <p>Three pieces of food the instant he finishes, outside, while he is still standing there &mdash; the same rule Module 13 gives for house-training, for the same reason. Paying him when he comes back in pays the wrong thing.</p>
+    <span class="crit">Move on when: the outside payment is automatic for you</span>
+  </div>
+  <div class="step">
+    <h4>Go quiet and wait</h4>
+    <p>Stop cueing. Keep taking him out on the Module 13 schedule, but stop asking for the touch first &mdash; just stand near the door and wait a few seconds. Sooner or later he offers it. That is the whole game: the first unprompted touch. Mark it, pay it, open the door immediately.<a class="cite" href="#s2">2</a></p>
+    <span class="crit">Move on when: he has offered it unprompted three or four times</span>
+  </div>
+  <div class="step">
+    <h4>Honour it, every time, for a month</h4>
+    <p>For the first several weeks, an unprompted signal always gets the door. Always. This is what teaches him the channel works. Ignoring it twice on a busy Tuesday teaches him it doesn't, and he will go back to circling &mdash; or to the rug.</p>
+    <span class="crit">You are done when: he asks, you open, and neither of you thinks about it</span>
+  </div>
+</div>
+<div class="good">
+  <span class="k">The one rule that does most of the work</span>
+  <p>A signalled trip is a <em>working</em> trip. Leash on, straight to the spot, a few minutes, back in. No play, no sniffing tour, no adventure.<a class="cite" href="#s3">3</a> Adventures are wonderful and he needs them &mdash; they just must never begin with him touching the target, or you have taught him that the target produces fun, and he will produce it all evening.<a class="cite" href="#s4">4</a></p>
+</div>
+</section>
+
+<section class="sec" id="wrong">
+<h2>When it goes wrong</h2>
+<h3>He signals constantly</h3>
+<p>The commonest failure, and it is not disobedience: he has correctly learned that the target opens the door, and going outside is interesting.<a class="cite" href="#s3">3</a><a class="cite" href="#s4">4</a> The fix is not to stop answering &mdash; that breaks the channel you just built. The fix is to make the answer boring.</p>
+<ul>
+  <li>Leash, spot, two minutes, back in. Nothing else happens.<a class="cite" href="#s3">3</a></li>
+  <li>If he asks within fifteen minutes of a trip where he produced nothing, take him anyway, on leash, two minutes, no commentary.<a class="cite" href="#s4">4</a> The boredom does the teaching.</li>
+  <li>If it is clearly boredom rather than bladder, the answer is a Kong, a scatter feed, or a game &mdash; the Module 12 library exists for this. A dog asking to go out forty times is often a dog whose day is underbuilt.<a class="cite" href="#s3">3</a></li>
+</ul>
+<h3>He signals, goes out, and does nothing</h3>
+<p>Back to the top of this page. Either he is asking for something other than a bladder (see above), or outside doesn't feel safe enough to relax in.<a class="cite" href="#s5">5</a> If it is the second, stop the signal work and go back to making trips boring and quiet &mdash; the quietest window you can manage, shortest route, the twenty-minute shift Module 13 recommends. You cannot train a signal for an event he is braced against.</p>
+<h3>He stops signalling</h3>
+<p>Almost always because it stopped working &mdash; a few missed asks, or the trips got scary again. Rebuild by going back to step three: cue the touch before every trip for several days, pay outside, then go quiet again. It comes back faster the second time.</p>
+<div class="myth">
+  <span class="k">Not this</span>
+  <p>No correction, ever, for any of it &mdash; not for over-asking, not for accidents. Module 13 already says it: punishment around elimination teaches dogs to go where you cannot see them, which is strictly worse than the problem you started with. With a fearful dog it also costs you the thing this whole page is trying to build, which is his willingness to tell you something.</p>
+</div>
+</section>
+
+<section class="sec" id="fortnight">
+<h2>The fortnight, concretely</h2>
+<p>Assumes the gate at the top is clear. Five minutes a day, folded into the schedule you already run.</p>
+<div class="ladder">
+  <button class="rung" data-ck="w1" type="button"><span class="box">&#10003;</span><span class="rtxt">Week one, days 1&ndash;3: touch training in the living room<span class="sub">Two or three sessions a day, five to ten reps, no door involved</span></span></button>
+  <button class="rung" data-ck="w2" type="button"><span class="box">&#10003;</span><span class="rtxt">Week one, days 4&ndash;5: add the word, move the target around<span class="sub">He should touch it wherever you hold it</span></span></button>
+  <button class="rung" data-ck="w3" type="button"><span class="box">&#10003;</span><span class="rtxt">Week one, days 6&ndash;7: mount it by the door<span class="sub">Cue the touch before every trip, starting now and without exception</span></span></button>
+  <button class="rung" data-ck="w4" type="button"><span class="box">&#10003;</span><span class="rtxt">Week two, days 8&ndash;11: keep pairing, pay outside every time<span class="sub">Three pieces of food outside, while he is still standing there</span></span></button>
+  <button class="rung" data-ck="w5" type="button"><span class="box">&#10003;</span><span class="rtxt">Week two, days 12&ndash;14: go quiet and wait at the door<span class="sub">Stop cueing. Wait a few seconds. Catch the first unprompted touch</span></span></button>
+  <button class="rung" data-ck="w6" type="button"><span class="box">&#10003;</span><span class="rtxt">Then: honour every unprompted ask for a full month<span class="sub">This is the part people skip, and it is the part that makes it stick</span></span></button>
+  <div class="ladder-foot">Ticks save in this browser.</div>
+</div>
+<div class="note">
+  <span class="k">Expectations</span>
+  <p>Most dogs learn the mechanical part in days &mdash; touching a thing for food is easy.<a class="cite" href="#s2">2</a> The part that takes weeks is him generalising it to <em>I have a full bladder, therefore I will go and do that thing.</em> That is a much bigger inference than it looks, and it arrives suddenly rather than gradually. Bad days are data, not failure.</p>
+</div>
+</section>
+
+<section class="sec" id="sources">
+<h2>Sources</h2>
+<p class="srcgroup">Teaching the signal</p>
+<ol class="srclist">
+  <li class="srcitem" id="s1"><span class="srcnum">1</span><span class="srcbody">
+    <p><a href="https://www.akc.org/expert-advice/training/teach-dog-ring-bell-go-outside/">Teach a Dog to Ring a Bell to Go Outside</a> &mdash; American Kennel Club.</p>
+    <p class="why">The standard three-phase structure used above: teach the touch, pair it with the door, then wait for him to offer it.</p>
+  </span></li>
+  <li class="srcitem" id="s2"><span class="srcnum">2</span><span class="srcbody">
+    <p><a href="https://www.webmd.com/pets/dogs/teaching-dog-ask-go-out">Teaching a Dog to Ask to Go Out</a> &mdash; WebMD Pets.</p>
+    <p class="why">On how quickly most dogs pick up the mechanical part, and on rewarding the offered behaviour immediately.</p>
+  </span></li>
+</ol>
+<p class="srcgroup">The over-asking problem</p>
+<ol class="srclist">
+  <li class="srcitem" id="s3"><span class="srcnum">3</span><span class="srcbody">
+    <p><a href="https://littledogtips.com/help-my-dog-wont-stop-ringing-her-potty-bells-all-the-time-even-when-she-doesnt-have-to-go-out/">Help! My Dog Won't Stop Ringing Her Potty Bells</a> &mdash; Little Dog Tips.</p>
+    <p class="why">The working-trip rule: leash, a few minutes, straight back in, and never let an adventure start with the signal.</p>
+  </span></li>
+  <li class="srcitem" id="s4"><span class="srcnum">4</span><span class="srcbody">
+    <p><a href="https://howtopottytrainapuppy.net/dog-rings-the-bell-to-go-outside-all-the-time/">What If The Dog Rings The Bell To Go Outside All The Time?</a></p>
+    <p class="why">Source of the fifteen-minute rule for repeat asks, and on distinguishing bladder from boredom.</p>
+  </span></li>
+</ol>
+<p class="srcgroup">Why the order matters for a fearful dog</p>
+<ol class="srclist">
+  <li class="srcitem" id="s5"><span class="srcnum">5</span><span class="srcbody">
+    <p><a href="https://www.dogkindtraining.com/blog/outdoor-potty-areas">Anxious Dog Doesn't Like To Go Out? 5 Tips</a> &mdash; DogKind Training. See also <a href="https://www.petmd.com/dog/behavior/why-my-dog-afraid-go-outside">Why is My Dog Afraid to Go Outside?</a> (PetMD).</p>
+    <p class="why">That dogs must feel safe to eliminate, that holding it outside and going immediately indoors is a fear sign rather than a training failure, and that forcing it costs you trust.</p>
+  </span></li>
+</ol>
+<div class="foot">
+  <p>Written to sit alongside <a href="/earthwind-training-manual.html">The Earthwind Training Manual</a> &mdash; Module 13 for the potty schedule, Module 02 for the reset, Module 12 for the games library. Nothing here is veterinary advice; a change in his frequency or any straining is a vet visit first.</p>
+</div>
+</section>
+</div>
+
+<script>
+(function(){
+  var mem = {};
+  var store = {
+    get: function(k){ try { var v = localStorage.getItem(k); return v === null ? mem[k] : v; } catch(e){ return mem[k]; } },
+    set: function(k,v){ mem[k] = v; try { localStorage.setItem(k,v); } catch(e){} }
+  };
+  var tkey = "earthwindAsk.theme";
+  var saved = store.get(tkey);
+  if (saved === "dark" || saved === "light") document.documentElement.setAttribute("data-theme", saved);
+  var tb = document.getElementById("themebtn");
+  if (tb) tb.addEventListener("click", function(){
+    var cur = document.documentElement.getAttribute("data-theme");
+    var isDark = cur ? cur === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    store.set(tkey, next);
+  });
+
+  var CKEY = "earthwindAsk.checks";
+  var checks = {};
+  try { var raw = store.get(CKEY); if (raw) checks = JSON.parse(raw) || {}; } catch(e){}
+  Array.prototype.slice.call(document.querySelectorAll(".rung")).forEach(function(r){
+    var id = r.getAttribute("data-ck");
+    if (!id) return;
+    if (checks[id]) r.classList.add("ck");
+    r.setAttribute("role","checkbox");
+    r.setAttribute("aria-checked", checks[id] ? "true" : "false");
+    r.addEventListener("click", function(){
+      var on = r.classList.toggle("ck");
+      r.setAttribute("aria-checked", on ? "true" : "false");
+      if (on) { checks[id] = 1; } else { delete checks[id]; }
+      store.set(CKEY, JSON.stringify(checks));
+    });
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll("a.cite")).forEach(function(a){
+    a.addEventListener("click", function(){
+      var t = document.querySelector(a.getAttribute("href"));
+      if (!t) return;
+      t.classList.add("flash");
+      setTimeout(function(){ t.classList.remove("flash"); }, 1400);
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -28,6 +28,8 @@ import {
   BookText,
   Youtube,
   GraduationCap,
+  BellRing,
+  Building2,
 } from "lucide-react"
 import { DashboardTasks } from "@/components/dashboard-tasks"
 import { DashboardShoppingList, DashboardNotes } from "@/components/dashboard-shopping-list"
@@ -203,6 +205,20 @@ const TILE_SECTIONS: TileSection[] = [
           { label: "Bay Nine Dog Training", href: "https://www.bayninedogtraining.com/", external: true },
           { label: "Nexus Canine", href: "https://www.nexuscanine.com/store", external: true },
         ],
+      },
+      {
+        label: "Asking to Go Out",
+        href: "/earthwind-asking-to-go-out.html",
+        icon: BellRing,
+        configured: true,
+        external: false,
+      },
+      {
+        label: "The Daycare Question",
+        href: "/earthwind-daycare.html",
+        icon: Building2,
+        configured: true,
+        external: false,
       },
     ],
   },
