@@ -27,10 +27,12 @@ export async function listTaskLists(): Promise<DashboardTaskList[]> {
   return (data.items || []).map((l: any) => ({ id: l.id, title: l.title || "(untitled list)" }))
 }
 
+// Completed tasks are left out: once a task is crossed off it drops out of the
+// dashboard. It still exists in Google Tasks, just not here.
 export async function listTasks(listId = "@default"): Promise<DashboardTask[]> {
   const token = await getAccessToken()
   const res = await fetch(
-    `${TASKS_BASE}/lists/${encodeURIComponent(listId)}/tasks?showCompleted=true&showHidden=false&maxResults=100`,
+    `${TASKS_BASE}/lists/${encodeURIComponent(listId)}/tasks?showCompleted=false&showHidden=false&maxResults=100`,
     { headers: { Authorization: `Bearer ${token}` }, cache: "no-store" }
   )
   if (!res.ok) throw new Error(await describeFailure(res, "Failed to list tasks"))

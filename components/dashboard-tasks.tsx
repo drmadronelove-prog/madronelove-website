@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, type FormEvent } from "react"
+import { useEffect, useRef, useState, type FormEvent } from "react"
 import { CircleCheck, Circle, Plus } from "lucide-react"
 
 type Task = {
@@ -18,6 +18,10 @@ type TaskList = {
 
 const LIST_STORAGE_KEY = "dashboard-task-list-id"
 
+// How long a checked-off task stays on screen, struck through, before it
+// disappears. Long enough to see what you did and to click again to undo it.
+const CLEAR_DELAY_MS = 2500
+
 export function DashboardTasks() {
   const [tasks, setTasks] = useState<Task[] | null>(null)
   const [lists, setLists] = useState<TaskList[]>([])
@@ -25,6 +29,36 @@ export function DashboardTasks() {
   const [error, setError] = useState("")
   const [newTitle, setNewTitle] = useState("")
   const [adding, setAdding] = useState(false)
+  const clearTimers = useRef(new Map<string, ReturnType<typeof setTimeout>>())
+
+  function cancelClear(id: string) {
+    const timer = clearTimers.current.get(id)
+    if (timer) {
+      clearTimeout(timer)
+      clearTimers.current.delete(id)
+    }
+  }
+
+  function scheduleClear(id: string) {
+    cancelClear(id)
+    clearTimers.current.set(
+      id,
+      setTimeout(() => {
+        clearTimers.current.delete(id)
+        setTasks((prev) => prev?.filter((t) => t.id !== id) ?? null)
+      }, CLEAR_DELAY_MS)
+    )
+  }
+
+  // Drop every pending timer when the component goes away, so a fired timer
+  // can't call setTasks on an unmounted component.
+  useEffect(() => {
+    const timers = clearTimers.current
+    return () => {
+      timers.forEach((timer) => clearTimeout(timer))
+      timers.clear()
+    }
+  }, [])
 
   async function load(forListId: string) {
     setError("")
@@ -53,6 +87,8 @@ export function DashboardTasks() {
   }, [])
 
   function handleListChange(newListId: string) {
+    clearTimers.current.forEach((timer) => clearTimeout(timer))
+    clearTimers.current.clear()
     setListId(newListId)
     window.localStorage.setItem(LIST_STORAGE_KEY, newListId)
     setTasks(null)
@@ -64,12 +100,22 @@ export function DashboardTasks() {
     setTasks((prev) =>
       prev?.map((t) => (t.id === task.id ? { ...t, status: nextCompleted ? "completed" : "needsAction" } : t)) ?? null
     )
+    // Checking it off starts the countdown to it leaving the list; clicking it
+    // again during that window puts it back.
+    if (nextCompleted) {
+      scheduleClear(task.id)
+    } else {
+      cancelClear(task.id)
+    }
     const res = await fetch(`/api/tasks/${encodeURIComponent(task.id)}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ completed: nextCompleted, listId }),
     })
-    if (!res.ok) load(listId) // revert by re-fetching on failure
+    if (!res.ok) {
+      cancelClear(task.id)
+      load(listId) // revert by re-fetching on failure
+    }
   }
 
   async function handleAdd(e: FormEvent) {
@@ -155,7 +201,9 @@ export function DashboardTasks() {
             <li key={task.id}>
               <button
                 onClick={() => toggle(task)}
-                className="flex w-full items-center gap-3 rounded-md px-2 py-2 text-left transition-colors hover:bg-[var(--background)]"
+                className={`flex w-full items-center gap-3 rounded-md px-2 py-2 text-left transition-all duration-500 hover:bg-[var(--background)] ${
+                  task.status === "completed" ? "opacity-40" : "opacity-100"
+                }`}
               >
                 {task.status === "completed" ? (
                   <CircleCheck className="h-5 w-5 shrink-0 text-[var(--olive)]" />
