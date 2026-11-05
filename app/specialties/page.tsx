@@ -5,33 +5,33 @@ import { Footer } from "@/components/footer"
 
 export const metadata = {
   title: "Areas of Focus | Dr. Madrone Love, PsyD",
-  description: "Specialized treatment for OCD, anxiety, complex trauma, neurodivergent adults, and relationships. Evidence-based therapy with ketamine-assisted options available.",
+  description: "Specialized treatment for relationships, including neurodiverse and multiracial relationships, neurodivergence, OCD, anxiety, and complex trauma. Evidence-based therapy with ketamine-assisted options available.",
 }
 
 const specialties = [
   {
-    id: "ocd-anxiety",
+    id: "relationships",
     number: "01",
+    title: "Relationships",
+    description: "What repeats in your relationships isn't random. It usually traces back to what you learned early about what connection requires and what has to be sacrificed to keep it. Those strategies run quietly. They show up in how you fight, how you pull back, what you can't bring yourself to ask for. Seeing them clearly is what opens up room. I specialize in neurodiverse relationships, where partners process attention, communication, and sensory experience differently, and in multiracial relationships, where differences in culture, family expectation, and the experience of race shape what each person is navigating.",
+  },
+  {
+    id: "neurodivergence",
+    number: "02",
+    title: "Neurodivergence",
+    description: "Most advice about attention, organization, and emotional regulation assumes a particular kind of nervous system. If yours is different, the advice isn't slightly off. It's for someone else. I work with ADHD, autism, giftedness, and their overlaps, oriented toward how you actually work rather than how far you are from a standard that was never yours. In addition to supporting neurodivergent individuals, I also work with their partners and family members to help them navigate their neurodiverse relationships.",
+  },
+  {
+    id: "ocd-anxiety",
+    number: "03",
     title: "OCD & Anxiety",
     description: "The problem isn't the intrusive thought. It's everything you've arranged around it: the checking, the reassurance, the quiet avoidance that made your world smaller so gradually you didn't notice. I use ERP and inference-based CBT to help you build a different relationship to uncertainty, one where you can let a thought be there without needing to solve it.",
   },
   {
     id: "complex-trauma",
-    number: "02",
+    number: "04",
     title: "Complex Trauma",
     description: "What people call \"overreacting\" is usually a precise response to conditions that no longer exist. You learned what was dangerous, what had to be hidden, what would get you left. Those lessons became automatic. The work is understanding what you built to survive, then discovering what else becomes possible.",
-  },
-  {
-    id: "neurodivergence",
-    number: "03",
-    title: "Neurodivergence",
-    description: "Most advice about attention, organization, and emotional regulation assumes a particular kind of nervous system. If yours is different, the advice isn't slightly off. It's for someone else. I work with ADHD, autism, giftedness, and their overlaps, oriented toward how you actually work rather than how far you are from a standard that was never yours. In addition to supporting neurodivergent individuals, I also work with their partners and family members to help them navigate their neurodiverse relationships.",
-  },
-  {
-    id: "relationships",
-    number: "04",
-    title: "Relationships",
-    description: "What repeats in your relationships isn't random. It usually traces back to what you learned early about what connection requires and what has to be sacrificed to keep it. Those strategies run quietly. They show up in how you fight, how you pull back, what you can't bring yourself to ask for. Seeing them clearly is what opens up room.",
   },
 ]
 

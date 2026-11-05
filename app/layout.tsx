@@ -24,7 +24,7 @@ const italiana = Italiana({
 export const metadata: Metadata = {
   title: 'Dr. Madrone Love, PsyD | Clinical Psychology | Berkeley, Oakland',
   description: 'Clinical psychology for high-achieving professionals navigating complexity. Evidence-based treatment integrating Buddhist psychology. OCD, anxiety, trauma, neurodivergent adults.',
-  keywords: ['clinical psychologist', 'Berkeley therapist', 'OCD treatment', 'anxiety therapy', 'complex trauma', 'neurodivergent adults', 'Buddhist psychology'],
+  keywords: ['clinical psychologist', 'Berkeley therapist', 'couples therapy', 'neurodiverse relationships', 'multiracial relationships', 'neurodivergent adults', 'OCD treatment', 'anxiety therapy', 'complex trauma', 'Buddhist psychology'],
   icons: {
     icon: '/icon-light-32x32.png',
     apple: '/apple-icon.png',

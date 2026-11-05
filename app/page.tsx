@@ -99,32 +99,20 @@ export default function HomePage() {
             </p>
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">
               <div className="group">
-                <Link href="/specialties#ocd-anxiety" className="block">
+                <Link href="/specialties#relationships" className="block">
                   <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">01</span>
                   <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
-                    OCD & Anxiety
+                    Relationships
                   </h3>
                   <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
-                    Building a different relationship to uncertainty, where you can let a thought be there without needing to solve it.
-                  </p>
-                </Link>
-              </div>
-              
-              <div className="group">
-                <Link href="/specialties#complex-trauma" className="block">
-                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">02</span>
-                  <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
-                    Complex Trauma
-                  </h3>
-                  <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
-                    Understanding what you built to survive, then discovering what else becomes possible.
+                    Specialized support for neurodiverse and multiracial relationships, and for the patterns that run quietly in how you fight, how you pull back, what you can&apos;t bring yourself to ask for.
                   </p>
                 </Link>
               </div>
               
               <div className="group">
                 <Link href="/specialties#neurodivergence" className="block">
-                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">03</span>
+                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">02</span>
                   <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
                     Neurodivergence
                   </h3>
@@ -135,13 +123,25 @@ export default function HomePage() {
               </div>
               
               <div className="group">
-                <Link href="/specialties#relationships" className="block">
-                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">04</span>
+                <Link href="/specialties#ocd-anxiety" className="block">
+                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">03</span>
                   <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
-                    Relationships
+                    OCD &amp; Anxiety
                   </h3>
                   <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
-                    Seeing the patterns that run quietly in how you fight, how you pull back, what you can&apos;t bring yourself to ask for.
+                    Building a different relationship to uncertainty, where you can let a thought be there without needing to solve it.
+                  </p>
+                </Link>
+              </div>
+              
+              <div className="group">
+                <Link href="/specialties#complex-trauma" className="block">
+                  <span className="text-xs font-medium tracking-wide text-[var(--ink-muted)]">04</span>
+                  <h3 className="mt-3 font-serif text-2xl text-[var(--ink)] group-hover:text-[var(--clay)] transition-colors duration-300">
+                    Complex Trauma
+                  </h3>
+                  <p className="mt-4 text-[var(--ink-muted)] leading-relaxed">
+                    Understanding what you built to survive, then discovering what else becomes possible.
                   </p>
                 </Link>
               </div>
