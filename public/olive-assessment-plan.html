@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assessment Referrals Plan</title>
+<meta name="description" content="A working checklist for getting Olive Clinical assessments in front of the people who need them.">
+<style>html,body{margin:0;background:#FAF4E8}body{padding:24px 12px}</style>
+</head>
+<body>
+<!-- Olive Clinical: Assessment Marketing Checklist (drop-in component) -->
+<div class="oc-mk" id="oc-mk">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Crimson+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+.oc-mk{--cream:#FAF4E8;--olive:#4A7C59;--olive-dk:#355a40;--sage:#A3B18A;--sage-lt:#E6EBDD;--clay:#B8735A;--ink:#2E2A24;--muted:#6B6458;--line:#E3DACA;
+  background:var(--cream);color:var(--ink);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.45;max-width:880px;margin:0 auto;padding:32px 28px;border-radius:14px;box-sizing:border-box}
+.oc-mk *{box-sizing:border-box}
+.oc-mk h2{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:30px;margin:0 0 4px;color:var(--olive-dk)}
+.oc-mk .sub{color:var(--muted);margin:0 0 20px}
+.oc-mk .goal{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.oc-mk .pill{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--olive-dk)}
+.oc-mk .overall{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:22px}
+.oc-mk .bar{height:10px;background:var(--sage-lt);border-radius:999px;overflow:hidden;margin-top:8px}
+.oc-mk .bar>i{display:block;height:100%;width:0;background:var(--olive);transition:width .3s}
+.oc-mk .meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted)}
+.oc-mk .sec{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.oc-mk .sec-h{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none}
+.oc-mk .sec-h h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:20px;margin:0;flex:1;color:var(--ink)}
+.oc-mk .when{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--clay);display:block;margin-top:2px;font-weight:500;letter-spacing:.02em}
+.oc-mk .tog{width:22px;height:22px;position:relative;flex:none}
+.oc-mk .tog:before,.oc-mk .tog:after{content:"";position:absolute;left:4px;right:4px;top:10px;height:2px;background:var(--olive);border-radius:2px;transition:transform .2s}
+.oc-mk .tog:after{transform:rotate(90deg)}
+.oc-mk .sec.open .tog:after{transform:rotate(0)}
+.oc-mk .sec-b{display:none;padding:0 16px 10px;border-top:1px solid var(--line)}
+.oc-mk .sec.open .sec-b{display:block}
+.oc-mk .note{background:var(--sage-lt);border-left:3px solid var(--olive);padding:10px 12px;margin:12px 0 4px;font-size:16.5px;border-radius:0 6px 6px 0}
+.oc-mk .note.warn{background:#F5E6DE;border-left-color:var(--clay)}
+.oc-mk label.it{display:flex;gap:12px;padding:11px 2px;border-bottom:1px dashed var(--line);cursor:pointer}
+.oc-mk label.it:last-child{border-bottom:0}
+.oc-mk label.it input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin-top:3px;border:2px solid var(--sage);border-radius:5px;background:#fff;cursor:pointer;position:relative}
+.oc-mk label.it input:checked{background:var(--olive);border-color:var(--olive)}
+.oc-mk label.it input:checked:after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.oc-mk .t{font-weight:600}
+.oc-mk .d{display:block;color:var(--muted);font-size:16px;margin-top:2px}
+.oc-mk label.it input:checked ~ span .t{text-decoration:line-through;color:var(--muted)}
+.oc-mk .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--olive-dk);background:var(--sage-lt);border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+.oc-mk button.rs{font-family:'JetBrains Mono',monospace;font-size:12px;background:transparent;border:1px solid var(--clay);color:var(--clay);border-radius:6px;padding:5px 10px;cursor:pointer;margin:6px 0 8px}
+.oc-mk button.rs:hover{background:var(--clay);color:#fff}
+</style>
+
+<h2>Assessment Referrals Plan</h2>
+<p class="sub">Getting Olive Clinical assessments in front of people who need them.</p>
+<div class="goal">
+  <span class="pill">Target: 20 assessments booked by March 2027</span>
+  <span class="pill">Setup weeks 1 to 3: 6 hrs/week</span>
+  <span class="pill">Then: 4 hrs/week, every week</span>
+</div>
+
+<div class="overall">
+  <div class="meta" id="oc-mk-overall">0 of 0 setup tasks done</div>
+  <div class="bar"><i id="oc-mk-overall-bar"></i></div>
+</div>
+
+<div id="oc-mk-sections"></div>
+
+<script>
+(function(){
+  var KEY='oc-mk-checklist-v1';
+  var S=[
+  {id:'legal',title:'1. Business name and bank account',when:'WEEKS 1 TO 3 · needed before Google Ads',open:true,
+   note:{warn:true,html:'<b>Check this first:</b> California does not allow psychologists to practice through an LLC. You can practice as a sole proprietor or through a psychological professional corporation. If anything is registered as "Olive Clinical LLC," ask your CPA or a business attorney before the bank visit. Your structure decides what Bank of America needs from you.'},
+   items:[
+    ['Confirm your legal structure','Ask your CPA: "Am I a sole proprietor, or do I have a professional corporation?" Write down the answer.'],
+    ['Search your county\'s fictitious business name records for "Olive Clinical"','Use the county where your main office is: Alameda County Clerk-Recorder or San Francisco County Clerk. Both have online search tools.'],
+    ['File a Fictitious Business Name (FBN) statement for "Olive Clinical"','File with the same county clerk. Fees vary by county. Keep the stamped copy; the bank needs it.'],
+    ['Publish the FBN in a newspaper','California requires publication once a week for four weeks, starting within 30 days of filing, plus filing proof of publication. Many small legal newspapers do this for you for a flat fee. Ask when you file.'],
+    ['Get an EIN if you don\'t have one','Free at irs.gov and takes about 15 minutes. It keeps your Social Security number off business forms.'],
+    ['Call Bank of America small business banking','Ask exactly: "What do I need to add a DBA to my account, or should I open a separate business checking account for Olive Clinical?" Write down the document list and book a branch appointment.'],
+    ['Go to the bank appointment','Bring: stamped FBN statement, photo ID in your current legal name, EIN confirmation letter, and anything else they named on the call.'],
+    ['Order a debit card in the Olive Clinical name','This card pays for Google Ads, so the name on your ad account matches your bank.'],
+    ['Add your license number to all advertising','California requires your license number (PSY35899) on all advertising: Google Ads, social bios, directories, and your website.']
+   ]},
+  {id:'online',title:'2. Online presence',when:'WEEKS 1 TO 3 · runs alongside section 1',
+   items:[
+    ['Build an assessment page on oliveclinical.com','Cover who it\'s for (adults), what you assess (ADHD, autism, OCD, PTSD), what\'s included (the full written report), the total fee, the timeline from first call to feedback session, and a booking button.'],
+    ['Add an insurance FAQ to that page','Answer "Can I use insurance?" plainly: you provide a superbill, and clients should call their insurer and ask about out-of-network reimbursement for psychological testing.'],
+    ['Make booking one click','Link the booking button straight to a consult request in SimplePractice. No "email me to schedule."'],
+    ['Update Psychology Today','Add psychological testing and evaluation to your profile, or create a separate testing listing. Put assessments in the first sentence and link to the assessment page.'],
+    ['Create or claim a Google Business Profile for Olive Clinical','This is how you show up on Google Maps for "adult ADHD assessment Oakland." Category: Psychologist. List the assessment services. Verify your address.'],
+    ['Finish your social media bios','Include your full name, PSY35899, "Adult ADHD, autism, OCD and PTSD assessments," and a link to the assessment page.'],
+    ['Schedule the posts you already have','Two or three a week, in a scheduling tool. Pin one post about assessments to the top of each profile.'],
+    ['List on specialty directories','Inclusive Therapists, the CHADD professional directory, the IOCDF therapist directory, ADDitude\'s directory, and the multiracial clinician directory you co-founded.'],
+    ['Make your contact info identical everywhere','Same practice name, address, and phone on your website, Google, Psychology Today, and directories. Mismatches hurt your Google ranking.'],
+    ['Don\'t ask clients for reviews or testimonials','APA ethics prohibit soliciting testimonials from current clients. Let reviews come on their own.']
+   ]},
+  {id:'referral',title:'3. Referral outreach',when:'START WEEK 1 · your highest-yield work',
+   note:{html:'Most assessment referrals come from other clinicians, not from Google. People wait 6 to 9 months for adult evaluations. If you can see someone in 3 weeks, lead with that.'},
+   items:[
+    ['Start a referral tracking spreadsheet','Columns: name, role, email or phone, date contacted, follow-up date, response, referrals sent.'],
+    ['List 50 referral sources','Therapist colleagues, CIIS faculty and alumni, psychiatrists and psychiatric nurse practitioners, primary care doctors, college disability offices (UC Berkeley, SF State, community colleges), OCD specialists, ketamine clinics, and group practices with long testing waitlists.'],
+    ['Contact CIIS colleagues before December','You lose easy access when teaching ends. One personal email each: "I\'m now doing adult assessments. Here\'s how to refer."'],
+    ['Make a one-page referral sheet (PDF)','Cover what you assess, fee, turnaround, report included, how to refer, and your license number. Attach it to every outreach email.'],
+    ['Write one outreach email template','Five sentences at most: who you are, what you assess, current wait time, what the report includes, how to refer. Personalize the first line for each person.'],
+    ['Follow up with Alex Klein','Confirm the referral arrangement and put a date on the joint webinar.'],
+    ['Send the first 10 outreach emails','Start with the 10 people most likely to say yes.'],
+    ['Book 2 referrer calls or coffees','Fifteen to twenty minutes each. Ask what their clients need and how they currently handle testing referrals.'],
+    ['Thank every referrer','A short note. Share nothing about the client without a signed release.']
+   ]},
+  {id:'ads',title:'4. Google Ads',when:'AFTER the bank account is ready · about weeks 3 to 5',
+   items:[
+    ['Create the Google Ads account under Olive Clinical','Use the Olive Clinical debit card for billing.'],
+    ['Complete Google advertiser verification','Google asks for documents. The name on them must match your FBN and bank account.'],
+    ['Set up one Search campaign','Search only, no Display. Limit it to Oakland, Berkeley, and San Francisco. Keywords like "adult ADHD assessment Oakland" and "autism evaluation adults Bay Area."'],
+    ['Add negative keywords','Exclude: free, quiz, online test, child, kids, school, jobs.'],
+    ['Put PSY35899 in the ad text or extensions','Required for California advertising.'],
+    ['Set up conversion tracking on your booking form only','Track that someone requested a consult, nothing more. Google doesn\'t allow retargeting ads based on health topics, so don\'t turn on remarketing.'],
+    ['Set a test budget','For example, $15 to $25 a day for six weeks. Decide your ceiling before you start.'],
+    ['Review results at weeks 2, 4, and 6','The main number is cost per consult request. If nobody has booked by week 6, fix the landing page before spending more.']
+   ]},
+  {id:'convert',title:'5. Turning inquiries into bookings',when:'WEEK 2',
+   items:[
+    ['Write an inquiry reply template','Reply within 1 business day. Include the fee, timeline, and a direct booking link.'],
+    ['Write a 15-minute consult script','Cover fit, what the evaluation involves, fee, and timeline. End by booking the first appointment during the call.'],
+    ['Take a deposit at booking','Reduces no-shows for long testing appointments. Put it in your financial policy.'],
+    ['Ask every new client how they found you','Record it in the tracker. This tells you which channels are working.']
+   ]},
+  {id:'weekly',title:'Weekly rhythm (repeats)',when:'4 HOURS A WEEK · reset every Monday',weekly:true,
+   items:[
+    ['Block A: Outreach (90 min)','Send 5 to 10 referral emails and follow up once with anyone you emailed 10 days ago.','Mon'],
+    ['Block B: Presence (90 min)','Schedule 2 to 3 social posts, finish one website or directory task, and check Google Ads.','Thu'],
+    ['One referrer conversation','A call or coffee with one person from your list.','Any day'],
+    ['Weekly review (30 min)','Update the tracker: inquiries, consults, bookings, sources. Pick next week\'s top 3 tasks.','Fri'],
+    ['If a block got bumped, reschedule it this week','Move it within the same week. Don\'t skip it.','Fri']
+   ]}
+  ];
+
+  var st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){st={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+
+  var root=document.getElementById('oc-mk-sections');
+  S.forEach(function(sec){
+    var el=document.createElement('div');el.className='sec'+(sec.open?' open':'');
+    var h='<div class="sec-h"><div style="flex:1"><h3>'+sec.title+'</h3><span class="when">'+sec.when+'</span></div><span class="meta" data-c="'+sec.id+'"></span><span class="tog"></span></div><div class="sec-b">';
+    if(sec.note) h+='<div class="note'+(sec.note.warn?' warn':'')+'">'+sec.note.html+'</div>';
+    if(sec.weekly) h+='<button class="rs" data-r="'+sec.id+'">Reset this week</button>';
+    sec.items.forEach(function(it,i){
+      var k=sec.id+'-'+i;
+      h+='<label class="it"><input type="checkbox" data-k="'+k+'"'+(st[k]?' checked':'')+'><span><span class="t">'+it[0]+'</span>'+(it[2]?'<span class="tag">'+it[2]+'</span>':'')+'<span class="d">'+it[1]+'</span></span></label>';
+    });
+    el.innerHTML=h+'</div>';
+    el.querySelector('.sec-h').addEventListener('click',function(){el.classList.toggle('open');});
+    root.appendChild(el);
+  });
+
+  root.addEventListener('change',function(e){var k=e.target.getAttribute('data-k');if(!k)return;st[k]=e.target.checked;save();update();});
+  root.addEventListener('click',function(e){var r=e.target.getAttribute&&e.target.getAttribute('data-r');if(!r)return;
+    root.querySelectorAll('input[data-k^="'+r+'-"]').forEach(function(c){c.checked=false;st[c.getAttribute('data-k')]=false;});save();update();});
+
+  function update(){
+    var tot=0,done=0;
+    S.forEach(function(sec){
+      var n=sec.items.length,d=0;
+      sec.items.forEach(function(_,i){if(st[sec.id+'-'+i])d++;});
+      var m=root.querySelector('[data-c="'+sec.id+'"]');if(m)m.textContent=d+'/'+n;
+      if(!sec.weekly){tot+=n;done+=d;}
+    });
+    document.getElementById('oc-mk-overall').textContent=done+' of '+tot+' setup tasks done';
+    document.getElementById('oc-mk-overall-bar').style.width=(tot?Math.round(done/tot*100):0)+'%';
+  }
+  update();
+})();
+</script>
+</div>
+</body>
+</html>

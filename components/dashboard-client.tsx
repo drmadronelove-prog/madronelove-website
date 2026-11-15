@@ -113,8 +113,8 @@ const TILE_SECTIONS: TileSection[] = [
         configured: true,
         trigger: "click",
         items: [
-          { label: "Sati Dashboard", href: "https://drmadronelove-prog.github.io/Satistudies/#", external: true },
           { label: "Olive Dashboard", href: "https://www.oliveclinical.com/assessmentplatform", external: true },
+          { label: "Assessment Referrals Plan", href: "/olive-assessment-plan.html", external: false },
         ],
       },
     ],
