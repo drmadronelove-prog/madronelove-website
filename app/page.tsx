@@ -25,7 +25,7 @@ export default function HomePage() {
                 <div className="relative max-w-md mx-auto lg:max-w-none lg:mx-0 lg:mt-16 lg:scale-[0.69] lg:origin-top border-[7.5px] border-[var(--gold)] p-2 bg-white shadow-xl lg:-mb-32">
                   <div className="aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-[var(--sage-muted)]">
                     <Image
-                      src="/images/headshot.jpg"
+                      src="/images/headshot-2026.jpg"
                       alt="Dr. Madrone Love"
                       fill
                       className="object-cover object-top"
